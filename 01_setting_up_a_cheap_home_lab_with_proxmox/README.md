@@ -37,7 +37,19 @@
    - Reboot your laptop
    - You can now **navigate** to the ProxMox **web-interface** from another PC (above ip, ex. https://192.168.0.20:8006).
 
-  ## Virtual Machines
+## Network
+
+- Thinpad: 192.168.0.20
+- HP Desktop: 192.168.0.40
+- MacBook: 192.168.0.60
+
+## Virtual Machines
 
   - [Android OS](011_android_os/README.md)
   - [macOS](012_mac_os/README.md)
+  - [Windows XP](013_windows_xp/README.md)
+  - [Kali Linux](014_kali_linux/README.md)
+  - [MS-DOS 6.22](015_msdos/README.md)
+  - [Windows 2000](016_win2000/README.md)
+  - [Qubes OS](017_qubes_os/README.md)
+  - [Ubuntu](018_ubuntu/README.md)
