@@ -1,6 +1,8 @@
 ![ProxMox](../_assets/images/proxmox.png)
 # 01. Setting up a Cheap Home Lab with ProxMox
 
+![Home Lab](_assets/images/setup_home_lab.png)
+
 ## Links
 
 - [Installing ProxMox VE](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html)
@@ -37,4 +39,5 @@
 
   ## Virtual Machines
 
-  - [Android OS](011_android_studio/README.md)
+  - [Android OS](011_android_os/README.md)
+  - [macOS](012_mac_os/README.md)

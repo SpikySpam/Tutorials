@@ -1,4 +1,4 @@
-![Android OS](../_assets/images/android-os.png)
+![Android OS](_assets/images/android-os.png)
 # 011. ProxMox ➡️ Android OS
 
 ## Links
@@ -12,7 +12,7 @@
 - **Create** a new **VM** (*select iso, 64GB disk size, 4096 RAM*):
 - **Start** the VM
 - Select **Installation - Install Android-x86 to harddisk**
-   ![Android OS Setup](../_assets/images/android-os-setup.png)
+   ![Android OS Setup](_assets/images/android-os-setup.png)
 - **Create**/Modify **partitions** (*no GPT*)
     - New
     - Primairy
@@ -25,7 +25,7 @@
 - **GRUB → Yes**
 - Say **No** to **install `/system` read-write**
 - **Run** Android-x86
-   ![Android OS Install](../_assets/images/android-os-install.png)
+   ![Android OS Install](_assets/images/android-os-install.png)
 
 ## Setup
 
@@ -35,7 +35,7 @@
 - Disable **Location** Options
 - **Protect** your tablet with whatever you want (*Pattern, PIN, Password*)
 - Select a **Home** app: **Taskbar** → Always
-    ![Android OS UI](../_assets/images/android-os-ui.png)   
+    ![Android OS UI](_assets/images/android-os-ui.png)   
 - Navigate to **Settings** → Finish setting up your device
 - **Wi-Fi** Settings → **VirtWifi**
 - Start → Don’t Copy
