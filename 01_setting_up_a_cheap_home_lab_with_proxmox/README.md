@@ -13,7 +13,7 @@ In this Tutorial we are going to setup our home lab with 3 old PC's, with ProxMo
 
 In this video we demonstrate how to install ProxMox on a Virtual Machine. The installation steps should be the same on a physical machine:
 
-[![Video](_assets/images/pve-video.png)](https://youtu.be/RCw88pVMb2E)
+[![Video](_assets/images/pve-video.png)](https://youtu.be/RnWB_RMBQfs)
 
 ## Links
 

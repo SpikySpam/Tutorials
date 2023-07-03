@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Now we are going to adjust some settings so we don't create an automatic checkpoint. Connect to your virtual machine and start it up. After the installation has been finished we are going to click on, \"I agree\" in the setup wizard. We leave the default hard drive selected, and click next. Fill in your region and keyboard layout settings. Choose a root password, and fill in your email address. Fill in your default gateway and DNS server and give your virtual machine an IP address. These values will be different for you, because they all depend on your network setup at home. Finally click install."
+  }
+}

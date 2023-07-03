@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "First, we are going to create a new virtual machine. Click next, give your new virtual machine a name, and click next again. Be sure to select generation 1 for this machine, since we want to support a 32 bit operating system. Click next, and choose your default virtual switch. Click next. Choose to install an operating system from your bootable USB stick. Click next. Then click finish."
+  }
+}

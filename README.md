@@ -2,7 +2,7 @@
 
 ![Spiky Spam Logo](_assets/images/logo_transparant.png)
 
-Follow me on a never ending journey about learning software related topics. While doing so we will build Software using technologies ranging from Networks, Virtual Machines, Development Environments, DevOps tools, Docker, Terraform, Kubernetes, Cloud Providers, C# .NET, Delphi, Python, ...
+Follow me on a never ending journey about learning software related topics. While doing so we will build Software using technologies ranging from Networks, Virtual Machines, Development Environments, DevOps tools, Docker, Terraform, Kubernetes, Cloud Providers, C# .NET, Delphi, Python, AI, ...
 
 All videos for these tutorials are freely available at YouTube. Just navigate to my [Channel](https://www.youtube.com/@spikyspam).
 

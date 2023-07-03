@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Once you've downloaded the zip file, extract it's content and run the executable. This will bring up the Ventoy tool where you have to select your USB stick drive. Click Install and confirm with a YES to erase all data from your USB stick. After the bootable USB stick has been made, navigate to the ProxMox website and goto the download section. Download the latest version of their ISO image. And save it to the USB stick. With this bootable USB stick we can install ProxMox on any machine. For this tutorial however, I'm going to show you how to do this in a Virtual Machine using Hyper-V. The installation steps should be the same for any machine."
+  }
+}

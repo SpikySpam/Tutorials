@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "First, we are going to make a bootable USB stick, so we can setup 3 machines in our homelab. For this tutorial, I have an old desktop, and old laptop and an old MacBook I will install ProxMox on. For this we are going to use a tool called Ventoy, which you can download from their website. If you navigate to their download section you can click on the link to download a zip file. This will bring you to their GitHub release page on which you will find the latest downloadable version."
+  }
+}

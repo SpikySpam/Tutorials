@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "After the instalation has been completed, don't reboot your virtual machine, but instead, turn it off. First we need to adjust some settings, so this virtual machine will not reboot from your USB stick anymore. Turn your virtual machine back on, and login into ProxMox with the root password you've provided in the setup wizard. That's it. You are now able to navigate to the ProxMox dashboard from your browser by going to the provided IP address in the setup wizard. Followed by port number 8000 and 6."
+  }
+}
