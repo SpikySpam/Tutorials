@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Start the bastard up and choose to install the Android Operating System to a harddisk. Choose to Create partitions. Choose No for GPT. Choose to Write your free space and acknowledge with a yes. Choose New, Primary, Bootable partition. And Write it out. Quit the partition wizard and choose the created partition to install android on. Format as ext4. Install the GRUB boot loader. Don't install it as a debug operating system. Finally run the Adroid OS and wait for it to startup."
+  }
+}
