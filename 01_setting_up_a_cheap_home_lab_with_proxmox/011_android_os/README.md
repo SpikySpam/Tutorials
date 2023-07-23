@@ -16,7 +16,11 @@ This will be a quick video just to get things setup...
 
 - **Download Android OS** from [here](https://www.fosshub.com/Android-x86.html?dwl=android-x86_64-9.0-r2.iso):
 - **Upload** the ISO to the Proxmox machine.
-- **Create** a new **VM** (*select iso, 64GB disk size, 4096 RAM*):
+- **Create** a new **VM**:
+  - Select ISO-file
+  - Qemu Agent
+  - 64GB Disk Size
+  - 4096 RAM
 - **Start** the VM
 - Select **Installation - Install Android-x86 to harddisk**
    ![Android OS Setup](_assets/images/android-os-setup.png)

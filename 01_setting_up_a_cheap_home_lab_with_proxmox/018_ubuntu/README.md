@@ -16,8 +16,12 @@ This will be a quick video just to get things setup...
 
 - **Upload** the ISO directly to the Proxmox machine by choosing **Download from URL**
 - **Download Ubuntu OS** from [here](https://releases.ubuntu.com/lunar/ubuntu-23.04-desktop-amd64.iso)
-- **Create** a new **VM** (*select iso, Qemu Agent, 64GB disk size, 2x2 CPU, 8192 RAM*):
-
+- **Create** a new **VM**:
+  - Select ISO-file
+  - Qemu Agent
+  - 64GB Disk Size
+  - 2x2 CPU
+  - 8192 RAM
 - **Start** the VM
 - Select **Try or Install Ubuntu**
    ![Ubuntu Install 01](_assets/images/ubuntu-install-01.png)

@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "But now. First, we are going to login into our ProxMox dashboard we've installed in the video shown in the upper-right corner. Next, we have to provide ProxMox with the Windows XP ISO file. Navigate to a machine and choose ISO images in the menu. We are going to download that image from the following website. After we've downloaded the iso file, we are going to upload it to our ProxMox machine as shown in the video."
+  }
+}
