@@ -1,6 +1,13 @@
 ![Android OS](_assets/images/android-os.png)
 # 011. ProxMox ➡️ Android OS
 
+## Video
+
+In this Tutorial we are going to install the Android OS as a ProxMox Virtual Machine.
+This will be a quick video just to get things setup...
+
+[![Video](_assets/images/android-video.png)](https://youtu.be/h9owEoN_RFg)
+
 ## Links
 
 - [Android OS ISO](https://www.fosshub.com/Android-x86.html)

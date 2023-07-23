@@ -1,6 +1,13 @@
 ![Ubuntu](_assets/images/ubuntu.png)
 018. ProxMox➡️ Ubuntu
 
+## Video
+
+In this Tutorial we are going to install the Android OS as a ProxMox Virtual Machine.
+This will be a quick video just to get things setup...
+
+[![Video](_assets/images/ubuntu-video.png)](https://youtu.be/Hl0gt5KU8gE)
+
 ## Links
 
 - [Ubuntu OS ISO](https://ubuntu.com/download/desktop)
@@ -9,7 +16,7 @@
 
 - **Upload** the ISO directly to the Proxmox machine by choosing **Download from URL**
 - **Download Ubuntu OS** from [here](https://releases.ubuntu.com/lunar/ubuntu-23.04-desktop-amd64.iso)
-- **Create** a new **VM** (*select iso, Qemu Agent, 64GB disk size, 2*2 CPU, 8192 RAM*):
+- **Create** a new **VM** (*select iso, Qemu Agent, 64GB disk size, 2x2 CPU, 8192 RAM*):
 
 - **Start** the VM
 - Select **Try or Install Ubuntu**
@@ -19,7 +26,7 @@
 
 - Select your **Language**
 - Check **Install Ubuntu**
-- Select your **Keyboard Layoutb**
+- Select your **Keyboard Layout**
 - Select your **Network**
 - Select **Minimal Installation**
 - Select **Erase disk and install Ubuntu**
@@ -38,7 +45,7 @@
 
 - Login into your machine
 - Setup your **Network** and **IP-address**. In this Tutorial we will use the following values:
-  - Addresss: 192.168.0.30
+  - Addresss: **192.168.0.30**
   - Netmask: 255.255.255.0
   - Gateway: 192.168.0.1
 - Install **Updates**
