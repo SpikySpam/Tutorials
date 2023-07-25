@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Start your Virtual Machine. Press Enter to install Windows NOW. F8 for I agree. C for Create Partition. Enter for Create. Enter for Install. Enter for Format NTFS file system. Enter to Reboot."
+    "text": "Next"
   }
 }

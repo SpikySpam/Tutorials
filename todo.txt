@@ -1,0 +1,4 @@
+- ProxMox Guest Agent install on All VM's
+- ProxMox NPM (and Docker) on Ubuntu
+
+

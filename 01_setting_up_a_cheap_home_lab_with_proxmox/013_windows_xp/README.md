@@ -1,12 +1,12 @@
 ![Windows XP](_assets/images/winxp.png)
 # 013. ProxMox ➡️ Windows XP
 
-<!-- ## Video
+## Video
 
 In this Tutorial we are going to install Windows XP as a ProxMox Virtual Machine.
 This will be a quick video just to get things setup...
 
-[![Video](_assets/images/winxp-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXX) -->
+[![Video](_assets/images/winxp-video.png)](https://youtu.be/oVtafjjl7zo)
 
 ## Links
 

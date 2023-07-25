@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Wait until we have a lift off. And log in into your newly installed vintage Windows XP. Change your screen resolution to the biggest value possible. Enable all Desktop icons for easy access. Apply those changes. Now we are going to add this machine to our network. Goto your Configuration Panel and select Network and Internet Connections. Then select Network Connections. Select the Gateway options. Next. Give your computer a description. Set your workgroup name to WORKGROUP. Next. Turn on file an printer sharing. Next. And Finish the wizard."
+  }
+}

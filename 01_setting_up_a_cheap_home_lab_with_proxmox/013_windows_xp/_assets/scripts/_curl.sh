@@ -21,4 +21,3 @@ rm -f ./$var_filename.raw
 
 ffmpeg -i ./$var_filename.wav -af asetrate=44100*1.2,aresample=44100,atempo=1/1.2 -ac 2 ../sounds/$var_filename.wav -y 
 rm -f ./$var_filename.wav
-
