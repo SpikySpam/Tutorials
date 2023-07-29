@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Start your Virtual Machine. Select Graphical Install. Select your Language. Select your Location. Select your Locales. Select your Keyboard layout. Provide a Hostname. Provide a Domain name. Provide a Name. A Username. And a Password. Partition that Disk. Choose Guided - use entire disk. Choose All files in one partition. Choose Finish partitioning and write changes to disk. Choose Yes to erase all data. Leave Software selection as default. Be sure to Install the GRUB bootloader on your main Hard Disk. Click Continue to reboot."
+  }
+}

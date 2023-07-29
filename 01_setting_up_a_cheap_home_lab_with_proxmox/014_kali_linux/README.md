@@ -1,12 +1,12 @@
 ![Windows XP](_assets/images/kali.png)
 # 014. ProxMox ➡️ Kali Linux
 
-<!-- ## Video
+## Video
 
 In this Tutorial we are going to install Windows XP as a ProxMox Virtual Machine.
 This will be a quick video just to get things setup...
 
-[![Video](_assets/images/kali-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXX) -->
+[![Video](_assets/images/kali-video.png)](https://youtu.be/kzL1d1jn-Z8)
 
 ## Links
 
@@ -29,11 +29,11 @@ This will be a quick video just to get things setup...
 - Select **Graphical Install**
   ![Kali Install 01](_assets/images/kali-install-01.png)
 - Select your **Language**
-- Select your **Location**: Other, Europe, Belgium
-- Select your **Locales**: United States
-- Select your **Keyboard**: Belgian
-- Provide a **Hostname**: KALI
-- Provide a **Domain name**: HOME
+- Select your **Location**
+- Select your **Locales**
+- Select your **Keyboard**
+- Provide a **Hostname**
+- Provide a **Domain name**
 - Provide a **Name**, a **Username** and a **Password**
 - **Partition Disk**:
   - Guided - use entire disk
@@ -41,6 +41,7 @@ This will be a quick video just to get things setup...
   - Finish partitioning and write changes to disk
   - Choose **Yes** to erase all data
 - Leave **Software selection** as default
+  ![Kali Install 01b](_assets/images/kali-install-01b.png)
 - Install the **GRUB** bootloader on your main Hard Disk
 - Click **Continue** to reboot
 

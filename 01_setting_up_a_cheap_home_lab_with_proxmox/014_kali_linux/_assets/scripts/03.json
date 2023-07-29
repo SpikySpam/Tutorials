@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Second. We are going to create a new virtual machine. Give it a name. Select your uploaded ISO file. Be sure to select Microsoft Windows as your guest Operating system. Also, choose XP as your version. Enable the Qemu Agent for this machine. Next. Give your machine at least 64 Megs of disk space. Next. Give your machine a little more CPU power. Next. I'm going to give Windows XP 4 Megs of Memory. Finally click Finish."
+    "text": "Second. We are going to create a new virtual machine. Give it a name. Select your uploaded ISO file. Enable the Qemu Agent for this machine. Next. Give your machine at least 64 Megs of disk space. Next. Give your machine a little more CPU power. Next. I'm going to give Kali exactly 8 Megs of Memory. Finally click Finish."
   }
 }
