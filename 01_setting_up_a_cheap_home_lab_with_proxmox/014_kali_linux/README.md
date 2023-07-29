@@ -1,9 +1,9 @@
-![Windows XP](_assets/images/kali.png)
+![Kali Linux](_assets/images/kali.png)
 # 014. ProxMox ➡️ Kali Linux
 
 ## Video
 
-In this Tutorial we are going to install Windows XP as a ProxMox Virtual Machine.
+In this Tutorial we are going to install Kali Linux as a ProxMox Virtual Machine.
 This will be a quick video just to get things setup...
 
 [![Video](_assets/images/kali-video.png)](https://youtu.be/kzL1d1jn-Z8)
