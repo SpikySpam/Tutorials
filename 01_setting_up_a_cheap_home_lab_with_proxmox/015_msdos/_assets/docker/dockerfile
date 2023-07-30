@@ -1,0 +1,6 @@
+FROM debian
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends p7zip-full genisoimage 
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]
