@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Second. We are going to create a new virtual machine. Give it a name. Select your uploaded ISO file. Be sure to select Other as your guest Operating system. Enable the Qemu Agent for this machine. Next. Give your machine at least 64 Megs of disk space. Next. Give your machine some more CPU power. Next. I'm going to give Qubes 8 Megs of Memory. Finally click Finish."
+  }
+}

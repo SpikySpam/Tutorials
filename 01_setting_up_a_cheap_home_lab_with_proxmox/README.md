@@ -18,8 +18,20 @@ In this video we demonstrate how to install ProxMox on a Virtual Machine. The in
 ## Links
 
 - [Installing ProxMox VE](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html)
-
 - [Download Ventoy](https://www.ventoy.net/en/download.html)
+
+## Virtual Machines
+
+A list of other Tutorials when installing one of these Operating System onto ProxMox (***also see below***):
+
+- [Android OS](011_android_os/README.md)
+- [macOS](012_mac_os/README.md)
+- [Windows XP](013_windows_xp/README.md)
+- [Kali Linux](014_kali_linux/README.md)
+- [MS-DOS 6.22](015_msdos/README.md)
+- [Windows 2000](016_win2000/README.md)
+- [Qubes OS](017_qubes_os/README.md)
+- [Ubuntu](018_ubuntu/README.md)
 
 ## Preparation
 
@@ -80,11 +92,11 @@ In this tutorial we have setup 3 machines with ProxMox, using the following IP-a
 
 ## Virtual Machines
 
-  - [Android OS](011_android_os/README.md)
-  - [macOS](012_mac_os/README.md)
-  - [Windows XP](013_windows_xp/README.md)
-  - [Kali Linux](014_kali_linux/README.md)
-  - [MS-DOS 6.22](015_msdos/README.md)
-  - [Windows 2000](016_win2000/README.md)
-  - [Qubes OS](017_qubes_os/README.md)
-  - [Ubuntu](018_ubuntu/README.md)
+- [Android OS](011_android_os/README.md)
+- [macOS](012_mac_os/README.md)
+- [Windows XP](013_windows_xp/README.md)
+- [Kali Linux](014_kali_linux/README.md)
+- [MS-DOS 6.22](015_msdos/README.md)
+- [Windows 2000](016_win2000/README.md)
+- [Qubes OS](017_qubes_os/README.md)
+- [Ubuntu](018_ubuntu/README.md)
