@@ -2,11 +2,17 @@
 ![MacOS](_assets/images/macos-ventura.png)
 # 012. ProxMox ➡️ macOS
 
-![Alt text](_assets/images/ventura.jpg)
+## Video
+
+In this Tutorial we are going to install MacOS as a ProxMox Virtual Machine.
+This will be a quick video just to get things setup...
+
+[![Video](_assets/images/macos-video.png)](https://youtu.be/XXXXXXXXXXXX )
 
 ## Links
 
-- [OSX ProxMox ISO](https://github.com/luchina-gabriel/OSX-PROXMOX)
+- [MacOS GitHub](https://github.com/luchina-gabriel/OSX-PROXMOX)
+- [Background Music](https://freesound.org/people/Migfus20/sounds/560452/)
 
 ## Installation
 
