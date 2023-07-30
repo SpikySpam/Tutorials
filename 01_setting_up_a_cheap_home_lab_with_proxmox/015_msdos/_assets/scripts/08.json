@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Upload the ISO-file to the Proxmox machine. Mount this ISO-file to the CD-ROM drive of your MSDOS machine. Change the Boot Order in ProxMox, before Rebooting the machine. This time, set the C-Drive first again."
+  }
+}

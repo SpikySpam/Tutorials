@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video, I'm going to show you how to install the good, old, Microsoft, Disk Operating System, version 6.22, into a ProxMox Virtual Machine. Let's go!"
+    "text": "Hi. Spiky here. In this video, I'm going to show you how to install the good, old, MSDOS, version 6 point 22, together with Windows 3 point 11, into a ProxMox Virtual Machine. I couldn't find any solution for this online. So, this Tutorial might as well be the first? Let's go! A quick note. You can follow all steps in this video tutorial, at my Github page."
   }
 }

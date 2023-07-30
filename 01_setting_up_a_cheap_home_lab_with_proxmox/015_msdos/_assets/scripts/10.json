@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Everytime we start MSDOS we can execute the win command to start Windows 3 point 11. That's it for this video. Maybe you did see the hidden easteregg in this video. If so, you now know the link to a nostalgic addendum to this video. Thanks for watching. Spiky out."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Start your Virtual Machine. Execute the following command, to start the Windows installation procedure. Installing Windows 3 point 11 is pretty straight forward. Most of the time you just need to click the Okay or Continue button. Follow along in the video. As you will notice, there seems to be a little discrepancy between my cursor and that of the virtual machine. This requires absolute skills. Maybe later we will take a look further into that. Almost there. At the end of the wizard we are going to press the button to Restart the Computer."
+  }
+}

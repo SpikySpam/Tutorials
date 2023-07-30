@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Before we're going to Reboot MSDOS, we are going to change the boot order in which this machine will start. Go to Options. And select Boot Order. Be sure to drag the CD-ROM with the ISO-file to the first place. Now, Stop the machine. And Start it again."
+  }
+}

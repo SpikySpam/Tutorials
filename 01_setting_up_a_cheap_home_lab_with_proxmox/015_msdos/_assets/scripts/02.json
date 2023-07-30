@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "We are going to provide ProxMox with the MSDOS 6 point 22 ISO file, which you can download from the following link. Navigate to a machine and choose ISO images in the menu. We are going to Download that ISO-file directly to ProxMox via the provided link as shown in the video."
+  }
+}

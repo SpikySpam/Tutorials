@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Start your Virtual Machine. Execute the following command to create a new primary partition. Choose 1 for Create MSDOS partition or Logical MSDOS Drive. Again, 1 for Create Primary MSDOS Partition. Finish with a Yes to use the maximum disk size for this partition."
+  }
+}

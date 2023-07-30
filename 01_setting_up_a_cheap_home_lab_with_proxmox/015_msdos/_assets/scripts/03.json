@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Once downloaded, we are going to create a new virtual machine. Give it a name. Select your uploaded ISO file. Be sure to select Microsoft Windows as your guest Operating system. Also, choose 2000 as your version. Enable the Qemu Agent for this machine. Give your machine a staggering 250 Megabyte of Disk space. I'm going to give Windows 3 point 11. 1 Megabyte of Memory. Finally click Finish."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "In this Tutorial I will download a Windows 3 point 11 ZIP-file from the following location into my assets folder because we first need to extract the 7 ZIP-file. I have prepared a small docker container which has 7 ZIP installed inside. So I don't need to install another tool. Just run the create iso script in the assets folder of this video. This script will spin up a container that will Unpack the 7-Zip file into multiple Image-files. Those Image-files will be further Extracted into Raw files. The last command in the script will create a Bootable ISO-file from the Raw files."    
+  }
+}
