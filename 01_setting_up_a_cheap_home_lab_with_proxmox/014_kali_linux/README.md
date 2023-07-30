@@ -11,6 +11,7 @@ This will be a quick video just to get things setup...
 ## Links
 
 - [Kali Linux ISO](https://www.kali.org/get-kali)
+- [Background Music](https://freesound.org/people/Migfus20/sounds/560452/)
 
 ## Installation
 

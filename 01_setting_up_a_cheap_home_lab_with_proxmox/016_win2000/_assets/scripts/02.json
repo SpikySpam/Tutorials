@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "But now. First, we are going to login into our ProxMox dashboard we've installed in the video shown in the upper-right corner. Next, we have to provide ProxMox with the Windows 2000 ISO file. Navigate to a machine and choose ISO images in the menu. We are going to upload the extracted ISO file as shown in the video."
+  }
+}

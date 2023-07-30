@@ -1,16 +1,17 @@
 ![Windows 2000](_assets/images/win2000.png)
 # 016. ProxMox ➡️ Windows 2000
 
-<!-- ## Video
+## Video
 
 In this Tutorial we are going to install Windows 2000 as a ProxMox Virtual Machine.
 This will be a quick video just to get things setup...
 
-[![Video](_assets/images/win2000-video.png)](https://youtu.be/XXXXXXXXXXXXXXX) -->
+[![Video](_assets/images/win2000-video.png)](https://youtu.be/-0vXqMQUN8w)
 
 ## Links
 
 - [Windows 2000 ISO](https://winworldpc.com/product/windows-nt-2000/final)
+- [Background Music](https://freesound.org/people/Migfus20/sounds/683262/)
 
 ## Installation
 

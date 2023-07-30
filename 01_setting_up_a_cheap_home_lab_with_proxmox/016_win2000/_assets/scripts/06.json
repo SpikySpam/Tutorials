@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Wait until we have a lift off. And log in into your newly installed Windows 2000. Change your screen resolution to the biggest value possible. Apply those changes. Now we are going to add this machine to our network. Click Start. Settings. Control Panel. Select Network and Dial-Up Connections. Right click your connection and choose Properties. Goto the properties of your Internet Protocol. In this tutorial we will use the following values. Close this screen. You should be able to connect to the Internet now."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Wait until the Windows 2000 Wizard provides you with some options. Wait. Please. Click on the Customize button in the Keyboard Layout Section. Provide your Name. Provide your Computer name. Provide your Password. Select your Timezone. Choose Typical settings. Choose Workgroup. Click Finish to Reboot. Click Next to Start the Wizard. Set the Default User. Click Finish."
+  }
+}
