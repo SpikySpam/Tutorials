@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Upload the ISO-file to the Proxmox machine. Mount this ISO-file to the CD-ROM drive of your MSDOS machine. Start the Virtual Machine. Execute the following command to start the installation process of Monkey Island. Choose the C-Drive as your installation location. Choose the R-Drive as your Floppy drive location. And hit Enter"
+  }
+}

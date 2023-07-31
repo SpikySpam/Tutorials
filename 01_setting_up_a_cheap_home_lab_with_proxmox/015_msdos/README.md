@@ -1,12 +1,12 @@
 ![MSDOS](_assets/images/msdos.png)
 # 015. ProxMox ➡️ MSDOS 6.22
 
-<!-- ## Video
+## Video
 
 In this Tutorial we are going to install MSDOS 6.22 as a ProxMox Virtual Machine.
 This will be a quick video just to get things setup...
 
-[![Video](_assets/images/msdos-video.png)](https://youtu.be/XXXXXXXXXXXXX ) -->
+[![Video](_assets/images/msdos-video.png)](https://youtu.be/lG5jVYrpKiM)
 
 ## Links
 
@@ -104,6 +104,9 @@ R:\SETUP.EXE
 
 
 ## Monkey Island
+
+This part has its own video. 
+For a hint on its location you need to watch the main video and think like a Q-Basic developer.
 
 - **Download Monkey Island** from [here](https://archive.org/details/003048-TheSecretOfMonkeyIsland) into the `./_assets/docker` folder, as a 7z-file
 - **Run** the `_assets/docker/create-iso.sh` script:

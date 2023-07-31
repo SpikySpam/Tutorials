@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Hi. Spiky here. Congratulations. It seems you found this little tutorial via the hidden easteregg in the video on how to install MSDOS into a ProxMox Virtual Machine. Here we are going to install my favorite game from my childhood into that Virtual Machine. The Secret of Monkey Island. Let's go."
+  }
+}
