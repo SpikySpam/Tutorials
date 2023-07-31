@@ -5,12 +5,12 @@
 
 QubesOS is all about security which is pretty much obsolete when installed as a VM.
 
-<!-- ## Video
+## Video
 
 In this Tutorial we are going to install the Qubes OS as a ProxMox Virtual Machine.
 This will be a quick video just to get things setup...
 
-[![Video](_assets/images/qubes-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXXXXXX) -->
+[![Video](_assets/images/qubes-video.png)](https://youtu.be/KNkR-wdgoBs)
 
 ## Links
 
@@ -31,6 +31,7 @@ This will be a quick video just to get things setup...
   
 - **Start** the VM
 - Choose **Install Qubes OS**
+  ![Qubes Install 01](_assets/images/qubes-install-01.png)
 - Choose your **Language**
 - Choose your **Keyboard Layout**
 - Choose your **Timezone**
@@ -46,6 +47,7 @@ This will be a quick video just to get things setup...
 
 - Click **System - Qubes OS**
 - Leave everything to it's **Default** value
+  ![Qubes Install 02](_assets/images/qubes-install-02.png)
 - Click **Done**
 - Then, click the **Finish configuration** button
 - Nevermind the **Error** messages. This is because we are virtualizing Qubes into Proxmox.
@@ -54,3 +56,4 @@ This will be a quick video just to get things setup...
 ## Finish
 
 - **Play around**
+  ![Qubes Install 03](_assets/images/qubes-install-03.png)
