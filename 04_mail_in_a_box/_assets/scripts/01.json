@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Hi. Spiky here. In this video, I'm going to show you how to install Mail in a Box in your own homelab. We are going to use a freshly installed Ubuntu Server Virtual Machine for this. You can watch the above video on how to install your Ubuntu Virtual Machine in Proxmox if you don't allready have one installed. In this video we will only focus on installing Mail in a Box. Let's go!"
+  }
+}

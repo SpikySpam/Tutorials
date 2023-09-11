@@ -1,0 +1,1 @@
+export TF_VAR_VERSION_DOCKER_NPM="github-pr-3117"    # https://hub.docker.com/r/jc21/nginx-proxy-manager/tags

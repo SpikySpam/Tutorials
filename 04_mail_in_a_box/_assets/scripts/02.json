@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "First, we need to create DNS records to point to our new Mail-in-a-Box mail server, we are about to install. In this tutorial I'm using Digital Ocean for these settings, but you can and need to configure this on your own name server provider. These steps should be generally the same."
+  }
+}
