@@ -8,6 +8,7 @@ This part of the series will change often, depending on the progress, but will r
 
 ## Links
 
+- [Spice Setup](https://pve.proxmox.com/wiki/SPICE)
 - [Docker Setup](https://docs.docker.com/engine/install/ubuntu/)
 
 ## Prerequisites
@@ -19,7 +20,7 @@ This part of the series will change often, depending on the progress, but will r
 ## Prepare Ubuntu VM
 
 - On your Windows Host
-  - Install **SPICE Viewer**: https://pve.proxmox.com/wiki/SPICE
+  - Install [Virt Viewer](https://releases.pagure.org/virt-viewer/virt-viewer-x64-11.0-1.0.msi) (*https://virt-manager.org/download*)
   - Set VM Options in ProxMox:
     - VM -> Hardware -> Display -> SPICE
     - VM -> Hardware -> Processors -> Host
