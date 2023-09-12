@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "I'm going to create a dot bash profile script file which will serve as the entrypoint of our complete solution. Without this file you practically can't do anything. It contains PATH environment variables to be able to reference our project relatively from the top-level folder. It contains all our little secrets like usernames and passwords. I also defined some shell aliases we are going to be needing when working with Docker, Kubernetes and Terraform. Just to speed things up. Next it contains some basic functions like load versions which loads our version variables into memory. Those versions variables are intended to keep track of version numbers of all used third party applications, tools and other components. This is an attempt to stay away from version hell."
+  }
+}

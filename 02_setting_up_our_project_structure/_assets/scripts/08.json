@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "In this video I'm going to install Docker because we are going to need it in the next video, shown at the top right now. But remember that all preparations for upcoming tutorials will be added to the up-to-date article at my GitHub page. It's hard to know what exactly will be needed at the moment, of making this video."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Those commands only create some folders like the version folder. Where we will create scripts to specify the current version of our tirth party components like Docker Images Helm Charts and so. We also create a folder called CLI. This will be the location where we dowload all our needed C L I tools. Then there is a folder were we are going to store our Docker and Docker Compose files and our Helm Charts. After creating those folders I'm going to create empty script files for now. We can now for example specify an environment variable for the Engine X Proxy Manager Docker Image at Docker Hub. As you can see by the commands. We can always reference our solution location with a PATH environment variable. Let's reload our user profile. Everything loads fine now."
+  }
+}

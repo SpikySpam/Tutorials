@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video, I'm going to show you how to install the Engine X Proxy Manager in your own homelab. We are going to use a freshly installed Ubuntu Desktop Virtual Machine for this. You can watch the above video on how to install your Ubuntu Virtual Machine in Proxmox if you don't allready have one installed. In this video we will only focus on installing the Proxy Manager. Let's go!"
+    "text": "Hi. Spiky here. In this video I'm going to setup my project structure I will be using throughout these whole video series. I will use my freshly installed Ubuntu machine for this. You can click the link that is popping up now for a video about that. You can find all bash commands and project sources at my GitHub page. In a folder with the same name as this video. In this video you see me cut and paste all commands from my GitHub page directly into an Ubuntu terminal. I will try to explain at each step, what exactly we are doing. Let's go!"
   }
 }

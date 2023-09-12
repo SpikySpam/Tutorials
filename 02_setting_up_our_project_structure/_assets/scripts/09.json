@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "With this oneliner. Docker will be installed on our machine. All we have to do is add ourselves to the docker group so we don't have to type in sudo everytime we want to execute a docker command. Last but not Least we make sure the docker deamon service will start when rebooting Ubuntu."
+  }
+}

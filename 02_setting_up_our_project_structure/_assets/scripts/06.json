@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Next thing to do, is to edit the startup script of the logged on user. Here you can call our own bash file. This is where you can change or rename the location of the top level folder in our solution. After saving the file we must reload our profile so all changes are in place and our script will be called in every new terminal. Prior to anything else in our solution. As you can see, we receive some warnings. Lets fix those by completing the structure of our solution."
+  }
+}

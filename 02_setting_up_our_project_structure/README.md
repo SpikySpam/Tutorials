@@ -55,6 +55,97 @@ This part of the series will change often, depending on the progress, but will r
   nano $HOME/Desktop/Tutorials/SS/.bash_profile
   ```
 
+  ```bash
+  #!/bin/bash
+
+  history -c
+  clear
+  export DIV="--------------------------------------------------"
+
+  echo $DIV
+  echo 😎 LOADING BASH PROFILE INTO MEMORY
+  echo $DIV
+
+  # SET PATHS
+  export TF_VAR_PATH_MAIN=$TF_VAR_PATH/SS
+  export TF_VAR_PATH_APP=$TF_VAR_PATH/SS.APP
+  export TF_VAR_PATH_CLI=$TF_VAR_PATH/SS/CLI
+  export PATH="$TF_VAR_PATH_CLI:$PATH"
+
+  # SET SECRETS
+  export TF_VAR_NPM_USER="fghytr"
+  export TF_VAR_NPM_PASSWORD="6h98zCGrGdNAtTDbuW3KZeM2"
+  export TF_VAR_MAILINABOX_USER="admin@spikyspam.site"
+  export TF_VAR_MAILINABOX_PASSWORD="D7nNxUGe3VFKC47ZmqcLyX9Q"
+
+  # SET ALIASSES
+  alias cdss='cd $TF_VAR_PATH; clear'
+  alias k='kubectl'
+  alias t='terraform'
+  alias ti='t init'
+  alias ta='t apply'
+  alias taa='ta -auto-approve'
+  alias taar='terraform apply -refresh=false -auto-approve'
+  alias tp='t plan'
+  alias tpr='tp -refresh=false'
+  alias td='t destroy'
+  alias tda='td -auto-approve'
+  alias tdar='tda -refresh=false'
+  alias tv='t validate'
+  alias tr='t refresh'
+
+  export INITIALIZE="true"
+
+  # INITIALIZE
+  initialize () {
+
+    if [ $INITIALIZE == "false" ]; then
+      echo
+      echo ✅ "Press ENTER to CONTINUE"
+      echo ❌ "Press CTRL+C to EXIT"
+      echo $DIV
+      if [ $TF_VAR_C_AUTOSTART == false ]; then
+        read
+      fi
+    fi
+
+  }
+
+  # LOAD VERSIONS
+  load_versions () {
+    source $TF_VAR_PATH_MAIN/version/app/version.sh
+    source $TF_VAR_PATH_MAIN/version/docker/version.sh
+    source $TF_VAR_PATH_MAIN/version/helm/version.sh
+    source $TF_VAR_PATH_MAIN/version/terraform/version.sh
+    source $TF_VAR_PATH_MAIN/version/cli/version.sh
+    source $TF_VAR_PATH_MAIN/version/cluster/version.sh
+  }
+
+  # FINALIZE
+  finalize () {
+
+    echo $DIV
+    echo ✅ "ALL DONE"
+    echo $DIV
+
+  }
+
+  #❗Don't include commands that need interaction before INITIALIZE is set to FALSE.
+  #❗This script will be called from ~/.bash_profile in various places and needs to exit.
+
+  load_versions
+  initialize
+
+  # if [ $INITIALIZE == "false" ]; then
+
+  # fi
+
+  finalize
+
+  export INITIALIZE="false"
+  ```
+
+
 - Call the solutions .bash_pofile by editing **.bashrc**. Be sure to change the **`$TF_VAR_PATH`** variable to your local directory if needed:
 
   ```bash
@@ -69,7 +160,7 @@ This part of the series will change often, depending on the progress, but will r
 - Reload your Environment. (*close and re-open your Terminal*)
 
   ```bash
-  $HOME/.bashrc
+  source $HOME/.bashrc
   ```
 
 - Create **Project Folders** in your solution:
