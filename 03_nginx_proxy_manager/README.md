@@ -73,7 +73,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 ![Digital Ocean DNS](_assets/images/dns.png)
 
-## Forward port 80 81 at your ISP
+## Forward port 80, 81 and 443 at your ISP
 
 - Telenet
   - Login into **mijn-telenet** and navigate to your home network settings:

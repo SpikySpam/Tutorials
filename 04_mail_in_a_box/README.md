@@ -23,9 +23,12 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
 
 ## Create Ubuntu Server VM
 
-- **Login** into your ProxMox dashboard
+1️⃣
+- **Login** into your **ProxMox** dashboard
 - **Upload** the ISO directly to the Proxmox machine by choosing **Download from URL**
 - **Download Ubuntu Server OS** from [here](https://releases.ubuntu.com/22.04.3/ubuntu-22.04.3-live-server-amd64.iso)
+
+2️⃣
 - **Create** a new **VM**:
   - Select ISO-file
   - Qemu Agent
@@ -34,7 +37,9 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
   - 1x1 CPU
   - 2048 RAM
 - **Start** the VM
-- Follow the **Wizard**.
+
+3️⃣
+- Follow the **Wizard** (*with default values, except:*).
   - Set your IP address to **192.168.0.31** (*for this tutorial*)
     - **Subnet**: 192.168.0.0/24
     - **Address**: 192.168.0.31
@@ -42,32 +47,9 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
     - **Name servers**: 1.1.1.1,8.8.8.8
   - Set **Username** and **Password**
   - Install the **OpenSSH** server
-- Press ENTER to reboot
+- Press **Reboot Now** after installation
 
-## Add Name Server Records
-
-- Get your WAN IP address by navigating to [What is my IPAddress](https://whatismyipaddress.com/)
-- Navigate to [Digital Ocean](https://www.digitalocean.com/) (or any other provider for your domain records)
-- Navigate to **Networking** in the Digital Ocean menu
-- Click the tab **Domains**
-- Choose your base domain
-- Click **NS**
-- Create 2 NS records:
-    - NS1
-        - **Hostname**: **ns1**.box
-        - **Will Direct To**: ✂️ *paste in your WAN IP-address*
-        - Click **Create Record**
-    - NS2
-        - **Hostname**: **ns2**.box
-        - **Will Direct To**: ✂️ *paste in your WAN IP-address*
-        - Click **Create Record**
-- Create A-record
-  - **Hostname**: box
-  - **Will Direct To**: ✂️ *paste in your WAN IP-address*
-  - Click **Create Record**
-
-## Setup Ubuntu Server
-
+4️⃣
 - **Login** into your VM and **Execute** the following commands:
     ```bash
     sudo apt update && sudo apt upgrade -y
@@ -75,14 +57,8 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
     # add your user to the sudo group
     sudo usermod -aG sudo spiky-spam
 
-    # configure your keyboard
-    sudo dpkg-reconfigure keyboard-configuration
-    ```
-- Choose **OK**
-- **Reboot** your VM with the following command:
-    
-    ```bash
-    reboot
+    # configure your keyboard (if not set in the installation wizard)
+    # sudo dpkg-reconfigure keyboard-configuration
     ```
 - **Execute** the following commands to check if your domain has been setup correctly in the file **`/etc/hosname`** for this VM:
     ```bash
@@ -97,6 +73,52 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
     ```bash
     127.0.1.1 box.spikyspam.site
     ```
+- **Reboot** your VM with the following command:
+    
+    ```bash
+    reboot
+    ```
+
+## Add Name Server Records
+
+- Get your WAN IP address by navigating to [What is my IPAddress](https://whatismyipaddress.com/)
+- Navigate to [Digital Ocean](https://www.digitalocean.com/) (*or any other provider for your domain records*)
+- Navigate to **Networking** in the Digital Ocean menu
+- Click the tab **Domains**
+- Choose your base domain
+- Click **NS**
+- Create 2 NS-records:
+    - NS1
+        - **Hostname**: **ns1**.box.spikyspam.site
+        - **Will Direct To**: ✂️ *your WAN IP-address*
+        - Click **Create Record**
+    - NS2
+        - **Hostname**: **ns2**.box.spikyspam.site
+        - **Will Direct To**: ✂️ *your WAN IP-address*
+        - Click **Create Record**
+- Create A-record
+  - **Hostname**: box
+  - **Will Direct To**: ✂️ *paste in your WAN IP-address*
+  - Click **Create Record**
+- Create AAAA-record
+  - **Hostname**: box
+  - **Will Direct To**: ✂️ *paste in your WAN IPv6-address*
+  - Click **Create Record**
+
+## Setup NPM Proxy Hosts
+
+- **box.spikyspam.site** -> https://192.168.0.31:443 (*with Let's Encrypt*)     
+
+## Forward port 25, 465, 587, 993 and 4190 at your ISP
+
+Because Telenet blocks port 25 for non-business users, I'm unable to send e-mails at the moment. You should be fine when your ISP doens't block port 25.
+
+- Telenet
+  - Login into **mijn-telenet** and navigate to your home network settings:
+https://mijn.telenet.be/mijntelenet/homenetwork/
+  - Add the following port-forward rule (*change your local ip-address accordingly*)
+
+![Telenet Port Forward](_assets/images/forward.png)
 
 ## Install Mail-in-a-Box
 
@@ -128,10 +150,6 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
     ![Setup 05](_assets/images/setup_05.png)
     
 
-## Setup NPM Proxy Hosts
-
-- box.spikyspam.site -> https://192.168.0.31:443 (*with Let's Encrypt*)
-
 ## Login into Admin Panel
 
 - **Navigate** to https://box.spikyspam.site/admin
@@ -145,4 +163,3 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
 - **Provide** your Admin e-mail address and **password**
 - Click **Login**
     
-## Configuring Mail-in-a-Box
