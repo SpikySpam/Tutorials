@@ -36,6 +36,10 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
     npm: 
       container_name: npm
       image: jc21/nginx-proxy-manager:${TF_VAR_VERSION_DOCKER_NPM}
+      restart: unless-stopped
+      environment:
+        PUID: 1000
+        PGID: 1000
       ports:
         - "80:80"
         - "81:81"
@@ -66,6 +70,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 - Navigate to the [Networking](https://cloud.digitalocean.com/networking) section of Digital Ocean (*or your DNS provider of choice, like CloudFlare, …*)
 - Click Domains and add an A-record that points to your public WAN IP.
+
 ![Digital Ocean DNS](_assets/images/dns.png)
 
 ## Forward port 80 81 at your ISP
@@ -74,4 +79,5 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
   - Login into **mijn-telenet** and navigate to your home network settings:
 https://mijn.telenet.be/mijntelenet/homenetwork/
   - Add the following port-forward rule (*change your local ip-address accordingly*)
+
 ![Telenet Port Forward](_assets/images/forward.png)

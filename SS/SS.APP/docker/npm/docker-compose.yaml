@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  npm: 
+    container_name: npm
+    image: jc21/nginx-proxy-manager:${TF_VAR_VERSION_DOCKER_NPM}
+    restart: unless-stopped
+    environment:
+      PUID: 1000
+      PGID: 1000
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+    volumes:
+      - $HOME/docker/npm/data:/data
+      - $HOME/docker/npm/letsencrypt:/etc/letsencrypt
