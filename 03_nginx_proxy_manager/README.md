@@ -3,13 +3,13 @@
 
 ![NPM Banner](_assets/images/nginx_proxy_banner.png)
 
-In this Tutorial we are going to setup **Nginx Proxy Manager**, so we can redirect public incomming request to a correct machine and/or application in our homelab without compromising our public IP address at home.
+In this Tutorial we are going to setup **Nginx Proxy Manager**, so we can redirect public incoming request to a correct machine and/or application in our homelab without compromising our public IP address at home.
 
 ## Video
 
 In this video I demonstrate how to install the Nginx Proxy Manager on a Digital Ocean Droplet.
 
-[![Video](_assets/images/nginx_proxy-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
+[![Video](_assets/images/nginx_proxy_video.png)](https://youtu.be/haVaf8oMpUk)
 
 ## Links
 
