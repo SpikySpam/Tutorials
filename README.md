@@ -4,6 +4,10 @@
 
 Follow me on a never ending journey about learning software related topics. While doing so we will build Software using technologies ranging from Networks, Virtual Machines, Development Environments, DevOps tools, Docker, Terraform, Kubernetes, Cloud Providers, C# .NET, Delphi, Python, AI, ...
 
+These series are not so much about every individual component, but are intended to give an idea on how to glue those components together. This series is intended as my future application letter, and to give **Start Ups** some ideas about setting up their IT-infrastructure as cheap, maintainable and secure as possible.
+
+For the security aspect, I've setup this page, next to my youtube channel, to be as up-to-date as possible.
+
 All videos for these tutorials are freely available at YouTube. Just navigate to my [Channel](https://www.youtube.com/@spikyspam).
 
 
