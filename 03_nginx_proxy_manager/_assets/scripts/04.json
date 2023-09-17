@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Now we are going to setup our Droplet. SSH into your Droplet as root. Update Ubuntu. And reboot your machine. SSH back into your Droplet as root. We are now going to add a new non root user. Give this user sudo privileges. Copy over the SSH keys to your newly created users profile folder and change the ownership of those keys to your non root user. Exit the shell."
+  }
+}

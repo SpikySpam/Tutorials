@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "After rebooting, we are going to install the Engine X Proxy Manager as a Docker container inside our Virtual Droplet. For this you have to open up a docker compose file inside the nano text editor. Paste in the example provided at my GitHub page and save the file. Spin up the image with docker compose up."
+  }
+}

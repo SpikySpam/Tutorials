@@ -7,7 +7,7 @@ In this Tutorial we are going to setup **Nginx Proxy Manager**, so we can redire
 
 ## Video
 
-In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ubuntu Virtual Machine (in ProxMox).
+In this video I demonstrate how to install the Nginx Proxy Manager on a Digital Ocean Droplet.
 
 [![Video](_assets/images/nginx_proxy-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
 
@@ -15,6 +15,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 - [Nginx Proxy Manager Site](https://nginxproxymanager.com)
 - [Nginx Proxy Manager Github](https://github.com/NginxProxyManager/nginx-proxy-manager)
+- [Background Music](https://freesound.org/people/Seth_Makes_Sounds/sounds/670039/)
 
 ## Prerequisites
 

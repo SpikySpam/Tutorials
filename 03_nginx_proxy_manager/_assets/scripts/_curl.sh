@@ -8,7 +8,7 @@ then
   read var_filename
 fi
 
-rm -f ../sounds/$var_filename.mp3
+rm -f ../sounds/$var_filename.wav
 curl -sb POST https://texttospeech.googleapis.com/v1/text:synthesize?key=$TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY \
 -H "Content-Type: application/json" \
 -d @./$var_filename.json > ./$var_filename.txt

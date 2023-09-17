@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "The Dashboard is located at port 81. Change the login e-mail address and the default password. Set it to the same values we have specified in our bash profile script. In a much, much, later video we are going to automate NPM entries by calling its API. This also requires us to login with a username and password. If you follow along with this project structure, we get those values always from our environment variables. You will see much, much later why I choose to setup my environment like this. First we are going to concentrate to setup some open source applications in our homelab that will help us to create a pretty good maintainable project. So see you in the next video. Spiky out!"
+  }
+}

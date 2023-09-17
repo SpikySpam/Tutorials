@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video, I'm going to show you how to install the Engine X Proxy Manager n your own homelab as a Docker container. We are going to use our freshly installed Ubuntu Desktop Virtual Machine for this. You can watch the above video on how to install your Ubuntu Virtual Machine in Proxmox if you don't allready have one installed. In this video we will only focus on installing the Proxy Manager. Let's go!"
+    "text": "Hi. Spiky here. In this video, I'm going to show you how to install the Engine X Proxy Manager in a Digital Ocean Droplet with Ubuntu installed. This way we can redirect all public incoming requests to a correct machine or application in our homelab without compromising our public IP address at home. You can follow all steps at my GitHub Page if you want. Let's go!"
   }
 }

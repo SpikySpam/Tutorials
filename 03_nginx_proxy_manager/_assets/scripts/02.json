@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "For this video I presume you have registered a domain and have a Digital Ocean account, where you did setup your nameservers. We are going to create a Virtual Machine, or in this case, a Droplet. Where we are going to login via SSH. So, first we have to create a private/public key-pair. Go to the Digital Ocean website and navigate to Settings and then Security. Click Add SSH Key and paste in the content of your newly created public key. Give your key a name and click Add SSH Key."
+  }
+}

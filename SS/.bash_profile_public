@@ -15,6 +15,7 @@ export TF_VAR_PATH_CLI=$TF_VAR_PATH/SS/CLI
 export PATH="$TF_VAR_PATH_CLI:$PATH"
 
 # SET SECRETS
+export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 export TF_VAR_NPM_USER="admin@example.com"
 export TF_VAR_NPM_PASSWORD="changeme"
 

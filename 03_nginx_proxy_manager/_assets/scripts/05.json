@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "SSH back into your Droplet as your previously created non root user. Now we are going to install Docker. You can refer back to my second video on how to setup our project structure that's popping up right now. But let me show you again. It's easy with the following commands."
+  }
+}
