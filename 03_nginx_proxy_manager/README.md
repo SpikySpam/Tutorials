@@ -3,7 +3,7 @@
 
 ![NPM Banner](_assets/images/nginx_proxy_banner.png)
 
-In this Tutorial we are going to setup **Nginx Proxy Manager**, so we can redirect public incomming request to a correct machine and/or application in our homelab.
+In this Tutorial we are going to setup **Nginx Proxy Manager**, so we can redirect public incomming request to a correct machine and/or application in our homelab without compromising our public IP address at home.
 
 ## Video
 
@@ -18,15 +18,85 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 ## Prerequisites
 
-- [02. Setting up our Project Structure](../02_setting_up_our_project_structure/README.md)
+- A registered **Hostname** (***spikyspam.site***). I've used **[HostGator](https://www.hostgator.com)**.
+- A **DNS Provider**. I've used **[Digital Ocean](https://digitalocean.com)** in this tutorial.
+- **Logged in** into the **Digital Ocean** Dashboard
+
+## Create Digital Ocean SSH-key
+
+- Open a **Terminal** and execute following commands to create a **private/public key-pair**:
+  ```bash
+  ssh-keygen -f $HOME/.ssh/do
+  ```
+
+- Open the **Digital Ocean** website and navigate to **Settings** ➡️ **Security** 
+- Click **Add SSH Key**.
+- **Paste** in the content of your public key: 
+  ```bash
+  cat $HOME/.ssh/do.pub
+  ```
+
+- Give it a name (**do**) and click **Add SSH Key**
+
+## Create Digital Ocean Droplet (*4$/month*)
+
+- Navigate to **Droplets**
+- Click **Create Droplet**
+  - **Region**: *(near you)*
+  - **Image**: Ubuntu 22.04 (LTS) x64
+  - **Type**: Basic
+  - **CPU**: Regular
+  - **Price**: 4$/mo
+  - **Authentication Method**: SSH
+  - **Hostname**: npm
+- Remember the **IP address** of your droplet. For this tutorial it will be 
+
+## Setup Droplet
+
+- **SSH** into your Droplet as **root**
+  ```bash
+  ssh root@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ```
+
+- **Execute** following commands:
+  ```bash
+  sudo apt update && sudo apt upgrade -y
+  reboot
+  ```
+
+- **SSH** into your Droplet as **root**
+  ```bash
+  ssh root@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ```
+
+- **Execute** following commands:
+  ```bash
+  adduser spiky-spam
+  usermod -aG sudo spiky-spam
+  cp -r ~/.ssh /home/spiky-spam
+  chown -R spiky-spam:spiky-spam /home/spiky-spam/
+  exit
+  ```
+
+## Install Docker
+
+- **SSH** into your Droplet as **spiky-spam**
+  ```bash
+  ssh spiky-spam@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ```
+  See the **Install Docker** section in [02. Setting up our Project Structure](../02_setting_up_our_project_structure/README.md#install-docker) 
 
 ## Install NGinx Proxy Manager
+
+- **SSH** into your Droplet as **spiky-spam**
+  ```bash
+  ssh spiky-spam@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ```
 
 - Create the following **docker-compose** file.
 
   ```bash
-  mkdir $TF_VAR_PATH_APP/docker/npm
-  nano $TF_VAR_PATH_APP/docker/npm/docker-compose.yaml
+  nano docker-compose.yaml
   ```
 
   ```yaml
@@ -35,7 +105,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
   services:
     npm: 
       container_name: npm
-      image: jc21/nginx-proxy-manager:${TF_VAR_VERSION_DOCKER_NPM}
+      image: jc21/nginx-proxy-manager:latest
       restart: unless-stopped
       environment:
         PUID: 1000
@@ -51,33 +121,22 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 - Deploy it using following command
   ```bash
-  docker compose -f $TF_VAR_PATH_APP/docker/npm/docker-compose.yaml up -d
+  docker compose up
   ```
 
-- **Login** to the Admin UI at http://localhost:81
-    - Email: `admin@example.com`
-    - Password: `changeme`
-- **Change** your **username** and **password** (for values, see prerequisites):
-  - Username: **`$TF_VAR_NPM_USER`**
-  - Password: **`$TF_VAR_NPM_PASSWORD`**
+## Add A-Record 
 
-- Open port 81 on your firewall
-  ```bash
-  sudo ufw allow 81/tcp
-  ```
-
-## Add A-Record at your DNS
-
-- Navigate to the [Networking](https://cloud.digitalocean.com/networking) section of Digital Ocean (*or your DNS provider of choice, like CloudFlare, …*)
-- Click Domains and add an A-record that points to your public WAN IP.
+- Navigate to the [Networking](https://cloud.digitalocean.com/networking) section of **Digital Ocean**.
+- Click the tab **Domains** and add an A-record to your domain (*spikyspam.site*) that points to your NPM Droplets IP address.
+- Before you can use this domain name, it needs to **propagate** through the internet. You can check the status [here](https://dnschecker.org/).
 
 ![Digital Ocean DNS](_assets/images/dns.png)
 
-## Forward port 80, 81 and 443 at your ISP
+## Configure NGinx Proxy Manager
 
-- Telenet
-  - Login into **mijn-telenet** and navigate to your home network settings:
-https://mijn.telenet.be/mijntelenet/homenetwork/
-  - Add the following port-forward rule (*change your local ip-address accordingly*)
-
-![Telenet Port Forward](_assets/images/forward.png)
+- **Login** to the Admin UI at http://spikyspam.site:81
+    - Email: `admin@example.com`
+    - Password: `changeme`
+- **Change** your **username** and **password** to the secrets stored in your  [.bash_profile](../SS/.bash_profile_public) file.
+  - Email: **`$TF_VAR_NPM_USER`**
+  - Password: **`$TF_VAR_NPM_PASSWORD`**
