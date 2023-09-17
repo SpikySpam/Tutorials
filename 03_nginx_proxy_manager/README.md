@@ -49,13 +49,15 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
   - **Price**: 4$/mo
   - **Authentication Method**: SSH
   - **Hostname**: npm
-- Remember the **IP address** of your droplet. For this tutorial it will be 
+- Remember the **IP address** of your droplet. For this tutorial it will be **46.101.80.89**
+
+![NPM IP Address](_assets/images/dns.png)
 
 ## Setup Droplet
 
 - **SSH** into your Droplet as **root**
   ```bash
-  ssh root@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ssh root@46.101.80.89 -i $HOME/.ssh/do
   ```
 
 - **Execute** following commands:
@@ -66,7 +68,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 - **SSH** into your Droplet as **root**
   ```bash
-  ssh root@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ssh root@46.101.80.89 -i $HOME/.ssh/do
   ```
 
 - **Execute** following commands:
@@ -82,7 +84,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 - **SSH** into your Droplet as **spiky-spam**
   ```bash
-  ssh spiky-spam@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ssh spiky-spam@46.101.80.89 -i $HOME/.ssh/do
   ```
   See the **Install Docker** section in [02. Setting up our Project Structure](../02_setting_up_our_project_structure/README.md#install-docker) 
 
@@ -90,7 +92,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
 
 - **SSH** into your Droplet as **spiky-spam**
   ```bash
-  ssh spiky-spam@147.182.244.199 -i $HOME/.ssh/digitalocean
+  ssh spiky-spam@46.101.80.89 -i $HOME/.ssh/do
   ```
 
 - Create the following **docker-compose** file.
