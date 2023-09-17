@@ -51,7 +51,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a fresh Ub
   - **Hostname**: npm
 - Remember the **IP address** of your droplet. For this tutorial it will be **46.101.80.89**
 
-![NPM IP Address](_assets/images/dns.png)
+![NPM IP Address](_assets/images/ip.png)
 
 ## Setup Droplet
 
