@@ -18,6 +18,8 @@ export PATH="$TF_VAR_PATH_CLI:$PATH"
 export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 export TF_VAR_NPM_USER="admin@example.com"
 export TF_VAR_NPM_PASSWORD="changeme"
+export TF_VAR_MAILINABOX_USER="admin@example.com"
+export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
 
 # SET ALIASSES
 alias cdss='cd $TF_VAR_PATH; clear'
