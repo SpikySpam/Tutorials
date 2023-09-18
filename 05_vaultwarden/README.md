@@ -3,11 +3,11 @@
 
 ![NPM Banner](_assets/images/bw_banner.png)
 
-In this Tutorial we are going to setup **Vaultwarden** as our Password Manager
+In this Tutorial we are going to setup **Vaultwarden** as our **Password Manager**
 
 ## Video
 
-In this video I demonstrate how to install Vaultwarden on a fresh Ubuntu Virtual Machine (in ProxMox).
+In this video I demonstrate how to install Vaultwarden on a Ubuntu Virtual Machine (in ProxMox).
 
 [![Video](_assets/images/vaultwarden-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
 
@@ -59,22 +59,33 @@ https://mijn.telenet.be/mijntelenet/homenetwork/
 
 ## Install Vaultwarden
 
-- Login into your [Ubuntu VM](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
+- **Login** into your [Ubuntu VM](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
+- Get the latest relevant **Sources** from **GitHub**:
+  ```bash  
+  # Clone the Tutorial repository to a TempTutorials folder
+  git clone https://github.com/SpikySpam/Tutorials.git TempTutorials
 
-- Be sure to use the latest ***`.bash_profile`*** file:
+  # Move these 3 files
+  mv -f TempTutorials/SS/SS/ports.sh $TF_VAR_PATH/SS/ports.sh
+  mv -f TempTutorials/SS/SS/version/docker/version.sh $TF_VAR_PATH/SS/version/docker/version.sh
+  mv -f TempTutorials/SS/SS.APP/docker/vaultwarden/docker-compose.yaml $TF_VAR_PATH/SS.APP/docker/vaultwarden/docker-compose.yaml
+
+  # Remove the TempTutorials folder
+  rm -rf TempTutorials
+  ```
+
+- Be sure to copy the content from the latest [***`.bash_profile`***](../SS/.bash_profile_public) file into yours:
   ```bash
   nano $TF_VAR_PATH/.bash_profile
   ```
 
-- Create the following **docker-compose** file.
-  ```bash
-  mkdir $TF_VAR_PATH_APP/docker/vaultwarden
-  nano $TF_VAR_PATH_APP/docker/vaultwarden/docker-compose.yaml
-  ```
-
-- Copy the content of [docker/vaultwarden/docker-compose.yaml](../SS/SS.APP/docker/vaultwarden/docker-compose.yaml)
-
 - Deploy it using following command
   ```bash
-  docker compose -f $TF_VAR_PATH_APP/docker/vaultwarden/docker-compose.yaml up -d
+  docker compose -f $TF_VAR_PATH_APP/docker/vaultwarden/docker-compose.yaml up
   ```
+
+## Configure Vaultwarden
+
+- Navigate to **https://vaultwarden.spikyspam.site/admin**
+- Login with your **`$TF_VAR_VAULTWARDEN_API_KEY`**
+- You can now **Invite Users**

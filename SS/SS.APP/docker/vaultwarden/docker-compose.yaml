@@ -11,7 +11,7 @@ services:
       - ${TF_VAR_VAULTWARDEN_PORT}:80
     environment:
       - SMTP_HOST=${TF_VAR_SMTP_HOST}
-      - SMTP_FROM=vaultwarden.${TF_VAR_DOMAIN}
+      - SMTP_FROM=vaultwarden@${TF_VAR_DOMAIN}
       - SMTP_FROM_NAME=${TF_VAR_VAULTWARDEN_NAME}
       - SMTP_SECURITY=${TF_VAR_SMTP_SECURITY}
       - SMTP_PORT=${TF_VAR_SMTP_PORT}
