@@ -14,12 +14,25 @@ export TF_VAR_PATH_APP=$TF_VAR_PATH/SS.APP
 export TF_VAR_PATH_CLI=$TF_VAR_PATH/SS/CLI
 export PATH="$TF_VAR_PATH_CLI:$PATH"
 
+# CURRENT ENVIRONMENT
+export TF_VAR_DOMAIN="example.com"
+
 # SET SECRETS
 export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
-export TF_VAR_NPM_USER="admin@example.com"
+export TF_VAR_NPM_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_NPM_PASSWORD="changeme"
-export TF_VAR_MAILINABOX_USER="admin@example.com"
+export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
+export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
+export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
+export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
+export TF_VAR_VAULTWARDEN_API_KEY="UltraSecretApiKey123!"
+
+export TF_VAR_SMTP_HOST=$TF_VAR_MAILINABOX_DOMAIN
+export TF_VAR_SMTP_SECURITY="starttls"
+export TF_VAR_SMTP_PORT=25
+export TF_VAR_SMTP_USERNAME=$TF_VAR_MAILINABOX_USER
+export TF_VAR_SMTP_PASSWORD=$TF_VAR_MAILINABOX_PASSWORD
 
 # SET ALIASSES
 alias cdss='cd $TF_VAR_PATH; clear'
@@ -54,14 +67,16 @@ initialize () {
 
 }
 
-# LOAD VERSIONS
-load_versions () {
+# LOAD ENVIRONMENT VARIABES
+load_env_vars () {
   source $TF_VAR_PATH_MAIN/version/app/version.sh
   source $TF_VAR_PATH_MAIN/version/docker/version.sh
   source $TF_VAR_PATH_MAIN/version/helm/version.sh
   source $TF_VAR_PATH_MAIN/version/terraform/version.sh
   source $TF_VAR_PATH_MAIN/version/cli/version.sh
   source $TF_VAR_PATH_MAIN/version/cluster/version.sh
+
+  source $TF_VAR_PATH_MAIN/ports.sh
 }
 
 # FINALIZE
@@ -76,7 +91,7 @@ finalize () {
 #❗Don't include commands that need interaction before INITIALIZE is set to FALSE.
 #❗This script will be called from ~/.bash_profile in various places and needs to exit.
 
-load_versions
+load_env_vars
 initialize
 
 # if [ $INITIALIZE == "false" ]; then

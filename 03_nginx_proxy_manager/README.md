@@ -143,3 +143,22 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a Digital 
 - **Change** your **username** and **password** to the secrets stored in your  [.bash_profile](../SS/.bash_profile_public) file.
   - Email: **`$TF_VAR_NPM_USER`**
   - Password: **`$TF_VAR_NPM_PASSWORD`**
+    ```bash
+    echo $TF_VAR_NPM_USER
+    echo $TF_VAR_NPM_PASSWORD
+    ```
+
+## Add Proxy Hosts
+
+- **Domain Names**: 
+  - spikyspam.site
+- **Scheme**: http
+- **Forward IP**: 46.101.80.89 (*💡 IP address of the NPM Droplet*)
+- **Port**: 81
+- Block Common Exploits
+- Websockets Support
+- **SSL**:
+  - Let's Encrypt
+  - Force SSL
+
+- **Login** to the Admin UI at **https://spikyspam.site**

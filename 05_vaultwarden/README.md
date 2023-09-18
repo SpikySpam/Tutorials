@@ -20,53 +20,61 @@ In this video I demonstrate how to install Vaultwarden on a fresh Ubuntu Virtual
 
 - [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md)
 
-## Create Ubuntu Desktop VM
+## Add A-Records
 
-- **Login** into your **ProxMox** dashboard
-- **Clone** your previously installed Ubuntu Desktop VM to a new one.
-- **Start** the new VM
+- Navigate to [Digital Ocean](https://www.digitalocean.com/)
+- Navigate to **Networking** in the **Digital Ocean** menu
+- Click the tab **Domains**
+- Choose your base domain
+- Click **A**
+- Create A-record:
+  - **Hostname**: vaultwarden
+  - **Will Direct To**: 46.101.80.89 (*💡 IP address of the NPM Droplet*)
+  - Click **Create Record**
+
+## Setup NPM Proxy Hosts
+
+- Navigate to [NPM](https://spikyspam.site)
+- Click **Add Proxy Host**
+- **Domain Names**: 
+  - vaultwarden.spikyspam.site ➡️ ***`TF_VAR_VAULTWARDEN_DOMAIN`***
+- **Scheme**: http
+- **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
+- **Port**: 7000 ➡️ ***`TF_VAR_VAULTWARDEN_PORT`***
+- Block Common Exploits
+- Websockets Support
+- **SSL**:
+  - Let's Encrypt
+  - Force SSL
+
+## Forward port 7000 (***`TF_VAR_VAULTWARDEN_PORT`***) on your Router.
+
+- Telenet:
+  - Login into **mijn-telenet** and navigate to your home network settings:
+https://mijn.telenet.be/mijntelenet/homenetwork/
+  - Add the following port-forward rules:
+    ```
+    192.168.0.30 ➡️ 7000 HTTP/BOTH
+    ```
 
 ## Install Vaultwarden
 
-- Create the following **docker-compose** file.
+- Login into your [Ubuntu VM](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
 
+- Be sure to use the latest ***`.bash_profile`*** file:
+  ```bash
+  nano $TF_VAR_PATH/.bash_profile
+  ```
+
+- Create the following **docker-compose** file.
   ```bash
   mkdir $TF_VAR_PATH_APP/docker/vaultwarden
   nano $TF_VAR_PATH_APP/docker/vaultwarden/docker-compose.yaml
   ```
 
-  ```yaml
-  version: '3.8'
-
-  services:
-    npm: 
-      container_name: npm
-      image: jc21/nginx-proxy-manager:${TF_VAR_VERSION_DOCKER_NPM}
-      restart: unless-stopped
-      environment:
-        PUID: 1000
-        PGID: 1000
-      ports:
-        - "80:80"
-        - "81:81"
-        - "443:443"
-      volumes:
-        - $HOME/docker/npm/data:/data
-        - $HOME/docker/npm/letsencrypt:/etc/letsencrypt
-  ```
+- Copy the content of [docker/vaultwarden/docker-compose.yaml](../SS/SS.APP/docker/vaultwarden/docker-compose.yaml)
 
 - Deploy it using following command
   ```bash
-  docker compose -f $TF_VAR_PATH_APP/docker/npm/docker-compose.yaml up -d
+  docker compose -f $TF_VAR_PATH_APP/docker/vaultwarden/docker-compose.yaml up -d
   ```
-
-## Add A-Record at your DNS
-
-- Navigate to the [Networking](https://cloud.digitalocean.com/networking) section of Digital Ocean (*or your DNS provider of choice, like CloudFlare, …*)
-- Click Domains and add an A-record that points to your public WAN IP.
-
-![Digital Ocean DNS](_assets/images/dns.png)
-
-## Setup NPM Proxy Hosts
-
-- **vaultwarden.spikyspam.site** -> https://192.168.0.32:xxx (*with Let's Encrypt*)     

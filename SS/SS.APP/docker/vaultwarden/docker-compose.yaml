@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
+    container_name: vaultwarden
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/vaultwarden/:/data/
+    ports:
+      - ${TF_VAR_VAULTWARDEN_PORT}:80
+    environment:
+      - SMTP_HOST=${TF_VAR_SMTP_HOST}
+      - SMTP_FROM=vaultwarden.${TF_VAR_DOMAIN}
+      - SMTP_FROM_NAME=${TF_VAR_VAULTWARDEN_NAME}
+      - SMTP_SECURITY=${TF_VAR_SMTP_SECURITY}
+      - SMTP_PORT=${TF_VAR_SMTP_PORT}
+      - SMTP_USERNAME=${TF_VAR_SMTP_USERNAME}
+      - SMTP_PASSWORD=${TF_VAR_SMTP_PASSWORD}
+      - SMTP_TIMEOUT=30
+      - SMTP_AUTH_MECHANISM="Login"
+      - LOGIN_RATELIMIT_MAX_BURST=10
+      - LOGIN_RATELIMIT_SECONDS=60
+      - DOMAIN=https://${TF_VAR_VAULTWARDEN_DOMAIN}
+      - INVITATION_ORG_NAME=${TF_VAR_VAULTWARDEN_NAME}
+      - INVITATIONS_ALLOWED=true
+      - ADMIN_TOKEN=${TF_VAR_VAULTWARDEN_API_KEY}
+      - SIGNUPS_ALLOWED=false
+      - SIGNUPS_DOMAINS_WHITELIST=${TF_VAR_VAULTWARDEN_DOMAIN}
+      - SIGNUPS_VERIFY=true
+      - SIGNUPS_VERIFY_RESEND_TIME=3600
+      - SIGNUPS_VERIFY_RESEND_LIMIT=6
+      - EMERGENCY_ACCESS_ALLOWED=true
+      - SENDS_ALLOWED=true
+      - WEB_VAULT_ENABLED=true

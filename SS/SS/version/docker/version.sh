@@ -1,1 +1,2 @@
 export TF_VAR_VERSION_DOCKER_NPM="github-pr-3117"    # https://hub.docker.com/r/jc21/nginx-proxy-manager/tags
+export TF_VAR_VERSION_DOCKER_VAULTWARDEN="1.29.2"    # https://hub.docker.com/r/vaultwarden/server/tags

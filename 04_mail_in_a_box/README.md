@@ -152,7 +152,6 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
 ## Setup NPM Proxy Hosts
 
 - **Domain Names**: 
-  - spikyspam.site
   - box.spikyspam.site
   - autoconfig.spikyspam.site
   - autodiscover.spikyspam.site
@@ -174,16 +173,16 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a fresh Ubuntu 
 https://mijn.telenet.be/mijntelenet/homenetwork/
   - Add the following port-forward rules:
     ```
-    80 HTTP/TCP
-    443 HTTPS/TCP
-    53 DNS/BOTH
-    22 SSH/BOTH
-    25 SMTP/BOTH
-    465 SMTP/BOTH
-    587 SMTP/BOTH
-    993 IMAP/BOTH
-    995 POP/BOTH
-    4190 Sieve/BOTH
+    192.168.0.31 ➡️ 80 HTTP/TCP
+    192.168.0.31 ➡️ 443 HTTPS/TCP
+    192.168.0.31 ➡️ 53 DNS/BOTH
+    192.168.0.31 ➡️ 22 SSH/BOTH
+    192.168.0.31 ➡️ 25 SMTP/BOTH
+    192.168.0.31 ➡️ 465 SMTP/BOTH
+    192.168.0.31 ➡️ 587 SMTP/BOTH
+    192.168.0.31 ➡️ 993 IMAP/BOTH
+    192.168.0.31 ➡️ 995 POP/BOTH
+    192.168.0.31 ➡️ 4190 Sieve/BOTH
     ```
 
 ## Install Mail-in-a-Box
