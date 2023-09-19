@@ -151,7 +151,7 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a Digital 
 ## Add Proxy Hosts
 
 - **Domain Names**: 
-  - spikyspam.site
+  - npm.spikyspam.site
 - **Scheme**: http
 - **Forward IP**: 46.101.80.89 (*💡 IP address of the NPM Droplet*)
 - **Port**: 81
@@ -161,4 +161,4 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a Digital 
   - Let's Encrypt
   - Force SSL
 
-- **Login** to the Admin UI at **https://spikyspam.site**
+- **Login** to the Admin UI at **https://npm.spikyspam.site**
