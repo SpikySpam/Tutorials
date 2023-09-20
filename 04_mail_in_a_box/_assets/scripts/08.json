@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Navigate to the Mail in a Box IP address followed by admin. Ignore the certificate warning. We can now login into our Mail-in-a-Box dashboard with our admin e-mail address and password. First lets create all certificates by going to system, TLS Certificates in the menu. Click the button, Provision. Next, go to system, status checks. As you can see we have some warnings and errors, especially about port 25. You should be able to resolve all or most of these errors yourself. Click the button Enable New-Version Check to get rid of that warning"
+  }
+}

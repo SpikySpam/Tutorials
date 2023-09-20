@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Now we are going to install Mail in a Box, so SSH into your Droplet as your non-root user. Execute the following command to run the installation wizard. You should check the official command on the Mail in a Box website, just to be sure. Click OK. Then specify your admin e-mail address and hit enter. The correct domain name should already be filled in, hit enter. Choose your region to have the correct time zone. Hit enter to begin the installation."
+  }
+}

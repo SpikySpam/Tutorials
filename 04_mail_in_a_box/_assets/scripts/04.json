@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Check if your IP address has been blacklisted. If this is the case you need to resolve the block, or create another Droplet. Since mail in a box comes with a fully maintainable domain name server, we are going to prepare our nameserver records at our domain registrars dashboard. I'm using Hostgator, so this could be a little different for you, but the idea is to create 2 glue records pointing to your droplet. And then to specify those records as your name servers."
+  }
+}

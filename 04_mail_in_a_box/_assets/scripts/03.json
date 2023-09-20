@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "First, we are going to create our Droplet. Navigate to Droplets and click the button Create Droplet. Choose a region the closest to your location. Select the Ubuntu 22 image. Pick the smallest size for your Virtual Machine. Choose as authentication method your SSH key we have created in video 2 that will popup now. Finally give your Droplet the same name as your domain you want this Droplet to be setup for. Click the button Create Droplet. Remember the IP address of your droplet. For this tutorial it will be 161.35.33.18"
+  }
+}

@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video, I'm going to show you how to install Mail in a Box in your own homelab. We are going to use a freshly installed Ubuntu Server Virtual Machine for this. Let's go!"
+    "text": "Hi. Spiky here. In this video, I'm going to show you how to install Mail in a Box on a Digital Ocean Droplet. You can install your mail server in your homelab on a freshly installed Ubuntu server, you can create as a virtual machine in Proxmox. The reason I choose Digital Ocean is because my internet provider blocks the outgoing SMTP port, 25. I need to purchase a business account to be able to send e-mails otherwise. Let's go!"
   }
 }

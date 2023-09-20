@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "As a final step we are going to add an A record to point to our Engine X Proxy manager we have installed in a previous video. Since we have our own domain name server now and have our domain registrar pointing to it, we can get rid of the Digital Ocean entry. That's it. I hope you can get it to work for you. See you in the next video where we are going to install vaultwarden as our password manager in our homelab. Spiky out."
+  }
+}

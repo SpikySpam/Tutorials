@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "By default Digital Ocean also blocks port 25, as many other cloud providers do. This is normal and has been put into place to combat spam. I have created a support ticket on their site to ask them to open it. You can do the same or find another solution that works for you. This video will only concentrate on installing Mail in a Box. The issue with port 25 I will solve on my own."
+  }
+}

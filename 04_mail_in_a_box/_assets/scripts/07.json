@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Mail-in-a-box comes with a self-hosted domain name server called NSD. It uses Postfix as an SMTP server. Dovecot as an I MAP server. It comes with Spam Assassin pre installed. And uses Engine X as a simple web server. It uses Roundcube as your web e-mail client. Next cloud as your contact list and calendar apps. Mail in a Box has been fully configured for you by the creator and its contributors. Go give Joshua a star on Github please. This is a real time saver. Provide a strong password for your admin e-mail account. This should be the same as earlier specified in your bash profile script. After that we have completed the installation, as easy as saying bonjour."
+  }
+}

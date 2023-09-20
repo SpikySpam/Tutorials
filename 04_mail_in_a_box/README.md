@@ -15,7 +15,7 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
 
 - [Mail-In-a-Box Site](https://mailinabox.email/)
 - [Mail-In-a-Box Github](https://github.com/mail-in-a-box/mailinabox)
-- [Background Music](https://freesound.org/people/XXXXXXXXXXXXXXXXXXXXXXXXXXX/)
+- [Background Music](https://freesound.org/people/Migfus20/sounds/683260/)
 
 ## Prerequisites
 
@@ -38,15 +38,20 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
   - **Price**: 4$/mo
   - **Authentication Method**: SSH (do)
   - **Hostname**: box.spikyspam.site
-- Remember the **IP address** of your droplet. For this tutorial it will be **XXX.XXX.XXX.XXX**
-- 💥 First check if your IP address has been blocked by navigating to the following link: http://www.spamhaus.org/query/ip/XXX.XXX.XXX.XXX (*if this is the case, create a new Droplet*).
+- Remember the **IP address** of your droplet. For this tutorial it will be **161.35.33.18**
+- 💥 First check if your IP address has been blocked by navigating to the following links:
+  - https://www.spamhaus.org/query/ip/161.35.33.18
+  - https://mxtoolbox.com/SuperTool.aspx?action=blacklist%3a161.35.33.18
+  - (*if this is the case, create a new Droplet*).
+
+![MIAB IP Address](_assets/images/ip.png)
 
 ## Setup Domain Registrar Glue-records and Name Servers
 
 - **Login** into your **domain registrars** dashboard (*in these tutorials I'm using **Hostgator***)
 - Add **Glue-records** (Private Name Servers)
-  - ns1.box.spikyspam.site ➡️ XXX.XXX.XXX.XXX
-  - ns2.box.spikyspam.site ➡️ XXX.XXX.XXX.XXX
+  - ns1.box.spikyspam.site ➡️ 161.35.33.18
+  - ns2.box.spikyspam.site ➡️ 161.35.33.18
 - Add **Name Servers**
   - ns1.box.spikyspam.site
   - ns2.box.spikyspam.site
@@ -56,7 +61,7 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
 
 - **SSH** into your Droplet as **root**
   ```bash
-  ssh root@XXX.XXX.XXX.XXX -i $HOME/.ssh/do
+  ssh root@161.35.33.18 -i $HOME/.ssh/do
   ```
 
 - **Execute** the following commands to **Update Ubuntu**:
@@ -67,7 +72,7 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
 
 - **SSH** into your Droplet as **root**
   ```bash
-  ssh root@XXX.XXX.XXX.XXX -i $HOME/.ssh/do
+  ssh root@161.35.33.18 -i $HOME/.ssh/do
   ```
 
 - **Execute** the following commands to check if your domain has been setup correctly in the file **`/etc/hosname`** for this Droplet:
@@ -114,7 +119,7 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
 
 - **SSH** into your VM as **spiky-spam**
   ```bash
-  ssh spiky-spam@XXX.XXX.XXX.XXX -i $HOME/.ssh/do
+  ssh spiky-spam@161.35.33.18 -i $HOME/.ssh/do
   ```
 
 - **Execute** the following command to start the installation of Mail-in-a-Box (*check their website for the up-to-date command*):
@@ -140,7 +145,7 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
 
 ## Login into Admin Panel
 
-- **Navigate** to https://box.spikyspam.site/admin
+- **Navigate** to https://161.35.33.18/admin
 - **Provide** your **admin e-mail** address and **password**
 - Navigate to **System → TLS (SSL) Certificates** and click the **Provision** button
 - Navigate to **System → Status Checks** and click **Enable New-Version Check**
@@ -151,18 +156,18 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
 
 ## Login into E-mail Client
 
-- **Navigate** to https://box.spikyspam.site/mail
+- **Navigate** to https://161.35.33.18/mail/
 - **Provide** your Admin e-mail address and **password**
 - Click **Login**
 
 ## Login into Contacts Client
 
-- **Navigate** to https://box.spikyspam.site/cloud/contacts
+- **Navigate** to https://161.35.33.18/cloud/contacts
 - **Provide** your Admin e-mail address and **password**
 - Click **Login**
 
 ## Login into Calendar Client
 
-- **Navigate** to https://box.spikyspam.site/cloud/calendar
+- **Navigate** to https://161.35.33.18//cloud/calendar
 - **Provide** your Admin e-mail address and **password**
 - Click **Login**
