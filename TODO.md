@@ -1,4 +1,4 @@
-# Videos
+# 📅 Planned Future Videos
 
  - Docker Series:
     - '05. Databases: Postgres, MySql, Redis, Prometheus, and Elasticsearch.
@@ -13,19 +13,19 @@
     - '14. pgAdmin
     - '15. heimdall
 
-# Ideas
+# 💡 Ideas for future Videos
 
-- Terraform
+- **Terraform** (*Automate provisionong of Droplets*)
+  - DO
   - NPM
   - BitWarden
-  - DO
 
-# Video Cards
+# 🗂️ Video Cards
 - [03. Nginx Proxy Manager](https://youtu.be/CsO7Y5NKnYo): **~6:40** (*Use NPM API*)
 
-# Publish Video Steps
+# 🌐 Publish Video Steps
 
-- **DaVinci**
+- **DaVinci Resolve**
   - **Thumbnail** (*good intro screenshot*)
   - **Export** Project 
   - **Rendering**
@@ -72,7 +72,8 @@
     - Almost same image as Thumbnail
     - Adjust README.MD Link
     - **Check-In**
-
+  - Set **Timestamps** in Description to **Sections** in README.MD
+  - Check for **Card** entries, also check *[TODO](TODO.md)* for future carde entries.
 - **Chrome**
-  - Clear Browser Data
+  - **Clear Browser** Data for next video 🤣
 
