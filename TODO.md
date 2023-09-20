@@ -1,17 +1,17 @@
 # 📅 Planned Future Videos
 
- - Docker Series:
-    - '05. Databases: Postgres, MySql, Redis, Prometheus, and Elasticsearch.
-    - '06. VaultWarden
-    - '07. Kutt
-    - '08. Guacamole
-    - '09. Uptime-Kuma
-    - '10. Harbor
-    - '11. RabbitMq
-    - '12. Kibana
-    - '13. Grafana
-    - '14. pgAdmin
-    - '15. heimdall
+ - **Docker Series**:
+    - 05. Databases: Postgres, MySql, Redis, Prometheus, and Elasticsearch.
+    - 06. VaultWarden
+    - 07. Kutt
+    - 08. Guacamole
+    - 09. Uptime-Kuma
+    - 10. Harbor
+    - 11. RabbitMq
+    - 12. Kibana
+    - 13. Grafana
+    - 14. pgAdmin
+    - 15. Heimdall
 
 # 💡 Ideas for future Videos
 
@@ -20,7 +20,7 @@
   - NPM
   - BitWarden
 
-# 🗂️ Video Cards
+# 🗂️ Future Video Cards
 - [03. Nginx Proxy Manager](https://youtu.be/CsO7Y5NKnYo): **~6:40** (*Use NPM API*)
 
 # 🌐 Publish Video Steps

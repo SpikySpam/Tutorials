@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  elasticsearch: # TF_VAR_ELASTICSEARCH_NAME
+    image: elasticsearch:${TF_VAR_VERSION_DOCKER_ELASTICSEARCH}
+    container_name: ${TF_VAR_ELASTICSEARCH_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_ELASTICSEARCH_NAME}:/usr/share/elasticsearch/data
+    # ports:
+    #   - ${TF_VAR_ELASTICSEARCH_PORT_EXT}:${TF_VAR_ELASTICSEARCH_PORT_INT}
+    environment:
+      - node.name=${TF_VAR_ELASTICSEARCH_NAME}
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - xpack.security.enabled=false

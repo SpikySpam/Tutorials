@@ -7,7 +7,7 @@ In this Tutorial we are going to prepare our **Docker** compose files for some o
 
 ## Video
 
-In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**, **Prometheus**, and **Elastic Search** on a Ubuntu Virtual Machine (in ProxMox) inside a **Docker** container.
+In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**, **Prometheus**, and **Elastic Search** on a Ubuntu Virtual Machine (*in ProxMox*) inside a **Docker** container.
 
 [![Video](_assets/images/db-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
 

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:${TF_VAR_VERSION_DOCKER_REDIS}
+    container_name: ${TF_VAR_REDIS_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_REDIS_NAME}:/data
+    # ports:
+    #   - ${TF_VAR_REDIS_PORT_EXT}:${TF_VAR_REDIS_PORT_INT}
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${TF_VAR_REDIS_PASSWORD}
+

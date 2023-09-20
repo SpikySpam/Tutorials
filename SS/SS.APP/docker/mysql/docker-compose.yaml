@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mysql: # TF_VAR_MYSQL_NAME
+    image: mysql:${TF_VAR_VERSION_DOCKER_MYSQL}
+    container_name: ${TF_VAR_MYSQL_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_MYSQL_NAME}:/var/lib/mysql
+    # ports:
+    #   - ${TF_VAR_MYSQL_PORT_EXT}:${TF_VAR_MYSQL_PORT_INT}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${TF_VAR_MYSQL_PASSWORD}
+      MYSQL_USER: ${TF_VAR_MYSQL_USER}
+      MYSQL_PASSWORD: ${TF_VAR_MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${TF_VAR_MYSQL_NAME}

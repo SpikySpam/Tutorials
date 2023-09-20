@@ -31,6 +31,22 @@ export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_POSTGRES_NAME="postgres"
 export TF_VAR_POSTGRES_USER="SomeUsername"
 export TF_VAR_POSTGRES_PASSWORD="UltraSecretPassword123!"
+# -- mysql
+export TF_VAR_MYSQL_NAME="mysql"
+export TF_VAR_MYSQL_USER="SomeUsername"
+export TF_VAR_MYSQL_PASSWORD="UltraSecretPassword123!"
+# -- redis
+export TF_VAR_REDIS_NAME="redis"
+export TF_VAR_REDIS_USER="SomeUsername"
+export TF_VAR_REDIS_PASSWORD="UltraSecretPassword123!"
+# -- prometheus
+export TF_VAR_PROMETHEUS_NAME="prometheus"
+export TF_VAR_PROMETHEUS_USER="SomeUsername"
+export TF_VAR_PROMETHEUS_PASSWORD="UltraSecretPassword123!"
+# -- elasticsearch
+export TF_VAR_ELASTICSEARCH_NAME="elasticsearch"
+export TF_VAR_ELASTICSEARCH_USER="SomeUsername"
+export TF_VAR_ELASTICSEARCH_PASSWORD="UltraSecretPassword123!"
 # -- vaultwarden
 export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
 export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
@@ -49,7 +65,7 @@ export TF_VAR_SMTP_HOST="smtp.gmail.com"
 export TF_VAR_SMTP_SECURITY="starttls"
 export TF_VAR_SMTP_PORT=587
 export TF_VAR_SMTP_USERNAME="example@gmail.com"
-export TF_VAR_SMTP_PASSWORD="UltraSecretAppPassword123!"
+export TF_VAR_SMTP_PASSWORD="UltraSecretPassword123!"
 
 # 2️⃣ SET ALIASSES
 alias cdss='cd $TF_VAR_PATH; clear'
@@ -67,13 +83,16 @@ alias tdar='tda -refresh=false'
 alias tv='t validate'
 alias tr='t refresh'
 
-export INITIALIZE="true"
+# 🚀 ----------------------------------
+#              START SCRIPT
+# 🚀 ----------------------------------
+export TF_VAR_AUTOSTART=false
+export INITIALIZE=true
 
-# 🚀 -- START SCRIPT ----------
-# INITIALIZE
+# -- INITIALIZE
 initialize () {
 
-  if [ $INITIALIZE == "false" ]; then
+  if [ $INITIALIZE == false ]; then
     echo
     echo ✅ "Press ENTER to CONTINUE"
     echo ❌ "Press CTRL+C to EXIT"
@@ -85,7 +104,7 @@ initialize () {
 
 }
 
-# LOAD ENVIRONMENT VARIABES
+# -- LOAD ENVIRONMENT VARIABLES
 load_env_vars () {
   source $TF_VAR_PATH_MAIN/version/app/version.sh
   source $TF_VAR_PATH_MAIN/version/docker/version.sh
@@ -97,7 +116,7 @@ load_env_vars () {
   source $TF_VAR_PATH_MAIN/ports.sh
 }
 
-# FINALIZE
+# -- FINALIZE
 finalize () {
 
   echo $DIV
@@ -112,7 +131,7 @@ finalize () {
 load_env_vars
 initialize
 
-# if [ $INITIALIZE == "false" ]; then
+# if [ $INITIALIZE == false ]; then
 
 # fi
 
