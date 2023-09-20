@@ -18,26 +18,21 @@ In this video I demonstrate how to install **Vaultwarden** on a Ubuntu Virtual M
 
 ## Prerequisites
 
-- [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) and its prerequisites.
-- **npm** A-record in **Mail-in-a-Box**
+- [04. Mail-in-a-Box](../04_mail_in_a_box/README.md)
+  - Its prerequisites
+  - Its Addendum
 
 ## Add A-Records
 
 - Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
 - Navigate to **Custom DNS** in the **System** menu
-- Create 2 A-records:
-  - A1:
-    - **Name**: npm
-    - **Type**: A
-    - **Value**: 46.101.80.89
-    - Click **Set Record**
-  - A2:
-    - **Name**: vaultwarden
-    - **Type**: A
-    - **Value**: 46.101.80.89
-    - Click **Set Record**
+- Create A-record:
+  - **Name**: vaultwarden
+  - **Type**: A
+  - **Value**: 46.101.80.89
+  - Click **Set Record**
 
-## Setup NPM Proxy Hosts
+## Add Proxy-Host
 
 - Navigate to [NPM](https://spikyspam.site)
 - Click **Add Proxy Host**:

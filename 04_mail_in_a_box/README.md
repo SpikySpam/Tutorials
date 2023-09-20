@@ -9,13 +9,13 @@ In this Tutorial we are going to setup **Mail-in-a-Box** to have our own **Mail 
 
 In this video we demonstrate how to install **Mail-in-a-Box** on a **Digital Ocean** Droplet.
 
-[![Video](_assets/images/mailinabox-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
+[![Video](_assets/images/miab-video.png)](https://youtu.be/TwhUXGHdLvg)
 
 ## Links
 
 - [Mail-In-a-Box Site](https://mailinabox.email/)
 - [Mail-In-a-Box Github](https://github.com/mail-in-a-box/mailinabox)
-- [Background Music](https://freesound.org/people/Migfus20/sounds/683260/)
+- [Background Music](https://freesound.org/people/Migfus20/sounds/683260)
 
 ## Prerequisites
 
@@ -171,3 +171,32 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a **Digital Oce
 - **Navigate** to https://161.35.33.18//cloud/calendar
 - **Provide** your Admin e-mail address and **password**
 - Click **Login**
+
+# Addendum to video
+
+These steps are not explained in the video...
+
+## Add A-Records
+
+- Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
+- Navigate to **Custom DNS** in the **System** menu
+- Create A-record:
+  - **Name**: npm
+  - **Type**: A
+  - **Value**: 46.101.80.89
+  - Click **Set Record**
+
+## Setup NPM Proxy Hosts
+
+- Navigate to [NPM](https://spikyspam.site)
+- Click **Add Proxy Host**:
+  - **Domain Names**: 
+    - npm.spikyspam.site
+  - **Scheme**: http
+  - **Forward IP**: ***46.101.80.89***
+  - **Port**: 81
+  - Block Common Exploits
+  - Websockets Support
+  - **SSL**:
+    - Let's Encrypt
+    - Force SSL
