@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  postgres: # TF_VAR_POSTGRES_NAME
+    image: postgres:${TF_VAR_VERSION_DOCKER_POSTGRES}
+    container_name: ${TF_VAR_POSTGRES_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
+    # ports:
+    #   - ${TF_VAR_POSTGRES_PORT_EXT}:${TF_VAR_POSTGRES_PORT_INT}
+    environment:
+      POSTGRES_USER: ${TF_VAR_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${TF_VAR_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${TF_VAR_POSTGRES_NAME}

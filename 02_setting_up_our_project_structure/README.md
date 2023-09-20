@@ -6,6 +6,10 @@
 In this Tutorial we are going to setup our **Project Structure** which we are going to use in many of the other Tutorials.
 This part of the series will change often, depending on the progress, but will remain backwards-compatible with older Tutorials.
 
+## Video
+
+[![Video](_assets/images/structure_video.png)](https://youtu.be/Nz7luu3nMeI)
+
 ## Links
 
 - [Spice Setup](https://pve.proxmox.com/wiki/SPICE)

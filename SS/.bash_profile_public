@@ -8,33 +8,50 @@ echo $DIV
 echo 😎 LOADING BASH PROFILE INTO MEMORY
 echo $DIV
 
-# SET PATHS
+# 💾 SET PATHS
 export TF_VAR_PATH_MAIN=$TF_VAR_PATH/SS
 export TF_VAR_PATH_APP=$TF_VAR_PATH/SS.APP
 export TF_VAR_PATH_CLI=$TF_VAR_PATH/SS/CLI
 export PATH="$TF_VAR_PATH_CLI:$PATH"
 
-# CURRENT ENVIRONMENT
+# 🌐 CURRENT ENVIRONMENT
 export TF_VAR_DOMAIN="example.com"
 
-# SET SECRETS
+# 🔑 SET SECRETS
+# -- google
 export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
+# -- npm
 export TF_VAR_NPM_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_NPM_PASSWORD="changeme"
+# -- mail-in-a-box
 export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
+# -- postgres
+export TF_VAR_POSTGRES_NAME="postgres"
+export TF_VAR_POSTGRES_USER="SomeUsername"
+export TF_VAR_POSTGRES_PASSWORD="UltraSecretPassword123!"
+# -- vaultwarden
 export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
 export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
-export TF_VAR_VAULTWARDEN_API_KEY="UltraSecretApiKey123!"
+export TF_VAR_VAULTWARDEN_ADMIN_PASSWORD="UltraSecretPassword123!"
+export TF_VAR_VAULTWARDEN_ADMIN_TOKEN='$argon2id$.....'
 
+# ✉️ SMTP
+# -- box
 export TF_VAR_SMTP_HOST=$TF_VAR_MAILINABOX_DOMAIN
 export TF_VAR_SMTP_SECURITY="starttls"
-export TF_VAR_SMTP_PORT=25
+export TF_VAR_SMTP_PORT=587
 export TF_VAR_SMTP_USERNAME=$TF_VAR_MAILINABOX_USER
 export TF_VAR_SMTP_PASSWORD=$TF_VAR_MAILINABOX_PASSWORD
+# -- gmail (overrides box in case port 25 is blocked)
+export TF_VAR_SMTP_HOST="smtp.gmail.com"
+export TF_VAR_SMTP_SECURITY="starttls"
+export TF_VAR_SMTP_PORT=587
+export TF_VAR_SMTP_USERNAME="example@gmail.com"
+export TF_VAR_SMTP_PASSWORD="UltraSecretAppPassword123!"
 
-# SET ALIASSES
+# 2️⃣ SET ALIASSES
 alias cdss='cd $TF_VAR_PATH; clear'
 alias k='kubectl'
 alias t='terraform'
@@ -52,6 +69,7 @@ alias tr='t refresh'
 
 export INITIALIZE="true"
 
+# 🚀 -- START SCRIPT ----------
 # INITIALIZE
 initialize () {
 

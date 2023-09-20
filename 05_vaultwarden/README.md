@@ -7,7 +7,7 @@ In this Tutorial we are going to setup **Vaultwarden** as our **Password Manager
 
 ## Video
 
-In this video I demonstrate how to install Vaultwarden on a Ubuntu Virtual Machine (in ProxMox).
+In this video I demonstrate how to install **Vaultwarden** on a Ubuntu Virtual Machine (in ProxMox) inside a **Docker** container.
 
 [![Video](_assets/images/vaultwarden-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
 
@@ -18,34 +18,39 @@ In this video I demonstrate how to install Vaultwarden on a Ubuntu Virtual Machi
 
 ## Prerequisites
 
-- [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md)
+- [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) and its prerequisites.
+- **npm** A-record in **Mail-in-a-Box**
 
 ## Add A-Records
 
-- Navigate to [Digital Ocean](https://www.digitalocean.com/)
-- Navigate to **Networking** in the **Digital Ocean** menu
-- Click the tab **Domains**
-- Choose your base domain
-- Click **A**
-- Create A-record:
-  - **Hostname**: vaultwarden
-  - **Will Direct To**: 46.101.80.89 (*💡 IP address of the NPM Droplet*)
-  - Click **Create Record**
+- Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
+- Navigate to **Custom DNS** in the **System** menu
+- Create 2 A-records:
+  - A1:
+    - **Name**: npm
+    - **Type**: A
+    - **Value**: 46.101.80.89
+    - Click **Set Record**
+  - A2:
+    - **Name**: vaultwarden
+    - **Type**: A
+    - **Value**: 46.101.80.89
+    - Click **Set Record**
 
 ## Setup NPM Proxy Hosts
 
 - Navigate to [NPM](https://spikyspam.site)
-- Click **Add Proxy Host**
-- **Domain Names**: 
-  - vaultwarden.spikyspam.site ➡️ ***`TF_VAR_VAULTWARDEN_DOMAIN`***
-- **Scheme**: http
-- **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
-- **Port**: 7000 ➡️ ***`TF_VAR_VAULTWARDEN_PORT`***
-- Block Common Exploits
-- Websockets Support
-- **SSL**:
-  - Let's Encrypt
-  - Force SSL
+- Click **Add Proxy Host**:
+  - **Domain Names**: 
+    - vaultwarden.spikyspam.site ➡️ ***`TF_VAR_VAULTWARDEN_DOMAIN`***
+  - **Scheme**: http
+  - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
+  - **Port**: 7000 ➡️ ***`TF_VAR_VAULTWARDEN_PORT`***
+  - Block Common Exploits
+  - Websockets Support
+  - **SSL**:
+    - Let's Encrypt
+    - Force SSL
 
 ## Forward port 7000 (***`TF_VAR_VAULTWARDEN_PORT`***) on your Router.
 

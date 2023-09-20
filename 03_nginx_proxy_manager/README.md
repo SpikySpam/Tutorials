@@ -7,9 +7,9 @@ In this Tutorial we are going to setup **Nginx Proxy Manager**, so we can redire
 
 ## Video
 
-In this video I demonstrate how to install the Nginx Proxy Manager on a Digital Ocean Droplet.
+In this video I demonstrate how to install the **Nginx Proxy Manager** on a **Digital Ocean** Droplet.
 
-[![Video](_assets/images/nginx_proxy_video.png)](https://youtu.be/haVaf8oMpUk)
+[![Video](_assets/images/nginx_proxy_video.png)](https://youtu.be/CsO7Y5NKnYo)
 
 ## Links
 
@@ -160,5 +160,4 @@ In this video I demonstrate how to install the Nginx Proxy Manager on a Digital 
 - **SSL**:
   - Let's Encrypt
   - Force SSL
-
 - **Login** to the Admin UI at **https://npm.spikyspam.site**

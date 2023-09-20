@@ -7,7 +7,7 @@ In this Tutorial we are going to setup **Mail-in-a-Box** to have our own **Mail 
 
 ## Video
 
-In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean Droplet.
+In this video we demonstrate how to install **Mail-in-a-Box** on a **Digital Ocean** Droplet.
 
 [![Video](_assets/images/mailinabox-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
 
@@ -19,13 +19,13 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a Digital Ocean
 
 ## Prerequisites
 
-- [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md)
+- [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) and its prerequisites
 
 ## Port 25 (*SMTP*)
 
 - **Digital Ocean** (*like most of other cloud providers*) blocks **port 25** (*SMTP*) by default.
 - **Open** up a **Support Ticket** to ask them to open it (*or find another provider*).
-- Without it, you cannot send e-mails (*you are able to receive them*).
+- Without it, you cannot send e-mails (*you are able to receive them which is sufficient for these Tutorials*).
 
 ## Create Digital Ocean Droplet (*4$/month*)
 
