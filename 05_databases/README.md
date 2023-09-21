@@ -88,11 +88,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
   ```
 
 ### [Elastic Search](../SS/SS.APP/docker/elasticsearch/docker-compose.yaml)
-- Get **Ownership** of the mounted Docker volume folder:
-  ```bash  
-  sudo chown -R spikyspam:spikyspam $HOME/docker
-  ```
-- Compose Up
+
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
   ```
@@ -116,12 +112,15 @@ These are all the above commands in a single script.
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PROMETHEUS_NAME/docker-compose.yaml up -d
 
   # Elastic Search
-  sudo chown -R spikyspam:spikyspam $HOME/docker
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
   ```
 
-
 ## Check
+
+- Get **Ownership** of the mounted Docker volume folder (*for **Elastix Search***):
+  ```bash  
+  sudo chown -R spikyspam:spikyspam $HOME/docker
+  ```
 
 - **Check** Containers
   ```bash
