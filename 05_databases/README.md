@@ -43,6 +43,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
 - Get the latest [***`.bash_profile`***](../SS/.bash_profile_public) content:
   ```bash  
   cp $TF_VAR_PATH/.bash_profile_public $TF_VAR_PATH/.bash_profile
+  nano $TF_VAR_PATH/.bash_profile
   ```
 - Check new **[ports.sh](../SS/SS/ports.sh)**
   ```bash  
