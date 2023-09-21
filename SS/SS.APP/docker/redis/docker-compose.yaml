@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  redis:
+  redis: # TF_VAR_REDIS_NAME
     image: redis:${TF_VAR_VERSION_DOCKER_REDIS}
     container_name: ${TF_VAR_REDIS_NAME}
     restart: unless-stopped

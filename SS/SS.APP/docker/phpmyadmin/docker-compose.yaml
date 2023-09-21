@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  phpmyadmin: # TF_VAR_PHPMYADMIN_NAME
+    image: phpmyadmin/phpmyadmin:${TF_VAR_VERSION_DOCKER_PHPMYADMIN}
+    container_name: ${TF_VAR_PHPMYADMIN_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_PHPMYADMIN_PORT_EXT}:${TF_VAR_PHPMYADMIN_PORT_INT}
+    environment:
+      - PMA_ARBITRARY=1

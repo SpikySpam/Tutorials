@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  prometheus:
+  prometheus: # TF_VAR_PROMETHEUS_NAME
     image: prom/prometheus:${TF_VAR_VERSION_DOCKER_PROMETHEUS}
     container_name: ${TF_VAR_PROMETHEUS_NAME}
     restart: unless-stopped

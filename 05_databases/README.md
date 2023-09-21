@@ -7,17 +7,19 @@ In this Tutorial we are going to prepare some **Docker** compose files for a cou
 
 ## Video
 
-In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**, **Prometheus**, and **Elastic Search** on a Ubuntu Virtual Machine (*in ProxMox*) inside a **Docker** container.
+In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**, **Prometheus**, and **Elastic Search** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
 
 [![Video](_assets/images/db-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
 
 ## Links
 
 - [PostgreSQL Site](https://www.postgresql.org)
-- [MySql Site](https://www.mysql.com/)
-- [Redis Site](https://redis.com/)
-- [Prometheus Site](https://prometheus.io/)
-- [Elastic Search Site](https://www.elastic.co/)
+- [pgAdmin Site](https://www.pgadmin.org)
+- [MySql Site](https://www.mysql.com)
+- [phpMyAdmin Site](https://www.phpmyadmin.net)
+- [Redis Site](https://redis.com)
+- [Prometheus Site](https://prometheus.io)
+- [Elastic Search Site](https://www.elastic.co)
 
 ## Prerequisites
 
@@ -53,14 +55,24 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
 
 ### [PostgreSQL](../SS/SS.APP/docker/postgres/docker-compose.yaml)
 
+- Database
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_POSTGRES_NAME/docker-compose.yaml up -d
+  ```
+- Web Interface
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PGADMIN_NAME/docker-compose.yaml up -d
   ```
 
 ### [MySql](../SS/SS.APP/docker/mysql/docker-compose.yaml)
 
+- Database
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MYSQL_NAME/docker-compose.yaml up -d
+  ```
+- Web Interface
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
   ```
 
 ### [Redis](../SS/SS.APP/docker/redis/docker-compose.yaml)
@@ -84,6 +96,30 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
   ```
+
+## Complete Script
+
+These are all the above commands in a single script.
+  ```bash
+  # PostgreSQL
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_POSTGRES_NAME/docker-compose.yaml up -d
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PGADMIN_NAME/docker-compose.yaml up -d
+
+  # MySql
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MYSQL_NAME/docker-compose.yaml up -d
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
+
+  # Redis
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_REDIS_NAME/docker-compose.yaml up -d
+
+  # Prometheus
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PROMETHEUS_NAME/docker-compose.yaml up -d
+
+  # Elastic Search
+  sudo chown -R spikyspam:spikyspam $HOME/docker
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
+  ```
+
 
 ## Check
 

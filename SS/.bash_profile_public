@@ -47,6 +47,12 @@ export TF_VAR_PROMETHEUS_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_ELASTICSEARCH_NAME="elasticsearch"
 export TF_VAR_ELASTICSEARCH_USER="SomeUsername"
 export TF_VAR_ELASTICSEARCH_PASSWORD="UltraSecretPassword123!"
+# -- pgadmin
+export TF_VAR_PGADMIN_NAME="pgadmin"
+export TF_VAR_PGADMIN_USER=$TF_VAR_MAILINABOX_USER
+export TF_VAR_PGADMIN_PASSWORD="UltraSecretPassword123!"
+# -- phpmyadmin
+export TF_VAR_PHPMYADMIN_NAME="phpmyadmin"
 # -- vaultwarden
 export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
 export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
