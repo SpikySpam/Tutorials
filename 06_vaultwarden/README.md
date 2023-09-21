@@ -18,9 +18,7 @@ In this video I demonstrate how to install **Vaultwarden** on a Ubuntu Virtual M
 
 ## Prerequisites
 
-- [04. Mail-in-a-Box](../04_mail_in_a_box/README.md)
-  - Its prerequisites
-  - Its Addendum
+- [05. Databases](../05_databases/README.md)
 
 ## Add A-Records
 
@@ -34,20 +32,20 @@ In this video I demonstrate how to install **Vaultwarden** on a Ubuntu Virtual M
 
 ## Add Proxy-Host
 
-- Navigate to [NPM](https://spikyspam.site)
+- Navigate to your [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) address.
 - Click **Add Proxy Host**:
   - **Domain Names**: 
     - vaultwarden.spikyspam.site ➡️ ***`TF_VAR_VAULTWARDEN_DOMAIN`***
   - **Scheme**: http
   - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
-  - **Port**: 7000 ➡️ ***`TF_VAR_VAULTWARDEN_PORT`***
+  - **Port**: 7000 ➡️ ***`TF_VAR_VAULTWARDEN_PORT_EXT`***
   - Block Common Exploits
   - Websockets Support
   - **SSL**:
     - Let's Encrypt
     - Force SSL
 
-## Forward port 7000 (***`TF_VAR_VAULTWARDEN_PORT`***) on your Router.
+## Forward port 7000 (***`TF_VAR_VAULTWARDEN_PORT_EXT`***) on your Router.
 
 - Telenet:
   - Login into **mijn-telenet** and navigate to your home network settings:
@@ -59,33 +57,16 @@ https://mijn.telenet.be/mijntelenet/homenetwork/
 
 ## Install Vaultwarden
 
-- **Login** into your [Ubuntu VM](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
-- Get the latest relevant **Sources** from **GitHub**:
-  ```bash  
-  # Clone the Tutorial repository to a TempTutorials folder
-  git clone https://github.com/SpikySpam/Tutorials.git TempTutorials
+- Get the latest sources as explained in [05. Databases](../05_databases/README.md#latest-sources)
+- 💥💥💥💥 vaultwarden hash in docker container
 
-  # Move these 3 files
-  mv -f TempTutorials/SS/SS/ports.sh $TF_VAR_PATH/SS/ports.sh
-  mv -f TempTutorials/SS/SS/version/docker/version.sh $TF_VAR_PATH/SS/version/docker/version.sh
-  mv -f TempTutorials/SS/SS.APP/docker/vaultwarden/docker-compose.yaml $TF_VAR_PATH/SS.APP/docker/vaultwarden/docker-compose.yaml
-
-  # Remove the TempTutorials folder
-  rm -rf TempTutorials
-  ```
-
-- Be sure to copy the content from the latest [***`.bash_profile`***](../SS/.bash_profile_public) file into yours:
+- Install Vaultwarden
   ```bash
-  nano $TF_VAR_PATH/.bash_profile
-  ```
-
-- Deploy it using following command
-  ```bash
-  docker compose -f $TF_VAR_PATH_APP/docker/vaultwarden/docker-compose.yaml up
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_VAULTWARDEN_NAME/docker-compose.yaml up -d
   ```
 
 ## Configure Vaultwarden
 
 - Navigate to **https://vaultwarden.spikyspam.site/admin**
-- Login with your **`$TF_VAR_VAULTWARDEN_API_KEY`**
+- Login with your **`$TF_VAR_VAULTWARDEN_ADMIN_PASSWORD`**
 - You can now **Invite Users**

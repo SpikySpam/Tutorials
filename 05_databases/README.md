@@ -28,7 +28,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
   - Its **addendum**
 
 ## Clone latest Sources
-
+<a id="latest-sources"></a>
 - **Login** into your [Ubuntu VM](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) in [ProxMox](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
 - Get the latest **Sources** from **GitHub**:
   ```bash  
@@ -116,9 +116,9 @@ These are all the above commands in a single script.
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
   ```
 
-## Check
+## Check Docker
 
-- Get **Ownership** of the mounted Docker volume folder (*for **Elastix Search***):
+- Get **Ownership** of the mounted Docker volume folder (*for **Elastic Search***):
   ```bash  
   sudo chown -R spikyspam:spikyspam $HOME/docker
   ```
@@ -134,3 +134,55 @@ These are all the above commands in a single script.
   docker system prune -a -f
   sudo rm -rf $HOME/docker
   ```
+
+## Add A-Records
+
+- Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
+- Navigate to **Custom DNS** in the **System** menu
+- Create 2 A-records:
+  - A1:
+    - **Name**: pgadmin
+    - **Type**: A
+    - **Value**: 46.101.80.89
+    - Click **Set Record**
+  - A2:
+    - **Name**: phpmyadmin
+    - **Type**: A
+    - **Value**: 46.101.80.89
+    - Click **Set Record**
+
+## Setup NPM Proxy Hosts
+
+- Navigate to your [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) address.
+- Add 2 Proxy Hosts:
+  - Host 1:
+    - **Domain Names**: 
+      - pgadmin.spikyspam.site ➡️ ***`TF_VAR_PGADMIN_NAME`***
+    - **Scheme**: http
+    - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
+    - **Port**: 5433 ➡️ ***`TF_VAR_PGADMIN_PORT_EXT`***
+    - Block Common Exploits
+    - Websockets Support
+    - **SSL**:
+      - Let's Encrypt
+      - Force SSL
+  - Host 2:
+    - **Domain Names**: 
+      - phpmyadmin.spikyspam.site ➡️ ***`TF_VAR_PHPMYADMIN_NAME`***
+    - **Scheme**: http
+    - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
+    - **Port**: 3307 ➡️ ***`TF_VAR_PHPMYADMIN_PORT_EXT`***
+    - Block Common Exploits
+    - Websockets Support
+    - **SSL**:
+      - Let's Encrypt
+      - Force SSL
+
+## Forward ports on your Router.
+
+  - Add the following port-forward rules:
+    ```
+    192.168.0.30 ➡️ 5433 # TF_VAR_PGADMIN_PORT_EXT
+    192.168.0.30 ➡️ 3307 # TF_VAR_PHPMYADMIN_PORT_EXT
+    ```
+  - We've created the IP address **192.168.0.30** in [018. ProxMox➡️ Ubuntu](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)

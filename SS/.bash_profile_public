@@ -57,7 +57,7 @@ export TF_VAR_PHPMYADMIN_NAME="phpmyadmin"
 export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
 export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
 export TF_VAR_VAULTWARDEN_ADMIN_PASSWORD="UltraSecretPassword123!"
-export TF_VAR_VAULTWARDEN_ADMIN_TOKEN='$argon2id$.....'
+export TF_VAR_VAULTWARDEN_ADMIN_TOKEN='$argon2id$v=19$m=65540,t=3,p=4$gxCIeCjT3gHdbVwWKd86lHjq1wWp6a9+NlScRmaeBOw$XKlvjpjCIjy6kfVPjSpOHe2mjA5TOeoxPwLnb9uzYRY'
 
 # ✉️ SMTP
 # -- box
