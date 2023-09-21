@@ -38,15 +38,17 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
   mv -f SpikySpamTutorials/SS $TF_VAR_PATH
   rm -rf SpikySpamTutorials
   ```
-- 💥 Get the latest [***`.bash_profile`***](../SS/.bash_profile_public) content:
+- Get the latest [***`.bash_profile`***](../SS/.bash_profile_public) content:
   ```bash  
-  nano $TF_VAR_PATH/.bash_profile
+  cp $TF_VAR_PATH/.bash_profile_public $TF_VAR_PATH/.bash_profile
   ```
 - Check new **[ports.sh](../SS/SS/ports.sh)**
-- Check new **[version.sh](../SS/SS/version/docker/version.sh)**
-- Get **Ownership** of the mounted Docker volume folder:
   ```bash  
-  sudo chown -R spikyspam:spikyspam $HOME/docker
+  nano $TF_VAR_PATH_MAIN/ports.sh
+  ```
+- Check new **[version.sh](../SS/SS/version/docker/version.sh)**
+  ```bash  
+  nano $TF_VAR_PATH_MAIN/version/docker/version.sh
   ```
 
 ### [PostgreSQL](../SS/SS.APP/docker/postgres/docker-compose.yaml)
@@ -74,7 +76,11 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
   ```
 
 ### [Elastic Search](../SS/SS.APP/docker/elasticsearch/docker-compose.yaml)
-
+- Get **Ownership** of the mounted Docker volume folder:
+  ```bash  
+  sudo chown -R spikyspam:spikyspam $HOME/docker
+  ```
+- Compose Up
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
   ```
