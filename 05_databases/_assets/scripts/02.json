@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Login into our installed Ubuntu Desktop virtual machine. A video about this will popup now. Clone my, or this, Forked, github repository, to download all necessary docker compose files. After you have downloaded the repo with all basic docker compose files you can run the following commands to spin up the databases. All docker compose files in this video act like a blueprint for further docker compose files and are pretty much useless on their own. But we fucking need this to continue. Let's go again. Alrighty!"
+  }
+}

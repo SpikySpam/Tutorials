@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video, I'm going to prepare our docker compose files for some of the frequently used databases like Postgres, MySql, Redis, Prometheus, and Elasticsearch. Let's go!"
+    "text": "Hey, hey. Spiky here. In this video I'm going to prepare our docker compose files for some of the frequently used databases like Postgres, MySql, Redis, Prometheus, and Elasticsearch. This video will be a lot of copy pasting, but you can also, simply clone my GitHub sources. Everything starts with a dababase, knowledge is power they say. In later tutorials we will connect our apps to those databases. Let's go!"
   }
 }
