@@ -5,6 +5,7 @@ services:
     extends:
       service: ${TF_VAR_POSTGRES_NAME}
       file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_VAULTWARDEN_NAME}
     volumes:
       - $HOME/docker/${TF_VAR_VAULTWARDEN_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
     environment:
