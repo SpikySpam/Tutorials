@@ -6,6 +6,7 @@ services:
     container_name: ${TF_VAR_PROMETHEUS_NAME}
     restart: unless-stopped
     volumes:
+      - ./config/prometheus:/etc/prometheus
       - $HOME/docker/${TF_VAR_PROMETHEUS_NAME}:/prometheus
     # ports:
     #   - ${TF_VAR_PROMETHEUS_PORT_EXT}:${TF_VAR_PROMETHEUS_PORT_INT}

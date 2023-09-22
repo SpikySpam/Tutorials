@@ -118,7 +118,7 @@ These are all the above commands in a single script.
 
 ## Check Docker
 
-- Get **Ownership** of the mounted Docker volume folder (*for **Elastic Search***):
+- Get **Ownership** of the mounted Docker volume folder (*for **Prometheus***):
   ```bash  
   sudo chown -R spikyspam:spikyspam $HOME/docker
   ```
@@ -128,12 +128,21 @@ These are all the above commands in a single script.
   docker ps
   ```
 
-- **Clean** Docker
+- **Clean** Docker (**skip this**)
   ```bash
-  docker rm -f $(docker ps -a -q)
-  docker system prune -a -f
-  sudo rm -rf $HOME/docker
+  # docker rm -f $(docker ps -a -q)
+  # docker system prune -a -f
+  # sudo rm -rf $HOME/docker
   ```
+
+## Forward ports on your Router.
+
+  - Add the following port-forward rules:
+    ```
+    192.168.0.30 ➡️ 5433 # TF_VAR_PGADMIN_PORT_EXT
+    192.168.0.30 ➡️ 3307 # TF_VAR_PHPMYADMIN_PORT_EXT
+    ```
+  - We've created the IP address **192.168.0.30** in [018. ProxMox➡️ Ubuntu](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
 
 ## Add A-Records
 
@@ -177,12 +186,3 @@ These are all the above commands in a single script.
     - **SSL**:
       - Let's Encrypt
       - Force SSL
-
-## Forward ports on your Router.
-
-  - Add the following port-forward rules:
-    ```
-    192.168.0.30 ➡️ 5433 # TF_VAR_PGADMIN_PORT_EXT
-    192.168.0.30 ➡️ 3307 # TF_VAR_PHPMYADMIN_PORT_EXT
-    ```
-  - We've created the IP address **192.168.0.30** in [018. ProxMox➡️ Ubuntu](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)

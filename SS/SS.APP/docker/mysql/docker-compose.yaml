@@ -6,6 +6,7 @@ services:
     container_name: ${TF_VAR_MYSQL_NAME}
     restart: unless-stopped
     volumes:
+      - ./config/mysql/init.sql:/docker-entrypoint-initdb.d/init.sq
       - $HOME/docker/${TF_VAR_MYSQL_NAME}:/var/lib/mysql
     # ports:
     #   - ${TF_VAR_MYSQL_PORT_EXT}:${TF_VAR_MYSQL_PORT_INT}
