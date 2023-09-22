@@ -33,7 +33,8 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 
 - Create a **[Vaultwarden Hash](https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page)** for the ***$TF_VAR_VAULTWARDEN_ADMIN_TOKEN*** environment variable (*based on the **$TF_VAR_VAULTWARDEN_ADMIN_PASSWORD** environment variable*)
   ```bash
-  # Get Strong Password
+  # Strong Password
+  nano $TF_VAR_PATH/.bash_profile
   echo $TF_VAR_VAULTWARDEN_ADMIN_PASSWORD
 
   # Get Hash
