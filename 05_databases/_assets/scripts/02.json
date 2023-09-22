@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Login into our installed Ubuntu Desktop virtual machine. A video about this will popup now. Clone my, or this, Forked, github repository, to download all necessary docker compose files. After you have downloaded the repo with all basic docker compose files you can run the following commands to spin up the databases. All docker compose files in this video act like a blueprint for further docker compose files and are pretty much useless on their own. But we fucking need this to continue. Let's go again. Alrighty!"
+"text": "This video will be a lot of copy pasting from my Github page. Most of my videos are not intended as tutorials for our used applications, There are tons of other youtube tutorials for that. These video series will concentrate on how to glue all those components together. So for this tutorial to work you need to have finished the Prerequisites."
   }
 }

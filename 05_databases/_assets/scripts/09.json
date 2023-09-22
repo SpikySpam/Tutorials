@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "As a last step, we need to redirect incoming traffic in our Engine X Proxy Manager to our external home IP address and port. We will also provide the necessary certificates using the build in Let's Encrypt provider."
+  }
+}

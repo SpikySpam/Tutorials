@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "I have prepared docker compose files for all used databases and tools. You can pick the one you want to spin up. But for simplicity, I also added a section that contains all commands at once. So let's copy paste those commands into our terminal, and execute them."
+  }
+}

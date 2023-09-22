@@ -3,23 +3,24 @@
 
 ![DB Banner](_assets/images/db_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used databases like **PostgreSQL**, **MySql**, **Redis**, **Prometheus**, and **Elastic Search**. We will use those databases in a lot of upcoming Tutorials.
+In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used databases like **PostgreSQL**, **MySql**, **Redis**, **Prometheus** and **Elastic Search**. We will use those databases in a lot of upcoming Tutorials. We will also install the **pgAdmin** and **phpMyAdmin** tools to have a graphical web interface.
 
 ## Video
 
-In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**, **Prometheus**, and **Elastic Search** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
+In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**, **Prometheus** and **Elastic Search** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
 
-[![Video](_assets/images/db-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
+[![Video](_assets/images/db_video.png)](https://youtu.be/8UoNDwNV4R8)
 
 ## Links
 
 - [PostgreSQL Site](https://www.postgresql.org)
-- [pgAdmin Site](https://www.pgadmin.org)
+- ➡️ [pgAdmin Site](https://www.pgadmin.org)
 - [MySql Site](https://www.mysql.com)
-- [phpMyAdmin Site](https://www.phpmyadmin.net)
+- ➡️ [phpMyAdmin Site](https://www.phpmyadmin.net)
 - [Redis Site](https://redis.com)
 - [Prometheus Site](https://prometheus.io)
 - [Elastic Search Site](https://www.elastic.co)
+- [Background Music](https://freesound.org/people/gis_sweden/sounds/514508)
 
 ## Prerequisites
 

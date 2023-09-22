@@ -1,7 +1,6 @@
 # 📅 Planned Future Videos
 
  - **Docker Series**:
-    - 05. Databases: Postgres, MySql, Redis, Prometheus, and Elasticsearch.
     - 06. VaultWarden
     - 07. Kutt
     - 08. Guacamole
@@ -21,7 +20,8 @@
   - BitWarden
 
 # 🗂️ Future Video Cards
-- [03. Nginx Proxy Manager](https://youtu.be/CsO7Y5NKnYo): **~6:40** (*Use NPM API*)
+- [03. Nginx Proxy Manager](https://youtu.be/CsO7Y5NKnYo): **~6:40** (*Automate NPM API*)
+- [05. Databases](https://youtu.beXXXXXXXXXX): **~end** (*Automate NPM API*)
 
 # 🌐 Publish Video Steps
 

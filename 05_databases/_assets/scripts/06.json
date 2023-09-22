@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "As a last step we need to give our non root user access to the docker folder in our home directory. This is the place where we mount Docker volumes to persist our data. Let's check if all containers are running with docker ps."
+  }
+}
