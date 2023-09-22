@@ -10,4 +10,5 @@ services:
       - $HOME/docker/${TF_VAR_PROMETHEUS_NAME}:/prometheus
     # ports:
     #   - ${TF_VAR_PROMETHEUS_PORT_EXT}:${TF_VAR_PROMETHEUS_PORT_INT}
+    user: root
     command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
