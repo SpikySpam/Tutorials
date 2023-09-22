@@ -1,5 +1,5 @@
 ![NPM Logo](_assets/images/vaultwarden.png)
-# 05. Vaultwarden
+# 06. Vaultwarden
 
 ![NPM Banner](_assets/images/bw_banner.png)
 
@@ -20,47 +20,22 @@ In this video I demonstrate how to install **Vaultwarden** on a Ubuntu Virtual M
 
 - [05. Databases](../05_databases/README.md)
 
-## Add A-Records
+## Network Preparations
 
-- Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
-- Navigate to **Custom DNS** in the **System** menu
-- Create A-record:
-  - **Name**: vaultwarden
-  - **Type**: A
-  - **Value**: 46.101.80.89
-  - Click **Set Record**
+These steps are explained in this [video](https://youtu.be/8UoNDwNV4R8):
 
-## Add Proxy-Host
-
-- Navigate to your [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) address.
-- Click **Add Proxy Host**:
-  - **Domain Names**: 
-    - vaultwarden.spikyspam.site ➡️ ***`TF_VAR_VAULTWARDEN_DOMAIN`***
-  - **Scheme**: http
-  - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
-  - **Port**: 7000 ➡️ ***`TF_VAR_VAULTWARDEN_PORT_EXT`***
-  - Block Common Exploits
-  - Websockets Support
-  - **SSL**:
-    - Let's Encrypt
-    - Force SSL
-
-## Forward port 7000 (***`TF_VAR_VAULTWARDEN_PORT_EXT`***) on your Router.
-
-- Telenet:
-  - Login into **mijn-telenet** and navigate to your home network settings:
-https://mijn.telenet.be/mijntelenet/homenetwork/
-  - Add the following port-forward rules:
-    ```
-    192.168.0.30 ➡️ 7000 HTTP/BOTH
-    ```
+- 1️⃣ [**Forward port 7000** on your **Router**](../05_databases/README.md#forward-ports-router)
+- 2️⃣ [Add **A-Record**](../05_databases/README.md#add-a-record)
+- 3️⃣ [Add NPM **Proxy Host**](../05_databases/README.md#npm-proxy-host)
+- 4️⃣ [**Clone** latest **Sources**](../05_databases/README.md#latest-sources)
 
 ## Install Vaultwarden
 
-- Get the latest sources as explained in [05. Databases](../05_databases/README.md#latest-sources)
-- 💥💥💥💥 vaultwarden hash in docker container
-
-- Install Vaultwarden
+- Create a **[Vaultwarden Hash](https://github.com/dani-garcia/vaultwarden/wiki/Enabling-admin-page)** for the ***$TF_VAR_VAULTWARDEN_ADMIN_TOKEN*** environment variable (*based on the **$TF_VAR_VAULTWARDEN_ADMIN_PASSWORD** environment variable*)
+  ```bash
+  docker run --rm -it vaultwarden/server:${TF_VAR_VERSION_DOCKER_VAULTWARDEN} ./vaultwarden hash
+  ```
+- **Install** Vaultwarden
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_VAULTWARDEN_NAME/docker-compose.yaml up -d
   ```

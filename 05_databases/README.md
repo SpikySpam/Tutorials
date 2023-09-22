@@ -141,7 +141,7 @@ These are all the above commands in a single script.
   ```
 
 ## Forward ports on your Router.
-
+<a id="forward-ports-router"></a>
   - Add the following port-forward rules:
     ```
     192.168.0.30 ➡️ 5433 # TF_VAR_PGADMIN_PORT_EXT
@@ -150,6 +150,7 @@ These are all the above commands in a single script.
   - We've created the IP address **192.168.0.30** in [018. ProxMox➡️ Ubuntu](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
 
 ## Add A-Records
+<a id="add-a-record"></a>
 
 - Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
 - Navigate to **Custom DNS** in the **System** menu
@@ -166,6 +167,7 @@ These are all the above commands in a single script.
     - Click **Set Record**
 
 ## Setup NPM Proxy Hosts
+<a id="npm-proxy-host"></a>
 
 - Navigate to your [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) address.
 - Add 2 Proxy Hosts:

@@ -16,6 +16,6 @@ All videos for these tutorials are freely available at YouTube. Just navigate to
 | ![ProxMox Logo](01_setting_up_a_cheap_home_lab_with_proxmox/_assets/images/proxmox.png) | [01. Setting up a Home Lab with ProxMox](01_setting_up_a_cheap_home_lab_with_proxmox/README.md) |
 | ![Structure Logo](02_setting_up_our_project_structure/_assets/images/structure.png) | [02. Setting up our Project Structure](02_setting_up_our_project_structure/README.md) |
 | ![NPM Logo](03_nginx_proxy_manager/_assets/images/nginx_proxy.png) | [03. Nginx Proxy Manager](03_nginx_proxy_manager/README.md) |
-<!-- | ![MailInABox Logo](04_mail_in_a_box/_assets/images/mailinabox.png) | [04. Mail-in-a-Box](04_mail_in_a_box/README.md) | -->
-
+| ![MailInABox Logo](04_mail_in_a_box/_assets/images/mailinabox.png) | [04. Mail-in-a-Box](04_mail_in_a_box/README.md) |
+| ![Databases Logo](05_databases/_assets/images/database.png) | [05. Databases](05_databases/README.md) |
 
