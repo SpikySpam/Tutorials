@@ -100,10 +100,14 @@ These are all the above commands in a single script.
   ```bash
   # PostgreSQL
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_POSTGRES_NAME/docker-compose.yaml up -d
+
+  # pgAdmin for PostgreSQL
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PGADMIN_NAME/docker-compose.yaml up -d
 
   # MySql
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MYSQL_NAME/docker-compose.yaml up -d
+
+  # phpMyAdmin for MySql, Maria, ...
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
 
   # Redis
@@ -118,7 +122,7 @@ These are all the above commands in a single script.
 
 ## Check Docker
 
-- Get **Ownership** of the mounted Docker volume folder (*for **Prometheus***):
+- Get **Ownership** of the mounted Docker volume folder (*for **Elastic Search***):
   ```bash  
   sudo chown -R spikyspam:spikyspam $HOME/docker
   ```
