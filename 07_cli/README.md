@@ -13,8 +13,16 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 
 ## Links
 
-- [Lychee GitHub](https://github.com/lycheeverse/lychee)
-- [Gitleaks GitHub]( https://github.com/gitleaks/gitleaks)
+- [Gitleaks](https://github.com/gitleaks/gitleaks)
+- [Helm](https://github.com/helm/helm)
+- [JQ](https://github.com/jqlang/jq)
+- [K6](https://github.com/grafana/k6)
+- [Kind](https://github.com/kubernetes-sigs/kind)
+- [KubeCtl](https://kubernetes.io/docs/tasks/tools)
+- [Lychee](https://github.com/lycheeverse/lychee)
+- [Popeye](https://github.com/derailed/popeye)
+- [Step](https://github.com/smallstep/cli)
+- [Terraform](https://github.com/hashicorp/terraform)
 
 ## Prerequisites
 
@@ -87,7 +95,7 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 
 ## Calling from **`.bash_profile`**
 
-- I have added a call to the **`cli.sh`** Script in our **`.bash_profile`** file:
+- I have added a call to the **`cli.sh`** Script in our **[.bash_profile](../SS/.bash_profile_public)** file:
   ```bash
   # .bash_profile snippet
 
@@ -107,4 +115,48 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
   finalize
   
   export INITIALIZE=false
+  ```
+
+## Tool Demos
+
+- [Gitleaks](https://github.com/gitleaks/gitleaks)
+  ```bash
+  gitleaks detect -v -s $TF_VAR_PATH_MAIN --redact
+  ```
+- [Helm](https://github.com/helm/helm)
+  ```bash
+  helm create $TF_VAR_PATH_APP/helm/vaultwarden
+  ```
+- [JQ](https://github.com/jqlang/jq)
+  ```bash
+  echo '{"foo": 0}' | jq
+  ```
+- [K6](https://github.com/grafana/k6)
+  ```bash
+  k6
+  ```
+- [Kind](https://github.com/kubernetes-sigs/kind)
+  ```bash
+  kind create cluster
+  # kind delete cluster
+  ```
+- [KubeCtl](https://kubernetes.io/docs/tasks/tools)
+  ```bash
+  k cluster-info
+  ```
+- [Lychee](https://github.com/lycheeverse/lychee)
+  ```bash
+  lychee . --offline
+  ```
+- [Popeye](https://github.com/derailed/popeye)
+  ```bash
+  popeye
+  ```
+- [Step](https://github.com/smallstep/cli)
+  ```bash
+  step base64 $TF_VAR_VAULTWARDEN_ADMIN_TOKEN
+  ```
+- [Terraform](https://github.com/hashicorp/terraform)
+  ```bash
+  t workspace list
   ```
