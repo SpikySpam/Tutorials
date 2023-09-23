@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OSTYPE_LINUX="linux-gnu"
-# OSTYPE_LINUX="msys"
+OSTYPE_LINUX="msys"
 OSTYPE_WINDOWS="msys"
 
 CLI_NAME_GITLEAKS="gitleaks"
@@ -20,7 +20,7 @@ cli_install_gitleaks() {
   if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_GITLEAKS*" > /dev/null; then
     if [ $OSTYPE == $OSTYPE_LINUX ]; then
       curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_GITLEAKS.tar.gz https://github.com/$CLI_NAME_GITLEAKS/$CLI_NAME_GITLEAKS/releases/download/v$TF_VAR_VERSION_CLI_GITLEAKS/${CLI_NAME_GITLEAKS}_${TF_VAR_VERSION_CLI_GITLEAKS}_linux_x32.tar.gz
-      tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_GITLEAKS.tar.gz -C $TF_VAR_PATH_CLI $CLI_NAME_GITLEAKS --strip-components 1
+      tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_GITLEAKS.tar.gz -C $TF_VAR_PATH_CLI $CLI_NAME_GITLEAKS
       rm -f $TF_VAR_PATH_CLI/$CLI_NAME_GITLEAKS.tar.gz
       chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_GITLEAKS
     elif [ $OSTYPE == $OSTYPE_WINDOWS ]; then
