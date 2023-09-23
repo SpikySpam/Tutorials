@@ -33,11 +33,12 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
 <a id="latest-sources"></a>
 - **Login** into your [Ubuntu VM](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) in [ProxMox](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
 - Get the latest **Sources** from **GitHub**:
-  ```bash  
-  rm -rf SpikySpamTutorials  
+  ```bash
+  # Clone to Temporary folder
+  rm -rf SpikySpamTutorials
   git clone https://github.com/SpikySpam/Tutorials.git SpikySpamTutorials
  
-  # mkdir $HOME/Desktop/Tutorials
+  # Remove old folder & Copy Temp folder
   rm -fr $TF_VAR_PATH
   mv -f SpikySpamTutorials/SS $TF_VAR_PATH
   rm -rf SpikySpamTutorials

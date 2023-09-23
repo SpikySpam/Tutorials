@@ -124,6 +124,12 @@ load_env_vars () {
   source $TF_VAR_PATH_MAIN/ports.sh
 }
 
+# -- INSTALL CLI TOOLS
+install_cli () {
+  chmod +x $TF_VAR_PATH_MAIN/cli.sh
+  $TF_VAR_PATH_MAIN/cli.sh
+}
+
 # -- FINALIZE
 finalize () {
 
@@ -138,11 +144,7 @@ finalize () {
 
 load_env_vars
 initialize
-
-# if [ $INITIALIZE == false ]; then
-
-# fi
-
+install_cli
 finalize
 
-export INITIALIZE="false"
+export INITIALIZE=false
