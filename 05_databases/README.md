@@ -42,10 +42,12 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
   rm -fr $TF_VAR_PATH
   mv -f SpikySpamTutorials/SS $TF_VAR_PATH
   rm -rf SpikySpamTutorials
-  ```
-- Get the latest [***`.bash_profile`***](../SS/.bash_profile_public) content:
-  ```bash  
+
+  # Get the latest .bash_profile content
   cp $TF_VAR_PATH/.bash_profile_public $TF_VAR_PATH/.bash_profile
+  ```
+- Check new **[.bash_profile.sh](../SS/.bash_profile_public)**
+  ```bash  
   nano $TF_VAR_PATH/.bash_profile
   ```
 - Check new **[ports.sh](../SS/SS/ports.sh)**
