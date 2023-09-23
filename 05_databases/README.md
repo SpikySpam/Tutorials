@@ -3,7 +3,7 @@
 
 ![DB Banner](_assets/images/db_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used databases like **PostgreSQL**, **MySql**, **Redis**, **Prometheus** and **Elastic Search**. We will use those databases in a lot of upcoming Tutorials. We will also install the **pgAdmin** and **phpMyAdmin** tools to have a graphical web interface.
+In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used databases like **PostgreSQL**, **MySql**, **Redis**, **Prometheus** and **Elastic Search**. We will use those databases in a lot of upcoming Tutorials. We will also install the **pgAdmin**, **phpMyAdmin** and **Kibana** tools to have a graphical web interface.
 
 ## Video
 
@@ -20,6 +20,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
 - [Redis Site](https://redis.com)
 - [Prometheus Site](https://prometheus.io)
 - [Elastic Search Site](https://www.elastic.co)
+- [Kibana Site](https://www.elastic.co/kibana)
 - [Background Music](https://freesound.org/people/gis_sweden/sounds/514508)
 
 ## Prerequisites
@@ -91,8 +92,13 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
 
 ### [Elastic Search](../SS/SS.APP/docker/elasticsearch/docker-compose.yaml)
 
+- Database
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
+  ```
+- Web Interface
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KIBANA_NAME/docker-compose.yaml up -d
   ```
 
 ## Complete Script
@@ -116,6 +122,9 @@ These are all the above commands in a single script.
 
   # Prometheus
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PROMETHEUS_NAME/docker-compose.yaml up -d
+
+  # Kibana
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KIBANA_NAME/docker-compose.yaml up -d
 
   # Elastic Search
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
@@ -154,7 +163,7 @@ These are all the above commands in a single script.
 
 - Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
 - Navigate to **Custom DNS** in the **System** menu
-- Create 2 A-records:
+- Create 3 A-records:
   - A1:
     - **Name**: pgadmin
     - **Type**: A
@@ -165,12 +174,17 @@ These are all the above commands in a single script.
     - **Type**: A
     - **Value**: 46.101.80.89
     - Click **Set Record**
+  - A3:
+    - **Name**: kibana
+    - **Type**: A
+    - **Value**: 46.101.80.89
+    - Click **Set Record**
 
 ## Setup NPM Proxy Hosts
 <a id="npm-proxy-host"></a>
 
 - Navigate to your [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) address.
-- Add 2 Proxy Hosts:
+- Add 3 Proxy Hosts:
   - Host 1:
     - **Domain Names**: 
       - pgadmin.spikyspam.site ➡️ ***`TF_VAR_PGADMIN_NAME`***
@@ -188,6 +202,17 @@ These are all the above commands in a single script.
     - **Scheme**: http
     - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
     - **Port**: 3307 ➡️ ***`TF_VAR_PHPMYADMIN_PORT_EXT`***
+    - Block Common Exploits
+    - Websockets Support
+    - **SSL**:
+      - Let's Encrypt
+      - Force SSL
+  - Host 3:
+    - **Domain Names**: 
+      - kibana.spikyspam.site ➡️ ***`TF_VAR_KIBANA_NAME`***
+    - **Scheme**: http
+    - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
+    - **Port**: 5601 ➡️ ***`TF_VAR_KIBANA_PORT_EXT`***
     - Block Common Exploits
     - Websockets Support
     - **SSL**:

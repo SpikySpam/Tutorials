@@ -47,6 +47,8 @@ export TF_VAR_PROMETHEUS_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_ELASTICSEARCH_NAME="elasticsearch"
 export TF_VAR_ELASTICSEARCH_USER="SomeUsername"
 export TF_VAR_ELASTICSEARCH_PASSWORD="UltraSecretPassword123!"
+# -- kibana
+export TF_VAR_KIBANA_NAME="kibana"
 # -- pgadmin
 export TF_VAR_PGADMIN_NAME="pgadmin"
 export TF_VAR_PGADMIN_USER=$TF_VAR_MAILINABOX_USER

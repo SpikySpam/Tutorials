@@ -10,7 +10,13 @@ services:
     # ports:
     #   - ${TF_VAR_ELASTICSEARCH_PORT_EXT}:${TF_VAR_ELASTICSEARCH_PORT_INT}
     environment:
+      # - ELASTIC_USERNAME=${TF_VAR_ELASTICSEARCH_USER}
+      # - ELASTIC_PASSWORD=${TF_VAR_ELASTICSEARCH_PASSWORD}
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - node.name=${TF_VAR_ELASTICSEARCH_NAME}
       - discovery.type=single-node
-      - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - xpack.security.enabled=false
+      - xpack.security.transport.ssl.enabled=false
+      - xpack.security.enrollment.enabled=false
+      - http.cors.enabled=true
+      - http.cors.allow-origin="*"
