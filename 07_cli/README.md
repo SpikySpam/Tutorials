@@ -3,7 +3,7 @@
 
 ![CLI Banner](_assets/images/cli_banner.png)
 
-In this Tutorial we are going to prepare our **`cli.sh`** script, to download all necessary **CLI** tools from **GitHub**.
+In this Tutorial we are going to prepare our **`cli.sh`** script, to download all necessary **CLI** tools from **GitHub**. The amount of tools will grow and will be added to that script.
 
 ## Video
 
@@ -28,9 +28,7 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
   # version/cli/version.sh snippet
 
   export TF_VAR_VERSION_CLI_LYCHEE="0.13.0"     # https://github.com/lycheeverse/lychee/releases
-  export TF_VAR_VERSION_CLI_GITLEAKS="8.17.0"   # https://github.com/gitleaks/gitleaks/releases
-
-  ...
+  # ... more version variables here
   ```
 
 ## The CLI Script
