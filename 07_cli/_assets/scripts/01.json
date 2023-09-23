@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video, I'm going to show you how to install some CLI tools we are going to use throughout these video series. Let's go!"
+    "text": "Hello. Spiky here. In this video, I'm going to show you how I've created a script to install some CLI tools we are going to use throughout these video series. This script will be executed everytime we spin up a terminal, and will download all used tools in our environment. This way we are able to mimic the same environment in whatever machine. Doing this, we can later build our solution in any environment, such as Github, or Gitlab. Let's go!"
   }
 }

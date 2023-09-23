@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "I've added a CLI script. Lets see whats in there. First of all, we distinguish the operating system we are on to download the binaries of the tools. At the moment my script supports Linux and Windows binaries. I've defined some variables that insure the correct spelling of a name. Then I've made a function, per tool, to curl the binary. Unzip or untar it, depending on the operating system. After unzipping, the script will remove the zip or tar file, and change the files privileges to be able to run it."
+  }
+}

@@ -1,16 +1,15 @@
 # 📅 Planned Future Videos
 
  - **Docker Series**:
-    - 06. VaultWarden
-    - 07. Kutt
-    - 08. Guacamole
-    - 09. Uptime-Kuma
-    - 10. Harbor
-    - 11. RabbitMq
-    - 12. Kibana
-    - 13. Grafana
-    - 14. pgAdmin
-    - 15. Heimdall
+    - 08. Kutt
+    - 09. Guacamole
+    - 10. Uptime-Kuma
+    - 11. Harbor
+    - 12. RabbitMq
+    - 13. Kibana
+    - 14. Grafana
+    - 15. pgAdmin
+    - 16. Heimdall
 
 # 💡 Ideas for future Videos
 
@@ -22,7 +21,7 @@
 # 🗂️ Future Video Cards
 - [03. Nginx Proxy Manager](https://youtu.be/CsO7Y5NKnYo): **~6:40** (*Automate NPM API*)
 - [05. Databases](https://youtu.beXXXXXXXXXX): **~5:25** (*Automate NPM API*)
-[06. Vaultwarden](06_vaultwarden/README.md): **~4:05** (*07. CLI*)
+- [06. Vaultwarden](06_vaultwarden/README.md): **~4:05** (*07. CLI*)
 
 # 🌐 Publish Video Steps
 

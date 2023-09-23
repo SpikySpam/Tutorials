@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "At the end of this script, all those functions wil be called one by one. We can manually execute this script by executing the following commands. But for our solution I have added those commands to our bash profile script. This way, everytime we open up a terminal, the script will be called. Lets see it in action."
+  }
+}

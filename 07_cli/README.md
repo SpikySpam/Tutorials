@@ -9,7 +9,7 @@ In this Tutorial we are going to prepare our **`cli.sh`** script, to download al
 
 In this video I demonstrate how I prepared our **`cli.sh`** script, to download all necessary **CLI** tools from **GitHub**.
 
-[![Video](_assets/images/cli-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
+[![Video](_assets/images/cli_video.png)](https://youtu.be/jO4Lb9qY8gk)
 
 ## Links
 
@@ -23,6 +23,7 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 - [Popeye](https://github.com/derailed/popeye)
 - [Step](https://github.com/smallstep/cli)
 - [Terraform](https://github.com/hashicorp/terraform)
+- [Background Music](https://freesound.org/people/Migfus20/sounds/683265)
 
 ## Prerequisites
 
