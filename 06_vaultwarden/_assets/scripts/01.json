@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video, I'm going to show you how to install the free and open source Bitwarden variant, Vaultwarden. Let's go!"
+    "text": "Hi. Spiky here. In this video, I'm going to show you how to install the free and open source Bitwarden variant, Vaultwarden, as a Docker container in our homelab. We will use Vaultwarden as our Password Manager. We will use the freshly installed Ubuntu machine for this as installed in the video that's popping up now. This video will not go into depth on how to use Vaultwarden. These video series only explain the making of my complete project, step by step. You can find all source code and up-to-date tutorials at my GitHub page. Let's go!"
   }
 }

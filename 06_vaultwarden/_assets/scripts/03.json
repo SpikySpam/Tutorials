@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Vaultwarden requires superusers to login with a special admin token. We will create this token based on our Vaultwarden password we have defined in our bash profile script. We can run the following command to get that token. Paste in the password and change the admin token environment variable with its output. With this set into place, next time we spin up a Vaultwarden container, we don't have to execute these steps again. We can now always login with our password. With that said, lets spin up our Vaultwarden container with the following command."
+  }
+}

@@ -9,12 +9,13 @@ In this Tutorial we are going to setup **Vaultwarden** as our **Password Manager
 
 In this video I demonstrate how to install **Vaultwarden** on a Ubuntu Virtual Machine (*in ProxMox*) inside a **Docker** container.
 
-[![Video](_assets/images/vaultwarden-video.png)](https://youtu.be/XXXXXXXXXXXXXXXXXXXXXXX)
+[![Video](_assets/images/vw-video.png)](https://youtu.be/yaHHxE2AZnU)
 
 ## Links
 
 - [Bitwarden Site](https://bitwarden.com)
 - [Vaultwarden Github](https://github.com/dani-garcia/vaultwarden)
+- [Background Music](https://freesound.org/people/NERDtasticBEATS/sounds/666572)
 
 ## Prerequisites
 
