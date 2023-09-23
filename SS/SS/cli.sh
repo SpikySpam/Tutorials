@@ -1,7 +1,6 @@
 #!/bin/bash
 
 OSTYPE_LINUX="linux-gnu"
-OSTYPE_LINUX="msys"
 OSTYPE_WINDOWS="msys"
 
 CLI_NAME_GITLEAKS="gitleaks"
