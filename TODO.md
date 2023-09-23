@@ -22,6 +22,7 @@
 # 🗂️ Future Video Cards
 - [03. Nginx Proxy Manager](https://youtu.be/CsO7Y5NKnYo): **~6:40** (*Automate NPM API*)
 - [05. Databases](https://youtu.beXXXXXXXXXX): **~5:25** (*Automate NPM API*)
+[06. Vaultwarden](06_vaultwarden/README.md): **~4:05** (*07. CLI*)
 
 # 🌐 Publish Video Steps
 
