@@ -58,6 +58,7 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
       echo -n "√ "
     fi
     [ $INITIALIZE == false ] && echo $CLI_NAME_LYCHEE
+    [ $INITIALIZE == false ] && echo -n " "$(gitleaks version)
 
   }
   # ... more tools here
