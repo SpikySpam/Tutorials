@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  code-server: # ${TF_VAR_CODESERVER_NAME}
+    image: linuxserver/code-server:${TF_VAR_VERSION_DOCKER_CODESERVER}
+    container_name: ${TF_VAR_CODESERVER_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_CODESERVER_NAME}:/config
+    ports:
+      - ${TF_VAR_CODESERVER_PORT_EXT}:${TF_VAR_CODESERVER_PORT_INT}
+    environment:
+      - PUID=$(id -u)
+      - PGID=$(id -g)
+      - TZ=${TF_VAR_CODESERVER_TZ}
+      - PASSWORD=${TF_VAR_CODESERVER_PASSWORD}
+      # - HASHED_PASSWORD= #optional
+      - SUDO_PASSWORD=${TF_VAR_CODESERVER_PASSWORD}
+      # - SUDO_PASSWORD_HASH= #optional
+      - PROXY_DOMAIN=${TF_VAR_CODESERVER_NAME}.${TF_VAR_DOMAIN}
+      - DEFAULT_WORKSPACE=/config/workspace

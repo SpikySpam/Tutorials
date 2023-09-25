@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  gitlab: # ${TF_VAR_GITLAB_NAME}
+    image: gitlab/gitlab-ce:${TF_VAR_VERSION_DOCKER_GITLAB}
+    container_name: ${TF_VAR_GITLAB_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_GITLAB_PORT_EXT_80}:${TF_VAR_GITLAB_PORT_INT_80}
+      - ${TF_VAR_GITLAB_PORT_EXT_443}:${TF_VAR_GITLAB_PORT_INT_443}
+      - ${TF_VAR_GITLAB_PORT_EXT_22}:${TF_VAR_GITLAB_PORT_INT_22}
+    volumes:
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/config:/etc/gitlab
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/logs:/var/log/gitlab
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/data:/var/opt/gitlab
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://${TF_VAR_GITLAB_NAME}.${TF_VAR_DOMAIN}'
+    hostname: ${TF_VAR_GITLAB_NAME}.${TF_VAR_DOMAIN}
+    shm_size: '256m'
