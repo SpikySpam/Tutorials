@@ -43,6 +43,9 @@ These are all the commands in a single script.
 
   # Gitlab
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GITLAB_NAME/docker-compose.yaml up -d
+
+  # Code Server
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-compose.yaml up -d
   ```
 
 ## Check Docker
