@@ -1,0 +1,23 @@
+FROM ubuntu:22.04
+
+COPY /vpn_server-v4.39-9772.tar.gz /
+
+RUN apt-get update \
+    && apt-get install -y make \
+    && apt-get install -y gcc \
+    && tar -zxvf vpn_server-v4.39-9772.tar.gz \
+    && rm vpn_server-v4.39-9772.tar.gz
+
+WORKDIR /vpnserver
+
+RUN make main
+
+EXPOSE 443/tcp
+EXPOSE 500/udp
+EXPOSE 992/tcp
+EXPOSE 4500/udp
+EXPOSE 1701/tcp
+EXPOSE 1194/udp
+EXPOSE 5555/tcp
+
+ENTRYPOINT ["./vpnserver", "execsvc"]

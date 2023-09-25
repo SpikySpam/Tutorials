@@ -28,3 +28,5 @@ export TF_VAR_VERSION_DOCKER_LISTMONK="2.5.1"                            # https
 
 export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6"                           # https://hub.docker.com/_/rabbitmq/tags
 export TF_VAR_VERSION_DOCKER_HARBOR="2.9.0"                              # https://hub.docker.com/r/bitnami/harbor-registry/tags
+
+export TF_VAR_VERSION_DOCKER_PHONEINFOGA="2.10.7"                        # https://hub.docker.com/r/sundowndev/phoneinfoga/tags

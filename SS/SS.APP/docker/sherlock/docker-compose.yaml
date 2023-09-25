@@ -1,0 +1,13 @@
+﻿version: '3.8'
+
+services:
+  sherlock: # ${TF_VAR_SHERLOCK_NAME}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_SHERLOCK_NAME}/dockerfile
+    container_name: ${TF_VAR_SHERLOCK_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_SHERLOCK_NAME}:/opt/sherlock/results
+    stdin_open: true
+    tty: true

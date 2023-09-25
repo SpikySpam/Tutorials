@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  softether:
+    image: lbrpsoftware/softether:${TF_VAR_VERSION_DOCKER_SOFTETHER}
+    container_name: lbrp-softether
+    restart: unless-stopped
+    ports:
+      - 8443:443
+      - 8500:500
+      - 8992:992
+      - 4500:4500
+      - 1701:1701
+      - 1194:1194
+      - 5555:5555
+    build:
+      context: .
+      dockerfile: ./dockerfile

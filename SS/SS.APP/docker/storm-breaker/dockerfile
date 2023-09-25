@@ -1,0 +1,20 @@
+FROM python:3.9.18
+
+RUN apt-get update && apt-get install git curl -y && \
+    git clone https://github.com/ultrasecurity/Storm-Breaker.git
+
+WORKDIR /Storm-Breaker
+
+ENV USERNAME=$TF_VAR_STORMBREAKER_USER
+ENV PASSWORD=$TF_VAR_STORMBREAKER_PASSWORD
+ENV NGROK_API_KEY=$TF_VAR_STORMBREAKER_NGROK_API_KEY
+
+RUN python3 -m pip install -r requirements.txt && \
+    yes | bash install.sh
+
+EXPOSE 80
+
+COPY ./entrypoint.sh /Storm-Breaker/
+ENTRYPOINT ["./entrypoint.sh"]
+
+

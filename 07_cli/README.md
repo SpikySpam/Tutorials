@@ -9,7 +9,7 @@ In this Tutorial we are going to prepare our **`cli.sh`** script, to download al
 
 In this video I demonstrate how I prepared our **`cli.sh`** script, to download all necessary **CLI** tools from **GitHub**.
 
-[![Video](_assets/images/cli_video.png)](https://youtu.be/jO4Lb9qY8gk)
+[![Video](_assets/images/cli_video.png)](https://youtu.be/L6_Wc0MdsP8)
 
 ## Links
 

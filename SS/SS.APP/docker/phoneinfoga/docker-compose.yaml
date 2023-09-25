@@ -1,0 +1,16 @@
+﻿version: '3.8'
+
+services:
+  phoneinfoga: # ${TF_VAR_PHONEINFOGA_NAME}
+    image: sundowndev/phoneinfoga:v${TF_VAR_VERSION_DOCKER_PHONEINFOGA}
+    container_name: ${TF_VAR_PHONEINFOGA_NAME}
+    restart: unless-stopped
+    command:
+      - "serve"
+    ports:
+      - ${TF_VAR_PHONEINFOGA_PORT_EXT}:${TF_VAR_PHONEINFOGA_PORT_INT}
+    environment:
+      - NUMVERIFY_API_KEY=${TF_VAR_PHONEINFOGA_NUMVERIFY_API_KEY}
+      - GOOGLE_API_KEY=${TF_VAR_PHONEINFOGA_GOOGLE_API_KEY}
+      - GOOGLECSE_CX=${TF_VAR_PHONEINFOGA_GOOGLE_CSE_CX}
+      - GOOGLECSE_MAX_RESULTS=10
