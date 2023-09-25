@@ -62,10 +62,3 @@ These are all the commands in a single script.
   ```bash
   docker ps
   ```
-
-- **Clean** Docker (**skip this**)
-  ```bash
-  # docker rm -f $(docker ps -a -q)
-  # docker system prune -a -f
-  # sudo rm -rf $HOME/docker
-  ```
