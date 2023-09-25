@@ -13,4 +13,6 @@ ENV TERM xterm
 RUN /bin/bash -c "yes | ./install"
 
 COPY ./entrypoint.sh /beef/
+RUN chmod +x ./entrypoint.sh
+
 ENTRYPOINT ["./entrypoint.sh"]

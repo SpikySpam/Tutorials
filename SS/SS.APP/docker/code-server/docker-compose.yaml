@@ -10,8 +10,8 @@ services:
     ports:
       - ${TF_VAR_CODESERVER_PORT_EXT}:${TF_VAR_CODESERVER_PORT_INT}
     environment:
-      - PUID=$(id -u)
-      - PGID=$(id -g)
+      - PUID=1000
+      - PGID=1000
       - TZ=${TF_VAR_CODESERVER_TZ}
       - PASSWORD=${TF_VAR_CODESERVER_PASSWORD}
       # - HASHED_PASSWORD= #optional

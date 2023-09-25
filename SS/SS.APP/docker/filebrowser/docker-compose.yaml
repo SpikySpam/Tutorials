@@ -14,6 +14,6 @@ services:
     security_opt:
       - no-new-privileges:true
     environment:
-      - PUID=$(id -u)
-      - PGID=$(id -g)
+      - PUID=1000
+      - PGID=1000
 

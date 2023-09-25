@@ -18,7 +18,7 @@ export TF_VAR_VERSION_DOCKER_KEYCLOAK="22.0.3"                           # https
 export TF_VAR_VERSION_DOCKER_TWINGATE="1.59.0"                           # https://hub.docker.com/r/twingate/connector/tags
 
 export TF_VAR_VERSION_DOCKER_GUACD="1.5.3"                               # https://hub.docker.com/r/guacamole/guacd/tags
-export TF_VAR_VERSION_DOCKER_GUACAMOLE=$TF_VAR_VERSION_DOCKER_GUACAMOLE  # https://hub.docker.com/r/guacamole/guacamole/tags
+export TF_VAR_VERSION_DOCKER_GUACAMOLE=$TF_VAR_VERSION_DOCKER_GUACD      # https://hub.docker.com/r/guacamole/guacamole/tags
 export TF_VAR_VERSION_DOCKER_FILEBROWSER="2.25.0"                        # https://hub.docker.com/r/filebrowser/filebrowser/tags
 export TF_VAR_VERSION_DOCKER_KUTT="2.7.4"                                # https://hub.docker.com/r/kutt/kutt/tags
 export TF_VAR_VERSION_DOCKER_SEARXNG="2023.9.24-19383921d"               # https://hub.docker.com/r/searxng/searxng/tags

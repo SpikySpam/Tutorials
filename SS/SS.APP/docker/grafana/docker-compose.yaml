@@ -12,3 +12,4 @@ services:
       - $HOME/docker/${TF_VAR_GRAFANA_NAME}:/var/lib/grafana
     ports:
       - ${TF_VAR_GRAFANA_PORT_EXT}:${TF_VAR_GRAFANA_PORT_INT}
+    user: root

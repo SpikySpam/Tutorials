@@ -11,6 +11,6 @@ services:
     volumes:
       - $HOME/docker/${TF_VAR_HEIMDALL_NAME}/config:/config
     environment:
-      - PUID=$(id -u)
-      - PGID=$(id -g)
+      - PUID=1000
+      - PGID=1000
       - TZ=${TF_VAR_HEIMDALL_TZ}
