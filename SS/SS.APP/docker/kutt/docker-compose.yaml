@@ -30,21 +30,21 @@ services:
     image: kutt/kutt:v${TF_VAR_VERSION_DOCKER_KUTT}
     container_name: ${TF_VAR_KUTT_NAME}
     restart: unless-stopped
-    command: [ "./wait-for-it.sh", "${TF_VAR_POSTGRES_NAME}-${TF_VAR_KUTT_NAME}:${TF_VAR_POSTGRES_PORT_INT}", "--", "npm", "start" ]
+    command: [ "./wait-for-it.sh", "${TF_VAR_KUTT_NAME}-${TF_VAR_POSTGRES_NAME}:${TF_VAR_POSTGRES_PORT_INT}", "--", "npm", "start" ]
     ports:
       - ${TF_VAR_KUTT_PORT_EXT}:${TF_VAR_KUTT_PORT_INT}
     environment:
       SITE_NAME: ${TF_VAR_KUTT_NAME}
       DEFAULT_DOMAIN: ${TF_VAR_KUTT_NAME}.${TF_VAR_DOMAIN}
       # POSTGRES
-      DB_HOST: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KUTT_NAME}
+      DB_HOST: ${TF_VAR_KUTT_NAME}-${TF_VAR_POSTGRES_NAME}
       DB_PORT: ${TF_VAR_POSTGRES_PORT_INT}
       DB_NAME: ${TF_VAR_KUTT_NAME}
       DB_USER: ${TF_VAR_POSTGRES_USER}
       DB_PASSWORD: ${TF_VAR_POSTGRES_PASSWORD}
       DB_SSL: false
       # REDIS
-      REDIS_HOST: ${TF_VAR_REDIS_NAME}-${TF_VAR_KUTT_NAME}
+      REDIS_HOST: ${TF_VAR_KUTT_NAME}-${TF_VAR_REDIS_NAME}
       REDIS_PORT: ${TF_VAR_REDIS_PORT_INT}
       REDIS_PASSWORD: ${TF_VAR_REDIS_PASSWORD}
       REDIS_DB: ${TF_VAR_KUTT_NAME}

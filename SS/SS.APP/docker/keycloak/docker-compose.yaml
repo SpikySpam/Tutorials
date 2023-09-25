@@ -24,7 +24,7 @@ services:
     command: start-dev
     environment:
       DB_VENDOR: postgres
-      DB_ADDR: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KEYCLOAK_NAME}
+      DB_ADDR: ${TF_VAR_KEYCLOAK_NAME}-${TF_VAR_POSTGRES_NAME}
       DB_SCHEMA: public
       DB_DATABASE: ${TF_VAR_KEYCLOAK_NAME}
       DB_USER: ${TF_VAR_POSTGRES_USER}
