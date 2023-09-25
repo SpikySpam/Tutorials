@@ -119,6 +119,15 @@ export TF_VAR_HARBOR_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_HARBOR_HTTP_SECRET="UltraSecretPassword123!"
 export TF_VAR_HARBOR_CORE_SECRET="UltraSecretPassword123!"
 export TF_VAR_HARBOR_JOBSERVICE_SECRET="UltraSecretPassword123!"
+# -- gitlab
+export TF_VAR_GITLAB_NAME="gitlab"
+export TF_VAR_GITLAB_USER="admin"
+export TF_VAR_GITLAB_PASSWORD="UltraSecretPassword123!"
+# -- code-server
+export TF_VAR_CODESERVER_NAME="code-server"
+export TF_VAR_CODESERVER_USER="admin"
+export TF_VAR_CODESERVER_PASSWORD="UltraSecretPassword123!"
+export TF_VAR_CODESERVER_TZ="Etc/UTC"
 # -- phoneinfoga
 export TF_VAR_PHONEINFOGA_NAME="phoneinfoga"
 export TF_VAR_PHONEINFOGA_NUMVERIFY_API_KEY="UltraSecretPassword123!"
