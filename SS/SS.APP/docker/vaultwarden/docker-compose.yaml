@@ -1,11 +1,11 @@
 version: "3.8"
 
 services:
-  postgres-vaultwarden: # ${TF_VAR_POSTGRES_NAME}-${TF_VAR_VAULTWARDEN_NAME}
+  vaultwarden-postgres: # ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}
     extends:
       service: ${TF_VAR_POSTGRES_NAME}
       file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
-    container_name: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_VAULTWARDEN_NAME}
+    container_name: ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}
     volumes:
       - $HOME/docker/${TF_VAR_VAULTWARDEN_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
     environment:
@@ -15,7 +15,7 @@ services:
 
   vaultwarden: # ${TF_VAR_VAULTWARDEN_NAME}
     depends_on:
-      - ${TF_VAR_POSTGRES_NAME}-${TF_VAR_VAULTWARDEN_NAME}
+      - ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}
     image: vaultwarden/server:${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
     container_name: ${TF_VAR_VAULTWARDEN_NAME}
     restart: unless-stopped

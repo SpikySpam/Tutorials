@@ -3,11 +3,11 @@
 version: "3.8"
 
 services:
-  mysql-guacamole: # ${TF_VAR_MYSQL_NAME}-${TF_VAR_GUACAMOLE_NAME}
+  guacamole-mysql: # ${TF_VAR_GUACAMOLE_NAME}-${TF_VAR_MYSQL_NAME}
     extends:
       service: ${TF_VAR_MYSQL_NAME}
       file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_MYSQL_NAME}/docker-compose.yaml
-    container_name: ${TF_VAR_MYSQL_NAME}-${TF_VAR_GUACAMOLE_NAME}
+    container_name: ${TF_VAR_GUACAMOLE_NAME}-${TF_VAR_MYSQL_NAME}
     volumes:
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_GUACAMOLE_NAME}/config/${TF_VAR_MYSQL_NAME}/init.sql:/docker-entrypoint-initdb.d/init.sql
       - $HOME/docker/${TF_VAR_GUACAMOLE_NAME}/${TF_VAR_MYSQL_NAME}/mysql:/var/lib/mysql
@@ -32,7 +32,7 @@ services:
   guacamole: # ${TF_VAR_GUACAMOLE_NAME}
     depends_on:
       - ${TF_VAR_GUACD_NAME}
-      - ${TF_VAR_MYSQL_NAME}-${TF_VAR_GUACAMOLE_NAME}
+      - ${TF_VAR_GUACAMOLE_NAME}-${TF_VAR_MYSQL_NAME}
     image: guacamole/guacamole:${TF_VAR_VERSION_DOCKER_GUACAMOLE}
     container_name: ${TF_VAR_GUACAMOLE_NAME}
     restart: unless-stopped

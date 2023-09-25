@@ -14,10 +14,3 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: ${TF_VAR_RABBITMQ_USER}
       RABBITMQ_DEFAULT_PASS: ${TF_VAR_RABBITMQ_PASSWORD}
-    networks:
-      - ${TF_VAR_RABBITMQ_NAME}
-
-networks:
-  rabbitmq: # ${TF_VAR_RABBITMQ_NAME}
-    name: ${TF_VAR_RABBITMQ_NAME}
-    driver: bridge

@@ -9,8 +9,7 @@ services:
       - $HOME/docker/${TF_VAR_PIHOLE_NAME}/data:/etc/pihole
       - $HOME/docker/${TF_VAR_PIHOLE_NAME}/dnsmasq:/etc/dnsmasq.d
     ports:
-      - "${TF_VAR_PIHOLE_PORT_EXT_DNS}:${TF_VAR_PIHOLE_PORT_INT_DNS}/tcp"
-      - "${TF_VAR_PIHOLE_PORT_EXT_DNS}:${TF_VAR_PIHOLE_PORT_INT_DNS}/udp"
+      - "${TF_VAR_PIHOLE_PORT_EXT_DNS}:${TF_VAR_PIHOLE_PORT_INT_DNS}"
       - "${TF_VAR_PIHOLE_PORT_EXT_DHCP}:${TF_VAR_PIHOLE_PORT_INT_DHCP}/udp"
       - "${TF_VAR_PIHOLE_PORT_EXT_HTTP}:${TF_VAR_VAULTWARDEN_PORT_INT}/tcp"
     environment:

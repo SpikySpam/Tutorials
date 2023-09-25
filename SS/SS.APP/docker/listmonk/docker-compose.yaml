@@ -1,11 +1,11 @@
 ﻿version: '3.8'
 
 services:
-  postgres-listmonk: # ${TF_VAR_POSTGRES_NAME}-${TF_VAR_LISTMONK_NAME}
+  listmonk-postgres: # ${TF_VAR_LISTMONK_NAME}-${TF_VAR_POSTGRES_NAME}
     extends:
       service: ${TF_VAR_POSTGRES_NAME}
       file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
-    container_name: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_LISTMONK_NAME}
+    container_name: ${TF_VAR_LISTMONK_NAME}-${TF_VAR_POSTGRES_NAME}
     volumes:
       - $HOME/docker/${TF_VAR_LISTMONK_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
     environment:
@@ -17,7 +17,7 @@ services:
 
   listmonk: # ${TF_VAR_LISTMONK_NAME}
     depends_on:
-      - ${TF_VAR_POSTGRES_NAME}-${TF_VAR_LISTMONK_NAME}
+      - ${TF_VAR_LISTMONK_NAME}-${TF_VAR_POSTGRES_NAME}
     image: listmonk/listmonk:v${TF_VAR_VERSION_DOCKER_LISTMONK}
     container_name: ${TF_VAR_LISTMONK_NAME}
     restart: unless-stopped

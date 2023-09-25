@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  postgres-keycloak: # ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KEYCLOAK_NAME}
+  keycloak-postgres: # ${TF_VAR_KEYCLOAK_NAME}-${TF_VAR_POSTGRES_NAME}
     extends:
       service: ${TF_VAR_POSTGRES_NAME}
       file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
-    container_name: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KEYCLOAK_NAME}
+    container_name: ${TF_VAR_KEYCLOAK_NAME}-${TF_VAR_POSTGRES_NAME}
     volumes:
       - $HOME/docker/${TF_VAR_KEYCLOAK_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
     environment:
@@ -14,6 +14,8 @@ services:
       - ${TF_VAR_KEYCLOAK_NAME}
 
   keycloak: # ${TF_VAR_KEYCLOAK_NAME}
+    depends_on:
+      - ${TF_VAR_KEYCLOAK_NAME}-${TF_VAR_POSTGRES_NAME}
     image: keycloak/keycloak:${TF_VAR_VERSION_DOCKER_KEYCLOAK}
     container_name: ${TF_VAR_KEYCLOAK_NAME}
     restart: unless-stopped
