@@ -19,3 +19,4 @@ All videos for these tutorials are freely available at YouTube. Just navigate to
 | ![MailInABox Logo](04_mail_in_a_box/_assets/images/mailinabox.png) | [04. Mail-in-a-Box](04_mail_in_a_box/README.md) |
 | ![Databases Logo](05_databases/_assets/images/database.png) | [05. Databases](05_databases/README.md) |
 | ![Vaultwarden Logo](06_vaultwarden/_assets/images/vaultwarden.png) | [06. Vaultwarden](06_vaultwarden/README.md) |
+| ![CLI Logo](07_cli/_assets/images/cli.png) | [07. CLI Tools](07_cli/README.md) |
