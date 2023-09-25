@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  twingate: # ${TF_VAR_TWINGATE_NAME}
+    image: twingate/connector:${TF_VAR_VERSION_DOCKER_TWINGATE}
+    container_name: ${TF_VAR_TWINGATE_NAME}
+    restart: unless-stopped
+    sysctls:
+      net.ipv4.ping_group_range: "0 2147483647"
+    environment:
+      TENANT_URL: https://$TF_VAR_TWINGATE_TENANT_NETWORK.$TF_VAR_TWINGATE_DOMAIN
+      ACCESS_TOKEN: ${TF_VAR_TWINGATE_ACCESS_TOKEN}
+      REFRESH_TOKEN: ${TF_VAR_TWINGATE_REFRESH_TOKEN}
+      TWINGATE_LABEL_HOSTNAME: ${TF_VAR_TWINGATE_LABEL_HOSTNAME}

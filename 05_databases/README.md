@@ -3,24 +3,26 @@
 
 ![DB Banner](_assets/images/db_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used databases like **PostgreSQL**, **MySql**, **Redis**, **Prometheus** and **Elastic Search**. We will use those databases in a lot of upcoming Tutorials. We will also install the **pgAdmin**, **phpMyAdmin** and **Kibana** tools to have a graphical web interface.
+In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used databases like **PostgreSQL**, **MySql**, **MariaDB**, **Redis**, **Prometheus** and **Elastic Search**. We will use those databases in a lot of upcoming Tutorials. We will also install the **pgAdmin**, **phpMyAdmin**, **Grafana** and **Kibana** tools to have a graphical web interface.
 
 ## Video
 
-In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**, **Prometheus** and **Elastic Search** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
+In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB**, **Redis**, **Prometheus** and **Elastic Search** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
 
 [![Video](_assets/images/db_video.png)](https://youtu.be/8UoNDwNV4R8)
 
 ## Links
 
-- [PostgreSQL Site](https://www.postgresql.org)
-- ➡️ [pgAdmin Site](https://www.pgadmin.org)
-- [MySql Site](https://www.mysql.com)
-- ➡️ [phpMyAdmin Site](https://www.phpmyadmin.net)
-- [Redis Site](https://redis.com)
-- [Prometheus Site](https://prometheus.io)
-- [Elastic Search Site](https://www.elastic.co)
-- [Kibana Site](https://www.elastic.co/kibana)
+- [PostgreSQL](https://www.postgresql.org)
+- ➡️ [pgAdmin](https://www.pgadmin.org)
+- [MySql](https://www.mysql.com)
+- [MariaDB](https://mariadb.org/)
+- ➡️ [phpMyAdmin](https://www.phpmyadmin.net)
+- [Redis](https://redis.com)
+- [Prometheus](https://prometheus.io)
+- ➡️ [Grafana](https://grafana.com)
+- [Elastic Search](https://www.elastic.co)
+- ➡️ [Kibana](https://www.elastic.co/kibana)
 - [Background Music](https://freesound.org/people/gis_sweden/sounds/514508)
 
 ## Prerequisites
@@ -82,6 +84,12 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
   ```
 
+### [MariaDB](../SS/SS.APP/docker/mariadb/docker-compose.yaml)
+
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MARIADB_NAME/docker-compose.yaml up -d
+  ```
+
 ### [Redis](../SS/SS.APP/docker/redis/docker-compose.yaml)
 
   ```bash
@@ -90,8 +98,13 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **Redis**,
 
 ### [Prometheus](../SS/SS.APP/docker/prometheus/docker-compose.yaml)
 
+- Database
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PROMETHEUS_NAME/docker-compose.yaml up -d
+  ```
+- Web Interface
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GRAFANA_NAME/docker-compose.yaml up -d
   ```
 
 ### [Elastic Search](../SS/SS.APP/docker/elasticsearch/docker-compose.yaml)
@@ -118,7 +131,10 @@ These are all the above commands in a single script.
   # MySql
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MYSQL_NAME/docker-compose.yaml up -d
 
-  # phpMyAdmin for MySql, Maria, ...
+  # MariaDB
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MARIADB_NAME/docker-compose.yaml up -d
+
+  # phpMyAdmin for MySql, MariaDB, ...
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
 
   # Redis
@@ -126,6 +142,9 @@ These are all the above commands in a single script.
 
   # Prometheus
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PROMETHEUS_NAME/docker-compose.yaml up -d
+
+  # Grafana
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GRAFANA_NAME/docker-compose.yaml up -d
 
   # Kibana
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KIBANA_NAME/docker-compose.yaml up -d
@@ -167,7 +186,7 @@ These are all the above commands in a single script.
 
 - Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
 - Navigate to **Custom DNS** in the **System** menu
-- Create 3 A-records:
+- Create 4 A-records:
   - A1:
     - **Name**: pgadmin
     - **Type**: A
@@ -179,6 +198,11 @@ These are all the above commands in a single script.
     - **Value**: 46.101.80.89
     - Click **Set Record**
   - A3:
+    - **Name**: grafana
+    - **Type**: A
+    - **Value**: 46.101.80.89
+    - Click **Set Record**
+  - A4:
     - **Name**: kibana
     - **Type**: A
     - **Value**: 46.101.80.89
@@ -188,7 +212,7 @@ These are all the above commands in a single script.
 <a id="npm-proxy-host"></a>
 
 - Navigate to your [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) address.
-- Add 3 Proxy Hosts:
+- Add 4 Proxy Hosts:
   - Host 1:
     - **Domain Names**: 
       - pgadmin.spikyspam.site ➡️ ***`TF_VAR_PGADMIN_NAME`***
@@ -212,6 +236,17 @@ These are all the above commands in a single script.
       - Let's Encrypt
       - Force SSL
   - Host 3:
+    - **Domain Names**: 
+      - grafana.spikyspam.site ➡️ ***`TF_VAR_GRAFANA_NAME`***
+    - **Scheme**: http
+    - **Forward IP**: ***`[YOUR_HOME_WAN_IP]`***
+    - **Port**: 3002 ➡️ ***`TF_VAR_GRAFANA_PORT_EXT`***
+    - Block Common Exploits
+    - Websockets Support
+    - **SSL**:
+      - Let's Encrypt
+      - Force SSL
+  - Host 4:
     - **Domain Names**: 
       - kibana.spikyspam.site ➡️ ***`TF_VAR_KIBANA_NAME`***
     - **Scheme**: http

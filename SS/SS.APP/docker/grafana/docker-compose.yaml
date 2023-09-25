@@ -1,0 +1,14 @@
+# default user/pass: admin/admin
+
+version: '3.8'
+
+services:
+  grafana: # ${TF_VAR_GRAFANA_NAME}
+    image: grafana/grafana:${TF_VAR_VERSION_DOCKER_GRAFANA}
+    container_name: ${TF_VAR_GRAFANA_NAME}
+    restart: unless-stopped
+    volumes:
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_GRAFANA_NAME}/config/${TF_VAR_GRAFANA_NAME}:/etc/grafana/provisioning/datasources
+      - $HOME/docker/${TF_VAR_GRAFANA_NAME}:/var/lib/grafana
+    ports:
+      - ${TF_VAR_GRAFANA_PORT_EXT}:${TF_VAR_GRAFANA_PORT_INT}

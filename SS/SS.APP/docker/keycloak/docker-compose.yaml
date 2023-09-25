@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres-keycloak: # ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KEYCLOAK_NAME}
+    extends:
+      service: ${TF_VAR_POSTGRES_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KEYCLOAK_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_KEYCLOAK_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${TF_VAR_KEYCLOAK_NAME}
+    networks:
+      - ${TF_VAR_KEYCLOAK_NAME}
+
+  keycloak: # ${TF_VAR_KEYCLOAK_NAME}
+    image: keycloak/keycloak:${TF_VAR_VERSION_DOCKER_KEYCLOAK}
+    container_name: ${TF_VAR_KEYCLOAK_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_KEYCLOAK_PORT_EXT}:${TF_VAR_KEYCLOAK_PORT_INT}
+    command: start-dev
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KEYCLOAK_NAME}
+      DB_SCHEMA: public
+      DB_DATABASE: ${TF_VAR_KEYCLOAK_NAME}
+      DB_USER: ${TF_VAR_POSTGRES_USER}
+      DB_PASSWORD: ${TF_VAR_POSTGRES_PASSWORD}
+      KEYCLOAK_ADMIN: ${TF_VAR_KEYCLOAK_USER}
+      KEYCLOAK_ADMIN_PASSWORD: ${TF_VAR_KEYCLOAK_PASSWORD}
+    networks:
+      - ${TF_VAR_KEYCLOAK_NAME}
+
+networks:
+  keycloak: # ${TF_VAR_KEYCLOAK_NAME}
+    name: ${TF_VAR_KEYCLOAK_NAME}
+    driver: bridge

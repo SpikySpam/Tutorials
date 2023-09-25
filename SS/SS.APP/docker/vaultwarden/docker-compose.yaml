@@ -11,7 +11,7 @@ services:
     environment:
       POSTGRES_DB: ${TF_VAR_VAULTWARDEN_NAME}
     networks:
-      - vaultwarden
+      - ${TF_VAR_VAULTWARDEN_NAME}
 
   vaultwarden: # ${TF_VAR_VAULTWARDEN_NAME}
     depends_on:
@@ -50,9 +50,9 @@ services:
       - SENDS_ALLOWED=true
       - WEB_VAULT_ENABLED=true
     networks:
-      - vaultwarden
+      - ${TF_VAR_VAULTWARDEN_NAME}
 
 networks:
-  vaultwarden:
+  vaultwarden: # ${TF_VAR_VAULTWARDEN_NAME}
     name: ${TF_VAR_VAULTWARDEN_NAME}
     driver: bridge

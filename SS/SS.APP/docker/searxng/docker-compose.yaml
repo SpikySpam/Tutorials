@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  searxng: # ${TF_VAR_SEARXNG_NAME}
+    image: searxng/searxng:${TF_VAR_VERSION_DOCKER_SEARXNG}
+    container_name: ${TF_VAR_SEARXNG_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_SEARXNG_PORT_EXT}:${TF_VAR_SEARXNG_PORT_INT}
+    volumes:
+      - $HOME/docker/${TF_VAR_SEARXNG_NAME}:/etc/searxng:rw
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"

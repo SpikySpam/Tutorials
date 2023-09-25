@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  uptime-kuma: # ${TF_VAR_UPTIMEKUMA_NAME}
+    image: louislam/uptime-kuma:${TF_VAR_VERSION_DOCKER_UPTIMEKUMA}
+    container_name: ${TF_VAR_UPTIMEKUMA_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_UPTIMEKUMA_NAME}:/app/data
+    ports:
+      - ${TF_VAR_UPTIMEKUMA_PORT_EXT}:${TF_VAR_UPTIMEKUMA_PORT_INT}

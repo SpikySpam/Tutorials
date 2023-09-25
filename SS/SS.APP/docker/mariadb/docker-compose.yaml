@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mariadb: # ${TF_VAR_MARIADB_NAME}
+    image: mariadb:${TF_VAR_VERSION_DOCKER_MARIADB}
+    container_name: ${TF_VAR_MARIADB_NAME}
+    restart: unless-stopped
+    volumes:
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_MARIADB_NAME}/config/${TF_VAR_MARIADB_NAME}/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - $HOME/docker/${TF_VAR_MARIADB_NAME}:/var/lib/mariadb
+    # ports:
+    #   - ${TF_VAR_MARIADB_PORT_EXT}:${TF_VAR_MARIADB_PORT_INT}
+    environment:
+      MARIADB_ROOT_PASSWORD: ${TF_VAR_MARIADB_PASSWORD}
+      MARIADB_USER: ${TF_VAR_MARIADB_USER}
+      MARIADB_PASSWORD: ${TF_VAR_MARIADB_PASSWORD}
+      MARIADBL_DATABASE: ${TF_VAR_MARIADB_NAME}

@@ -1,0 +1,83 @@
+﻿version: '3.8'
+
+services:
+  postgres-kutt: # ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KUTT_NAME}
+    extends:
+      service: ${TF_VAR_POSTGRES_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KUTT_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_KUTT_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${TF_VAR_KUTT_NAME}
+    networks:
+      - ${TF_VAR_KUTT_NAME}
+
+  redis-kutt: # ${TF_VAR_REDIS_NAME}-${TF_VAR_KUTT_NAME}
+    extends:
+      service: ${TF_VAR_REDIS_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_REDIS_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_REDIS_NAME}-${TF_VAR_KUTT_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_KUTT_NAME}/${TF_VAR_REDIS_NAME}:/data
+    networks:
+      - ${TF_VAR_KUTT_NAME}
+
+  kutt: # ${TF_VAR_KUTT_NAME}
+    depends_on:
+      - ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KUTT_NAME}
+      - ${TF_VAR_REDIS_NAME}-${TF_VAR_KUTT_NAME}
+    image: kutt/kutt:v${TF_VAR_VERSION_DOCKER_KUTT}
+    container_name: ${TF_VAR_KUTT_NAME}
+    restart: unless-stopped
+    command: [ "./wait-for-it.sh", "${TF_VAR_POSTGRES_NAME}-${TF_VAR_KUTT_NAME}:${TF_VAR_POSTGRES_PORT_INT}", "--", "npm", "start" ]
+    ports:
+      - ${TF_VAR_KUTT_PORT_EXT}:${TF_VAR_KUTT_PORT_INT}
+    environment:
+      SITE_NAME: ${TF_VAR_KUTT_NAME}
+      DEFAULT_DOMAIN: ${TF_VAR_KUTT_NAME}.${TF_VAR_DOMAIN}
+      # POSTGRES
+      DB_HOST: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_KUTT_NAME}
+      DB_PORT: ${TF_VAR_POSTGRES_PORT_INT}
+      DB_NAME: ${TF_VAR_KUTT_NAME}
+      DB_USER: ${TF_VAR_POSTGRES_USER}
+      DB_PASSWORD: ${TF_VAR_POSTGRES_PASSWORD}
+      DB_SSL: false
+      # REDIS
+      REDIS_HOST: ${TF_VAR_REDIS_NAME}-${TF_VAR_KUTT_NAME}
+      REDIS_PORT: ${TF_VAR_REDIS_PORT_INT}
+      REDIS_PASSWORD: ${TF_VAR_REDIS_PASSWORD}
+      REDIS_DB: ${TF_VAR_KUTT_NAME}
+      # SMTP
+      MAIL_HOST: ${TF_VAR_SMTP_HOST}
+      MAIL_PORT: ${TF_VAR_SMTP_PORT}
+      MAIL_SECURE: false
+      MAIL_USER: ${TF_VAR_SMTP_USERNAME}
+      MAIL_PASSWORD: ${TF_VAR_SMTP_PASSWORD}
+      MAIL_FROM: ${TF_VAR_KUTT_NAME}@${TF_VAR_DOMAIN}
+      REPORT_EMAIL: ${TF_VAR_SMTP_USERNAME}
+      CONTACT_EMAIL: ${TF_VAR_SMTP_USERNAME}
+      # SETTINGS
+      DISALLOW_REGISTRATION: false
+      DISALLOW_ANONYMOUS_LINKS: false
+      USER_LIMIT_PER_DAY: 50
+      NON_USER_COOLDOWN: 0
+      DEFAULT_MAX_STATS_PER_LINK: 5000
+      CUSTOM_DOMAIN_USE_HTTPS: false
+      JWT_SECRET: ${TF_VAR_KUTT_PASSWORD}
+      ADMIN_EMAILS: ${TF_VAR_SMTP_USERNAME}
+      # # RECAPTCHA
+      # RECAPTCHA_SITE_KEY:
+      # RECAPTCHA_SECRET_KEY:
+      # # GOOGLE
+      # GOOGLE_SAFE_BROWSING_KEY:
+      # GOOGLE_ANALYTICS:
+      # GOOGLE_ANALYTICS_UNIVERSAL:
+      # GOOGLE_ANALYRICS_UNIVERSAL:
+    networks:
+      - ${TF_VAR_KUTT_NAME}
+
+networks:
+  kutt: # ${TF_VAR_KUTT_NAME}
+    name: ${TF_VAR_KUTT_NAME}
+    driver: bridge

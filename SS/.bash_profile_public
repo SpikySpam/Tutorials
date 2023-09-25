@@ -23,6 +23,10 @@ export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 # -- npm
 export TF_VAR_NPM_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_NPM_PASSWORD="changeme"
+# -- pihole
+export TF_VAR_PIHOLE_NAME="pihole"
+export TF_VAR_PIHOLE_PASSWORD="6m36T5oamMhjPRsr7v3RiamR"
+export TF_VAR_PIHOLE_TZ="Europe/Brussel"
 # -- mail-in-a-box
 export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
@@ -35,6 +39,10 @@ export TF_VAR_POSTGRES_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_MYSQL_NAME="mysql"
 export TF_VAR_MYSQL_USER="SomeUsername"
 export TF_VAR_MYSQL_PASSWORD="UltraSecretPassword123!"
+# -- mariadb
+export TF_VAR_MARIADB_NAME="mariadb"
+export TF_VAR_MARIADB_USER="SomeUsername"
+export TF_VAR_MARIADB_PASSWORD="UltraSecretPassword123!"
 # -- redis
 export TF_VAR_REDIS_NAME="redis"
 export TF_VAR_REDIS_USER="SomeUsername"
@@ -49,6 +57,10 @@ export TF_VAR_ELASTICSEARCH_USER="SomeUsername"
 export TF_VAR_ELASTICSEARCH_PASSWORD="UltraSecretPassword123!"
 # -- kibana
 export TF_VAR_KIBANA_NAME="kibana"
+# -- grafana
+export TF_VAR_GRAFANA_NAME="grafana"
+export TF_VAR_GRAFANA_USER="admin"
+export TF_VAR_GRAFANA_PASSWORD="admin"
 # -- pgadmin
 export TF_VAR_PGADMIN_NAME="pgadmin"
 export TF_VAR_PGADMIN_USER=$TF_VAR_MAILINABOX_USER
@@ -60,6 +72,53 @@ export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
 export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
 export TF_VAR_VAULTWARDEN_ADMIN_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_VAULTWARDEN_ADMIN_TOKEN='$argon2id$v=19$m=65540,t=3,p=4$gxCIeCjT3gHdbVwWKd86lHjq1wWp6a9+NlScRmaeBOw$XKlvjpjCIjy6kfVPjSpOHe2mjA5TOeoxPwLnb9uzYRY'
+# -- keycloak
+export TF_VAR_KEYCLOAK_NAME="keycloak"
+export TF_VAR_KEYCLOAK_USER="SomeUsername"
+export TF_VAR_KEYCLOAK_PASSWORD="UltraSecretPassword123!"
+# -- twingate
+export TF_VAR_TWINGATE_NAME="twingate"
+export TF_VAR_TWINGATE_DOMAIN="twingate.com"
+export TF_VAR_TWINGATE_TENANT_NETWORK="SomeNetwork"
+export TF_VAR_TWINGATE_ACCESS_TOKEN="UltraSecretPassword123!"
+export TF_VAR_TWINGATE_REFRESH_TOKEN="UltraSecretPassword123!"
+export TF_VAR_TWINGATE_LABEL_HOSTNAME="`hostname`"
+# -- guacamole
+export TF_VAR_GUACD_NAME="guacd"
+export TF_VAR_GUACAMOLE_NAME="guacamole"
+export TF_VAR_GUACAMOLE_USER="guacadmin"
+export TF_VAR_GUACAMOLE_PASSWORD="guacadmin"
+# -- filebrowser
+export TF_VAR_FILEBROWSER_NAME="filebrowser"
+export TF_VAR_FILEBROWSER_USER="admin"
+export TF_VAR_FILEBROWSER_PASSWORD="admin"
+# -- kutt
+export TF_VAR_KUTT_NAME="kutt"
+export TF_VAR_KUTT_PASSWORD="UltraSecretPassword123!"
+# -- searxng
+export TF_VAR_SEARXNG_NAME="searxng"
+# -- heimdall
+export TF_VAR_HEIMDALL_NAME="heimdall"
+export TF_VAR_HEIMDALL_TZ="Etc/UTC"
+# -- uptime-kuma
+export TF_VAR_UPTIMEKUMA_NAME="uptime-kuma"
+export TF_VAR_UPTIMEKUMA_USER=$TF_VAR_MAILINABOX_USER
+export TF_VAR_UPTIMEKUMA_PASSWORD="UltraSecretPassword123!"
+# -- listmonk
+export TF_VAR_LISTMONK_NAME="listmonk"
+export TF_VAR_LISTMONK_USER="listmonk"
+export TF_VAR_LISTMONK_PASSWORD="listmonk"
+# -- rabbitmq
+export TF_VAR_RABBITMQ_NAME="rabbitmq"
+export TF_VAR_RABBITMQ_USER="SomeUsername"
+export TF_VAR_RABBITMQ_PASSWORD="UltraSecretPassword123!"
+# -- harbor
+export TF_VAR_HARBOR_NAME="harbor"
+export TF_VAR_HARBOR_USER="admin"
+export TF_VAR_HARBOR_PASSWORD="UltraSecretPassword123!"
+export TF_VAR_HARBOR_HTTP_SECRET="UltraSecretPassword123!"
+export TF_VAR_HARBOR_CORE_SECRET="UltraSecretPassword123!"
+export TF_VAR_HARBOR_JOBSERVICE_SECRET="UltraSecretPassword123!"
 
 # ✉️ SMTP
 # -- box

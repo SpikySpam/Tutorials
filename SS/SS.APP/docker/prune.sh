@@ -7,4 +7,12 @@ initialize
 # Completely clear Docker
 docker rm -f $(docker ps -a -q)
 docker system prune -a -f
-sudo rm -rf $HOME/docker
+
+# Remove Persistence
+OSTYPE_LINUX="linux-gnu"
+OSTYPE_WINDOWS="msys"
+if [ $OSTYPE == $OSTYPE_LINUX ]; then  
+  sudo rm -rf $HOME/docker
+else
+  rm -rf $HOME/docker
+fi

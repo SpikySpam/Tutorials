@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  rabbitmq: # ${TF_VAR_RABBITMQ_NAME}
+    image: rabbitmq:${TF_VAR_VERSION_DOCKER_RABBITMQ}
+    container_name: ${TF_VAR_RABBITMQ_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_RABBITMQ_NAME}/data:/var/lib/rabbitmq
+      - $HOME/docker/${TF_VAR_RABBITMQ_NAME}/log:/var/log/rabbitmq
+    ports:
+      - ${TF_VAR_RABBITMQ_PORT_EXT_NODE}:${TF_VAR_RABBITMQ_PORT_INT_NODE}
+      - ${TF_VAR_RABBITMQ_PORT_EXT_DIST}:${TF_VAR_RABBITMQ_PORT_INT_DIST}
+    environment:
+      RABBITMQ_DEFAULT_USER: ${TF_VAR_RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${TF_VAR_RABBITMQ_PASSWORD}
+    networks:
+      - ${TF_VAR_RABBITMQ_NAME}
+
+networks:
+  rabbitmq: # ${TF_VAR_RABBITMQ_NAME}
+    name: ${TF_VAR_RABBITMQ_NAME}
+    driver: bridge

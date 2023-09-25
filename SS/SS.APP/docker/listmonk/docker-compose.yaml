@@ -1,0 +1,37 @@
+﻿version: '3.8'
+
+services:
+  postgres-listmonk: # ${TF_VAR_POSTGRES_NAME}-${TF_VAR_LISTMONK_NAME}
+    extends:
+      service: ${TF_VAR_POSTGRES_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_POSTGRES_NAME}-${TF_VAR_LISTMONK_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_LISTMONK_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${TF_VAR_LISTMONK_NAME}
+      POSTGRES_PASSWORD: ${TF_VAR_LISTMONK_NAME}
+      POSTGRES_DB: ${TF_VAR_LISTMONK_NAME}
+    networks:
+      - ${TF_VAR_LISTMONK_NAME}
+
+  listmonk: # ${TF_VAR_LISTMONK_NAME}
+    depends_on:
+      - ${TF_VAR_POSTGRES_NAME}-${TF_VAR_LISTMONK_NAME}
+    image: listmonk/listmonk:v${TF_VAR_VERSION_DOCKER_LISTMONK}
+    container_name: ${TF_VAR_LISTMONK_NAME}
+    restart: unless-stopped
+    volumes:
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_LISTMONK_NAME}/config/config.toml:/listmonk/config.toml
+    command: [ sh, -c, "yes | ./listmonk --install --config config.toml && ./listmonk --config config.toml" ]
+    ports:
+      - ${TF_VAR_LISTMONK_PORT_EXT}:${TF_VAR_LISTMONK_PORT_EXT}
+    environment:
+      - TZ=Etc/UTC
+    networks:
+      - ${TF_VAR_LISTMONK_NAME}
+
+networks:
+  listmonk: # ${TF_VAR_LISTMONK_NAME}
+    name: ${TF_VAR_LISTMONK_NAME}
+    driver: bridge

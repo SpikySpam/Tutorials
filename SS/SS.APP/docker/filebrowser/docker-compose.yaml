@@ -1,0 +1,19 @@
+﻿version: '3.8'
+
+services:
+  filebrowser: # ${TF_VAR_FILEBROWSER_NAME}
+    image: filebrowser/filebrowser:v${TF_VAR_VERSION_DOCKER_FILEBROWSER}
+    container_name: ${TF_VAR_FILEBROWSER_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_FILEBROWSER_PORT_EXT}:${TF_VAR_FILEBROWSER_PORT_INT}
+    volumes:
+      - $HOME/docker/${TF_VAR_FILEBROWSER_NAME}/files:/srv
+      # - $HOME/docker/filebrowser/filebrowser.db:/database.db
+      # - $HOME/docker/filebrowser/filebrowser.json:/.filebrowser.json
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - PUID=$(id -u)
+      - PGID=$(id -g)
+
