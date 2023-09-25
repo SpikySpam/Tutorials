@@ -1,41 +1,42 @@
 ﻿version: '3.8'
 
 services:
-  beef:
-    image: lbrpsoftware/beef:${TF_VAR_VERSION_DOCKER_BEEF}
-    container_name: beef
-    restart: unless-stopped
+  beef: # ${TF_VAR_BEEF_NAME}
     build:
       context: .
-      dockerfile: ./dockerfile
+      dockerfile:  ${TF_VAR_PATH_APP}/docker/${TF_VAR_BEEF_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_BEEF}
+    container_name: ${TF_VAR_BEEF_NAME}
+    restart: unless-stopped
     ports:
-      - ${TF_VAR_DOCKER_BEEF_PORT}:3000
-      - 6789:6789
-      - 61985:61985
-      - 61986:61986
-    # environment:
-    #   - BEEF_WAITTIME=0
-    #   - BEEF_DEBUG=false
-    #   - BEEF_USER=${TF_VAR_DOCKER_BEEF_USER}
-    #   - BEEF_PASSWORD=${TF_VAR_DOCKER_BEEF_PASSWORD}
-    #   - BEEF_SSL=false
-    #   - BEEF_PUBLIC_IP=beef.${TF_VAR_DOMAIN}
-    #   - BEEF_PUBLIC_PORT=${TF_VAR_DOCKER_BEEF_PORT}
-    #   - BEEF_SSL_PUBLIC=false
-    #   - BEEF_MSF_ENABLE=false
-    #   - MSF_RPC_HOST=0.0.0.0
-    #   - MSF_RPC_PORT=55553
-    #   - MSF_RPC_USER=${TF_VAR_DOCKER_BEEF_USER}
-    #   - MSF_RPC_PASS=${TF_VAR_DOCKER_BEEF_PASSWORD}
-    #   - MSF_RPC_SSL=true
-    #   - MSF_SSL_VERIFY=false
-    #   - MSF_CALLBACK_HOST=beef.${TF_VAR_DOMAIN}
-    #   - BEEF_SE_ENABLE=false
-    #   - SE_POSH_HOST=beef.${TF_VAR_DOMAIN}
-    #   - SE_POSH_PORT=4343
-    #   - BEEF_EMAIL_ENABLE=false
-    #   - BEEF_EMAIL_TO=${TF_VAR_LBRPSOFTWARE_GMAIL}
-    #   - BEEF_EMAIL_FROM=${TF_VAR_SMTP_USER_INFO}
-    #   - BEEF_EMAIL_HOST=${TF_VAR_SMTP_HOST}
-    #   - BEEF_EMAIL_PORT=${TF_VAR_SMTP_PORT}
-    #   - BEEF_PHISHINGFRENZY_ENABLE=false
+      - ${TF_VAR_BEEF_PORT_EXT_3000}:${TF_VAR_BEEF_PORT_INT_3000}
+      - ${TF_VAR_BEEF_PORT_EXT_6789}:${TF_VAR_BEEF_PORT_INT_6789}
+      - ${TF_VAR_BEEF_PORT_EXT_61985}:${TF_VAR_BEEF_PORT_INT_61985}
+      - ${TF_VAR_BEEF_PORT_EXT_61986}:${TF_VAR_BEEF_PORT_EXT_61986}
+    environment:
+      - BEEF_WAITTIME=0
+      - BEEF_DEBUG=false
+      - BEEF_USER=${TF_VAR_BEEF_USER}
+      - BEEF_PASSWORD=${TF_VAR_BEEF_PASSWORD}
+      - BEEF_SSL=false
+      - BEEF_PUBLIC_IP=${TF_VAR_BEEF_NAME}.${TF_VAR_DOMAIN}
+      - BEEF_PUBLIC_PORT=${TF_VAR_BEEF_PORT_EXT_3000}
+      - BEEF_SSL_PUBLIC=false
+      - BEEF_MSF_ENABLE=false
+      - MSF_RPC_HOST=0.0.0.0
+      - MSF_RPC_PORT=55553
+      - MSF_RPC_USER=${TF_VAR_BEEF_USER}
+      - MSF_RPC_PASS=${TF_VAR_BEEF_PASSWORD}
+      - MSF_RPC_SSL=true
+      - MSF_SSL_VERIFY=false
+      - MSF_CALLBACK_HOST=${TF_VAR_BEEF_NAME}.${TF_VAR_DOMAIN}
+      - BEEF_SE_ENABLE=false
+      - SE_POSH_HOST=${TF_VAR_BEEF_NAME}.${TF_VAR_DOMAIN}
+      - SE_POSH_PORT=4343
+      - BEEF_EMAIL_ENABLE=false
+      - BEEF_EMAIL_TO=${TF_VAR_MAILINABOX_USER}
+      - BEEF_EMAIL_FROM=${TF_VAR_BEEF_NAME}@${TF_VAR_DOMAIN}
+      - BEEF_EMAIL_HOST=${TF_VAR_SMTP_HOST}
+      - BEEF_EMAIL_PORT=${TF_VAR_SMTP_PORT}
+      - BEEF_PHISHINGFRENZY_ENABLE=false

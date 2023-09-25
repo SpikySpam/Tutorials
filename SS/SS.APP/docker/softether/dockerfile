@@ -1,23 +1,14 @@
 FROM ubuntu:22.04
 
-COPY /vpn_server-v4.39-9772.tar.gz /
+ARG VERSION
 
-RUN apt-get update \
-    && apt-get install -y make \
-    && apt-get install -y gcc \
-    && tar -zxvf vpn_server-v4.39-9772.tar.gz \
-    && rm vpn_server-v4.39-9772.tar.gz
+RUN apt-get update && apt-get install -y make gcc curl && \
+    curl -sSLo softether-vpnserver.tar.gz https://www.softether-download.com/files/softether/v$VERSION-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-v$VERSION-linux-x64-64bit.tar.gz && \
+    tar -zxvf softether-vpnserver.tar.gz && \
+    rm softether-vpnserver.tar.gz
 
 WORKDIR /vpnserver
 
 RUN make main
-
-EXPOSE 443/tcp
-EXPOSE 500/udp
-EXPOSE 992/tcp
-EXPOSE 4500/udp
-EXPOSE 1701/tcp
-EXPOSE 1194/udp
-EXPOSE 5555/tcp
 
 ENTRYPOINT ["./vpnserver", "execsvc"]

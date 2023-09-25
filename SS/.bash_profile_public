@@ -119,6 +119,24 @@ export TF_VAR_HARBOR_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_HARBOR_HTTP_SECRET="UltraSecretPassword123!"
 export TF_VAR_HARBOR_CORE_SECRET="UltraSecretPassword123!"
 export TF_VAR_HARBOR_JOBSERVICE_SECRET="UltraSecretPassword123!"
+# -- phoneinfoga
+export TF_VAR_PHONEINFOGA_NAME="phoneinfoga"
+export TF_VAR_PHONEINFOGA_NUMVERIFY_API_KEY="UltraSecretPassword123!"
+export TF_VAR_PHONEINFOGA_GOOGLE_CSE_CX="UltraSecretPassword123!"
+export TF_VAR_PHONEINFOGA_GOOGLE_API_KEY="UltraSecretPassword123!"
+# -- sherlock
+export TF_VAR_SHERLOCK_NAME="sherlock"
+# -- storm-breaker
+export TF_VAR_STORMBREAKER_NAME="storm-breaker"
+export TF_VAR_STORMBREAKER_USER="SomeUsername"
+export TF_VAR_STORMBREAKER_PASSWORD="UltraSecretPassword123!"
+export TF_VAR_STORMBREAKER_NGROK_API_KEY="UltraSecretPassword123!"
+# -- softether
+export TF_VAR_SOFTETHER_NAME="softether"
+# -- beef
+export TF_VAR_BEEF_NAME="beef"
+export TF_VAR_BEEF_USER="SomeUsername"
+export TF_VAR_BEEF_PASSWORD="UltraSecretPassword123!"
 
 # ✉️ SMTP
 # -- box

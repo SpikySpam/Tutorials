@@ -30,3 +30,5 @@ export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6"                           # https
 export TF_VAR_VERSION_DOCKER_HARBOR="2.9.0"                              # https://hub.docker.com/r/bitnami/harbor-registry/tags
 
 export TF_VAR_VERSION_DOCKER_PHONEINFOGA="2.10.7"                        # https://hub.docker.com/r/sundowndev/phoneinfoga/tags
+export TF_VAR_VERSION_DOCKER_SOFTETHER="4.42-9798-rtm-2023.06.30"        # https://www.softether-download.com/files/softether
+export TF_VAR_VERSION_DOCKER_BEEF="0.5.4.0"                              # https://github.com/beefproject/beef/releases
