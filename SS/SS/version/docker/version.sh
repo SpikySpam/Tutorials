@@ -26,7 +26,7 @@ export TF_VAR_VERSION_DOCKER_HEIMDALL="2.5.6"                            # https
 export TF_VAR_VERSION_DOCKER_UPTIMEKUMA="1.23.2"                         # https://hub.docker.com/r/louislam/uptime-kuma/tags
 export TF_VAR_VERSION_DOCKER_LISTMONK="2.5.1"                            # https://hub.docker.com/r/listmonk/listmonk/tags
 
-export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6"                           # https://hub.docker.com/_/rabbitmq/tags
+export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6-management"                # https://hub.docker.com/_/rabbitmq/tags
 export TF_VAR_VERSION_DOCKER_HARBOR="2.9.0"                              # https://hub.docker.com/r/bitnami/harbor-registry/tags
 export TF_VAR_VERSION_DOCKER_GITLAB="16.4.0-ce.0"                        # https://hub.docker.com/r/gitlab/gitlab-ce/tags
 export TF_VAR_VERSION_DOCKER_CODESERVER="4.17.0"                         # https://hub.docker.com/r/linuxserver/code-server/tags

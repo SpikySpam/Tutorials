@@ -14,3 +14,4 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: ${TF_VAR_RABBITMQ_USER}
       RABBITMQ_DEFAULT_PASS: ${TF_VAR_RABBITMQ_PASSWORD}
+    user: root
