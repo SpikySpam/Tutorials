@@ -86,12 +86,14 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
 ### [MariaDB](../SS/SS.APP/docker/mariadb/docker-compose.yaml)
 
+- Database
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MARIADB_NAME/docker-compose.yaml up -d
   ```
 
 ### [Redis](../SS/SS.APP/docker/redis/docker-compose.yaml)
 
+- Database
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_REDIS_NAME/docker-compose.yaml up -d
   ```
@@ -120,13 +122,12 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
 ## Complete Script
 
-These are all the above commands in a single script.
+These are all the above commands in a single script:
+
+- Database
   ```bash
   # PostgreSQL
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_POSTGRES_NAME/docker-compose.yaml up -d
-
-  # pgAdmin for PostgreSQL
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PGADMIN_NAME/docker-compose.yaml up -d
 
   # MySql
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MYSQL_NAME/docker-compose.yaml up -d
@@ -134,23 +135,29 @@ These are all the above commands in a single script.
   # MariaDB
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MARIADB_NAME/docker-compose.yaml up -d
 
-  # phpMyAdmin for MySql, MariaDB, ...
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
-
   # Redis
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_REDIS_NAME/docker-compose.yaml up -d
 
   # Prometheus
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PROMETHEUS_NAME/docker-compose.yaml up -d
 
-  # Grafana
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GRAFANA_NAME/docker-compose.yaml up -d
-
-  # Kibana
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KIBANA_NAME/docker-compose.yaml up -d
-
   # Elastic Search
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
+  ```
+
+- Web Interface
+  ```bash
+  # pgAdmin ➡️ PostgreSQL
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PGADMIN_NAME/docker-compose.yaml up -d
+
+  # phpMyAdmin ➡️ MySql, MariaDB, ...
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
+
+  # Grafana ➡️ Prometheus
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GRAFANA_NAME/docker-compose.yaml up -d
+
+  # Kibana ➡️ Elastic Search
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KIBANA_NAME/docker-compose.yaml up -d
   ```
 
 ## Check Docker
@@ -172,16 +179,18 @@ These are all the above commands in a single script.
   # sudo rm -rf $HOME/docker
   ```
 
-## Forward ports on your Router.
+## 1️⃣ Forward ports on your Router.
 <a id="forward-ports-router"></a>
   - Add the following port-forward rules:
     ```
     192.168.0.30 ➡️ 5433 # TF_VAR_PGADMIN_PORT_EXT
     192.168.0.30 ➡️ 3307 # TF_VAR_PHPMYADMIN_PORT_EXT
+    192.168.0.30 ➡️ 3002 # TF_VAR_GRAFANA_PORT_EXT
+    192.168.0.30 ➡️ 5601 # TF_VAR_KIBANA_PORT_EXT
     ```
-  - We've created the IP address **192.168.0.30** in [018. ProxMox➡️ Ubuntu](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
+  - We've created the IP address **192.168.0.30** in [018. ProxMox ➡️ Ubuntu](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md)
 
-## Add A-Records
+## 2️⃣ Add A-Records
 <a id="add-a-record"></a>
 
 - Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
@@ -208,7 +217,7 @@ These are all the above commands in a single script.
     - **Value**: 46.101.80.89
     - Click **Set Record**
 
-## Setup NPM Proxy Hosts
+## 3️⃣ Setup NPM Proxy Hosts
 <a id="npm-proxy-host"></a>
 
 - Navigate to your [03. Nginx Proxy Manager](../03_nginx_proxy_manager/README.md) address.

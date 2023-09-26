@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  kali: # ${TF_VAR_HACKINGTOOL_NAME}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/kali/dockerfile
+      # args:
+      #   - cap-add=NET_ADMIN
+    container_name: kali
+    restart: unless-stopped
+    # volumes:
+    #   - $HOME/docker/kali:/home/hackingtool
+    # environment:
+    #   - DEBIAN_FRONTEND=noninteractive
+    #   - TZ="Europe/Brussel"
+    # privileged: true
+    # user: root
+    # stdin_open: true
+    # tty: true

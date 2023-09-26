@@ -3,21 +3,22 @@
 
 ![Hack Banner](_assets/images/hack_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used development tool like **Phone Info GA**, **Sherlock**, **Storm Breaker**, **Softether** and **Beef**.
+In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used development tool like **Phone Info GA**, **Sherlock**, **Storm Breaker**, **Softether**, **Beef** and **Hacking Tool**.
 
 ## Video
 
-In this video I demonstrate how to install **Phone Info GA**, **Sherlock**, **Storm Breaker**, **Softether** and **Beef** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
+In this video I demonstrate how to install **Phone Info GA**, **Sherlock**, **Storm Breaker**, **Softether** and **Beef** and **Hacking Tool** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
 
 [![Video](_assets/images/development_video.png)](https://youtu.be/XXXXXXXXXXXXX)
 
 ## Links
 
 - [Phone Info GA](https://sundowndev.github.io/phoneinfoga)
-- [Sherlock](https://sherlock-project.github.io)
 - [Storm Breaker](https://github.com/ultrasecurity/Storm-Breaker)
 - [Softether](https://softether.org)
 - [Beef Project](https://beefproject.com/)
+- [Sherlock](https://sherlock-project.github.io)
+- [Hacking Tool](https://beefproject.com/)
 
 ## Prerequisites
 
@@ -34,13 +35,12 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 
 ## Complete Script
 
-These are all the commands in a single script.
+These are all the commands in a single script:
+
+- Web Interface
   ```bash
   # Phone Info GA
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHONEINFOGA_NAME/docker-compose.yaml up -d
-
-  # Sherlock
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SHERLOCK_NAME/docker-compose.yaml up -d
 
   # Storm Breaker
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_STORMBREAKER_NAME/docker-compose.yaml up -d
@@ -50,6 +50,15 @@ These are all the commands in a single script.
 
   # Beef Project
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_BEEF_NAME/docker-compose.yaml up -d
+  ```
+
+- CLI Tools
+  ```bash
+  # Sherlock
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SHERLOCK_NAME/docker-compose.yaml up -d
+
+  # Hacking Tool
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HACKINGTOOL__NAME/docker-compose.yaml up -d
   ```
 
 ## Check Docker

@@ -1,0 +1,21 @@
+FROM python:3.9.18 as base
+
+WORKDIR /root
+
+RUN apt-get update && \
+    apt-get install -y sudo autopsy iptables && \
+    pip install --upgrade pip && \
+    git clone https://github.com/Z4nzu/hackingtool
+
+WORKDIR /root/hackingtool
+# RUN pip3 install boxes flask lolcat requests -r requirements.txt && \
+#     echo "/root/hackingtool/" > /home/hackingtoolpath.txt
+
+FROM base
+
+ENV TERM=xterm
+RUN sudo ./install.sh 1
+
+EXPOSE 1-65535
+
+ENTRYPOINT ["sudo", "hackingtool"]

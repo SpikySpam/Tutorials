@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  hackingtool: # ${TF_VAR_HACKINGTOOL_NAME}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HACKINGTOOL_NAME}/dockerfile
+      args:
+        - cap-add=NET_ADMIN
+    container_name: ${TF_VAR_HACKINGTOOL_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_HACKINGTOOL_NAME}:/home/hackingtool
+    ports:
+      - 9999:9999
+    privileged: true
+    stdin_open: true
+    tty: true
+    user: root

@@ -19,7 +19,7 @@ This will be a quick video just to get things setup...
 - **Create** a new **VM**:
   - Select ISO-file
   - Qemu Agent
-  - 64GB Disk Size
+  - 256GB Disk Size
   - 2x2 CPU
   - 8192 RAM
 - **Start** the VM
@@ -52,4 +52,5 @@ This will be a quick video just to get things setup...
   - Addresss: **192.168.0.30**
   - Netmask: 255.255.255.0
   - Gateway: 192.168.0.1
+  - DNS: 8.8.8.8,8.8.4.4
 - Install **Updates**

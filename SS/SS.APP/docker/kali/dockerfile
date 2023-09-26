@@ -1,0 +1,14 @@
+# Kali Linux latest with useful tools by tsumarios
+FROM kalilinux/kali-rolling
+
+# # Set working directory to /root
+# ENV DEBIAN_FRONTEND=noninteractive
+# ENV TZ="Europe/Brussel"
+
+# WORKDIR /root
+
+# # Update
+# RUN apt -y update && apt -y dist-upgrade && apt -y autoremove && apt clean
+
+# ENTRYPOINT ["/bin/zsh"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
