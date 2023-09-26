@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile:  ${TF_VAR_PATH_APP}/docker/${TF_VAR_BEEF_NAME}/dockerfile
       args:
-        VERSION: ${TF_VAR_VERSION_DOCKER_BEEF}
+        VERSION: ${TF_VAR_VERSION_DOCKER_RUBY}
     container_name: ${TF_VAR_BEEF_NAME}
     restart: unless-stopped
     ports:

@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_SHERLOCK_NAME}/dockerfile
+      args:
+        - VERSION=${TF_VAR_VERSION_DOCKER_PYTHON}
     container_name: ${TF_VAR_SHERLOCK_NAME}
     restart: unless-stopped
     volumes:

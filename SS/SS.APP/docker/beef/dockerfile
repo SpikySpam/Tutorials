@@ -1,10 +1,8 @@
-FROM ruby:3.2.2
-
 ARG VERSION
+FROM ruby:${VERSION}
 
 RUN apt-get update && apt-get install sudo -y && \
     git clone https://github.com/beefproject/beef
-    # git clone --depth 1 --branch v$VERSION https://github.com/beefproject/beef
 
 WORKDIR /beef
 

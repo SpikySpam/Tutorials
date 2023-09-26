@@ -34,3 +34,8 @@ export TF_VAR_VERSION_DOCKER_CODESERVER="4.17.0"                         # https
 export TF_VAR_VERSION_DOCKER_PHONEINFOGA="2.10.7"                        # https://hub.docker.com/r/sundowndev/phoneinfoga/tags
 export TF_VAR_VERSION_DOCKER_SOFTETHER="4.42-9798-rtm-2023.06.30"        # https://www.softether-download.com/files/softether
 export TF_VAR_VERSION_DOCKER_BEEF="0.5.4.0"                              # https://github.com/beefproject/beef/releases
+
+export TF_VAR_VERSION_DOCKER_UBUNTU="23.04"                              # https://hub.docker.com/_/ubuntu/tags
+export TF_VAR_VERSION_DOCKER_KALI="latest"                               # https://hub.docker.com/r/kalilinux/kali-rolling/tags
+export TF_VAR_VERSION_DOCKER_RUBY="3.2.2"                                # https://hub.docker.com/_/ruby/tags
+export TF_VAR_VERSION_DOCKER_PYTHON="3.9.18"                             # https://hub.docker.com/_/python/tags

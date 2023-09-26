@@ -1,21 +1,165 @@
-FROM python:3.9.18 as base
+ARG DOMAIN
+ARG VERSION
+FROM ${DOMAIN}/ubuntu:${VERSION} AS base
+
+# RUN apt-get update && apt-get upgrade -y
+# RUN apt-get install sudo git curl wget iptables gnupg2 nmap python3 python3-pip hping3 build-essential ruby-dev libpcap-dev libgmp3-dev php testdisk dnsmasq hostapd net-tools sshpass netcat-traditional netcat-openbsd -y
+# RUN apt-get install python3-tabulate python3-terminaltables python3-tld python3-requests python3-requests-file python3-jsbeautifier python3-lxml python3-prettytable -y
 
 WORKDIR /root
+ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN apt-get update && \
-    apt-get install -y sudo autopsy iptables && \
-    pip install --upgrade pip && \
-    git clone https://github.com/Z4nzu/hackingtool
+# --------------------------------------------------
+# 😎 Information gathering
+# --------------------------------------------------
+# anonsurf
+FROM base AS anonsurf
+RUN git clone https://github.com/Und3rf10w/kali-anonsurf anonsurf
+WORKDIR /root/anonsurf
+RUN chmod +x ./installer.sh
+RUN ./installer.sh
+RUN anonsurf start
+WORKDIR /root
 
-WORKDIR /root/hackingtool
-# RUN pip3 install boxes flask lolcat requests -r requirements.txt && \
-#     echo "/root/hackingtool/" > /home/hackingtoolpath.txt
+# xerosploit
+FROM anonsurf AS xerosploit
+RUN git clone https://github.com/LionSec/xerosploit xerosploit
+WORKDIR /root/xerosploit/tools/bettercap
+RUN gem build bettercap.*
+RUN gem install xettercap-* 
+RUN rm xettercap-* 
+WORKDIR /root/xerosploit
+RUN mkdir -p /opt/xerosploit 
+RUN cp -R tools/ /opt/xerosploit/ 
+RUN cp xerosploit.py /opt/xerosploit/xerosploit.py 
+RUN cp banner.py /opt/xerosploit/banner.py 
+RUN echo "python3 /opt/xerosploit/xerosploit.py" > run.sh
+RUN cp run.sh /usr/bin/xerosploit
+RUN chmod +x /usr/bin/xerosploit
+WORKDIR /root
 
-FROM base
+# redhawk
+FROM xerosploit AS redhawk
+RUN git clone https://github.com/Tuhinshubhra/RED_HAWK redhawk
+WORKDIR /root/redhawk
+RUN echo "php /root/redhawk/rhawk.php" > run.sh
+RUN cp run.sh /usr/bin/redhawk
+RUN chmod +x /usr/bin/redhawk
+WORKDIR /root
 
-ENV TERM=xterm
-RUN sudo ./install.sh 1
+# recondog
+FROM redhawk AS recondog
+RUN git clone https://github.com/s0md3v/ReconDog recondog
+WORKDIR /root/recondog
+RUN echo "python3 /root/recondog/dog" > run.sh
+RUN cp run.sh /usr/bin/recondog
+RUN chmod +x /usr/bin/recondog
+WORKDIR /root
 
+# secretfinder
+FROM recondog AS secretfinder
+RUN git clone https://github.com/m4ll0k/SecretFinder secretfinder
+WORKDIR /root/secretfinder
+RUN echo "python3 /root/secretfinder/SecretFinder.py -i \$1 -e" > run.sh
+RUN cp run.sh /usr/bin/secretfinder
+RUN chmod +x /usr/bin/secretfinder
+WORKDIR /root
+
+# ranger
+FROM secretfinder AS ranger
+RUN pip3 install ping3 --break-system-packages
+RUN git clone https://github.com/joeyagreco/ranger-reloaded ranger
+WORKDIR /root/ranger
+RUN echo "python3 /root/ranger/app.py" > run.sh
+RUN cp run.sh /usr/bin/ranger
+RUN chmod +x /usr/bin/ranger
+WORKDIR /root
+
+# breacher
+FROM ranger AS breacher
+RUN git clone https://github.com/s0md3v/Breacher breacher
+WORKDIR /root/breacher
+RUN echo "python3 /root/breacher/breacher.py -u \$1" > run.sh
+RUN cp run.sh /usr/bin/breacher
+RUN chmod +x /usr/bin/breacher
+WORKDIR /root
+
+# --------------------------------------------------
+# 😎 Wordlist
+# --------------------------------------------------
+# cupp
+FROM breacher AS cupp
+RUN git clone https://github.com/Mebus/cupp cupp
+WORKDIR /root/cupp
+RUN echo "python3 /root/cupp/cupp.py -i" > run.sh
+RUN cp run.sh /usr/bin/cupp
+RUN chmod +x /usr/bin/cupp
+WORKDIR /root
+
+# wlcreator
+FROM cupp AS wlcreator
+RUN git clone https://github.com/Z4nzu/wlcreator wlcreator
+WORKDIR /root/wlcreator
+RUN gcc -o wlcreator wlcreator.c
+RUN echo "/root/wlcreator/wlcreator 5" > run.sh
+RUN cp run.sh /usr/bin/wlcreator
+RUN chmod +x /usr/bin/wlcreator
+WORKDIR /root
+
+# --------------------------------------------------
+# 😎 Wireless
+# --------------------------------------------------
+# pixiewps
+FROM wlcreator AS pixiewps
+RUN git clone https://github.com/wiire/pixiewps pixiewps
+WORKDIR /root/pixiewps
+RUN make
+RUN make install
+WORKDIR /root
+
+# fakeap
+FROM pixiewps AS fakeap
+RUN git clone https://github.com/Z4nzu/fakeap fakeap
+WORKDIR /root/fakeap
+RUN chmod +x /root/fakeap/fakeap.sh
+RUN echo "/root/fakeap/fakeap.sh" > run.sh
+RUN cp run.sh /usr/bin/fakeap
+RUN chmod +x /usr/bin/fakeap
+WORKDIR /root
+
+# fastssh
+FROM fakeap AS fastssh
+RUN git clone https://github.com/Z4nzu/fastssh fastssh
+WORKDIR /root/fastssh
+RUN chmod +x /root/fastssh/fastssh.sh
+RUN echo "/root/fastssh/fastssh.sh" > run.sh
+RUN cp run.sh /usr/bin/fastssh
+RUN chmod +x /usr/bin/fastssh
+WORKDIR /root
+
+# --------------------------------------------------
+# 😎 Forensics
+# --------------------------------------------------
+# autopsy
+FROM fastssh AS autopsy
+RUN curl -sSLo autopsy.zip https://github.com/sleuthkit/autopsy/releases/download/autopsy-4.21.0/autopsy-4.21.0.zip
+RUN unzip -oqj autopsy.zip autopsy-4.21.0/linux_macos_install_scripts/install_prereqs_ubuntu.sh -d .
+RUN chmod +x ./install_prereqs_ubuntu.sh
+RUN ./install_prereqs_ubuntu.sh
+RUN curl -sSLo sleuthkit.deb https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.12.1/sleuthkit-java_4.12.1-1_amd64.deb
+RUN apt-get install ./sleuthkit.deb -y
+RUN unzip -oqj autopsy.zip autopsy-4.21.0/linux_macos_install_scripts/install_application.sh -d .
+RUN chmod +x ./install_application.sh
+RUN ./install_application.sh -z autopsy.zip -i /root/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
+RUN rm ./install_prereqs_ubuntu.sh
+RUN rm ./install_application.sh
+RUN rm ./sleuthkit.deb
+RUN rm ./autopsy.zip
+RUN echo "/root/autopsy/autopsy-4.21.0/bin/autopsy" > /root/autopsy/run.sh
+RUN cp /root/autopsy/run.sh /usr/bin/autopsy
+RUN chmod +x /usr/bin/autopsy
+WORKDIR /root
+
+# 💥
 EXPOSE 1-65535
-
-ENTRYPOINT ["sudo", "hackingtool"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
