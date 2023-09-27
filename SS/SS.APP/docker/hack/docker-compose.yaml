@@ -1,0 +1,213 @@
+version: "3.8"
+
+services:
+  hack: # ${TF_VAR_HACK_NAME}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HACK_NAME}/dockerfile
+      args:
+        - DOMAIN=${TF_VAR_DOMAIN}
+        - VERSION=${TF_VAR_VERSION_DOCKER_UBUNTU}
+    container_name: ${TF_VAR_HACK_NAME}
+    restart: unless-stopped
+    environment:
+      - DISPLAY=${DISPLAY}
+    user: root
+    privileged: true
+    stdin_open: true
+    tty: true
+
+# --------------------------------------------------
+# 😎 Anonymously Hiding
+# --------------------------------------------------
+  # hack-anonsurf:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-anonsurf
+  #   build:
+  #     target: anonsurf
+
+# --------------------------------------------------
+# 😎 Information gathering
+# --------------------------------------------------
+  # hack-xerosploit:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-xerosploit
+  #   build:
+  #     target: xerosploit
+
+  # hack-redhawk:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-redhawk
+  #   build:
+  #     target: redhawk
+
+  # hack-recondog:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-recondog
+  #   build:
+  #     target: recondog
+
+  # hack-secretfinder:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-secretfinder
+  #   build:
+  #     target: secretfinder
+
+  # hack-ranger:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-ranger
+  #   build:
+  #     target: ranger
+
+  # hack-breacher:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-breacher
+  #   build:
+  #     target: breacher
+
+# --------------------------------------------------
+# 😎 Wordlist
+# --------------------------------------------------
+  # hack-cupp:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-cupp
+  #   build:
+  #     target: cupp
+
+  # hack-wlcreator:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-wlcreator
+  #   build:
+  #     target: wlcreator
+
+# --------------------------------------------------
+# 😎 Wireless
+# --------------------------------------------------
+  # hack-pixiewps:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-pixiewps
+  #   build:
+  #     target: pixiewps
+
+  # hack-fakeap:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-fakeap
+  #   build:
+  #     target: fakeap
+
+  # hack-fastssh:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-fastssh
+  #   build:
+  #     target: fastssh
+
+# --------------------------------------------------
+# 😎 SQL Injection
+# --------------------------------------------------
+  # hack-sqlmap:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-sqlmap
+  #   build:
+  #     target: sqlmap
+
+  # hack-dsss:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-dsss
+  #   build:
+  #     target: dsss
+
+# --------------------------------------------------
+# 😎 Phishing Attack
+# --------------------------------------------------
+  # hack-setoolkit:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-setoolkit
+  #   build:
+  #     target: setoolkit
+
+  # hack-evilginx:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-evilginx
+  #   build:
+  #     target: evilginx
+
+  # hack-isu:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-isu
+  #   build:
+  #     target: isu
+
+  # hack-ohmyqr:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-ohmyqr
+  #   build:
+  #     target: ohmyqr
+
+  # hack-shellphish:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-shellphish
+  #   build:
+  #     target: shellphish
+
+  # hack-blackphish:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-blackphish
+  #   build:
+  #     target: blackphish
+
+# --------------------------------------------------
+# 😎 Web Attack
+# --------------------------------------------------
+  # hack-sublister:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-sublister
+  #   build:
+  #     target: sublister
+
+  # hack-checkurl:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-checkurl
+  #   build:
+  #     target: checkurl
+
+# --------------------------------------------------
+# 😎 Post Exploitation
+# --------------------------------------------------
+  # hack-vegile:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-vegile
+  #   build:
+  #     target: vegile
+
+# --------------------------------------------------
+# 😎 Forensics
+# --------------------------------------------------
+  # hack-autopsy:
+  #   extends:
+  #     service: ${TF_VAR_HACK_NAME}
+  #   container_name: ${TF_VAR_HACK_NAME}-checkurl
+  #   build:
+  #     target: checkurl

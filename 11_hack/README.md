@@ -57,8 +57,8 @@ These are all the commands in a single script:
   # Sherlock
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SHERLOCK_NAME/docker-compose.yaml up -d
 
-  # Hacking Tool
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HACKINGTOOL__NAME/docker-compose.yaml up -d
+  # Hacking Tools
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HACK_NAME/docker-compose.yaml up -d
   ```
 
 ## Check Docker

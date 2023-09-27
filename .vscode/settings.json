@@ -1,2 +1,5 @@
 {
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#7d4141"
+    },
 }

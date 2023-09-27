@@ -1,0 +1,227 @@
+ARG DOMAIN
+ARG VERSION
+FROM ${DOMAIN}/ubuntu:${VERSION} AS base
+
+RUN apt-get update && apt-get upgrade -y
+WORKDIR /root
+ENV DEBIAN_FRONTEND="noninteractive"
+
+# --------------------------------------------------
+# 😎 Anonymously Hiding
+# --------------------------------------------------
+# # anonsurf
+# FROM base AS anonsurf
+# RUN apt-get install git iptables -y
+# RUN git clone https://github.com/Und3rf10w/kali-anonsurf anonsurf
+# WORKDIR /root/anonsurf
+# RUN ./installer.sh
+# RUN anonsurf start
+# WORKDIR /root
+
+# --------------------------------------------------
+# 😎 Information gathering
+# --------------------------------------------------
+# # xerosploit
+# FROM base AS xerosploit
+# RUN apt-get install git build-essential ruby-dev libpcap-dev python3-terminaltables python3-tabulate -y
+# RUN git clone https://github.com/LionSec/xerosploit xerosploit
+# WORKDIR /root/xerosploit/tools/bettercap
+# RUN gem build bettercap.gemspec && \
+#     gem install xettercap-* && \
+#     rm xettercap-*
+# WORKDIR /root/xerosploit
+# RUN mkdir -p /opt/xerosploit && \
+#     cp -R tools/ /opt/xerosploit/ && \
+#     cp xerosploit.py /opt/xerosploit/xerosploit.py && \
+#     cp banner.py /opt/xerosploit/banner.py
+# RUN echo "alias xerosploit='python3 /opt/xerosploit/xerosploit.py'" >> /root/.bash_aliases
+# WORKDIR /root
+
+# # redhawk
+# FROM base AS redhawk
+# RUN apt-get install git php php-xml php-curl -y
+# RUN git clone https://github.com/Tuhinshubhra/RED_HAWK redhawk
+# RUN echo "alias redhawk='php /root/redhawk/rhawk.php'" >> /root/.bash_aliases
+
+# # recondog
+# FROM base AS recondog
+# RUN apt-get install git python3 python3-requests -y
+# RUN git clone https://github.com/s0md3v/ReconDog recondog
+# RUN echo "alias recondog='python3 /root/recondog/dog'" >> /root/.bash_aliases
+
+# # secretfinder
+# FROM base AS secretfinder
+# RUN apt-get install git python3 python3-requests python3-requests-file python3-jsbeautifier python3-lxml -y
+# RUN git clone https://github.com/m4ll0k/SecretFinder secretfinder
+# RUN echo "alias secretfinder='python3 /root/secretfinder/SecretFinder.py'" >> /root/.bash_aliases
+
+# # ranger
+# FROM base AS ranger
+# RUN apt-get install git pip python3 python3-prettytable -y && pip3 install ping3 --break-system-packages
+# RUN git clone https://github.com/joeyagreco/ranger-reloaded ranger
+# RUN echo "alias ranger='python3 /root/ranger/app.py'" >> /root/.bash_aliases
+
+# # breacher
+# FROM base AS breacher
+# RUN apt-get install git python3 python3-requests -y
+# RUN git clone https://github.com/s0md3v/Breacher breacher
+# RUN echo "alias breacher='python3 /root/breacher/breacher.py'" >> /root/.bash_aliases
+
+# --------------------------------------------------
+# 😎 Wordlist
+# --------------------------------------------------
+# # cupp
+# FROM base AS cupp
+# RUN apt-get install git python3 -y
+# RUN git clone https://github.com/Mebus/cupp cupp
+# RUN echo "alias cupp='python3 /root/cupp/cupp.py'" >> /root/.bash_aliases
+
+# # wlcreator
+# FROM base AS wlcreator
+# RUN apt-get install git build-essential -y
+# RUN git clone https://github.com/Z4nzu/wlcreator wlcreator
+# RUN echo "alias wlcreator='/root/wlcreator/wlcreator'" >> /root/.bash_aliases
+# RUN gcc -o /root/wlcreator/wlcreator /root/wlcreator/wlcreator.c
+
+# --------------------------------------------------
+# 😎 Wireless
+# --------------------------------------------------
+# # pixiewps
+# FROM base AS pixiewps
+# RUN apt-get install git build-essential -y
+# RUN git clone https://github.com/wiire/pixiewps pixiewps
+# WORKDIR /root/pixiewps
+# RUN make && \
+#     make install
+# WORKDIR /root
+
+# # fakeap
+# FROM base AS fakeap
+# RUN apt-get install git php dnsmasq hostapd net-tools -y
+# RUN git clone https://github.com/Z4nzu/fakeap fakeap
+# RUN echo "alias fakeap='/root/fakeap/fakeap.sh'" >> /root/.bash_aliases
+# RUN chmod +x /root/fakeap/fakeap.sh
+
+# # fastssh
+# FROM base AS fastssh
+# RUN apt-get install git sshpass netcat-traditional -y
+# RUN git clone https://github.com/Z4nzu/fastssh fastssh
+# RUN echo "alias fastssh='/root/fastssh/fastssh.sh'" >> /root/.bash_aliases
+# RUN chmod +x /root/fastssh/fastssh.sh
+
+# # --------------------------------------------------
+# # 😎 SQL Injection
+# # --------------------------------------------------
+# # sqlmap
+# FROM base AS sqlmap
+# RUN apt-get install git python3 -y
+# RUN git clone https://github.com/sqlmapproject/sqlmap sqlmap
+# RUN echo "alias sqlmap='python3 /root/sqlmap/sqlmap.py'" >> /root/.bash_aliases
+
+# # dsss
+# FROM base AS dsss
+# RUN apt-get install git python3 -y
+# RUN git clone https://github.com/stamparm/DSSS dsss
+# RUN echo "alias dsss='python3 /root/dsss/dsss.py'" >> /root/.bash_aliases
+
+# --------------------------------------------------
+# 😎 Phishing Attack
+# --------------------------------------------------
+# # setoolkit
+# FROM base AS setoolkit
+# RUN apt-get install git pip python3 -y && pip3 install pycryptodome pyopenssl --break-system-packages
+# RUN git clone https://github.com/trustedsec/social-engineer-toolkit setoolkit
+# RUN echo "alias setoolkit='cd /root/setoolkit; /root/setoolkit/setoolkit'" >> /root/.bash_aliases
+# RUN python3 /root/setoolkit/setup.py
+
+# # evilginx
+# FROM base AS evilginx
+# ENV PATH="$PATH:/usr/local/go/bin"
+# RUN apt-get install git curl tar build-essential nodejs -y
+# RUN git clone https://github.com/kgretzky/evilginx2 evilginx
+# RUN echo "alias evilginx='/root/evilginx/build/evilginx -p /root/evilginx/phishlets -t /root/evilginx/redirectors'" >> /root/.bash_aliases
+# RUN curl -sSLo go.tar.gz https://go.dev/dl/go1.21.1.linux-amd64.tar.gz && \
+#     tar -zxf go.tar.gz -C /usr/local && \
+#     rm go.tar.gz
+# WORKDIR /root/evilginx
+# RUN make
+# WORKDIR /root
+
+# # isu (i-see-you)
+# FROM base AS isu
+# RUN apt-get install git -y
+# RUN git clone https://github.com/Viralmaniar/I-See-You isu
+# RUN echo "alias isu='/root/isu/ISeeYou.sh'" >> /root/.bash_aliases
+# RUN chmod +x /root/isu/ISeeYou.sh
+
+# # ohmyqr
+# FROM base AS ohmyqr
+# RUN apt-get install git curl wget unzip ssh php scrot xdotool -y
+# RUN git clone https://github.com/cryptedwolf/ohmyqr ohmyqr
+# RUN echo "alias ohmyqr='/root/ohmyqr/ohmyqr.sh'" >> /root/.bash_aliases
+# RUN chmod +x /root/ohmyqr/ohmyqr.sh
+
+# # shellphish
+# FROM base AS shellphish
+# RUN apt-get install git curl wget unzip ssh php -y
+# RUN git clone https://github.com/An0nUD4Y/shellphish shellphish
+# RUN echo "alias shellphish='/root/shellphish/shellphish.sh'" >> /root/.bash_aliases
+# RUN chmod +x /root/shellphish/shellphish.sh
+
+# # blackphish
+# FROM base AS blackphish
+# RUN apt-get install git python3 sudo npm apache2 -y
+# RUN git clone https://github.com/iinc0gnit0/BlackPhish blackphish
+# RUN echo "alias blackphish='python3 /root/blackphish/blackphish.py'" >> /root/.bash_aliases
+# RUN /root/blackphish/install.sh
+
+# --------------------------------------------------
+# 😎 Web Attack
+# --------------------------------------------------
+# # sublister
+# FROM base AS sublister
+# RUN apt-get install git pip python3 python3-requests python3-dnspython -y && pip3 install argparse --break-system-packages
+# RUN git clone https://github.com/aboul3la/Sublist3r sublister
+# RUN echo "alias sublister='python3 /root/sublister/sublist3r.py'" >> /root/.bash_aliases
+
+# # checkurl
+# FROM base AS checkurl
+# RUN apt-get install git pip python3 -y
+# RUN git clone https://github.com/UndeadSec/checkURL checkurl
+# RUN echo "alias checkurl='python3 /root/checkurl/checkURL.py'" >> /root/.bash_aliases
+
+# --------------------------------------------------
+# 😎 Post Exploitation
+# --------------------------------------------------
+# # vegile
+# FROM base AS vegile
+# RUN apt-get install git -y
+# RUN git clone https://github.com/Screetsec/Vegile vegile
+# RUN echo "alias vegile='/root/vegile/Vegile'" >> /root/.bash_aliases
+# RUN chmod +x /root/vegile/Vegile
+
+# --------------------------------------------------
+# 😎 Forensics
+# --------------------------------------------------
+# # autopsy ⁉️
+# FROM base AS autopsy
+# RUN apt-get install curl unzip sudo net-tools -y
+# RUN curl -sSLo autopsy.zip https://github.com/sleuthkit/autopsy/releases/download/autopsy-4.21.0/autopsy-4.21.0.zip && \
+#     unzip -oqj autopsy.zip autopsy-4.21.0/linux_macos_install_scripts/install_prereqs_ubuntu.sh -d . && \
+#     chmod +x ./install_prereqs_ubuntu.sh && \
+#     ./install_prereqs_ubuntu.sh
+# RUN curl -sSLo sleuthkit.deb https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.12.1/sleuthkit-java_4.12.1-1_amd64.deb && \
+#     apt-get install ./sleuthkit.deb -y
+# RUN unzip -oqj autopsy.zip autopsy-4.21.0/linux_macos_install_scripts/install_application.sh -d . && \
+#     chmod +x ./install_application.sh && \
+#     ./install_application.sh -z autopsy.zip -i /root/autopsy -j /usr/lib/jvm/java-1.17.0-openjdk-amd64
+# RUN rm ./install_prereqs_ubuntu.sh && \
+#     rm ./install_application.sh && \
+#     rm ./sleuthkit.deb && \
+#     rm ./autopsy.zip
+# RUN echo "alias autopsy='/root/autopsy/autopsy-4.21.0/bin/autopsy'" >> /root/.bash_aliases
+
+# 💥
+EXPOSE 1-65535
+
+CMD ["/bin/bash"]
