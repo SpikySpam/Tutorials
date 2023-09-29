@@ -10,6 +10,8 @@ services:
         - VERSION=${TF_VAR_VERSION_DOCKER_UBUNTU}
     container_name: ${TF_VAR_HACK_NAME}
     restart: unless-stopped
+    ports:
+     - 80:80
     environment:
       - DISPLAY=${DISPLAY}
     user: root

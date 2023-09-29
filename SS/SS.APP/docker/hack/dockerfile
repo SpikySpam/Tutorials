@@ -21,6 +21,17 @@ ENV DEBIAN_FRONTEND="noninteractive"
 # --------------------------------------------------
 # 😎 Information gathering
 # --------------------------------------------------
+# # nmap
+# FROM base AS nmap
+# RUN apt-get install nmap -y
+
+# # dracnmap
+# FROM base AS dracnmap
+# RUN apt-get install git nmap xterm -y
+# RUN git clone https://github.com/Screetsec/Dracnmap dracnmap
+# RUN chmod +x /root/dracnmap/dracnmap-v2.2.sh
+# RUN echo "alias dracnmap='/root/dracnmap/dracnmap-v2.2.sh'" >> /root/.bash_aliases
+
 # # xerosploit
 # FROM base AS xerosploit
 # RUN apt-get install git build-essential ruby-dev libpcap-dev python3-terminaltables python3-tabulate -y
@@ -86,6 +97,16 @@ ENV DEBIAN_FRONTEND="noninteractive"
 # --------------------------------------------------
 # 😎 Wireless
 # --------------------------------------------------
+# # wp3
+# FROM base AS wp3
+# RUN apt-get install git pip python3 python3-dev build-essential libssl-dev libffi-dev libglib2.0-0 iptables -y
+# RUN git clone https://github.com/P0cL4bs/wifipumpkin3 wp3
+# RUN echo "alias wp3='wifipumpkin3'" >> /root/.bash_aliases
+# WORKDIR /root/wp3
+# RUN rm -f /usr/lib/python3*/EXTERNALLY-MANAGED
+# RUN make install
+# WORKDIR /root
+
 # # pixiewps
 # FROM base AS pixiewps
 # RUN apt-get install git build-essential -y
@@ -199,6 +220,16 @@ ENV DEBIAN_FRONTEND="noninteractive"
 # RUN git clone https://github.com/Screetsec/Vegile vegile
 # RUN echo "alias vegile='/root/vegile/Vegile'" >> /root/.bash_aliases
 # RUN chmod +x /root/vegile/Vegile
+
+# # hera
+# FROM base AS hera
+# RUN apt-get install sudo git python3-pip php -y
+# RUN git clone https://github.com/UndeadSec/HeraKeylogger hera
+# RUN echo "alias hera='/root/hera; python3 /root/hera/hera.py'" >> /root/.bash_aliases
+# WORKDIR /root/hera
+# RUN rm -f /usr/lib/python3*/EXTERNALLY-MANAGED && \
+#     pip3 install -r requirements.txt
+# WORKDIR /root
 
 # --------------------------------------------------
 # 😎 Forensics

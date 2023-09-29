@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "I'm sorry, if I'm going too fast now, and this video seems pointless to you. I will repeat, these videos are NOT about explaining every used tool, rather they are intended to show you the steps I took to get to the current source code, at my GitHub page. In short. This is an attempt too explain any new, potential, contributor, for this project, what all those gazillion lines of code will do. If you don't understand a part of my used technologies, you should google them, or you can ask us, or watch some videos. This channel is subscribed to some channels I'm deadfully greatfull to. Check them out. SKID IN. Spiky out. Spiky In. Out. Skid. In. Spiky. Out. Whatever. Let's go!"
+  }
+}

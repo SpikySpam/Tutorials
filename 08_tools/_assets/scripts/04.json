@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "After that docker compose up, we can navigate to our newly installed applications. First, let's login into our personal file browser with admin, admin. Change the default password with the one you have specifiedin your bash profile script file. Soon, we wil automate this step. I think. "
+  }
+}
