@@ -29,10 +29,66 @@ In this video I demonstrate how to install **Filebrowser**, **Kutt-IT***, **Sear
 
 These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 
-1️⃣ [**Forward all ports** on your **Router**](../05_databases/README.md#forward-ports-router) \
+1️⃣ [**Forward ports** on your **Router**](../05_databases/README.md#forward-ports-router) \
 2️⃣ [Add **A-Records**](../05_databases/README.md#add-a-record) \
 3️⃣ [Add NPM **Proxy Hosts**](../05_databases/README.md#npm-proxy-host) \
 4️⃣ [**Clone** latest **Sources**](../05_databases/README.md#latest-sources)
+
+
+### [File Browser](../SS/SS.APP/docker/filebrowser/docker-compose.yaml)
+
+- Database
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FILEBROWSER_NAME/docker-compose.yaml up -d
+  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/filebrowser/docker-compose.yaml#L1-L18
+
+### [Kutt-IT](../SS/SS.APP/docker/kutt/docker-compose.yaml)
+
+- Database
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KUTT_NAME/docker-compose.yaml up -d
+  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/kutt/docker-compose.yaml#L1-L83
+
+### [Searxng](../SS/SS.APP/docker/searxng/docker-compose.yaml)
+
+- Database
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SEARXNG_NAME/docker-compose.yaml up -d
+  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/searxng/docker-compose.yaml#L1-L23
+
+### [Dashy](../SS/SS.APP/docker/dashy/docker-compose.yaml)
+
+- Database
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_DASHY_NAME/docker-compose.yaml up -d
+  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/dashy/docker-compose.yaml#L1-L15
+
+### [Uptime-Kuma](../SS/SS.APP/docker/uptime-kuma/docker-compose.yaml)
+
+- Database
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_UPTIMEKUMA_NAME/docker-compose.yaml up -d
+  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/uptime-kuma/docker-compose.yaml#L1-L11
+
+### [Listmonk](../SS/SS.APP/docker/listmonk/docker-compose.yaml)
+
+- Database
+  ```bash
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_LISTMONK_NAME/docker-compose.yaml up -d
+  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/listmonk/docker-compose.yaml#L1-L37
+
 
 ## Complete Script
 

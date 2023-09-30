@@ -46,6 +46,8 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_VAULTWARDEN_NAME/docker-compose.yaml up -d
   ```
 
+  https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/vaultwarden/docker-compose.yaml#L1-L58
+
 ## Configure Vaultwarden
 
 - Navigate to **https://vaultwarden.spikyspam.site/admin**

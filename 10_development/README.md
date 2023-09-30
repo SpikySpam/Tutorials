@@ -27,7 +27,7 @@ In this video I demonstrate how to install **RabbitMQ**, **Harbor**, **Jenkins**
 
 These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 
-1️⃣ [**Forward all ports** on your **Router**](../05_databases/README.md#forward-ports-router) \
+1️⃣ [**Forward ports** on your **Router**](../05_databases/README.md#forward-ports-router) \
 2️⃣ [Add **A-Records**](../05_databases/README.md#add-a-record) \
 3️⃣ [Add NPM **Proxy Hosts**](../05_databases/README.md#npm-proxy-host) \
 4️⃣ [**Clone** latest **Sources**](../05_databases/README.md#latest-sources)
