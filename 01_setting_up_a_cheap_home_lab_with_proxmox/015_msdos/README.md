@@ -12,7 +12,7 @@ This will be a quick video just to get things setup...
 
 - [MSDOS ISO](https://www.allbootdisks.com/disk_images/DOS6.22_bootdisk.iso)
 - [Windows 3.11 ISO](https://winworldpc.com/product/windows-3/wfw-311)
-- [Background Music](https://freesound.org/people/Migfus20/sounds/560457/)
+- 🎺 [Background Music](https://freesound.org/people/Migfus20/sounds/560457/)
 
 ## Installation MSDOS
 

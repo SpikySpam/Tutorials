@@ -23,7 +23,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 - ➡️ [Grafana](https://grafana.com)
 - [Elastic Search](https://www.elastic.co)
 - ➡️ [Kibana](https://www.elastic.co/kibana)
-- [Background Music](https://freesound.org/people/gis_sweden/sounds/514508)
+- 🎺 [Background Music](https://freesound.org/people/gis_sweden/sounds/514508)
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
   https://github.com/SpikySpam/Tutorials/blob/6c2f4e44317764a4db9ecbf57fa0bfad8ded7a02/SS/SS/version/docker/version.sh#L1-L42
 
-### [PostgreSQL](../SS/SS.APP/docker/postgres/docker-compose.yaml)
+## [PostgreSQL](../SS/SS.APP/docker/postgres/docker-compose.yaml)
 
 - Database
   ```bash
@@ -80,7 +80,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
   https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c8f8d/SS/SS.APP/docker/pgadmin/docker-compose.yaml#L1-L16
 
-### [MySql](../SS/SS.APP/docker/mysql/docker-compose.yaml)
+## [MySql](../SS/SS.APP/docker/mysql/docker-compose.yaml)
 
 - Database
   ```bash
@@ -96,7 +96,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
   https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/phpmyadmin/docker-compose.yaml#L1-L11
 
-### [MariaDB](../SS/SS.APP/docker/mariadb/docker-compose.yaml)
+## [MariaDB](../SS/SS.APP/docker/mariadb/docker-compose.yaml)
 
 - Database
   ```bash
@@ -105,7 +105,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
   https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/mariadb/docker-compose.yaml#L1-L17
 
-### [Redis](../SS/SS.APP/docker/redis/docker-compose.yaml)
+## [Redis](../SS/SS.APP/docker/redis/docker-compose.yaml)
 
 - Database
   ```bash
@@ -114,7 +114,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
   https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/redis/docker-compose.yaml#L1-L13
 
-### [Prometheus](../SS/SS.APP/docker/prometheus/docker-compose.yaml)
+## [Prometheus](../SS/SS.APP/docker/prometheus/docker-compose.yaml)
 
 - Database
   ```bash
@@ -130,7 +130,7 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
 
   https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/grafana/docker-compose.yaml#L1-L15
 
-### [Elastic Search](../SS/SS.APP/docker/elasticsearch/docker-compose.yaml)
+## [Elastic Search](../SS/SS.APP/docker/elasticsearch/docker-compose.yaml)
 
 - Database
   ```bash

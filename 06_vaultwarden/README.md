@@ -15,7 +15,7 @@ In this video I demonstrate how to install **Vaultwarden** on a Ubuntu Virtual M
 
 - [Bitwarden Site](https://bitwarden.com)
 - [Vaultwarden Github](https://github.com/dani-garcia/vaultwarden)
-- [Background Music](https://freesound.org/people/NERDtasticBEATS/sounds/666572)
+- 🎺 [Background Music](https://freesound.org/people/NERDtasticBEATS/sounds/666572)
 
 ## Prerequisites
 

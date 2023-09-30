@@ -15,7 +15,7 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a **Digital Oce
 
 - [Mail-In-a-Box Site](https://mailinabox.email/)
 - [Mail-In-a-Box Github](https://github.com/mail-in-a-box/mailinabox)
-- [Background Music](https://freesound.org/people/Migfus20/sounds/683260)
+- 🎺 [Background Music](https://freesound.org/people/Migfus20/sounds/683260)
 
 ## Prerequisites
 
@@ -172,11 +172,9 @@ In this video we demonstrate how to install **Mail-in-a-Box** on a **Digital Oce
 - **Provide** your Admin e-mail address and **password**
 - Click **Login**
 
-# Addendum to video
-
-These steps are not explained in the video...
-
 ## Add A-Records
+
+###### ➕ Addendum to video (*This step is not explained in the video...*)
 
 - Browse to your [04. Mail-in-a-Box](../04_mail_in_a_box/README.md) address.
 - Navigate to **Custom DNS** in the **System** menu
@@ -187,6 +185,8 @@ These steps are not explained in the video...
   - Click **Set Record**
 
 ## Setup NPM Proxy Hosts
+
+###### ➕ Addendum to video (*This step is not explained in the video...*)
 
 - Navigate to [NPM](https://spikyspam.site)
 - Click **Add Proxy Host**:

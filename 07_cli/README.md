@@ -24,7 +24,7 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 - [Popeye](https://github.com/derailed/popeye)
 - [Step](https://github.com/smallstep/cli)
 - [Terraform](https://github.com/hashicorp/terraform)
-- [Background Music](https://freesound.org/people/Migfus20/sounds/683265)
+- 🎺 [Background Music](https://freesound.org/people/Migfus20/sounds/683265)
 
 ## Prerequisites
 

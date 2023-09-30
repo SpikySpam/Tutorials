@@ -15,7 +15,7 @@ In this video I demonstrate how to install the **Nginx Proxy Manager** on a **Di
 
 - [Nginx Proxy Manager Site](https://nginxproxymanager.com)
 - [Nginx Proxy Manager Github](https://github.com/NginxProxyManager/nginx-proxy-manager)
-- [Background Music](https://freesound.org/people/Seth_Makes_Sounds/sounds/670039/)
+- 🎺 [Background Music](https://freesound.org/people/Seth_Makes_Sounds/sounds/670039/)
 
 ## Prerequisites
 

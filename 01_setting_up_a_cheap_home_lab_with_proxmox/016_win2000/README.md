@@ -11,7 +11,7 @@ This will be a quick video just to get things setup...
 ## Links
 
 - [Windows 2000 ISO](https://winworldpc.com/product/windows-nt-2000/final)
-- [Background Music](https://freesound.org/people/Migfus20/sounds/683262/)
+- 🎺 [Background Music](https://freesound.org/people/Migfus20/sounds/683262/)
 
 ## Installation
 

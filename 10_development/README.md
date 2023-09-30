@@ -17,7 +17,8 @@ In this video I demonstrate how to install **RabbitMQ**, **Harbor**, **Jenkins**
 - [Harbor](https://bitnami.com/stack/harbor)
 - [Jenkins](https://www.jenkins.io)
 - [Gitlab](https://gitlab.com)
-- [Code Server](https://gitlab.com)
+- [Code Server](https://coder.com)
+- 🎺 [Background Music](https://freesound.org/people/XXXXXXXXXXXX)
 
 ## Prerequisites
 
@@ -32,26 +33,60 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 3️⃣ [Add NPM **Proxy Hosts**](../05_databases/README.md#npm-proxy-host) \
 4️⃣ [**Clone** latest **Sources**](../05_databases/README.md#latest-sources)
 
+## [RabbitMQ](../SS/SS.APP/docker/rabbitmq/docker-compose.yaml)
+
+```bash
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_RABBITMQ_NAME/docker-compose.yaml up -d
+```
+
+https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/rabbitmq/docker-compose.yaml#L1-L17
+
+## [Harbor](../SS/SS.APP/docker/harbor/docker-compose.yaml)
+
+```bash
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HARBOR_NAME/docker-compose.yaml up -d
+```
+
+https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/harbor/docker-compose.yaml#L1-L123
+
+## [Jenkins](../SS/SS.APP/docker/jenkins/docker-compose.yaml)
+
+```bash
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_JENKINS_NAME/docker-compose.yaml up -d
+```
+
+https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/jenkins/docker-compose.yaml#L1-L18
+
+## [Gitlab](../SS/SS.APP/docker/gitlab/docker-compose.yaml)
+
+```bash
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GITLAB_NAME/docker-compose.yaml up -d
+```
+
+https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/gitlab/docker-compose.yaml#L1-L132
+
+## [Code Server](../SS/SS.APP/docker/code-server/docker-compose.yaml)
+
+```bash
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-compose.yaml up -d
+```
+
+https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/code-server/docker-compose.yaml#L1-L21
+
 ## Complete Script
 
 These are all the commands in a single script.
-  ```bash
-  # RabbitMQ
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_RABBITMQ_NAME/docker-compose.yaml up -d
 
-  # Harbor
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HARBOR_NAME/docker-compose.yaml up -d
+```bash
+# RabbitMQ
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_RABBITMQ_NAME/docker-compose.yaml up -d
 
-  # Gitlab
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GITLAB_NAME/docker-compose.yaml up -d
+# Harbor
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HARBOR_NAME/docker-compose.yaml up -d
 
-  # Code Server
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-compose.yaml up -d
-  ```
+# Gitlab
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GITLAB_NAME/docker-compose.yaml up -d
 
-## Check Docker
-
-- **Check** Containers
-  ```bash
-  docker ps
-  ```
+# Code Server
+docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-compose.yaml up -d
+```
