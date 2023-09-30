@@ -108,11 +108,7 @@ This part of the series will change often, depending on the progress, but will r
   nano $TF_VAR_PATH/SS/version/docker/version.sh
   ```
 
-  ```bash
-  # /SS/version/docker/version.sh
-
-  export TF_VAR_VERSION_DOCKER_NPM="github-pr-3117"    # https://hub.docker.com/r/jc21/nginx-proxy-manager/tags
-  ```
+  https://github.com/SpikySpam/Tutorials/blob/72bcb0e63753731dedcf6c94b22f317d69427603/SS/SS/version/docker/version.sh#L1-L42
 
 - Create **Application Folders** for docker, helm and other configuration files
 
