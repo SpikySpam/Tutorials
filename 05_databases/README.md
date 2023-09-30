@@ -70,10 +70,15 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_POSTGRES_NAME/docker-compose.yaml up -d
   ```
+
+https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c8f8d/SS/SS.APP/docker/postgres/docker-compose.yaml#L1-L15
+
 - Web Interface
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PGADMIN_NAME/docker-compose.yaml up -d
   ```
+
+https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c8f8d/SS/SS.APP/docker/pgadmin/docker-compose.yaml#L1-L1000
 
 ### [MySql](../SS/SS.APP/docker/mysql/docker-compose.yaml)
 
