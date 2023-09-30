@@ -5,7 +5,7 @@ services:
     extends:
       service: ${TF_VAR_POSTGRES_NAME}
       file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
-    image: postgres:13
+    # image: postgres:13
     container_name: ${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
     volumes:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
@@ -23,6 +23,7 @@ services:
   harbor-registry: # ${TF_VAR_HARBOR_NAME}-registry
     image: bitnami/harbor-registry:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-registry
+    restart: unless-stopped
     volumes:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/registry:/storage
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registry/:/etc/registry/:ro
@@ -32,6 +33,7 @@ services:
   harbor-registryctl: # ${TF_VAR_HARBOR_NAME}-registryctl
     image: bitnami/harbor-registryctl:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-registryctl
+    restart: unless-stopped
     volumes:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/registry:/storage
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registry/:/etc/registry/:ro
@@ -46,12 +48,13 @@ services:
       - ${TF_VAR_HARBOR_NAME}-registry
     image: bitnami/harbor-core:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-core
+    restart: unless-stopped
     volumes:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/core:/data
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/core/app.conf:/etc/core/app.conf:ro
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/core/private_key.pem:/etc/core/private_key.pem:ro
     environment:
-      - CORE_KEY=change-this-key
+      - CORE_KEY=${TF_VAR_HARBOR_CORE_SECRET}
       - _REDIS_URL_CORE=redis://${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}:6379/0
       - SYNC_REGISTRY=false
       - CHART_CACHE_DRIVER=redis
@@ -62,7 +65,7 @@ services:
       - DATABASE_TYPE=postgresql
       - REGISTRY_CONTROLLER_URL=http://${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_HARBOR_PORT_INT}
       - POSTGRESQL_HOST=${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
-      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_PORT=${TF_VAR_POSTGRES_PORT_INT}
       - POSTGRESQL_DATABASE=${TF_VAR_HARBOR_NAME}
       - POSTGRESQL_USERNAME=${TF_VAR_POSTGRES_USER}
       - POSTGRESQL_PASSWORD=${TF_VAR_POSTGRES_PASSWORD}
@@ -86,6 +89,7 @@ services:
       - ${TF_VAR_HARBOR_NAME}-core
     image: bitnami/harbor-portal:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-portal
+    restart: unless-stopped
 
   harbor-jobservice: # ${TF_VAR_HARBOR_NAME}-jobservice
     depends_on:
@@ -93,6 +97,7 @@ services:
       - ${TF_VAR_HARBOR_NAME}-core
     image: bitnami/harbor-jobservice:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-jobservice
+    restart: unless-stopped
     volumes:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/jobservice:/var/log/jobs
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/jobservice/config.yml:/etc/jobservice/config.yml:ro
@@ -112,8 +117,8 @@ services:
       - ${TF_VAR_HARBOR_NAME}-portal
     image: bitnami/nginx:${TF_VAR_VERSION_DOCKER_NGINX}
     container_name: ${TF_VAR_HARBOR_NAME}-nginx
+    restart: unless-stopped
     volumes:
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/proxy/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf:ro
     ports:
       - ${TF_VAR_HARBOR_PORT_EXT}:${TF_VAR_HARBOR_PORT_INT}
-      - ${TF_VAR_HARBOR_PORT_EXT_REGISTRY}:${TF_VAR_HARBOR_PORT_INT_REGISTRY}
