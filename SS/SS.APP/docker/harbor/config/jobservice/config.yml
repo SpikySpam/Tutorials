@@ -14,7 +14,7 @@ port: 8080
 worker_pool:
   #Worker concurrency
   workers: 10
-  backend: "harbor-redis"
+  backend: "redis"
   #Additional config if use 'redis' backend
   redis_pool:
     #redis://[arbitrary_username:password@]ipaddress:port/database_index

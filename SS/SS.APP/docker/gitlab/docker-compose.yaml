@@ -18,3 +18,22 @@ services:
         external_url 'https://${TF_VAR_GITLAB_NAME}.${TF_VAR_DOMAIN}'
     hostname: ${TF_VAR_GITLAB_NAME}.${TF_VAR_DOMAIN}
     shm_size: '256m'
+    networks:
+      - ${TF_VAR_GITLAB_NAME}
+
+  gitlab-runner: # ${TF_VAR_GITLAB_NAME}-runner
+    depends_on:
+      - ${TF_VAR_GITLAB_NAME}
+    image: gitlab/gitlab-runner:alpine3.18
+    container_name: ${TF_VAR_GITLAB_NAME}-runner
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/run/docker.sock:/var/run/docker.sock
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/gitlab-runner:/etc/gitlab-runner
+    networks:
+      - ${TF_VAR_GITLAB_NAME}
+
+networks:
+  gitlab: # ${TF_VAR_GITLAB_NAME}
+    name: ${TF_VAR_GITLAB_NAME}
+    driver: bridge

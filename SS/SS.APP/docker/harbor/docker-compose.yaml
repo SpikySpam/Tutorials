@@ -1,7 +1,4 @@
-﻿# Copyright VMware, Inc.
-# SPDX-License-Identifier: APACHE-2.0
-
-version: '2'
+version: '3.8'
 
 services:
   harbor-postgres: # ${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
@@ -14,8 +11,6 @@ services:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: ${TF_VAR_HARBOR_NAME}
-    networks:
-      - ${TF_VAR_HARBOR_NAME}
 
   harbor-redis: # ${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}
     extends:
@@ -24,89 +19,73 @@ services:
     container_name: ${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}
     volumes:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/${TF_VAR_REDIS_NAME}:/data
-    networks:
-      - ${TF_VAR_HARBOR_NAME}
 
   harbor-registry: # ${TF_VAR_HARBOR_NAME}-registry
     image: bitnami/harbor-registry:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-registry
-    restart: unless-stopped
     volumes:
-      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registry:/etc/registry/:ro
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/registry:/storage
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registry/:/etc/registry/:ro
     environment:
       - REGISTRY_HTTP_SECRET=${TF_VAR_HARBOR_HTTP_SECRET}
-    networks:
-      - ${TF_VAR_HARBOR_NAME}
 
   harbor-registryctl: # ${TF_VAR_HARBOR_NAME}-registryctl
     image: bitnami/harbor-registryctl:${TF_VAR_VERSION_DOCKER_HARBOR}
-    container_name:  ${TF_VAR_HARBOR_NAME}-registryctl
-    restart: unless-stopped
+    container_name: ${TF_VAR_HARBOR_NAME}-registryctl
     volumes:
-      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registry:/etc/registry/:ro
-      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registryctl/config.yml:/etc/registryctl/config.yml:ro
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/registry:/storage
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registry/:/etc/registry/:ro
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/registryctl/config.yml:/etc/registryctl/config.yml:ro
     environment:
-      - REGISTRY_HTTP_SECRET=${TF_VAR_HARBOR_HTTP_SECRET}
       - CORE_SECRET=${TF_VAR_HARBOR_CORE_SECRET}
       - JOBSERVICE_SECRET=${TF_VAR_HARBOR_JOBSERVICE_SECRET}
-    networks:
-      - ${TF_VAR_HARBOR_NAME}
+      - REGISTRY_HTTP_SECRET=${TF_VAR_HARBOR_HTTP_SECRET}
 
   harbor-core: # ${TF_VAR_HARBOR_NAME}-core
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-registry
     image: bitnami/harbor-core:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-core
-    restart: unless-stopped
     volumes:
+      - $HOME/docker/${TF_VAR_HARBOR_NAME}/core:/data
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/core/app.conf:/etc/core/app.conf:ro
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/core/private_key.pem:/etc/core/private_key.pem:ro
-      - $HOME/docker/${TF_VAR_HARBOR_NAME}/core:/data
     environment:
-      - CORE_KEY=${TF_VAR_HARBOR_CORE_SECRET}
-      - _REDIS_URL_CORE=redis://${TF_VAR_REDIS_NAME}:${TF_VAR_REDIS_PORT_INT}/0
+      - CORE_KEY=change-this-key
+      - _REDIS_URL_CORE=redis://${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}:6379/0
       - SYNC_REGISTRY=false
-      - CHART_CACHE_DRIVER=${TF_VAR_REDIS_NAME}
-      - _REDIS_URL_REG=redis://${TF_VAR_REDIS_NAME}:${TF_VAR_REDIS_PORT_INT}/1
-      - PORT=${TF_VAR_HARBOR_PORT_INT_CORE}
+      - CHART_CACHE_DRIVER=redis
+      - _REDIS_URL_REG=redis://${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}:6379/1
+      - PORT=${TF_VAR_HARBOR_PORT_INT}
       - LOG_LEVEL=info
-      - EXT_ENDPOINT=http://${TF_VAR_HARBOR_NAME}.${TF_VAR_DOMAIN}
+      - EXT_ENDPOINT=http://reg.mydomain.com
       - DATABASE_TYPE=postgresql
-      - REGISTRY_CONTROLLER_URL=http://${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_HARBOR_PORT_INT_CORE}
+      - REGISTRY_CONTROLLER_URL=http://${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_HARBOR_PORT_INT}
       - POSTGRESQL_HOST=${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
-      - POSTGRESQL_PORT=${TF_VAR_POSTGRES_PORT_INT}
+      - POSTGRESQL_PORT=5432
       - POSTGRESQL_DATABASE=${TF_VAR_HARBOR_NAME}
       - POSTGRESQL_USERNAME=${TF_VAR_POSTGRES_USER}
       - POSTGRESQL_PASSWORD=${TF_VAR_POSTGRES_PASSWORD}
       - POSTGRESQL_SSLMODE=disable
       - REGISTRY_URL=http://${TF_VAR_HARBOR_NAME}-registry:${TF_VAR_HARBOR_PORT_INT_REGISTRY}
-      - TOKEN_SERVICE_URL=http://${TF_VAR_HARBOR_NAME}-core:${TF_VAR_HARBOR_PORT_INT_CORE}/service/token
+      - TOKEN_SERVICE_URL=http://${TF_VAR_HARBOR_NAME}-core:${TF_VAR_HARBOR_PORT_INT}/service/token
       - HARBOR_ADMIN_PASSWORD=${TF_VAR_HARBOR_PASSWORD}
       - CORE_SECRET=${TF_VAR_HARBOR_CORE_SECRET}
       - JOBSERVICE_SECRET=${TF_VAR_HARBOR_JOBSERVICE_SECRET}
       - ADMIRAL_URL=
-      - CORE_URL=http://${TF_VAR_HARBOR_NAME}-core:${TF_VAR_HARBOR_PORT_INT_CORE}
-      - JOBSERVICE_URL=http://${TF_VAR_HARBOR_NAME}-jobservice:${TF_VAR_HARBOR_PORT_INT_CORE}
+      - CORE_URL=http://${TF_VAR_HARBOR_NAME}-core:${TF_VAR_HARBOR_PORT_INT}
+      - JOBSERVICE_URL=http://${TF_VAR_HARBOR_NAME}-jobservice:${TF_VAR_HARBOR_PORT_INT}
       - REGISTRY_STORAGE_PROVIDER_NAME=filesystem
-      - REGISTRY_CREDENTIAL_USERNAME=${TF_VAR_HARBOR_USER}
-      - REGISTRY_CREDENTIAL_PASSWORD=${TF_VAR_HARBOR_PASSWORD}
+      - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
+      - REGISTRY_CREDENTIAL_PASSWORD=harbor_registry_password
       - READ_ONLY=false
       - RELOAD_KEY=
-    networks:
-      - ${TF_VAR_HARBOR_NAME}
 
   harbor-portal: # ${TF_VAR_HARBOR_NAME}-portal
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-core
     image: bitnami/harbor-portal:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-portal
-    restart: unless-stopped
-    ports:
-      - ${TF_VAR_HARBOR_PORT_EXT_CORE}:${TF_VAR_HARBOR_PORT_INT_CORE}
-    networks:
-      - ${TF_VAR_HARBOR_NAME}
 
   harbor-jobservice: # ${TF_VAR_HARBOR_NAME}-jobservice
     depends_on:
@@ -114,36 +93,27 @@ services:
       - ${TF_VAR_HARBOR_NAME}-core
     image: bitnami/harbor-jobservice:${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-jobservice
-    restart: unless-stopped
     volumes:
-      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/jobservice/config.yml:/etc/jobservice/config.yml:ro
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/jobservice:/var/log/jobs
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/jobservice/config.yml:/etc/jobservice/config.yml:ro
     environment:
       - CORE_SECRET=${TF_VAR_HARBOR_CORE_SECRET}
       - JOBSERVICE_SECRET=${TF_VAR_HARBOR_JOBSERVICE_SECRET}
-      - CORE_URL=http://${TF_VAR_HARBOR_NAME}-core:${TF_VAR_HARBOR_PORT_INT_CORE}
-      - REGISTRY_CONTROLLER_URL=http://${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_HARBOR_PORT_INT_CORE}
-      - REGISTRY_CREDENTIAL_USERNAME=${TF_VAR_HARBOR_USER}
-      - REGISTRY_CREDENTIAL_PASSWORD=${TF_VAR_HARBOR_PASSWORD}
-    networks:
-      - ${TF_VAR_HARBOR_NAME}
+      - CORE_URL=http://${TF_VAR_HARBOR_NAME}-core:${TF_VAR_HARBOR_PORT_INT}
+      - REGISTRY_CONTROLLER_URL=http://${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_HARBOR_PORT_INT}
+      - REGISTRY_CREDENTIAL_USERNAME=harbor_registry_user
+      - REGISTRY_CREDENTIAL_PASSWORD=harbor_registry_password
 
-  # harbor-nginx: # ${TF_VAR_HARBOR_NAME}-nginx
-  #   depends_on:
-  #     - ${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
-  #     - ${TF_VAR_HARBOR_NAME}-registry
-  #     - ${TF_VAR_HARBOR_NAME}-core
-  #     - ${TF_VAR_HARBOR_NAME}-portal
-  #   image: bitnami/nginx:1.25
-  #   container_name: ${TF_VAR_HARBOR_NAME}-nginx
-  #   ports:
-  #     - ${TF_VAR_HARBOR_PORT_EXT_CORE}:${TF_VAR_HARBOR_PORT_INT_CORE}
-  #   volumes:
-  #     - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/proxy/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf:ro
-  #   networks:
-  #     - ${TF_VAR_HARBOR_NAME}
-
-networks:
-  harbor: # ${TF_VAR_HARBOR_NAME}
-    name: ${TF_VAR_HARBOR_NAME}
-    driver: bridge
+  harbor-nginx: # ${TF_VAR_HARBOR_NAME}-nginx
+    depends_on:
+      - ${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
+      - ${TF_VAR_HARBOR_NAME}-registry
+      - ${TF_VAR_HARBOR_NAME}-core
+      - ${TF_VAR_HARBOR_NAME}-portal
+    image: bitnami/nginx:${TF_VAR_VERSION_DOCKER_NGINX}
+    container_name: ${TF_VAR_HARBOR_NAME}-nginx
+    volumes:
+      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/config/proxy/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf:ro
+    ports:
+      - ${TF_VAR_HARBOR_PORT_EXT}:${TF_VAR_HARBOR_PORT_INT}
+      - ${TF_VAR_HARBOR_PORT_EXT_REGISTRY}:${TF_VAR_HARBOR_PORT_INT_REGISTRY}

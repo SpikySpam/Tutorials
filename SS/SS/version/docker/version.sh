@@ -1,3 +1,4 @@
+export TF_VAR_VERSION_DOCKER_NGINX="1.25.2"                              # https://hub.docker.com/_/nginx/tags
 export TF_VAR_VERSION_DOCKER_NPM="github-pr-3199"                        # https://hub.docker.com/r/jc21/nginx-proxy-manager/tags
 export TF_VAR_VERSION_DOCKER_PIHOLE="2023.05.2"                          # https://hub.docker.com/r/pihole/pihole/tags
 
