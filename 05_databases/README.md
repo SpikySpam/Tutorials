@@ -45,6 +45,9 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
   mv -f SpikySpamTutorials/SS $TF_VAR_PATH
   rm -rf SpikySpamTutorials
 
+  # Change Access
+  find $TF_VAR_PATH -type f -iname "*.sh" -exec chmod +x {} \;
+
   # Get the latest .bash_profile content
   cp $TF_VAR_PATH/.bash_profile_public $TF_VAR_PATH/.bash_profile
   source $HOME/.bashrc
