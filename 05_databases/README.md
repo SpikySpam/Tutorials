@@ -71,14 +71,14 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_POSTGRES_NAME/docker-compose.yaml up -d
   ```
 
-https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c8f8d/SS/SS.APP/docker/postgres/docker-compose.yaml#L1-L15
+  https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c8f8d/SS/SS.APP/docker/postgres/docker-compose.yaml#L1-L15
 
 - Web Interface
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PGADMIN_NAME/docker-compose.yaml up -d
   ```
 
-https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c8f8d/SS/SS.APP/docker/pgadmin/docker-compose.yaml#L1-L16
+  https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c8f8d/SS/SS.APP/docker/pgadmin/docker-compose.yaml#L1-L16
 
 ### [MySql](../SS/SS.APP/docker/mysql/docker-compose.yaml)
 
@@ -86,10 +86,15 @@ https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MYSQL_NAME/docker-compose.yaml up -d
   ```
+
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/mysql/docker-compose.yaml#L1-L17
+
 - Web Interface
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHPMYADMIN_NAME/docker-compose.yaml up -d
   ```
+
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/phpmyadmin/docker-compose.yaml#L1-L11
 
 ### [MariaDB](../SS/SS.APP/docker/mariadb/docker-compose.yaml)
 
@@ -98,6 +103,8 @@ https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_MARIADB_NAME/docker-compose.yaml up -d
   ```
 
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/mariadb/docker-compose.yaml#L1-L17
+
 ### [Redis](../SS/SS.APP/docker/redis/docker-compose.yaml)
 
 - Database
@@ -105,16 +112,23 @@ https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_REDIS_NAME/docker-compose.yaml up -d
   ```
 
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/redis/docker-compose.yaml#L1-L13
+
 ### [Prometheus](../SS/SS.APP/docker/prometheus/docker-compose.yaml)
 
 - Database
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PROMETHEUS_NAME/docker-compose.yaml up -d
   ```
+
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/prometheus/docker-compose.yaml#L1-L14
+
 - Web Interface
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GRAFANA_NAME/docker-compose.yaml up -d
   ```
+
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/grafana/docker-compose.yaml#L1-L15
 
 ### [Elastic Search](../SS/SS.APP/docker/elasticsearch/docker-compose.yaml)
 
@@ -122,10 +136,15 @@ https://github.com/SpikySpam/Tutorials/blob/a434c024da9ccc33ac165585dab0818f8b3c
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_ELASTICSEARCH_NAME/docker-compose.yaml up -d
   ```
+
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/elasticsearch/docker-compose.yaml#L1-L22
+
 - Web Interface
   ```bash
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KIBANA_NAME/docker-compose.yaml up -d
   ```
+
+  https://github.com/SpikySpam/Tutorials/blob/4e680405ee5a35fbf4fccc0b2acd6c1ed4c199ad/SS/SS.APP/docker/kibana/docker-compose.yaml#L1-L14
 
 ## Complete Script
 
