@@ -40,44 +40,8 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 ## The CLI Script
 
 - I have created the script for **Downloading** the **CLI** tools in **[SS/cli.sh](../SS/SS/cli.sh)**.
-  ```bash
-  # cli.sh snippet
 
-  #!/bin/bash
-
-  OSTYPE_LINUX="linux-gnu"
-  OSTYPE_WINDOWS="msys"
-
-  CLI_NAME_LYCHEE="lychee"
-  # ... more tools here
-
-  cli_install_lychee() {
-
-    if ! compgen -G "${TF_VAR_PATH_CLI}/$CLI_NAME_LYCHEE*" > /dev/null; then
-      if [ $OSTYPE == $OSTYPE_LINUX ]; then
-        # Download and Extract for Linux
-      elif [ $OSTYPE == $OSTYPE_WINDOWS ]; then
-        # Download and Extract for Windows
-      fi
-      echo -n "⬇ "
-    else
-      echo -n "√ "
-    fi
-    [ $INITIALIZE == false ] && echo $CLI_NAME_LYCHEE
-    [ $INITIALIZE == false ] && echo -n " "$(gitleaks version)
-
-  }
-  # ... more tools here
-
-  echo $DIV
-  echo ⬇️ " Downloading CLI tools"
-  echo $DIV
-
-  cli_install_lychee
-  # ... more tools here
-  [ $INITIALIZE != false ] && echo
-
-  ```
+  https://github.com/SpikySpam/Tutorials/blob/6c2f4e44317764a4db9ecbf57fa0bfad8ded7a02/SS/SS/cli.sh#L1-L262
 
 ## Execute the Script
 

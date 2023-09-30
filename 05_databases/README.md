@@ -57,13 +57,12 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
   nano $TF_VAR_PATH/.bash_profile
   ```
 - Check new **[ports.sh](../SS/SS/ports.sh)**
-  ```bash  
-  nano $TF_VAR_PATH_MAIN/ports.sh
-  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/6c2f4e44317764a4db9ecbf57fa0bfad8ded7a02/SS/SS/ports.sh#L1-L96
+
 - Check new **[version.sh](../SS/SS/version/docker/version.sh)**
-  ```bash  
-  nano $TF_VAR_PATH_MAIN/version/docker/version.sh
-  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/6c2f4e44317764a4db9ecbf57fa0bfad8ded7a02/SS/SS/version/docker/version.sh#L1-L42
 
 ### [PostgreSQL](../SS/SS.APP/docker/postgres/docker-compose.yaml)
 

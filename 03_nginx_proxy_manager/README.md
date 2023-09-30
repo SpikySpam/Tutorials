@@ -102,25 +102,7 @@ In this video I demonstrate how to install the **Nginx Proxy Manager** on a **Di
   nano docker-compose.yaml
   ```
 
-  ```yaml
-  version: '3.8'
-
-  services:
-    npm: 
-      container_name: npm
-      image: jc21/nginx-proxy-manager:latest
-      restart: unless-stopped
-      environment:
-        PUID: 1000
-        PGID: 1000
-      ports:
-        - "80:80"
-        - "81:81"
-        - "443:443"
-      volumes:
-        - $HOME/docker/npm/data:/data
-        - $HOME/docker/npm/letsencrypt:/etc/letsencrypt
-  ```
+  https://github.com/SpikySpam/Tutorials/blob/6c2f4e44317764a4db9ecbf57fa0bfad8ded7a02/SS/SS.APP/docker/npm/docker-compose.yaml#L1-L17
 
 - Deploy it using following command
   ```bash
