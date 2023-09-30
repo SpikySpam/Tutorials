@@ -3,17 +3,16 @@
 
 ![Security Banner](_assets/images/security_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used security tool like **Pi-Hole**, **Keycloak**, **Guacamole** and **Twingate**
+In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used security tool like **Keycloak**, **Guacamole** and **Twingate**
 
 ## Video
 
-In this video I demonstrate how to install **Pi-Hole**, **Keycloak**, **Guacamole** and **Twingate** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
+In this video I demonstrate how to install **Keycloak**, **Guacamole** and **Twingate** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
 
 [![Video](_assets/images/security_video.png)](https://youtu.be/XXXXXXXXXXXXX)
 
 ## Links
 
-- [Pi-Hole](https://pi-hole.net)
 - [Keycloak](https://keycloak.org)
 - [Guacamole](https://guacamole.apache.org)
 - [Twingate](https://twingate.com)
@@ -35,9 +34,6 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 
 These are all the commands in a single script.
   ```bash
-  # Pi-Hole
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PIHOLE_NAME/docker-compose.yaml up -d
-
   # Keycloak
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KEYCLOAK_NAME/docker-compose.yaml up -d
 

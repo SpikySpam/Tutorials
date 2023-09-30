@@ -2,7 +2,7 @@
 
  - **Docker Series**:
     - 08. Tools: FileBrowser, Kutt, Searxng, Heimdall, Uptime-Kuma, Listmonk
-    - 09. Security Tools: Pi-Hole, Keycloak, Guacamole, Twingate
+    - 09. Security Tools: Keycloak, Guacamole, Twingate
     - 10. Development Tools: RabbitMQ, Harbor, Gitlab
     - 11. Hack Tools: Phone Info GA, Sherlock, Storm Breaker, Softether, Beef Project
 

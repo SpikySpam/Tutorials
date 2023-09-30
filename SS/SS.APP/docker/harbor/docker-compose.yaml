@@ -5,7 +5,6 @@ services:
     extends:
       service: ${TF_VAR_POSTGRES_NAME}
       file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
-    # image: postgres:13
     container_name: ${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
     volumes:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
@@ -61,7 +60,7 @@ services:
       - _REDIS_URL_REG=redis://${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}:6379/1
       - PORT=${TF_VAR_HARBOR_PORT_INT}
       - LOG_LEVEL=info
-      - EXT_ENDPOINT=http://reg.mydomain.com
+      - EXT_ENDPOINT=http://${TF_VAR_HARBOR_NAME}.${TF_VAR_DOMAIN}
       - DATABASE_TYPE=postgresql
       - REGISTRY_CONTROLLER_URL=http://${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_HARBOR_PORT_INT}
       - POSTGRESQL_HOST=${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}

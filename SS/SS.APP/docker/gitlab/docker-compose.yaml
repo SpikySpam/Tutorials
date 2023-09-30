@@ -1,39 +1,132 @@
 version: '3.8'
 
 services:
+  gitlab-postgres: # ${TF_VAR_GITLAB_NAME}-${TF_VAR_POSTGRES_NAME}
+    extends:
+      service: ${TF_VAR_POSTGRES_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_GITLAB_NAME}-${TF_VAR_POSTGRES_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${TF_VAR_GITLAB_NAME}
+
+  gitlab-redis: # ${TF_VAR_GITLAB_NAME}-${TF_VAR_REDIS_NAME}
+    extends:
+      service: ${TF_VAR_REDIS_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_REDIS_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_GITLAB_NAME}-${TF_VAR_REDIS_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/${TF_VAR_REDIS_NAME}:/data
+
   gitlab: # ${TF_VAR_GITLAB_NAME}
+    depends_on:
+    - ${TF_VAR_GITLAB_NAME}-${TF_VAR_REDIS_NAME}
+    - ${TF_VAR_GITLAB_NAME}-${TF_VAR_POSTGRES_NAME}
     image: gitlab/gitlab-ce:${TF_VAR_VERSION_DOCKER_GITLAB}
     container_name: ${TF_VAR_GITLAB_NAME}
     restart: unless-stopped
     ports:
       - ${TF_VAR_GITLAB_PORT_EXT_80}:${TF_VAR_GITLAB_PORT_INT_80}
-      - ${TF_VAR_GITLAB_PORT_EXT_443}:${TF_VAR_GITLAB_PORT_INT_443}
       - ${TF_VAR_GITLAB_PORT_EXT_22}:${TF_VAR_GITLAB_PORT_INT_22}
     volumes:
-      - $HOME/docker/${TF_VAR_GITLAB_NAME}/config:/etc/gitlab
-      - $HOME/docker/${TF_VAR_GITLAB_NAME}/logs:/var/log/gitlab
-      - $HOME/docker/${TF_VAR_GITLAB_NAME}/data:/var/opt/gitlab
+      - $HOME/docker/${TF_VAR_GITLAB_NAME}/data:/home/git/data:Z
     environment:
-      GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://${TF_VAR_GITLAB_NAME}.${TF_VAR_DOMAIN}'
-    hostname: ${TF_VAR_GITLAB_NAME}.${TF_VAR_DOMAIN}
-    shm_size: '256m'
-    networks:
-      - ${TF_VAR_GITLAB_NAME}
+    - DEBUG=false
+    - SIGNUP_ENABLED=False
+    - SSL_SELF_SIGNED=false
+    - DB_ADAPTER=postgresql
+    - DB_HOST=${TF_VAR_GITLAB_NAME}-${TF_VAR_POSTGRES_NAME}
+    - DB_PORT=${TF_VAR_POSTGRES_PORT_INT}
+    - DB_USER=${TF_VAR_POSTGRES_USER}
+    - DB_PASS=${TF_VAR_POSTGRES_PASSWORD}
+    - DB_NAME= ${TF_VAR_GITLAB_NAME}
+    - REDIS_HOST=${TF_VAR_GITLAB_NAME}-${TF_VAR_REDIS_NAME}
+    - REDIS_PORT=${TF_VAR_REDIS_PORT_INT}
+    - TZ=${TF_VAR_GITLAB_TZ}
+    - GITLAB_TIMEZONE=${TF_VAR_GITLAB_TZ}
+    - GITLAB_HTTPS=false
+    - GITLAB_HOST=${TF_VAR_DOMAIN}
+    - GITLAB_PORT=${TF_VAR_GITLAB_PORT_EXT_80}
+    - GITLAB_SSH_PORT=${TF_VAR_GITLAB_PORT_EXT_22}
+    - GITLAB_RELATIVE_URL_ROOT=
+    - GITLAB_SECRETS_DB_KEY_BASE=${TF_VAR_GITLAB_KEY_DB}
+    - GITLAB_SECRETS_SECRET_KEY_BASE=${TF_VAR_GITLAB_KEY_SECRET}
+    - GITLAB_SECRETS_OTP_KEY_BASE=${TF_VAR_GITLAB_KEY_OTP}
+    - GITLAB_ROOT_PASSWORD=${TF_VAR_GITLAB_PASSWORD}
+    - GITLAB_ROOT_EMAIL=${TF_VAR_GITLAB_USER}@${TF_VAR_DOMAIN}
+    - GITLAB_NOTIFY_ON_BROKEN_BUILDS=true
+    - GITLAB_NOTIFY_PUSHER=false
+    - GITLAB_EMAIL=gitlab@${TF_VAR_DOMAIN}
+    - GITLAB_EMAIL_REPLY_TO=noreply@${TF_VAR_DOMAIN}
+    - GITLAB_INCOMING_EMAIL_ADDRESS=reply@${TF_VAR_DOMAIN}
+    - GITLAB_BACKUP_SCHEDULE=daily
+    - GITLAB_BACKUP_TIME=01:00
+    - SMTP_ENABLED=true
+    - SMTP_DOMAIN=${TF_VAR_DOMAIN}
+    - SMTP_HOST=${TF_VAR_SMTP_HOST}
+    - SMTP_PORT=${TF_VAR_SMTP_PORT}
+    - SMTP_USER=${TF_VAR_SMTP_USERNAME}
+    - SMTP_PASS=${TF_VAR_SMTP_PASSWORD}
+    - SMTP_STARTTLS=${TF_VAR_SMTP_STARTTLS}
+    - SMTP_AUTHENTICATION=login
+    - IMAP_ENABLED=false
+    - IMAP_HOST=${TF_VAR_IMAP_HOST}
+    - IMAP_PORT=${TF_VAR_IMAP_PORT}
+    - IMAP_USER=${TF_VAR_IMAP_USERNAME}
+    - IMAP_PASS=${TF_VAR_IMAP_PASSWORD}
+    - IMAP_SSL=${TF_VAR_IMAP_SSL}
+    - IMAP_STARTTLS=${TF_VAR_IMAP_STARTTLS}
 
-  gitlab-runner: # ${TF_VAR_GITLAB_NAME}-runner
-    depends_on:
-      - ${TF_VAR_GITLAB_NAME}
-    image: gitlab/gitlab-runner:alpine3.18
-    container_name: ${TF_VAR_GITLAB_NAME}-runner
-    restart: unless-stopped
-    volumes:
-      - $HOME/docker/${TF_VAR_GITLAB_NAME}/run/docker.sock:/var/run/docker.sock
-      - $HOME/docker/${TF_VAR_GITLAB_NAME}/gitlab-runner:/etc/gitlab-runner
-    networks:
-      - ${TF_VAR_GITLAB_NAME}
-
-networks:
-  gitlab: # ${TF_VAR_GITLAB_NAME}
-    name: ${TF_VAR_GITLAB_NAME}
-    driver: bridge
+    - OAUTH_ENABLED=false
+    - OAUTH_AUTO_SIGN_IN_WITH_PROVIDER=
+    - OAUTH_ALLOW_SSO=
+    - OAUTH_BLOCK_AUTO_CREATED_USERS=true
+    - OAUTH_AUTO_LINK_LDAP_USER=false
+    - OAUTH_AUTO_LINK_SAML_USER=false
+    - OAUTH_EXTERNAL_PROVIDERS=
+    - OAUTH_CAS3_LABEL=cas3
+    - OAUTH_CAS3_SERVER=
+    - OAUTH_CAS3_DISABLE_SSL_VERIFICATION=false
+    - OAUTH_CAS3_LOGIN_URL=/cas/login
+    - OAUTH_CAS3_VALIDATE_URL=/cas/p3/serviceValidate
+    - OAUTH_CAS3_LOGOUT_URL=/cas/logout
+    - OAUTH_GOOGLE_API_KEY=
+    - OAUTH_GOOGLE_APP_SECRET=
+    - OAUTH_GOOGLE_RESTRICT_DOMAIN=
+    - OAUTH_FACEBOOK_API_KEY=
+    - OAUTH_FACEBOOK_APP_SECRET=
+    - OAUTH_TWITTER_API_KEY=
+    - OAUTH_TWITTER_APP_SECRET=
+    - OAUTH_GITHUB_API_KEY=
+    - OAUTH_GITHUB_APP_SECRET=
+    - OAUTH_GITHUB_URL=
+    - OAUTH_GITHUB_VERIFY_SSL=
+    - OAUTH_GITLAB_API_KEY=
+    - OAUTH_GITLAB_APP_SECRET=
+    - OAUTH_BITBUCKET_API_KEY=
+    - OAUTH_BITBUCKET_APP_SECRET=
+    - OAUTH_BITBUCKET_URL=
+    - OAUTH_SAML_ASSERTION_CONSUMER_SERVICE_URL=
+    - OAUTH_SAML_IDP_CERT_FINGERPRINT=
+    - OAUTH_SAML_IDP_SSO_TARGET_URL=
+    - OAUTH_SAML_ISSUER=
+    - OAUTH_SAML_LABEL="Our SAML Provider"
+    - OAUTH_SAML_NAME_IDENTIFIER_FORMAT=urn:oasis:names:tc:SAML:2.0:nameid-format:transient
+    - OAUTH_SAML_GROUPS_ATTRIBUTE=
+    - OAUTH_SAML_EXTERNAL_GROUPS=
+    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_EMAIL=
+    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_NAME=
+    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_USERNAME=
+    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_FIRST_NAME=
+    - OAUTH_SAML_ATTRIBUTE_STATEMENTS_LAST_NAME=
+    - OAUTH_CROWD_SERVER_URL=
+    - OAUTH_CROWD_APP_NAME=
+    - OAUTH_CROWD_APP_PASSWORD=
+    - OAUTH_AUTH0_CLIENT_ID=
+    - OAUTH_AUTH0_CLIENT_SECRET=
+    - OAUTH_AUTH0_DOMAIN=
+    - OAUTH_AUTH0_SCOPE=
+    - OAUTH_AZURE_API_KEY=
+    - OAUTH_AZURE_API_SECRET=
+    - OAUTH_AZURE_TENANT_ID=

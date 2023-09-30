@@ -21,12 +21,9 @@ export TF_VAR_DOMAIN="example.com"
 # -- google
 export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 # -- npm
+export TF_VAR_NPM_NAME="npm"
 export TF_VAR_NPM_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_NPM_PASSWORD="changeme"
-# -- pihole
-export TF_VAR_PIHOLE_NAME="pihole"
-export TF_VAR_PIHOLE_PASSWORD="6m36T5oamMhjPRsr7v3RiamR"
-export TF_VAR_PIHOLE_TZ="Europe/Brussel"
 # -- mail-in-a-box
 export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
@@ -123,11 +120,19 @@ export TF_VAR_HARBOR_JOBSERVICE_SECRET="UltraSecretPassword123!"
 export TF_VAR_GITLAB_NAME="gitlab"
 export TF_VAR_GITLAB_USER="admin"
 export TF_VAR_GITLAB_PASSWORD="UltraSecretPassword123!"
+export TF_VAR_GITLAB_KEY_DB="UltraSecretPassword123!"
+export TF_VAR_GITLAB_KEY_SECRET="UltraSecretPassword123!"
+export TF_VAR_GITLAB_KEY_OTP="UltraSecretPassword123!"
+export TF_VAR_GITLAB_TZ="Europe/Brussel"
 # -- code-server
 export TF_VAR_CODESERVER_NAME="code-server"
 export TF_VAR_CODESERVER_USER="admin"
 export TF_VAR_CODESERVER_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_CODESERVER_TZ="Etc/UTC"
+# -- jenkins
+export TF_VAR_JENKINS_NAME="jenkins"
+export TF_VAR_JENKINS_USER="admin"
+export TF_VAR_JENKINS_PASSWORD="UltraSecretPassword123!"
 # -- phoneinfoga
 export TF_VAR_PHONEINFOGA_NAME="phoneinfoga"
 export TF_VAR_PHONEINFOGA_NUMVERIFY_API_KEY="UltraSecretPassword123!"
@@ -146,20 +151,40 @@ export TF_VAR_SOFTETHER_NAME="softether"
 export TF_VAR_BEEF_NAME="beef"
 export TF_VAR_BEEF_USER="SomeUsername"
 export TF_VAR_BEEF_PASSWORD="UltraSecretPassword123!"
+# -- ubuntu
+export TF_VAR_UBUNTU_NAME="ubuntu"
+# -- kali
+export TF_VAR_KALI_NAME="kali"
+# -- hack
+export TF_VAR_HACK_NAME="hack"
 
 # ✉️ SMTP
 # -- box
 export TF_VAR_SMTP_HOST=$TF_VAR_MAILINABOX_DOMAIN
 export TF_VAR_SMTP_SECURITY="starttls"
+export TF_VAR_SMTP_STARTTLS=true
 export TF_VAR_SMTP_PORT=587
 export TF_VAR_SMTP_USERNAME=$TF_VAR_MAILINABOX_USER
 export TF_VAR_SMTP_PASSWORD=$TF_VAR_MAILINABOX_PASSWORD
+export TF_VAR_IMAP_HOST=$TF_VAR_MAILINABOX_DOMAIN
+export TF_VAR_IMAP_PORT=993
+export TF_VAR_IMAP_SSL=true
+export TF_VAR_IMAP_STARTTLS=false
+export TF_VAR_IMAP_USERNAME=$TF_VAR_MAILINABOX_USER
+export TF_VAR_IMAP_PASSWORD=$TF_VAR_MAILINABOX_PASSWORD
 # -- gmail (overrides box in case port 25 is blocked)
 export TF_VAR_SMTP_HOST="smtp.gmail.com"
 export TF_VAR_SMTP_SECURITY="starttls"
+export TF_VAR_SMTP_STARTTLS=true
 export TF_VAR_SMTP_PORT=587
 export TF_VAR_SMTP_USERNAME="example@gmail.com"
 export TF_VAR_SMTP_PASSWORD="UltraSecretPassword123!"
+export TF_VAR_IMAP_HOST="smtp.gmail.com"
+export TF_VAR_IMAP_PORT=993
+export TF_VAR_IMAP_SSL=true
+export TF_VAR_IMAP_STARTTLS=false
+export TF_VAR_IMAP_USERNAME="spikyspam@gmail.com"
+export TF_VAR_IMAP_PASSWORD="hlfv srxl qspl pwmx"
 
 # 2️⃣ SET ALIASSES
 alias cdss='cd $TF_VAR_PATH; clear'
