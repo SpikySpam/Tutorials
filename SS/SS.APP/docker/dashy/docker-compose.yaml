@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  dashy: # ${TF_VAR_DASHY_NAME}
+    image: lissy93/dashy:${TF_VAR_VERSION_DOCKER_DASHY}
+    container_name: ${TF_VAR_DASHY_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_DASHY_PORT_EXT}:${TF_VAR_DASHY_PORT_INT}
+    # volumes:
+    #   - $HOME/docker/${TF_VAR_DASHY_NAME}:/app/public/
+    environment:
+      - NODE_ENV=production
+      - UID=1000
+      - GID=1000

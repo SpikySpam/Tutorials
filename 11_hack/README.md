@@ -18,7 +18,7 @@ In this video I demonstrate how to install **Phone Info GA**, **Sherlock**, **St
 - [Softether](https://softether.org)
 - [Beef Project](https://beefproject.com/)
 - [Sherlock](https://sherlock-project.github.io)
-- [Hacking Tool](https://beefproject.com/)
+- Hacking Tools
 
 ## Prerequisites
 

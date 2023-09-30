@@ -2,6 +2,7 @@
 
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_BEEF_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_CODESERVER_NAME}/recreate.sh
+${TF_VAR_PATH_APP}/docker/${TF_VAR_DASHY_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_ELASTICSEARCH_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_FILEBROWSER_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_GITLAB_NAME}/recreate.sh
@@ -9,7 +10,6 @@ ${TF_VAR_PATH_APP}/docker/${TF_VAR_GRAFANA_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_GUACAMOLE_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_HACK_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/recreate.sh
-${TF_VAR_PATH_APP}/docker/${TF_VAR_HEIMDALL_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_JENKINS_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_KALI_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_KEYCLOAK_NAME}/recreate.sh

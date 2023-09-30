@@ -10,6 +10,7 @@ CLI_NAME_K6="k6"
 CLI_NAME_KIND="kind"
 CLI_NAME_KUBECTL="kubectl"
 CLI_NAME_LYCHEE="lychee"
+CLI_NAME_MOVE2KUBE="move2kube"
 CLI_NAME_POPEYE="popeye"
 CLI_NAME_STEP="step"
 CLI_NAME_TERRAFORM="terraform"
@@ -154,6 +155,28 @@ cli_install_lychee() {
 
 }
 
+cli_install_move2kube() {
+
+  if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE*" > /dev/null; then
+    if [ $OSTYPE == $OSTYPE_LINUX ]; then
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.tar.gz https://github.com/konveyor/$CLI_NAME_MOVE2KUBE/releases/download/v$TF_VAR_VERSION_CLI_MOVE2KUBE/move2kube-v$TF_VAR_VERSION_CLI_MOVE2KUBE-linux-amd64.tar.gz
+      tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.tar.gz -C $TF_VAR_PATH_CLI $CLI_NAME_MOVE2KUBE/$CLI_NAME_MOVE2KUBE --strip-components 1
+      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.tar.gz
+      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE
+    elif [ $OSTYPE == $OSTYPE_WINDOWS ]; then
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.zip https://github.com/konveyor/$CLI_NAME_MOVE2KUBE/releases/download/v$TF_VAR_VERSION_CLI_MOVE2KUBE/move2kube-v$TF_VAR_VERSION_CLI_MOVE2KUBE-windows-amd64.zip
+      unzip -oqj $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.zip $CLI_NAME_MOVE2KUBE/$CLI_NAME_MOVE2KUBE.exe -d $TF_VAR_PATH_CLI
+      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.zip
+      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.exe
+    fi
+    echo -n "⬇ "
+  else
+    echo -n "√ "
+  fi
+  [ $INITIALIZE == false ] && echo $CLI_NAME_MOVE2KUBE" "$(move2kube version)
+
+}
+
 cli_install_popeye() {
 
   if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_POPEYE*" > /dev/null; then
@@ -224,15 +247,16 @@ echo $DIV
 echo ⬇️ " Downloading CLI tools"
 echo $DIV
 
-cli_install_gitleaks
-cli_install_helm
-cli_install_jq
-cli_install_k6
-cli_install_kind
-cli_install_kubectl
-cli_install_lychee
-cli_install_popeye
-cli_install_step
-cli_install_terraform
+# cli_install_gitleaks
+# cli_install_helm
+# cli_install_jq
+# cli_install_k6
+# cli_install_kind
+# cli_install_kubectl
+# cli_install_lychee
+cli_install_move2kube
+# cli_install_popeye
+# cli_install_step
+# cli_install_terraform
 
 [ $INITIALIZE != false ] && echo

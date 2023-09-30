@@ -3,20 +3,20 @@
 
 ![Tools Banner](_assets/images/tools_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used tool like **Filebrowser**, **Kutt-IT**, **Searxng**, **Heimdall**, **Uptime-Kuma** and **Listmonk**
+In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used tool like **Filebrowser**, **Kutt-IT**, **Searxng**, **Dashy**, **Uptime-Kuma** and **Listmonk**
 
 ## Video
 
-In this video I demonstrate how to install **Filebrowser**, **Kutt-IT***, **Searxng**, **Heimdall**, **Uptime-Kuma** and **Listmonk** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
+In this video I demonstrate how to install **Filebrowser**, **Kutt-IT***, **Searxng**, **Dashy**, **Uptime-Kuma** and **Listmonk** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
 
 [![Video](_assets/images/tools_video.png)](https://youtu.be/XXXXXXXXXXXXX)
 
 ## Links
 
-- [FileBrowser](https://filebrowser.org)
+- [File Browser](https://filebrowser.org)
 - [Kutt-IT](https://kutt.it)
 - [Searxng](https://docs.searxng.org)
-- [Heimdall](https://heimdall.site/)
+- [Dashy](https://dashy.to)
 - [Uptime-Kuma](https://uptime.kuma.pet)
 - [Listmonk](https://listmonk.app)
 - [Background Music](https://freesound.org/people/AlesiaDavina/sounds/687372/)
@@ -47,8 +47,8 @@ These are all the commands in a single script.
   # Searxng
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SEARXNG_NAME/docker-compose.yaml up -d
 
-  # Heimdall
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HEIMDALL_NAME/docker-compose.yaml up -d
+  # Dashy
+  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_DASHY_NAME/docker-compose.yaml up -d
 
   # Uptime-Kuma
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_UPTIMEKUMA_NAME/docker-compose.yaml up -d

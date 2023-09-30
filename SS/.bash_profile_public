@@ -94,9 +94,6 @@ export TF_VAR_KUTT_NAME="kutt"
 export TF_VAR_KUTT_PASSWORD="UltraSecretPassword123!"
 # -- searxng
 export TF_VAR_SEARXNG_NAME="searxng"
-# -- heimdall
-export TF_VAR_HEIMDALL_NAME="heimdall"
-export TF_VAR_HEIMDALL_TZ="Etc/UTC"
 # -- uptime-kuma
 export TF_VAR_UPTIMEKUMA_NAME="uptime-kuma"
 export TF_VAR_UPTIMEKUMA_USER=$TF_VAR_MAILINABOX_USER

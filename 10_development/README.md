@@ -3,11 +3,11 @@
 
 ![Development Banner](_assets/images/development_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used development tool like **RabbitMQ**, **Harbor**, **Gitlab** and **Code Server**.
+In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used development tool like **RabbitMQ**, **Harbor**, **Jenkins**, **Gitlab** and **Code Server**.
 
 ## Video
 
-In this video I demonstrate how to install **RabbitMQ**, **Harbor**, **Gitlab** and **Code Server** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
+In this video I demonstrate how to install **RabbitMQ**, **Harbor**, **Jenkins**, **Gitlab** and **Code Server** on a [Ubuntu Virtual Machine](../01_setting_up_a_cheap_home_lab_with_proxmox/018_ubuntu/README.md) (*in ProxMox*) inside a **Docker** container.
 
 [![Video](_assets/images/development_video.png)](https://youtu.be/XXXXXXXXXXXXX)
 
@@ -15,6 +15,7 @@ In this video I demonstrate how to install **RabbitMQ**, **Harbor**, **Gitlab** 
 
 - [RabbitMQ](https://rabbitmq.com)
 - [Harbor](https://bitnami.com/stack/harbor)
+- [Jenkins](https://www.jenkins.io)
 - [Gitlab](https://gitlab.com)
 - [Code Server](https://gitlab.com)
 

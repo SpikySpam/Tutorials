@@ -22,7 +22,7 @@ export TF_VAR_VERSION_DOCKER_GUACAMOLE=$TF_VAR_VERSION_DOCKER_GUACD      # https
 export TF_VAR_VERSION_DOCKER_FILEBROWSER="2.25.0"                        # https://hub.docker.com/r/filebrowser/filebrowser/tags
 export TF_VAR_VERSION_DOCKER_KUTT="2.7.4"                                # https://hub.docker.com/r/kutt/kutt/tags
 export TF_VAR_VERSION_DOCKER_SEARXNG="2023.9.24-19383921d"               # https://hub.docker.com/r/searxng/searxng/tags
-export TF_VAR_VERSION_DOCKER_HEIMDALL="2.5.6"                            # https://hub.docker.com/r/linuxserver/heimdall/tags
+export TF_VAR_VERSION_DOCKER_DASHY="2.1.1"                               # https://hub.docker.com/r/lissy93/dashy/tags
 export TF_VAR_VERSION_DOCKER_UPTIMEKUMA="1.23.2"                         # https://hub.docker.com/r/louislam/uptime-kuma/tags
 export TF_VAR_VERSION_DOCKER_LISTMONK="2.5.1"                            # https://hub.docker.com/r/listmonk/listmonk/tags
 
