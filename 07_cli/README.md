@@ -20,6 +20,7 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 - [Kind](https://github.com/kubernetes-sigs/kind)
 - [KubeCtl](https://kubernetes.io/docs/tasks/tools)
 - [Lychee](https://github.com/lycheeverse/lychee)
+- [Move2Kube](https://github.com/konveyor/move2kube)
 - [Popeye](https://github.com/derailed/popeye)
 - [Step](https://github.com/smallstep/cli)
 - [Terraform](https://github.com/hashicorp/terraform)
@@ -33,12 +34,8 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 ## Version Script
 
 - I have defined version **Environment Variables** in **[SS/version/cli/version.sh](../SS/SS/version/cli/version.sh)**
-  ```bash
-  # version/cli/version.sh snippet
 
-  export TF_VAR_VERSION_CLI_LYCHEE="0.13.0"     # https://github.com/lycheeverse/lychee/releases
-  # ... more version variables here
-  ```
+  https://github.com/SpikySpam/Tutorials/blob/5413eca89d98ffad1ebd0ecb2f6625a4ece0ded8/SS/SS/version/cli/version.sh#L1-L11
 
 ## The CLI Script
 
