@@ -31,7 +31,7 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 3️⃣ [Add NPM **Proxy Hosts**](../05_databases/README.md#npm-proxy-host) \
 4️⃣ [**Clone** latest **Sources**](../05_databases/README.md#latest-sources)
 
-## [Keycloak](../SS/SS.APP/docker/keycoak/docker-compose.yaml)
+## [Keycloak](../SS/SS.APP/docker/keycloak/docker-compose.yaml)
 
 ```bash
 docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KEYCLOAK_NAME/docker-compose.yaml up -d

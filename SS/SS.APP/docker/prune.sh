@@ -7,6 +7,7 @@ initialize
 # Completely clear Docker
 docker rm -f $(docker ps -a -q)
 docker system prune -a -f
+docker volume prune -a -f
 
 # Remove Persistence
 OSTYPE_LINUX="linux-gnu"

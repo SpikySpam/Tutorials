@@ -247,16 +247,16 @@ echo $DIV
 echo ⬇️ " Downloading CLI tools"
 echo $DIV
 
-# cli_install_gitleaks
-# cli_install_helm
-# cli_install_jq
-# cli_install_k6
-# cli_install_kind
-# cli_install_kubectl
-# cli_install_lychee
+cli_install_gitleaks
+cli_install_helm
+cli_install_jq
+cli_install_k6
+cli_install_kind
+cli_install_kubectl
+cli_install_lychee
 cli_install_move2kube
-# cli_install_popeye
-# cli_install_step
-# cli_install_terraform
+cli_install_popeye
+cli_install_step
+cli_install_terraform
 
 [ $INITIALIZE != false ] && echo
