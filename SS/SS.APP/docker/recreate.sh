@@ -24,7 +24,7 @@ ${TF_VAR_PATH_APP}/docker/${TF_VAR_PGADMIN_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_PHPMYADMIN_NAME}/recreate.sh
 # ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/recreate.sh
 # ${TF_VAR_PATH_APP}/docker/${TF_VAR_PROMETHEUS_NAME}/recreate.sh
-# ${TF_VAR_PATH_APP}/docker/${TF_VAR_RABBITMQ_NAME}/recreate.sh
+${TF_VAR_PATH_APP}/docker/${TF_VAR_RABBITMQ_NAME}/recreate.sh
 # ${TF_VAR_PATH_APP}/docker/${TF_VAR_REDIS_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_SEARXNG_NAME}/recreate.sh
 # ${TF_VAR_PATH_APP}/docker/${TF_VAR_SHERLOCK_NAME}/recreate.sh

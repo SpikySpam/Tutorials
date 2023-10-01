@@ -1,0 +1,9 @@
+ARG VERSION
+FROM linuxserver/code-server:${VERSION}
+
+ARG GITHUB_USER
+ARG GITHUB_EMAIL
+
+RUN apt-get update && apt-get install unzip -y
+RUN git config --global user.name $GITHUB_USER
+RUN git config --global user.email $GITHUB_EMAIL

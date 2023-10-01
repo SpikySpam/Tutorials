@@ -2,7 +2,14 @@ version: '3.8'
 
 services:
   code-server: # ${TF_VAR_CODESERVER_NAME}
-    image: linuxserver/code-server:${TF_VAR_VERSION_DOCKER_CODESERVER}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_CODESERVER_NAME}:${TF_VAR_VERSION_DOCKER_CODESERVER}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CODESERVER_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_CODESERVER}
+        GITHUB_USER: ${TF_VAR_GITHUB_USER}
+        GITHUB_EMAIL: ${TF_VAR_GITHUB_EMAIL}
     container_name: ${TF_VAR_CODESERVER_NAME}
     restart: unless-stopped
     volumes:
@@ -14,8 +21,10 @@ services:
       - PGID=1000
       - TZ=${TF_VAR_CODESERVER_TZ}
       - PASSWORD=${TF_VAR_CODESERVER_PASSWORD}
-      # - HASHED_PASSWORD= #optional
       - SUDO_PASSWORD=${TF_VAR_CODESERVER_PASSWORD}
-      # - SUDO_PASSWORD_HASH= #optional
       - PROXY_DOMAIN=${TF_VAR_CODESERVER_NAME}.${TF_VAR_DOMAIN}
       - DEFAULT_WORKSPACE=/config/workspace
+    user: root
+    privileged: true
+    stdin_open: true
+    tty: true

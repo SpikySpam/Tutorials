@@ -12,10 +12,21 @@ echo $DIV
 export TF_VAR_PATH_MAIN=$TF_VAR_PATH/SS
 export TF_VAR_PATH_APP=$TF_VAR_PATH/SS.APP
 export TF_VAR_PATH_CLI=$TF_VAR_PATH/SS/CLI
+export TF_VAR_PATH_HELP=$TF_VAR_PATH/SS.HELPERS
 export PATH="$TF_VAR_PATH_CLI:$PATH"
 
 # 🌐 CURRENT ENVIRONMENT
+# -- OS
+export TF_VAR_OSTYPE=$OSTYPE
+export TF_VAR_OSTYPE_LINUX="linux-gnu"
+export TF_VAR_OSTYPE_WINDOWS="msys"
+# -- Domain (Workspace)
 export TF_VAR_DOMAIN="example.com"
+
+# 🧑‍💻 GITHUB
+export TF_VAR_GITHUB_NAME="github"
+export TF_VAR_GITHUB_USER="SomeUsername"
+export TF_VAR_GITHUB_EMAIL=$TF_VAR_GITHUB_USER"@example.com"
 
 # 🔑 SET SECRETS
 # -- google
@@ -94,6 +105,8 @@ export TF_VAR_KUTT_NAME="kutt"
 export TF_VAR_KUTT_PASSWORD="UltraSecretPassword123!"
 # -- searxng
 export TF_VAR_SEARXNG_NAME="searxng"
+# -- dashy
+export TF_VAR_DASHY_NAME="dashy"
 # -- uptime-kuma
 export TF_VAR_UPTIMEKUMA_NAME="uptime-kuma"
 export TF_VAR_UPTIMEKUMA_USER=$TF_VAR_MAILINABOX_USER
@@ -123,7 +136,7 @@ export TF_VAR_GITLAB_KEY_OTP="UltraSecretPassword123!"
 export TF_VAR_GITLAB_TZ="Europe/Brussel"
 # -- code-server
 export TF_VAR_CODESERVER_NAME="code-server"
-export TF_VAR_CODESERVER_USER="admin"
+export TF_VAR_CODESERVER_USER="abc"
 export TF_VAR_CODESERVER_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_CODESERVER_TZ="Etc/UTC"
 # -- jenkins
