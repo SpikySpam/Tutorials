@@ -247,7 +247,10 @@ load_env_vars () {
 
 # -- INSTALL CLI TOOLS
 install_cli () {
-  chmod +x $TF_VAR_PATH_MAIN/cli.sh
+  if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then
+    $(find $TF_VAR_PATH -type f -iname "*.sh" -exec echo $TF_VAR_CODESERVER_PASSWORD \| sudo chmod +x {} \;) 2> /dev/null
+    $(find $TF_VAR_PATH -type f -iname "*.sh" -exec sed -i -e 's/\r$//' {} \;) 2> /dev/null
+  fiec
   $TF_VAR_PATH_MAIN/cli.sh
 }
 
