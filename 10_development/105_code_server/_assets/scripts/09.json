@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video I'm going to install VS Code in a browser... Let's go!"
+    "text": "After all this we can open our default browser and login into our newly installed code server, with everything setup in place. These commands are for convenience and show you your password while opening a browser."
   }
-}
+} 

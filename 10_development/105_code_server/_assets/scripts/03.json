@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "For now, we are only going to concentrate on installing our code server in a docker container. In order to connect to our github repository from within our code server, we first need to prepare our SSH keys. Execute the following command to create a public and private keypair on your local machine. Give your keypair a strong password, in case a black, gray, or a red hat,  gets access to those files."
+  }
+}

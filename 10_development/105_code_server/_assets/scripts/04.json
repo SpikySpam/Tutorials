@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video I'm going to install VS Code in a browser... Let's go!"
+    "text": "Copy your public key to the clipboard and navigate to the settings of your github repository. Click the button, New SSH key, give your key a name, and paste in the public key value. Save your key. We can now authenticate our git client in the code server with your private key."
   }
 }

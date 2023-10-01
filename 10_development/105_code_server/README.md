@@ -15,7 +15,7 @@ In this Tutorial we are going to install **Code-Server** as a **Docker** contain
 
 - [Code Server Website](https://coder.com)
 - [Code Server GitHub](https://github.com/linuxserver/docker-code-server)
-- 🎺 [Background Music](https://freesound.org/people/XXXXXXXXXXXX)
+- 🎺 [Background Music](https://freesound.org/people/tyops/sounds/401167)
 
 ## Prerequisites
 
@@ -111,4 +111,15 @@ https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f4
 
   ```bash
   cp $TF_VAR_PATH/$TF_VAR_GITHUB_USER.code-profile $HOME/docker/$TF_VAR_CODESERVER_NAME/.config/code-server
+  ```
+
+- **Change** the solution-folder in **$HOME/.bash_profile**
+
+  😎 This step is optional depending on where you want to code.
+
+  ```bash
+  cat >> $HOME/.bash_profile <<EOL
+  export TF_VAR_PATH=\$HOME/docker/$TF_VAR_CODESERVER_NAME/workspace/Tutorials/SS
+  source \$TF_VAR_PATH/.bash_profile
+  EOL
   ```

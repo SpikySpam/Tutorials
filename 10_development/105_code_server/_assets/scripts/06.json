@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "After we have spun up the code server, we can copy this repository directly into our local folder, where we persist the files on our code server container. If we navigate to our docker home directory, you can see the content of our docker container. The only thing we have to do, is to add some lines to the dot bash R C file. Here we call our solutions dot bash profile file, to load our development environment. you can watch a video about that if you want. It's popping up right now."
+  }
+} 

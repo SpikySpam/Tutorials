@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "If you go to my github page, you can follow me a long. If you scroll a little down, you will see that this tutorial depends on some prerequisites. I hope you have finished those first. You can also prepare your domain for code server by following the 4 steps in the preparation section of this tutorial."
+  }
+}

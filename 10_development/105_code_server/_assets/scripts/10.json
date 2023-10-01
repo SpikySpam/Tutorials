@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "I hope you appreciate the way our bash profile script takes care of downloading all necessary CLI tools. A video about that will popup now. I have saved and copied my VS code profile settings to a file. This file I will copy over to my code service persistent folder. I will import this file into my code server. So, this way we have the same extensions and settings inside our newly installed code server."
+  }
+} 

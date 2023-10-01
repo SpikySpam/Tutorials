@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Next we are going to install the docker container. For this we have two options. Or we execute the recreate dot S H script. Or we execute the following commands from my github page. These commands are the same as in our recreate dot S H file, but I've added them to this tutorial to demonstrate the steps we have to take to get everything to work. First, we have to spin up our container with docker compose up. Take a look into our docker file and docker compose file if you want. This tutorial however is not as much about learning docker, but focusses more on how to use this repository to get your applications and code to work together."
+  }
+} 

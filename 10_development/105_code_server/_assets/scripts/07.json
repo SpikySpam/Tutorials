@@ -13,6 +13,6 @@
     "name": "en-US-Studio-M"
   },
   "input": {
-    "text": "Hi. Spiky here. In this video I'm going to install VS Code in a browser... Let's go!"
+    "text": "This little command will add the correct lines to that file. So everytime we open up a terminal, our bash profile file will be called, and will prepare everything we will need for our solution."
   }
-}
+} 
