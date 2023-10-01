@@ -17,7 +17,7 @@ In this video I demonstrate how to install **RabbitMQ**, **Harbor**, **Jenkins**
 - [Harbor](https://bitnami.com/stack/harbor)
 - [Jenkins](https://www.jenkins.io)
 - [Gitlab](https://gitlab.com)
-- [Code Server](https://coder.com)
+- [Code Server](105_code_server/README.md)
 - 🎺 [Background Music](https://freesound.org/people/XXXXXXXXXXXX)
 
 ## Prerequisites

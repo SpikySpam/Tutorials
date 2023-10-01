@@ -54,7 +54,7 @@ You can execute the **[recreate.sh](../../SS/SS.APP/docker/code-server/recreate.
 $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/recreate.sh
 ```
 
-https://github.com/SpikySpam/Tutorials/blob/ee9377a3b79634b28a4956c4d88e1f6063c8a7c9/SS/SS.APP/docker/code-server/recreate.sh#L1-L23
+https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f42120/SS/SS.APP/docker/code-server/recreate.sh#L1-L22
 
 ...and skip the following steps until **Update Code Server**, or...
 
@@ -69,7 +69,7 @@ https://github.com/SpikySpam/Tutorials/blob/ee9377a3b79634b28a4956c4d88e1f6063c8
   docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-compose.yaml up -d --wait --build
   ```
 
-  https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/code-server/docker-compose.yaml#L1-L21
+  https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f42120/SS/SS.APP/docker/code-server/docker-compose.yaml#L1-L30
 
 - ### Setup Code Server Project Environment
 
