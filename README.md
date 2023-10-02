@@ -19,4 +19,4 @@ All videos for these tutorials are freely available at YouTube. Just navigate to
 | ![Databases Logo](05_databases/_assets/images/database.png) | [05. Databases](05_databases/README.md) |
 | ![Vaultwarden Logo](06_vaultwarden/_assets/images/vaultwarden.png) | [06. Vaultwarden](06_vaultwarden/README.md) |
 | ![CLI Logo](07_cli/_assets/images/cli.png) | [07. CLI Tools](07_cli/README.md) |
-| ![Development Tools](10_devlopment/_assets/images/cli.png) | [10. Development Tools](10_development/README.md) |
+| ![Development Tools](10_development/_assets/images/development.png) | [10. Development Tools](10_development/README.md) |
