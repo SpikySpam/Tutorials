@@ -9,7 +9,7 @@ In this Tutorial we are going to prepare a **Docker** compose files for running 
 
 In this Tutorial we are going to install **Code-Server** as a **Docker** container in our **Homelab**.
 
-[![Video](_assets/images/code-server-video.png)](https://youtu.be/XXXXXXXXXXXXXX)
+[![Video](_assets/images/code-server-video.png)](https://youtu.be/aatnUqe9jUs)
 
 ## Links
 
