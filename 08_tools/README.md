@@ -37,7 +37,7 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 ## [File Browser](../SS/SS.APP/docker/filebrowser/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FILEBROWSER_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FILEBROWSER_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/filebrowser/docker-compose.yaml#L1-L18
@@ -45,7 +45,7 @@ https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c
 ## [Kutt-IT](../SS/SS.APP/docker/kutt/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KUTT_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KUTT_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/kutt/docker-compose.yaml#L1-L83
@@ -53,7 +53,7 @@ https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c
 ## [Searxng](../SS/SS.APP/docker/searxng/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SEARXNG_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SEARXNG_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/searxng/docker-compose.yaml#L1-L23
@@ -61,7 +61,7 @@ https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c
 ## [Dashy](../SS/SS.APP/docker/dashy/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_DASHY_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_DASHY_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/dashy/docker-compose.yaml#L1-L15
@@ -69,7 +69,7 @@ https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c
 ## [Uptime-Kuma](../SS/SS.APP/docker/uptime-kuma/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_UPTIMEKUMA_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_UPTIMEKUMA_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/uptime-kuma/docker-compose.yaml#L1-L11
@@ -77,7 +77,7 @@ https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c
 ## [Listmonk](../SS/SS.APP/docker/listmonk/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_LISTMONK_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_LISTMONK_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/9ef39878c7a3e1e1e582ac2a84d7df172a8c9d3a/SS/SS.APP/docker/listmonk/docker-compose.yaml#L1-L37
@@ -88,20 +88,20 @@ These are all the commands in a single script.
 
 ```bash
 # FileBrowser
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FILEBROWSER_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FILEBROWSER_NAME/docker-compose.yaml up -d --wait --build
 
 # Kutt-IT
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KUTT_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KUTT_NAME/docker-compose.yaml up -d --wait --build
 
 # Searxng
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SEARXNG_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SEARXNG_NAME/docker-compose.yaml up -d --wait --build
 
 # Dashy
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_DASHY_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_DASHY_NAME/docker-compose.yaml up -d --wait --build
 
 # Uptime-Kuma
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_UPTIMEKUMA_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_UPTIMEKUMA_NAME/docker-compose.yaml up -d --wait --build
 
 # Listmonk
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_LISTMONK_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_LISTMONK_NAME/docker-compose.yaml up -d --wait --build
 ```

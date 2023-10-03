@@ -2,6 +2,7 @@
 
 services:
   beef: # ${TF_VAR_BEEF_NAME}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_BEEF_NAME}:${TF_VAR_VERSION_DOCKER_BEEF}
     build:
       context: .
       dockerfile:  ${TF_VAR_PATH_APP}/docker/${TF_VAR_BEEF_NAME}/dockerfile

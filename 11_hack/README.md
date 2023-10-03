@@ -37,7 +37,7 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 ## [Phone Info GA](../SS/SS.APP/docker/phoneinfoga/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHONEINFOGA_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHONEINFOGA_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/phoneinfoga/docker-compose.yaml#L1-L16
@@ -45,7 +45,7 @@ https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa
 ## [Storm Breaker](../SS/SS.APP/docker/storm-breaker/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_STORMBREAKER_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_STORMBREAKER_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/storm-breaker/docker-compose.yaml#L1-L21
@@ -53,7 +53,7 @@ https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa
 ## [Softether](../SS/SS.APP/docker/softether/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SOFTETHER_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SOFTETHER_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/softether/docker-compose.yaml#L1-L19
@@ -63,7 +63,7 @@ https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa
 ## [Beef Project](../SS/SS.APP/docker/beef/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_BEEF_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_BEEF_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/beef/docker-compose.yaml#L1-L42
@@ -73,7 +73,7 @@ https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa
 ## [Sherlock](../SS/SS.APP/docker/sherlock/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SHERLOCK_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SHERLOCK_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/sherlock/docker-compose.yaml#L1-L15
@@ -83,7 +83,7 @@ https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa
 ## [Hacking Tools](../SS/SS.APP/docker/hack/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HACK_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HACK_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/hack/docker-compose.yaml#L1-L20
@@ -97,24 +97,24 @@ These are all the commands in a single script:
 - Web Interface
   ```bash
   # Phone Info GA
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHONEINFOGA_NAME/docker-compose.yaml up -d
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_PHONEINFOGA_NAME/docker-compose.yaml up -d --wait --build
 
   # Storm Breaker
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_STORMBREAKER_NAME/docker-compose.yaml up -d
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_STORMBREAKER_NAME/docker-compose.yaml up -d --wait --build
 
   # Softether
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SOFTETHER_NAME/docker-compose.yaml up -d
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SOFTETHER_NAME/docker-compose.yaml up -d --wait --build
 
   # Beef Project
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_BEEF_NAME/docker-compose.yaml up -d
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_BEEF_NAME/docker-compose.yaml up -d --wait --build
   ```
 
 - CLI Tools
   ```bash
   # Sherlock
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SHERLOCK_NAME/docker-compose.yaml up -d
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_SHERLOCK_NAME/docker-compose.yaml up -d --wait --build
 
   # Hacking Tools
-  docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HACK_NAME/docker-compose.yaml up -d
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_HACK_NAME/docker-compose.yaml up -d --wait --build
   ```
 

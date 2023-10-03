@@ -31,3 +31,28 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 2️⃣ [Add **A-Records**](../05_databases/README.md#add-a-record) \
 3️⃣ [Add NPM **Proxy Hosts**](../05_databases/README.md#npm-proxy-host) \
 4️⃣ [**Clone** latest **Sources**](../05_databases/README.md#latest-sources)
+
+## Jenkins Installation
+
+You can execute the **[recreate.sh](../../SS/SS.APP/docker/jenkins/recreate.sh)** script:
+
+```bash
+$TF_VAR_PATH_APP/docker/$TF_VAR_JENKINS_NAME/recreate.sh
+```
+
+https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f42120/SS/SS.APP/docker/jenkins/recreate.sh#L1-L8
+
+...or...
+
+- ### [Docker Compose](../SS/S#S.APP/docker/jenkins/docker-compose.yaml)
+
+  ```bash
+  # Clean Previous
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_JENKINS_NAME/docker-compose.yaml down
+  rm -rf $HOME/docker/$TF_VAR_JENKINS_NAME
+
+  # Compose Up
+  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_JENKINS_NAME/docker-compose.yaml up -d --wait --build 
+  ```
+
+  https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f42120/SS/SS.APP/docker/jenkins/docker-compose.yaml#L1-L18

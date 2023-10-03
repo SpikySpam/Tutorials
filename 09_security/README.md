@@ -34,7 +34,7 @@ These steps are explained in this **[video](https://youtu.be/8UoNDwNV4R8)**:
 ## [Keycloak](../SS/SS.APP/docker/keycloak/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KEYCLOAK_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KEYCLOAK_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/keycloak/docker-compose.yaml#L1-L40
@@ -42,7 +42,7 @@ https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa
 ## [Guacamole](../SS/SS.APP/docker/guacamole/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GUACAMOLE_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GUACAMOLE_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/guacamole/docker-compose.yaml#L1-L59
@@ -50,7 +50,7 @@ https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa
 ## [Twingate](../SS/SS.APP/docker/twingate/docker-compose.yaml)
 
 ```bash
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_TWINGATE_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_TWINGATE_NAME/docker-compose.yaml up -d --wait --build
 ```
 
 https://github.com/SpikySpam/Tutorials/blob/96c4eceb95fcce99f6db58eb9ec72aa267fa11fb/SS/SS.APP/docker/twingate/docker-compose.yaml#L1-L14
@@ -61,12 +61,12 @@ These are all the commands in a single script.
 
 ```bash
 # Keycloak
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KEYCLOAK_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_KEYCLOAK_NAME/docker-compose.yaml up -d --wait --build
 
 # Guacamole
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GUACAMOLE_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GUACAMOLE_NAME/docker-compose.yaml up -d --wait --build
 
 # Twingate
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_TWINGATE_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_TWINGATE_NAME/docker-compose.yaml up -d --wait --build
 ```
 

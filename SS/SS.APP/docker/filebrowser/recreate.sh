@@ -4,4 +4,4 @@
 # We need to create empty files first
 
 touch $HOME/docker/$TF_VAR_FILEBROWSER_NAME/filebrowser.db
-docker compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FILEBROWSER_NAME/docker-compose.yaml up -d
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FILEBROWSER_NAME/docker-compose.yaml up -d --wait --build

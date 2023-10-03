@@ -20,7 +20,7 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 - [Kind](https://github.com/kubernetes-sigs/kind)
 - [KubeCtl](https://kubernetes.io/docs/tasks/tools)
 - [Lychee](https://github.com/lycheeverse/lychee)
-- [Move2Kube](https://github.com/konveyor/move2kube)
+- [Podman](https://github.com/containers/podman)
 - [Popeye](https://github.com/derailed/popeye)
 - [Step](https://github.com/smallstep/cli)
 - [Terraform](https://github.com/hashicorp/terraform)
@@ -109,6 +109,10 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 - [Lychee](https://github.com/lycheeverse/lychee)
   ```bash
   lychee . --offline
+  ```
+- [Podman](https://github.com/containers/podman)
+  ```bash
+  podman info
   ```
 - [Popeye](https://github.com/derailed/popeye)
   ```bash

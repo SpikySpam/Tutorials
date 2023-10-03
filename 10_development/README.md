@@ -3,7 +3,7 @@
 
 ![Development Banner](_assets/images/development_banner.png)
 
-In this Tutorial we are going to prepare some **Docker** compose files for a couple of the frequently used development tool like **RabbitMQ**, **Harbor**, **Jenkins**, **Gitlab** and **Code Server**.
+In these Tutorials we are going to prepare some **Docker** compose files for a couple of the frequently used development tool like **RabbitMQ**, **Harbor**, **Jenkins**, **Gitlab** and **Code Server**.
 
 | | |
 |---|:--|

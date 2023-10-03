@@ -1,26 +1,6 @@
 #!/bin/bash
 
-history -c
-clear
-export DIV="--------------------------------------------------"
-
-echo $DIV
-echo 😎 LOADING BASH PROFILE INTO MEMORY
-echo $DIV
-
-# 💾 SET PATHS
-export TF_VAR_PATH_MAIN=$TF_VAR_PATH/SS
-export TF_VAR_PATH_APP=$TF_VAR_PATH/SS.APP
-export TF_VAR_PATH_CLI=$TF_VAR_PATH/SS/CLI
-export TF_VAR_PATH_HELP=$TF_VAR_PATH/SS.HELPERS
-export PATH="$TF_VAR_PATH_CLI:$PATH"
-
-# 🌐 CURRENT ENVIRONMENT
-# -- OS
-export TF_VAR_OSTYPE=$OSTYPE
-export TF_VAR_OSTYPE_LINUX="linux-gnu"
-export TF_VAR_OSTYPE_WINDOWS="msys"
-# -- Domain (Workspace)
+# 🌍 DOMAIN
 export TF_VAR_DOMAIN="example.com"
 
 # 🧑‍💻 GITHUB
@@ -195,80 +175,3 @@ export TF_VAR_IMAP_SSL=true
 export TF_VAR_IMAP_STARTTLS=false
 export TF_VAR_IMAP_USERNAME="example@gmail.com"
 export TF_VAR_IMAP_PASSWORD="UltraSecretPassword123!"
-
-# 2️⃣ SET ALIASSES
-alias cdss='cd $TF_VAR_PATH; clear'
-alias k='kubectl'
-alias t='terraform'
-alias ti='t init'
-alias ta='t apply'
-alias taa='ta -auto-approve'
-alias taar='terraform apply -refresh=false -auto-approve'
-alias tp='t plan'
-alias tpr='tp -refresh=false'
-alias td='t destroy'
-alias tda='td -auto-approve'
-alias tdar='tda -refresh=false'
-alias tv='t validate'
-alias tr='t refresh'
-
-# 🚀 ----------------------------------
-#              START SCRIPT
-# 🚀 ----------------------------------
-export TF_VAR_AUTOSTART=false
-export INITIALIZE=true
-
-# -- INITIALIZE
-initialize () {
-
-  if [ $INITIALIZE == false ]; then
-    echo
-    echo ✅ "Press ENTER to CONTINUE"
-    echo ❌ "Press CTRL+C to EXIT"
-    echo $DIV
-    if [ $TF_VAR_C_AUTOSTART == false ]; then
-      read
-    fi
-  fi
-
-}
-
-# -- LOAD ENVIRONMENT VARIABLES
-load_env_vars () {
-  source $TF_VAR_PATH_MAIN/version/app/version.sh
-  source $TF_VAR_PATH_MAIN/version/docker/version.sh
-  source $TF_VAR_PATH_MAIN/version/helm/version.sh
-  source $TF_VAR_PATH_MAIN/version/terraform/version.sh
-  source $TF_VAR_PATH_MAIN/version/cli/version.sh
-  source $TF_VAR_PATH_MAIN/version/cluster/version.sh
-
-  source $TF_VAR_PATH_MAIN/ports.sh
-}
-
-# -- INSTALL CLI TOOLS
-install_cli () {
-  if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then
-    $(find $TF_VAR_PATH -type f -iname "*.sh" -exec echo $TF_VAR_CODESERVER_PASSWORD \| sudo chmod +x {} \;) 2> /dev/null
-    $(find $TF_VAR_PATH -type f -iname "*.sh" -exec sed -i -e 's/\r$//' {} \;) 2> /dev/null
-  fiec
-  $TF_VAR_PATH_MAIN/cli.sh
-}
-
-# -- FINALIZE
-finalize () {
-
-  echo $DIV
-  echo ✅ "ALL DONE"
-  echo $DIV
-
-}
-
-#❗Don't include commands that need interaction before INITIALIZE is set to FALSE.
-#❗This script will be called from ~/.bash_profile in various places and needs to exit.
-
-load_env_vars
-initialize
-install_cli
-finalize
-
-export INITIALIZE=false

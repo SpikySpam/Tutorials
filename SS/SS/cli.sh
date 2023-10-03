@@ -7,7 +7,7 @@ CLI_NAME_K6="k6"
 CLI_NAME_KIND="kind"
 CLI_NAME_KUBECTL="kubectl"
 CLI_NAME_LYCHEE="lychee"
-CLI_NAME_MOVE2KUBE="move2kube"
+CLI_NAME_PODMAN="podman"
 CLI_NAME_POPEYE="popeye"
 CLI_NAME_STEP="step"
 CLI_NAME_TERRAFORM="terraform"
@@ -30,7 +30,7 @@ cli_install_gitleaks() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $CLI_NAME_GITLEAKS" "$(gitleaks version)
+  [ $INITIALIZE == false ] && echo $CLI_NAME_GITLEAKS" "$($CLI_NAME_GITLEAKS version)
 
 }
 
@@ -52,7 +52,7 @@ cli_install_helm() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $CLI_NAME_HELM" "$(helm version)
+  [ $INITIALIZE == false ] && echo $CLI_NAME_HELM" "$($CLI_NAME_HELM version)
 
 }
 
@@ -70,7 +70,7 @@ cli_install_jq() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $(jq --version)
+  [ $INITIALIZE == false ] && echo $($CLI_NAME_JQ --version)
 
 }
 
@@ -92,7 +92,7 @@ cli_install_k6() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $(k6 version)
+  [ $INITIALIZE == false ] && echo $($CLI_NAME_K6 version)
 
 }
 
@@ -110,7 +110,7 @@ cli_install_kind() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $(kind version)
+  [ $INITIALIZE == false ] && echo $($CLI_NAME_KIND version)
 
 }
 
@@ -128,7 +128,7 @@ cli_install_kubectl() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $CLI_NAME_KUBECTL" "$(kubectl version --client=false)
+  [ $INITIALIZE == false ] && echo $CLI_NAME_KUBECTL" "$($CLI_NAME_KUBECTL version --client=false)
 
 }
 
@@ -148,29 +148,7 @@ cli_install_lychee() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $(lychee --version)
-
-}
-
-cli_install_move2kube() {
-
-  if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE*" > /dev/null; then
-    if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.tar.gz https://github.com/konveyor/$CLI_NAME_MOVE2KUBE/releases/download/v$TF_VAR_VERSION_CLI_MOVE2KUBE/move2kube-v$TF_VAR_VERSION_CLI_MOVE2KUBE-linux-amd64.tar.gz
-      tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.tar.gz -C $TF_VAR_PATH_CLI $CLI_NAME_MOVE2KUBE/$CLI_NAME_MOVE2KUBE --strip-components 1
-      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.tar.gz
-      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE
-    elif [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_WINDOWS ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.zip https://github.com/konveyor/$CLI_NAME_MOVE2KUBE/releases/download/v$TF_VAR_VERSION_CLI_MOVE2KUBE/move2kube-v$TF_VAR_VERSION_CLI_MOVE2KUBE-windows-amd64.zip
-      unzip -oqj $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.zip $CLI_NAME_MOVE2KUBE/$CLI_NAME_MOVE2KUBE.exe -d $TF_VAR_PATH_CLI
-      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.zip
-      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_MOVE2KUBE.exe
-    fi
-    echo -n "⬇ "
-  else
-    echo -n "√ "
-  fi
-  [ $INITIALIZE == false ] && echo $CLI_NAME_MOVE2KUBE" "$(move2kube version)
+  [ $INITIALIZE == false ] && echo $($CLI_NAME_LYCHEE --version)
 
 }
 
@@ -196,6 +174,29 @@ cli_install_popeye() {
 
 }
 
+cli_install_podman() {
+
+  if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_PODMAN*" > /dev/null; then
+    if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN.tar.gz https://github.com/containers/$CLI_NAME_PODMAN/releases/download/v$TF_VAR_VERSION_CLI_PODMAN/$CLI_NAME_PODMAN-remote-static-linux_amd64.tar.gz
+      tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN.tar.gz -C $TF_VAR_PATH_CLI bin/ --strip-components 1
+      mv -f $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN-remote-static-linux_amd64 $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN
+      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN.tar.gz
+      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN
+    elif [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_WINDOWS ]; then
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN.zip https://github.com/containers/$CLI_NAME_PODMAN/releases/download/v$TF_VAR_VERSION_CLI_PODMAN/$CLI_NAME_PODMAN-remote-release-windows_amd64.zip
+      unzip -oqj $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN.zip $CLI_NAME_PODMAN-$TF_VAR_VERSION_CLI_PODMAN/usr/bin/*.exe -d $TF_VAR_PATH_CLI
+      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN.zip
+      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_PODMAN.exe
+    fi
+    echo -n "⬇ "
+  else
+    echo -n "√ "
+  fi
+  [ $INITIALIZE == false ] && echo $($CLI_NAME_PODMAN --version)
+
+}
+
 cli_install_step() {
 
   if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_STEP*" > /dev/null; then
@@ -214,29 +215,29 @@ cli_install_step() {
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $(step version)
+  [ $INITIALIZE == false ] && echo $($CLI_NAME_STEP version)
 
 }
 
 cli_install_terraform() {
 
-  if ! compgen -G "$TF_VAR_PATH_CLI/terraform*" > /dev/null; then
+  if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM*" > /dev/null; then
     if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/terraform.zip https://releases.hashicorp.com/terraform/$TF_VAR_VERSION_CLI_TERRAFORM/${CLI_NAME_TERRAFORM}_${TF_VAR_VERSION_CLI_TERRAFORM}_linux_386.zip
-      unzip -oqj $TF_VAR_PATH_CLI/terraform.zip terraform -d $TF_VAR_PATH_CLI
-      rm -f $TF_VAR_PATH_CLI/terraform.zip
-      chmod +x $TF_VAR_PATH_CLI/terraform
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM.zip https://releases.hashicorp.com/$CLI_NAME_TERRAFORM/$TF_VAR_VERSION_CLI_TERRAFORM/${CLI_NAME_TERRAFORM}_${TF_VAR_VERSION_CLI_TERRAFORM}_linux_386.zip
+      unzip -oqj $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM.zip $CLI_NAME_TERRAFORM -d $TF_VAR_PATH_CLI
+      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM.zip
+      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM
     elif [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_WINDOWS ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/terraform.zip https://releases.hashicorp.com/terraform/$TF_VAR_VERSION_CLI_TERRAFORM/${CLI_NAME_TERRAFORM}_${TF_VAR_VERSION_CLI_TERRAFORM}_windows_386.zip
-      unzip -oqj $TF_VAR_PATH_CLI/terraform.zip terraform.exe -d $TF_VAR_PATH_CLI
-      rm -f $TF_VAR_PATH_CLI/terraform.zip
-      chmod +x $TF_VAR_PATH_CLI/terraform.exe
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM.zip https://releases.hashicorp.com/$CLI_NAME_TERRAFORM/$TF_VAR_VERSION_CLI_TERRAFORM/${CLI_NAME_TERRAFORM}_${TF_VAR_VERSION_CLI_TERRAFORM}_windows_386.zip
+      unzip -oqj $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM.zip $CLI_NAME_TERRAFORM.exe -d $TF_VAR_PATH_CLI
+      rm -f $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM.zip
+      chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_TERRAFORM.exe
     fi
     echo -n "⬇ "
   else
     echo -n "√ "
   fi
-  [ $INITIALIZE == false ] && echo $(terraform version)
+  [ $INITIALIZE == false ] && echo $($CLI_NAME_TERRAFORM version)
 
 }
 
@@ -251,7 +252,7 @@ cli_install_k6
 cli_install_kind
 cli_install_kubectl
 cli_install_lychee
-cli_install_move2kube
+cli_install_podman
 cli_install_popeye
 cli_install_step
 cli_install_terraform
