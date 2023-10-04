@@ -17,7 +17,12 @@ services:
       - ${TF_VAR_GUACAMOLE_NAME}
 
   guacd:
-    image: guacamole/guacd:${TF_VAR_VERSION_DOCKER_GUACD}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_GUACD_NAME}:${TF_VAR_VERSION_DOCKER_GUACD}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_GUACAMOLE_NAME}/dockerfile_${TF_VAR_GUACD_NAME}
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_GUACD}
     container_name: ${TF_VAR_GUACD_NAME}
     restart: unless-stopped
     volumes:
@@ -33,7 +38,12 @@ services:
     depends_on:
       - ${TF_VAR_GUACD_NAME}
       - ${TF_VAR_GUACAMOLE_NAME}-${TF_VAR_MYSQL_NAME}
-    image: guacamole/guacamole:${TF_VAR_VERSION_DOCKER_GUACAMOLE}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_GUACAMOLE_NAME}:${TF_VAR_VERSION_DOCKER_GUACAMOLE}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_GUACAMOLE_NAME}/dockerfile_${TF_VAR_GUACAMOLE_NAME}
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_GUACAMOLE}
     container_name: ${TF_VAR_GUACAMOLE_NAME}
     restart: unless-stopped
     volumes:

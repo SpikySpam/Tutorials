@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   prometheus: # TF_VAR_PROMETHEUS_NAME
-    image: prom/prometheus:v${TF_VAR_VERSION_DOCKER_PROMETHEUS}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_PROMETHEUS_NAME}:${TF_VAR_VERSION_DOCKER_PROMETHEUS}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PROMETHEUS_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_PROMETHEUS}
     container_name: ${TF_VAR_PROMETHEUS_NAME}
     restart: unless-stopped
     volumes:

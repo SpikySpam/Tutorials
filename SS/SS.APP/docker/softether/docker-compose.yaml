@@ -2,10 +2,12 @@ version: "3.8"
 
 services:
   softether: # ${TF_VAR_SOFTETHER_NAME}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_SOFTETHER_NAME}:${TF_VAR_VERSION_DOCKER_SOFTETHER}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_SOFTETHER_NAME}/dockerfile
       args:
+        UBUNTU_VERSION: ${TF_VAR_VERSION_DOCKER_UBUNTU}
         VERSION: ${TF_VAR_VERSION_DOCKER_SOFTETHER}
     container_name: ${TF_VAR_SOFTETHER_NAME}
     restart: unless-stopped

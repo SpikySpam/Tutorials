@@ -20,7 +20,12 @@ services:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/${TF_VAR_REDIS_NAME}:/data
 
   harbor-registry: # ${TF_VAR_HARBOR_NAME}-registry
-    image: bitnami/harbor-registry:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-registry:${TF_VAR_VERSION_DOCKER_HARBOR}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_registry
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-registry
     restart: unless-stopped
     volumes:
@@ -30,7 +35,12 @@ services:
       - REGISTRY_HTTP_SECRET=${TF_VAR_HARBOR_HTTP_SECRET}
 
   harbor-registryctl: # ${TF_VAR_HARBOR_NAME}-registryctl
-    image: bitnami/harbor-registryctl:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_VERSION_DOCKER_HARBOR}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_registryctl
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-registryctl
     restart: unless-stopped
     volumes:
@@ -45,7 +55,12 @@ services:
   harbor-core: # ${TF_VAR_HARBOR_NAME}-core
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-registry
-    image: bitnami/harbor-core:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-core:${TF_VAR_VERSION_DOCKER_HARBOR}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_core
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-core
     restart: unless-stopped
     volumes:
@@ -86,7 +101,12 @@ services:
   harbor-portal: # ${TF_VAR_HARBOR_NAME}-portal
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-core
-    image: bitnami/harbor-portal:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-portal:${TF_VAR_VERSION_DOCKER_HARBOR}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_portal
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-portal
     restart: unless-stopped
 
@@ -94,7 +114,12 @@ services:
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}
       - ${TF_VAR_HARBOR_NAME}-core
-    image: bitnami/harbor-jobservice:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-jobservice:${TF_VAR_VERSION_DOCKER_HARBOR}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_jobservice
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_HARBOR}
     container_name: ${TF_VAR_HARBOR_NAME}-jobservice
     restart: unless-stopped
     volumes:
@@ -114,7 +139,12 @@ services:
       - ${TF_VAR_HARBOR_NAME}-registry
       - ${TF_VAR_HARBOR_NAME}-core
       - ${TF_VAR_HARBOR_NAME}-portal
-    image: bitnami/nginx:${TF_VAR_VERSION_DOCKER_NGINX}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-nginx:${TF_VAR_VERSION_DOCKER_NGINX}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_nginx
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_NGINX}
     container_name: ${TF_VAR_HARBOR_NAME}-nginx
     restart: unless-stopped
     volumes:

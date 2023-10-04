@@ -1,0 +1,2 @@
+ARG VERSION
+FROM gitlab/gitlab-ce:${VERSION}

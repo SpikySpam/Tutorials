@@ -5,9 +5,9 @@ services:
     image: ${TF_VAR_DOMAIN}/${TF_VAR_BEEF_NAME}:${TF_VAR_VERSION_DOCKER_BEEF}
     build:
       context: .
-      dockerfile:  ${TF_VAR_PATH_APP}/docker/${TF_VAR_BEEF_NAME}/dockerfile
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_BEEF_NAME}/dockerfile
       args:
-        VERSION: ${TF_VAR_VERSION_DOCKER_RUBY}
+        VERSION: ${TF_VAR_VERSION_DOCKER_BEEF}
     container_name: ${TF_VAR_BEEF_NAME}
     restart: unless-stopped
     ports:

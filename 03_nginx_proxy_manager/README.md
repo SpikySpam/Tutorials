@@ -122,7 +122,7 @@ In this video I demonstrate how to install the **Nginx Proxy Manager** on a **Di
 - **Login** to the Admin UI at http://spikyspam.site:81
     - Email: `admin@example.com`
     - Password: `changeme`
-- **Change** your **username** and **password** to the secrets stored in your  [.bash_profile](../SS/.bash_profile_public) file.
+- **Change** your **username** and **password** to the secrets stored in your  [no-regrets.sh](../SS/no-regrets.sh) file.
   - Email: **`$TF_VAR_NPM_USER`**
   - Password: **`$TF_VAR_NPM_PASSWORD`**
     ```bash

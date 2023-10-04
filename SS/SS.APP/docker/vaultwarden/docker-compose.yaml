@@ -16,7 +16,12 @@ services:
   vaultwarden: # ${TF_VAR_VAULTWARDEN_NAME}
     depends_on:
       - ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}
-    image: vaultwarden/server:${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_VAULTWARDEN_NAME}:${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_VAULTWARDEN_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
     container_name: ${TF_VAR_VAULTWARDEN_NAME}
     restart: unless-stopped
     volumes:

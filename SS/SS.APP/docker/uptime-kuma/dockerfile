@@ -1,0 +1,2 @@
+ARG VERSION
+FROM louislam/uptime-kuma:${VERSION}

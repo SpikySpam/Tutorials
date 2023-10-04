@@ -27,7 +27,12 @@ services:
     depends_on:
       - ${TF_VAR_KUTT_NAME}-${TF_VAR_POSTGRES_NAME}
       - ${TF_VAR_KUTT_NAME}-${TF_VAR_REDIS_NAME}
-    image: kutt/kutt:v${TF_VAR_VERSION_DOCKER_KUTT}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_KUTT_NAME}:${TF_VAR_VERSION_DOCKER_KUTT}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_KUTT_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_KUTT}
     container_name: ${TF_VAR_KUTT_NAME}
     restart: unless-stopped
     command: [ "./wait-for-it.sh", "${TF_VAR_KUTT_NAME}-${TF_VAR_POSTGRES_NAME}:${TF_VAR_POSTGRES_PORT_INT}", "--", "npm", "start" ]

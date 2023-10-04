@@ -10,11 +10,11 @@ export INITIALIZE=true
 initialize () {
 
   if [ $INITIALIZE == false ]; then
-    echo
+    echo $DIV
     echo ✅ "Press ENTER to CONTINUE"
     echo ❌ "Press CTRL+C to EXIT"
     echo $DIV
-    if [ $TF_VAR_C_AUTOSTART == false ]; then
+    if [ $TF_VAR_AUTOSTART == false ]; then
       read
     fi
   fi
@@ -26,7 +26,7 @@ initialize_cot () {
 
   if [ $TF_VAR_COT == $TF_VAR_COT_DOCKER ]; then
     docker info &> /dev/null 2>&1
-    if [ ! $? -ne 0 ]; then
+    if [ $? -ne 0 ]; then
       echo $DIV
       echo ⛔ "DOCKER isn't running"
       echo $DIV

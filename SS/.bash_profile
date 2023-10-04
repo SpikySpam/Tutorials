@@ -23,20 +23,20 @@ export TF_VAR_OSTYPE_WINDOWS="msys"
 # -- Container Tool
 export TF_VAR_COT_DOCKER="docker"
 export TF_VAR_COT_PODMAN="podman"
-export TF_VAR_COT=$TF_VAR_COT_DOCKER # ⬅️ Choose your Container Orchestration Tool
+export TF_VAR_COT=$TF_VAR_COT_DOCKER # ⬅️ Choose your Container Orchestration Tool here
 
-# 💋 ----------------------------------
+# 1️⃣ ----------------------------------
 #              SECRETZ
-# 💋 ----------------------------------
-source $TF_VAR_PATH/no-regrets.sh
-# source $TF_VAR_PATH/no-secrets.sh
+# 1️⃣ ----------------------------------
+# source $TF_VAR_PATH/no-regrets.sh
+source $TF_VAR_PATH/no-secrets.sh
 
 # 2️⃣ ----------------------------------
 #              SET ALIASSES
 # 2️⃣ ----------------------------------
 source $TF_VAR_PATH/alias.sh
 
-# 🚀 ----------------------------------
+# 3️⃣ ----------------------------------
 #              START SCRIPT
-# 🚀 ----------------------------------
+# 3️⃣ ----------------------------------
 source $TF_VAR_PATH/start.sh

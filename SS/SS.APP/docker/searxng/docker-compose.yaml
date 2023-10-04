@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   searxng: # ${TF_VAR_SEARXNG_NAME}
-    image: searxng/searxng:${TF_VAR_VERSION_DOCKER_SEARXNG}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_SEARXNG_NAME}:${TF_VAR_VERSION_DOCKER_SEARXNG}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_SEARXNG_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_SEARXNG}
     container_name: ${TF_VAR_SEARXNG_NAME}
     restart: unless-stopped
     ports:

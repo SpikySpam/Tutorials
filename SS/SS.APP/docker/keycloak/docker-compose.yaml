@@ -16,7 +16,12 @@ services:
   keycloak: # ${TF_VAR_KEYCLOAK_NAME}
     depends_on:
       - ${TF_VAR_KEYCLOAK_NAME}-${TF_VAR_POSTGRES_NAME}
-    image: keycloak/keycloak:${TF_VAR_VERSION_DOCKER_KEYCLOAK}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_KEYCLOAK_NAME}:${TF_VAR_VERSION_DOCKER_KEYCLOAK}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_KEYCLOAK_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_KEYCLOAK}
     container_name: ${TF_VAR_KEYCLOAK_NAME}
     restart: unless-stopped
     ports:

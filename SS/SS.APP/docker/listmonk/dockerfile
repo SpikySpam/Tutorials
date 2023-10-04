@@ -1,0 +1,2 @@
+ARG VERSION
+FROM listmonk/listmonk:v${VERSION}

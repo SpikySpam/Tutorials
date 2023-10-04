@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   phpmyadmin: # TF_VAR_PHPMYADMIN_NAME
-    image: phpmyadmin/phpmyadmin:${TF_VAR_VERSION_DOCKER_PHPMYADMIN}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_PHPMYADMIN_NAME}:${TF_VAR_VERSION_DOCKER_PHPMYADMIN}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PHPMYADMIN_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_PHPMYADMIN}
     container_name: ${TF_VAR_PHPMYADMIN_NAME}
     restart: unless-stopped
     ports:

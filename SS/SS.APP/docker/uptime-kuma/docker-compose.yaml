@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   uptime-kuma: # ${TF_VAR_UPTIMEKUMA_NAME}
-    image: louislam/uptime-kuma:${TF_VAR_VERSION_DOCKER_UPTIMEKUMA}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_UPTIMEKUMA_NAME}:${TF_VAR_VERSION_DOCKER_UPTIMEKUMA}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_UPTIMEKUMA_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_UPTIMEKUMA}
     container_name: ${TF_VAR_UPTIMEKUMA_NAME}
     restart: unless-stopped
     volumes:

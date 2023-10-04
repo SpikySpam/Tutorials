@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   mariadb: # ${TF_VAR_MARIADB_NAME}
-    image: mariadb:${TF_VAR_VERSION_DOCKER_MARIADB}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_MARIADB_NAME}:${TF_VAR_VERSION_DOCKER_MARIADB}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_MARIADB_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_MARIADB}
     container_name: ${TF_VAR_MARIADB_NAME}
     restart: unless-stopped
     volumes:

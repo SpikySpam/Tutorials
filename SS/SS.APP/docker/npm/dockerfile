@@ -1,0 +1,2 @@
+ARG VERSION
+FROM jc21/nginx-proxy-manager:${VERSION}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 2️⃣ SET ALIASSES
+# SET ALIASSES
 alias cdss='cd $TF_VAR_PATH; clear'
 alias p='podman'
 alias k='kubectl'

@@ -2,16 +2,21 @@ version: '3.8'
 
 services:
   pgadmin: # TF_VAR_PGADMIN_NAME
-    image: dpage/pgadmin4:${TF_VAR_VERSION_DOCKER_PGADMIN}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_PGADMIN_NAME}:${TF_VAR_VERSION_DOCKER_PGADMIN}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PGADMIN_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_PGADMIN}
     container_name: ${TF_VAR_PGADMIN_NAME}
     restart: unless-stopped
     volumes:
       - $HOME/docker/${TF_VAR_PGADMIN_NAME}:/var/lib/pgadmin
     ports:
       - ${TF_VAR_PGADMIN_PORT_EXT}:${TF_VAR_PGADMIN_PORT_INT}
-    user: root
     environment:
       PGADMIN_DEFAULT_EMAIL: ${TF_VAR_PGADMIN_USER}
       PGADMIN_DEFAULT_PASSWORD: ${TF_VAR_PGADMIN_PASSWORD}
       PGADMIN_CONFIG_SERVER_MODE: 'True'
+    user: root
 

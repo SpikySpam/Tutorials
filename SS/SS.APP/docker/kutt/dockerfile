@@ -1,0 +1,2 @@
+ARG VERSION
+FROM kutt/kutt:v${VERSION}

@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   elasticsearch: # TF_VAR_ELASTICSEARCH_NAME
-    image: elasticsearch:${TF_VAR_VERSION_DOCKER_ELASTICSEARCH}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_ELASTICSEARCH_NAME}:${TF_VAR_VERSION_DOCKER_ELASTICSEARCH}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_ELASTICSEARCH_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_ELASTICSEARCH}
     container_name: ${TF_VAR_ELASTICSEARCH_NAME}
     restart: unless-stopped
     volumes:
@@ -15,8 +20,14 @@ services:
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - node.name=${TF_VAR_ELASTICSEARCH_NAME}
       - discovery.type=single-node
-      - xpack.security.enabled=false
+
+      - xpack.security.enabled=true
+      - xpack.security.enrollment.enabled=true
       - xpack.security.transport.ssl.enabled=false
-      - xpack.security.enrollment.enabled=false
+
+      # - xpack.security.http.ssl.enabled=true
+      # - xpack.security.http.ssl.certificate="http-spikyspam.site.crt"
+      # - xpack.security.http.ssl.key="http-spikyspam.site.key"
+
       - http.cors.enabled=true
       - http.cors.allow-origin="*"

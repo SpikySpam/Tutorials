@@ -1,0 +1,2 @@
+ARG VERSION
+FROM bitnami/harbor-jobservice:${VERSION}

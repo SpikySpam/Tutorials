@@ -2,11 +2,12 @@
 
 services:
   storm-breaker: # ${TF_VAR_STORMBREAKER_NAME}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_STORMBREAKER_NAME}:${TF_VAR_VERSION_DOCKER_PYTHON}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_STORMBREAKER_NAME}/dockerfile
       args:
-        - VERSION=${TF_VAR_VERSION_DOCKER_PYTHON}
+        VERSION: ${TF_VAR_VERSION_DOCKER_PYTHON}
     container_name: ${TF_VAR_STORMBREAKER_NAME}
     restart: unless-stopped
     volumes:

@@ -1,0 +1,2 @@
+ARG VERSION
+FROM dpage/pgadmin4:${VERSION}

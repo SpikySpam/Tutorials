@@ -44,12 +44,8 @@ In this video I demonstrate how to install **PostgreSQL**, **MySql**, **MariaDB*
   rm -fr $TF_VAR_PATH
   mv -f SpikySpamTutorials/SS $TF_VAR_PATH
   rm -rf SpikySpamTutorials
-
-  # Get the latest .bash_profile content
-  cp $TF_VAR_PATH/.bash_profile_public $TF_VAR_PATH/.bash_profile
-  source $HOME/.bashrc
   ```
-- Check new **[.bash_profile.sh](../SS/.bash_profile_public)**
+- Check new **[.bash_profile.sh](../SS/.bash_profile)**
   ```bash  
   nano $TF_VAR_PATH/.bash_profile
   ```

@@ -7,6 +7,6 @@ services:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_UBUNTU_NAME}/dockerfile
       args:
-        - VERSION=${TF_VAR_VERSION_DOCKER_UBUNTU}
+        VERSION: ${TF_VAR_VERSION_DOCKER_UBUNTU}
     container_name: ${TF_VAR_UBUNTU_NAME}
     restart: unless-stopped

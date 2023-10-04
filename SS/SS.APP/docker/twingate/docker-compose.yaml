@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   twingate: # ${TF_VAR_TWINGATE_NAME}
-    image: twingate/connector:${TF_VAR_VERSION_DOCKER_TWINGATE}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_TWINGATE_NAME}:${TF_VAR_VERSION_DOCKER_TWINGATE}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_TWINGATE_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_TWINGATE}
     container_name: ${TF_VAR_TWINGATE_NAME}
     restart: unless-stopped
     sysctls:

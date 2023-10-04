@@ -59,7 +59,7 @@ This part of the series will change often, depending on the progress, but will r
   nano $HOME/Desktop/Tutorials/SS/.bash_profile
   ```
 
-  See this [.bash_profile](../SS/.bash_profile_public) file for the latest version. **Passwords** and **Secret Keys** in this file are only examples, and are no where used. Otherwise let me know 😋
+  See this [no-regrets.sh](../SS/no-regrets.sh) file for the latest version. **Passwords** and **Secret Keys** in this file are only examples, and are no where used. Otherwise let me know 😋
 
 - Call the solutions .bash_pofile by editing **.bashrc**. Be sure to change the **`$TF_VAR_PATH`** variable to your local directory if needed:
 

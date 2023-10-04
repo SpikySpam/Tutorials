@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   redis: # TF_VAR_REDIS_NAME
-    image: redis:${TF_VAR_VERSION_DOCKER_REDIS}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_REDIS_NAME}:${TF_VAR_VERSION_DOCKER_REDIS}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_REDIS_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_REDIS}
     container_name: ${TF_VAR_REDIS_NAME}
     restart: unless-stopped
     volumes:

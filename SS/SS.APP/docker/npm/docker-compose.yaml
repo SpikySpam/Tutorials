@@ -1,17 +1,37 @@
 version: '3.8'
 
 services:
-  npm: 
-    container_name: npm
-    image: jc21/nginx-proxy-manager:${TF_VAR_VERSION_DOCKER_NPM}
+  # npm: 
+  #   container_name: npm
+  #   image: jc21/nginx-proxy-manager:${TF_VAR_VERSION_DOCKER_NPM}
+  #   restart: unless-stopped
+  #   ports:
+  #     - "80:80"
+  #     - "81:81"
+  #     - "443:443"
+  #   volumes:
+  #     - $HOME/docker/npm/data:/data
+  #     - $HOME/docker/npm/letsencrypt:/etc/letsencrypt
+  #   environment:
+  #     PUID: 1000
+  #     PGID: 1000
+
+  npm: # ${TF_VAR_NPM_NAME}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_NPM_NAME}:${TF_VAR_VERSION_DOCKER_NPM}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_NPM_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_NPM}
+    container_name: ${TF_VAR_NPM_NAME}
     restart: unless-stopped
     ports:
       - "80:80"
       - "81:81"
       - "443:443"
     volumes:
-      - $HOME/docker/npm/data:/data
-      - $HOME/docker/npm/letsencrypt:/etc/letsencrypt
+      - $HOME/docker/${TF_VAR_NPM_NAME}/data:/data
+      - $HOME/docker/${TF_VAR_NPM_NAME}/letsencrypt:/etc/letsencrypt
     environment:
       PUID: 1000
       PGID: 1000

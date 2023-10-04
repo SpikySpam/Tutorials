@@ -57,9 +57,9 @@ In this video I demonstrate how I prepared our **`cli.sh`** script, to download 
 
 ## Calling from **`.bash_profile`**
 
-- I have added a call to the **`cli.sh`** Script in our **[.bash_profile](../SS/.bash_profile_public)** file:
+- I have added a call to the **`cli.sh`** Script in our **[start.sh](../SS/start.sh)** file:
   ```bash
-  # .bash_profile snippet
+  # start.sh snippet
 
   # ...
 

@@ -2,7 +2,12 @@
 
 services:
   phoneinfoga: # ${TF_VAR_PHONEINFOGA_NAME}
-    image: sundowndev/phoneinfoga:v${TF_VAR_VERSION_DOCKER_PHONEINFOGA}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_PHONEINFOGA_NAME}:${TF_VAR_VERSION_DOCKER_PHONEINFOGA}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PHONEINFOGA_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_PHONEINFOGA}
     container_name: ${TF_VAR_PHONEINFOGA_NAME}
     restart: unless-stopped
     command:
