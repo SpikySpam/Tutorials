@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "FreeScout is a lightweight and powerful, free and open source Helpdesk system. In this video I will show you how we can quickly spin up our FreeScout Helpdesk. You can find all code for this Tutorial on my GitHub Page. Let's go!"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "As you can see, we have successfully created our FreeScout container. We can now navigate to the localhost on port 80 88. Close your eyes. FreeScout doesn't come with a Dark Theme out of the box. You can purchase the Dark Mode module on their website for as little as 2 dollars. You only need to purchase a module once per FreeScoute instance. They come with a lifetime license."
+  }
+}

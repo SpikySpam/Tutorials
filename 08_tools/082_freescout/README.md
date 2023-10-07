@@ -9,13 +9,13 @@ In this Tutorial we are going to prepare a **Docker** compose files for running 
 
 In this Tutorial we are going to install **Freescout** as a **Docker** container in our **Homelab**.
 
-[![Video](_assets/images/freescout-video.png)](https://youtu.be/XXXXXXXXXXXXXXXX)
+[![Video](_assets/images/freescout-video.png)](https://youtu.be/bs-0-Odz674)
 
 ## Links
 
 - [Freescout Website](https://freescout.net)
 - [Freescout GitHub](https://github.com/freescout-helpdesk/freescout)
-- 🎺 [Background Music](https://freesound.org/people/XXXXXXXXXXXXXXX)
+- 🎺 [Background Music](https://freesound.org/people/betabeats./sounds/702252/)
 
 ## Prerequisites
 

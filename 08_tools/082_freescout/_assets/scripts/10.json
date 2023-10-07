@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "From now on we can setup our Mailboxes and our Users. Remember, this tutorial will not go into depth on how to use the application, but rather focusses on getting things installed. We will, however, have a look inside the Modules menu because FreeScouts revenue model comes in the form of a lot of separately sold modules. In order to have a basic Helpdesk system you should consider buying some of these modules."
+  }
+}
