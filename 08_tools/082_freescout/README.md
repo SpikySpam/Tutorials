@@ -40,7 +40,7 @@ You can execute the **[recreate.sh](../../SS/SS.APP/docker/freescout/recreate.sh
 $TF_VAR_PATH_APP/docker/$TF_VAR_FREESCOUT_NAME/recreate.sh
 ```
 
-https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f42120/SS/SS.APP/docker/freescout/recreate.sh#L1-L22
+https://github.com/SpikySpam/Tutorials/blob/fc2c8108f2d391a0d9ae8b75fbc8767d61dc1625/SS/SS.APP/docker/freescout/recreate.sh#L1-L10
 
 - ### [Docker Compose](../SS/S#S.APP/docker/freescout/docker-compose.yaml)
 
@@ -53,5 +53,4 @@ https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f4
     $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_FREESCOUT_NAME/docker-compose.yaml up -d --wait --build
   ```
 
-  https://github.com/SpikySpam/Tutorials/blob/e162b77665b3bac9a56d2ae7c9003c1a17f42120/SS/SS.APP/docker/freescout/docker-compose.yaml#L1-L30
-
+https://github.com/SpikySpam/Tutorials/blob/fc2c8108f2d391a0d9ae8b75fbc8767d61dc1625/SS/SS.APP/docker/freescout/docker-compose.yaml#L1-L62
