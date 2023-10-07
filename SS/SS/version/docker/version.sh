@@ -41,3 +41,4 @@ export TF_VAR_VERSION_DOCKER_UBUNTU="23.04"                              # https
 export TF_VAR_VERSION_DOCKER_KALI="latest"                               # https://hub.docker.com/r/kalilinux/kali-rolling/tags
 export TF_VAR_VERSION_DOCKER_RUBY="3.2.2"                                # https://hub.docker.com/_/ruby/tags
 export TF_VAR_VERSION_DOCKER_PYTHON="3.9.18"                             # https://hub.docker.com/_/python/tags
+

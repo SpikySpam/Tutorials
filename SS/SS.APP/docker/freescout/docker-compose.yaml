@@ -60,3 +60,4 @@ networks:
   freescout: # ${TF_VAR_FREESCOUT_NAME}
     name: ${TF_VAR_FREESCOUT_NAME}
     driver: bridge
+

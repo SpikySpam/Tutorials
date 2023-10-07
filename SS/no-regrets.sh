@@ -95,7 +95,7 @@ export TF_VAR_UPTIMEKUMA_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_LISTMONK_NAME="listmonk"
 export TF_VAR_LISTMONK_USER="listmonk"
 export TF_VAR_LISTMONK_PASSWORD="listmonk"
-# -- freescout
+# -- freescout 
 export TF_VAR_FREESCOUT_NAME="freescout"
 export TF_VAR_FREESCOUT_PASSWORD="UltraSecretPassword123"
 export TF_VAR_FREESCOUT_TZ="Etc/UTC"
