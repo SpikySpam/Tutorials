@@ -5,7 +5,7 @@ $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-co
 rm -rf $HOME/docker/$TF_VAR_CODESERVER_NAME
 
 # Compose Up
-$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-compose.yaml up -d --wait --build --wait --build
+$TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_CODESERVER_NAME/docker-compose.yaml up -d --wait --build
 
 # ⬇️
 # Copy local Source to the Code Server workspace-folder

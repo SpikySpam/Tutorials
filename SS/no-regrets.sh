@@ -95,6 +95,10 @@ export TF_VAR_UPTIMEKUMA_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_LISTMONK_NAME="listmonk"
 export TF_VAR_LISTMONK_USER="listmonk"
 export TF_VAR_LISTMONK_PASSWORD="listmonk"
+# -- freescout
+export TF_VAR_FREESCOUT_NAME="freescout"
+export TF_VAR_FREESCOUT_PASSWORD="UltraSecretPassword123"
+export TF_VAR_FREESCOUT_TZ="Etc/UTC"
 # -- rabbitmq
 export TF_VAR_RABBITMQ_NAME="rabbitmq"
 export TF_VAR_RABBITMQ_USER="SomeUsername"
@@ -169,7 +173,7 @@ export TF_VAR_SMTP_STARTTLS=true
 export TF_VAR_SMTP_PORT=587
 export TF_VAR_SMTP_USERNAME="example@gmail.com"
 export TF_VAR_SMTP_PASSWORD="UltraSecretPassword123!"
-export TF_VAR_IMAP_HOST="smtp.gmail.com"
+export TF_VAR_IMAP_HOST="imap.gmail.com"
 export TF_VAR_IMAP_PORT=993
 export TF_VAR_IMAP_SSL=true
 export TF_VAR_IMAP_STARTTLS=false

@@ -18,3 +18,8 @@ services:
       POSTGRES_USER: ${TF_VAR_POSTGRES_USER}
       POSTGRES_PASSWORD: ${TF_VAR_POSTGRES_PASSWORD}
       POSTGRES_DB: ${TF_VAR_POSTGRES_NAME}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

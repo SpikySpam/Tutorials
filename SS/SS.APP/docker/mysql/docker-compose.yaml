@@ -20,3 +20,8 @@ services:
       MYSQL_USER: ${TF_VAR_MYSQL_USER}
       MYSQL_PASSWORD: ${TF_VAR_MYSQL_PASSWORD}
       MYSQL_DATABASE: ${TF_VAR_MYSQL_NAME}
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

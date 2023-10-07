@@ -1,0 +1,62 @@
+﻿version: '3.8'
+
+services:
+  freescout-postgres: # ${TF_VAR_FREESCOUT_NAME}-${TF_VAR_POSTGRES_NAME}
+    extends:
+      service: ${TF_VAR_POSTGRES_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_FREESCOUT_NAME}-${TF_VAR_POSTGRES_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_FREESCOUT_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${TF_VAR_FREESCOUT_NAME}
+    networks:
+      - ${TF_VAR_FREESCOUT_NAME}
+
+  freescout: # ${TF_VAR_FREESCOUT_NAME}
+    depends_on:
+      freescout-postgres:
+        condition: service_healthy
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_FREESCOUT_NAME}:${TF_VAR_VERSION_DOCKER_FREESCOUT}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_FREESCOUT_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_FREESCOUT}
+    container_name: ${TF_VAR_FREESCOUT_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_FREESCOUT_NAME}/logs:/www/logs
+      - $HOME/docker/${TF_VAR_FREESCOUT_NAME}/custom:/assets/custom
+      - $HOME/docker/${TF_VAR_FREESCOUT_NAME}/custom-scripts:/assets/custom-scripts
+      # - $HOME/docker/${TF_VAR_FREESCOUT_NAME}/modules:/assets/modules
+      - $HOME/docker/${TF_VAR_FREESCOUT_NAME}/html:/www/html
+      - $HOME/docker/${TF_VAR_FREESCOUT_NAME}/data:/data
+    ports:
+      - ${TF_VAR_FREESCOUT_PORT_EXT}:${TF_VAR_FREESCOUT_PORT_INT}
+    environment:
+      APPLICATION_NAME: ${TF_VAR_FREESCOUT_NAME}
+      SITE_URL: https://${TF_VAR_FREESCOUT_NAME}.${TF_VAR_DOMAIN}
+      SETUP_TYPE: AUTO
+      ENABLE_SSL_PROXY: TRUE
+      ENABLE_AUTO_UPDATE: TRUE
+      DISPLAY_ERRORS: FALSE
+      TIMEZONE: ${TF_VAR_FREESCOUT_TZ}
+      # ADMIN
+      ADMIN_EMAIL: ${TF_VAR_MAILINABOX_USER}
+      ADMIN_PASS: ${TF_VAR_FREESCOUT_PASSWORD}
+      # DATABASE
+      DB_TYPE: pgsql
+      DB_HOST: ${TF_VAR_FREESCOUT_NAME}-${TF_VAR_POSTGRES_NAME}
+      DB_PORT: ${TF_VAR_POSTGRES_PORT_INT}
+      DB_NAME: ${TF_VAR_FREESCOUT_NAME}
+      DB_USER: ${TF_VAR_POSTGRES_USER}
+      DB_PASS: ${TF_VAR_POSTGRES_PASSWORD}
+      DB_PGSQL_SSL_MODE: prefer
+    networks:
+      - ${TF_VAR_FREESCOUT_NAME}
+
+networks:
+  freescout: # ${TF_VAR_FREESCOUT_NAME}
+    name: ${TF_VAR_FREESCOUT_NAME}
+    driver: bridge

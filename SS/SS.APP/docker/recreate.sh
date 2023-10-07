@@ -22,6 +22,7 @@ ${TF_VAR_PATH_APP}/docker/${TF_VAR_STORMBREAKER_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_CODESERVER_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_DASHY_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_FILEBROWSER_NAME}/recreate.sh
+${TF_VAR_PATH_APP}/docker/${TF_VAR_FREESCOUT_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_GITLAB_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_GRAFANA_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_GUACAMOLE_NAME}/recreate.sh
@@ -38,4 +39,3 @@ ${TF_VAR_PATH_APP}/docker/${TF_VAR_SEARXNG_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_TWINGATE_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_UPTIMEKUMA_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_VAULTWARDEN_NAME}/recreate.sh
-

@@ -25,6 +25,7 @@ export TF_VAR_VERSION_DOCKER_SEARXNG="2023.9.24-19383921d"               # https
 export TF_VAR_VERSION_DOCKER_DASHY="2.1.1"                               # https://hub.docker.com/r/lissy93/dashy/tags
 export TF_VAR_VERSION_DOCKER_UPTIMEKUMA="1.23.2"                         # https://hub.docker.com/r/louislam/uptime-kuma/tags
 export TF_VAR_VERSION_DOCKER_LISTMONK="2.5.1"                            # https://hub.docker.com/r/listmonk/listmonk/tags
+export TF_VAR_VERSION_DOCKER_FREESCOUT="8.2"                             # https://hub.docker.com/r/tiredofit/freescout/tags
 
 export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6-management"                # https://hub.docker.com/_/rabbitmq/tags
 export TF_VAR_VERSION_DOCKER_HARBOR="2.9.0"                              # https://hub.docker.com/r/bitnami/harbor-registry/tags
