@@ -17,7 +17,8 @@ services:
 
   listmonk: # ${TF_VAR_LISTMONK_NAME}
     depends_on:
-      - ${TF_VAR_LISTMONK_NAME}-${TF_VAR_POSTGRES_NAME}
+      listmonk-postgres: # ${TF_VAR_LISTMONK_NAME}-${TF_VAR_POSTGRES_NAME}
+        condition: service_healthy
     image: ${TF_VAR_DOMAIN}/${TF_VAR_LISTMONK_NAME}:${TF_VAR_VERSION_DOCKER_LISTMONK}
     build:
       context: .

@@ -25,8 +25,10 @@ services:
 
   kutt: # ${TF_VAR_KUTT_NAME}
     depends_on:
-      - ${TF_VAR_KUTT_NAME}-${TF_VAR_POSTGRES_NAME}
-      - ${TF_VAR_KUTT_NAME}-${TF_VAR_REDIS_NAME}
+      kutt-postgres: # ${TF_VAR_KUTT_NAME}-${TF_VAR_POSTGRES_NAME}
+        condition: service_healthy
+      kutt-redis: # ${TF_VAR_KUTT_NAME}-${TF_VAR_REDIS_NAME}
+        condition: service_healthy
     image: ${TF_VAR_DOMAIN}/${TF_VAR_KUTT_NAME}:${TF_VAR_VERSION_DOCKER_KUTT}
     build:
       context: .

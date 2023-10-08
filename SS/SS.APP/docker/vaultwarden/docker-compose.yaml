@@ -15,7 +15,8 @@ services:
 
   vaultwarden: # ${TF_VAR_VAULTWARDEN_NAME}
     depends_on:
-      - ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}
+      vaultwarden-postgres: # ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}
+        condition: service_healthy
     image: ${TF_VAR_DOMAIN}/${TF_VAR_VAULTWARDEN_NAME}:${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
     build:
       context: .
