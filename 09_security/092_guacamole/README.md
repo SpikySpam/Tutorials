@@ -44,18 +44,4 @@ https://github.com/SpikySpam/Tutorials/blob/b8d32965f9f625776fb34fa3836570392cde
 
 - ### [Docker Compose](../SS/S#S.APP/docker/guacamole/docker-compose.yaml)
 
-  ```bash
-  # Initialize database
-  $TF_VAR_PATH_APP/docker/$TF_VAR_GUACAMOLE_NAME/init_db.sh
-
-  # Clean Previous
-  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GUACAMOLE_NAME/docker-compose.yaml down
-  rm -rf $HOME/docker/$TF_VAR_GUACAMOLE_NAME
-
-  # Compose Up
-  $TF_VAR_COT compose -f $TF_VAR_PATH_APP/docker/$TF_VAR_GUACAMOLE_NAME/docker-compose.yaml up -d --wait --build
-
-  # ⬇️
-  ```
-
   https://github.com/SpikySpam/Tutorials/blob/b8d32965f9f625776fb34fa3836570392cded154/SS/SS.APP/docker/guacamole/docker-compose.yaml#L1-L71
