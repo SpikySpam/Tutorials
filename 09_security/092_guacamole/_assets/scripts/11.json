@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "Now we can login with the default username and password, which is both Guac Admin. After logging in, you should change this password with the value, as specified in our secrets script. From now on we can setup our Connections and our Users. This tutorial will not go into depth on how to use the application, but rather focusses on getting things installed."
+  }
+}

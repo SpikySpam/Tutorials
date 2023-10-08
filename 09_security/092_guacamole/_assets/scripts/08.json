@@ -1,0 +1,18 @@
+{
+  "audioConfig": {
+    "audioEncoding": "LINEAR16",
+    "effectsProfileId": [
+      "large-home-entertainment-class-device"
+    ],
+    "sampleRateHertz": 44100,
+    "pitch": 0.0,
+    "speakingRate": 1.0
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Studio-M"
+  },
+  "input": {
+    "text": "The Guacamole service doesn't need much configuration. All values are coming from our previously defined environment variables and are passed on to this service. The only thing we need to take care of is the initialization of the My Sequel database. I've included an Init DB script that takes care of this. When running this script, all necessary SQL commands will be saved to the config folder, which we mount into our My Sequel service."
+  }
+}
