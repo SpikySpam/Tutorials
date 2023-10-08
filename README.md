@@ -20,4 +20,5 @@ All videos for these tutorials are freely available at YouTube. Just navigate to
 | ![Vaultwarden Logo](06_vaultwarden/_assets/images/vaultwarden.png) | [06. Vaultwarden](06_vaultwarden/README.md) |
 | ![CLI Logo](07_cli/_assets/images/cli.png) | [07. CLI Tools](07_cli/README.md) |
 | ![General Tools](08_tools/_assets/images/tools.png) | [08. General Tools](08_tools/README.md) |
+| ![Security Tools](09_security/_assets/images/security.png) | [09. Security Tools](09_security/README.md) |
 | ![Development Tools](10_development/_assets/images/development.png) | [10. Development Tools](10_development/README.md) |
