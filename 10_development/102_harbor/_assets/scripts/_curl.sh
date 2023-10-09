@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# 💥 This script will work only in the current directory
-
 var_filename=$1
 
 if [ -z $var_filename ]
