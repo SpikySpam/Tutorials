@@ -103,6 +103,10 @@ R:\SETUP.EXE
 ![MSDOS Install 02](_assets/images/msdos-install-02.png)
 
 
+## Possible Solution for the Mouse drift
+
+![Microsoft](_assets/images/pussytrouble.png)
+
 ## Monkey Island
 
 This part has its own video. 
