@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x 
-
 # 💥 This script will work only in the current directory
 
 mapfile -t PARAGRAPHS < <(grep -v '^$' "./_script.txt")
@@ -34,11 +32,8 @@ EOF
   NUMBER=$(printf "%02d" $INDEX)
   echo $TEMPLATE > ./$NUMBER.json
 
-  if [ -z $LINE ]; then # ALL PARAGRAPHS
-    echo "../sounds/$NUMBER.wav"
-    # if [ -e "../sounds/$NUMBER.wav" ]; then    
-    #   ./_curl.sh $NUMBER    
-    # fi
+  if [ -z $LINE ]; then
+    ./_curl.sh $NUMBER
   else
     if [ $INDEX -eq $LINE ]; then
      ./_curl.sh $NUMBER

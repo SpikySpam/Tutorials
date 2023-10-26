@@ -28,7 +28,7 @@ export TF_VAR_VERSION_DOCKER_LISTMONK="2.5.1"                            # https
 export TF_VAR_VERSION_DOCKER_FREESCOUT="8.2-1.17.37"                     # https://hub.docker.com/r/tiredofit/freescout/tags
 
 export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6-management"                # https://hub.docker.com/_/rabbitmq/tags
-export TF_VAR_VERSION_DOCKER_HARBOR="2.9.0"                              # https://hub.docker.com/r/bitnami/harbor-registry/tags
+export TF_VAR_VERSION_DOCKER_HARBOR="2.9.0"                              # https://hub.docker.com/r/bitnami/harbor-registry/tags 
 export TF_VAR_VERSION_DOCKER_GITLAB="16.4.0-ce.0"                        # https://hub.docker.com/r/gitlab/gitlab-ce/tags
 export TF_VAR_VERSION_DOCKER_CODESERVER="4.17.0"                         # https://hub.docker.com/r/linuxserver/code-server/tags
 export TF_VAR_VERSION_DOCKER_JENKINS="2.425"                             # https://hub.docker.com/r/jenkins/jenkins/tags

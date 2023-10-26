@@ -104,7 +104,7 @@ export TF_VAR_RABBITMQ_NAME="rabbitmq"
 export TF_VAR_RABBITMQ_USER="SomeUsername"
 export TF_VAR_RABBITMQ_PASSWORD="UltraSecretPassword123!"
 # -- harbor
-export TF_VAR_HARBOR_NAME="harbor"
+export TF_VAR_HARBOR_NAME="harbor" 
 export TF_VAR_HARBOR_USER="admin"
 export TF_VAR_HARBOR_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_HARBOR_HTTP_SECRET="UltraSecretPassword123!"

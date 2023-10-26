@@ -1,10 +1,12 @@
+Hi. Spiky here. This tutorial is by far, a blueprint for what you're probably searching for. But I hope you can find that little thing, you are stuck on!
+
 Harbor is an open-source container image registry and management tool for Docker, Kubernetes, and other container orchestration platforms. In this video, I will show you the code I've added to the sources at my github page, to make the Harbor container to work. Let's go!
 
 First, I've defined a version environment variable, in our versions script, for the Harbor Docker images, at Docker Hub.
 
 Second, I've defined the internal, and external port numbers of my docker container.
 
-Then, I've defined some environment variables in our secrets script. It's in my gitignore file. It contains passwords and keys.
+Then, I've defined some environment variables in our secrets script. It's in my Git ignore file. It contains passwords and keys.
 
 In a typical Harbor deployment using Docker Compose, you'll find several services, each serving a specific purpose. Here's a summary of what each service does:
 
@@ -19,3 +21,19 @@ The job service is responsible for handling asynchronous tasks and background jo
 These services work together to help you manage and secure your container images effectively. Later we will push all necessary images to our own, self-hosted Registry provider.
 
 You can simply execute the recreate script to build the containers. But keep in mind that this script also deletes the mounted persistent volume folder on your local computer.
+
+Listen very carefully. I will say this only once. PLease watch some of my first videos in this chapter if you have no idea what's going on at the moment. Welcome to the club.
+
+If everything is fine. We can now login into the Harbor Portal with the credentials we have specified in our secrets script.
+
+Indeed, If you have no idea what's going on. Don't worry. My suggestion is to whatch all videos by the fantastic Marcel Dempers, which you will find under his youtube channel That DevOps Guy.
+
+There is Viktor and his ,DevOps Toolkit, channel. I really recommend those channels. Before even attempting to follow me around.
+
+Not to forget Les. Jackson. For really, in depth, videos about this topic.
+
+And let's no forget Christian Lempa who is recovering from an almost burn-out, but has seen the light again!
+
+I hope you've got some tips in your search for knowledge today. Spiky Out.
+
+
