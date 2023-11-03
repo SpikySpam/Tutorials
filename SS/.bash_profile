@@ -28,8 +28,8 @@ export TF_VAR_COT=$TF_VAR_COT_DOCKER # ⬅️ Choose your Container Orchestratio
 # 1️⃣ ----------------------------------
 #              SECRETZ
 # 1️⃣ ----------------------------------
-# source $TF_VAR_PATH/no-regrets.sh
-source $TF_VAR_PATH/no-secrets.sh
+source $TF_VAR_PATH/no-regrets.sh
+# source $TF_VAR_PATH/no-secrets.sh
 
 # 2️⃣ ----------------------------------
 #              SET ALIASSES
