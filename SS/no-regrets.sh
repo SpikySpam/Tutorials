@@ -99,6 +99,8 @@ export TF_VAR_LISTMONK_PASSWORD="listmonk"
 export TF_VAR_FREESCOUT_NAME="freescout"
 export TF_VAR_FREESCOUT_PASSWORD="UltraSecretPassword123"
 export TF_VAR_FREESCOUT_TZ="Etc/UTC"
+# -- rustdesk
+export TF_VAR_RUSTDESK_NAME="rustdesk"
 # -- rabbitmq
 export TF_VAR_RABBITMQ_NAME="rabbitmq"
 export TF_VAR_RABBITMQ_USER="SomeUsername"

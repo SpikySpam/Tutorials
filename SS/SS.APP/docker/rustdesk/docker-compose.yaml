@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  rustdesk-relay: # ${TF_VAR_RUSTDESK_NAME}-relay
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_RUSTDESK_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_RUSTDESK}
+    container_name: ${TF_VAR_RUSTDESK_NAME}-relay
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_RUSTDESK_RELAY_PORT_EXT_21117}:${TF_VAR_RUSTDESK_RELAY_PORT_INT_21117}/tcp
+      - ${TF_VAR_RUSTDESK_RELAY_PORT_EXT_21119}:${TF_VAR_RUSTDESK_RELAY_PORT_INT_21119}/tcp
+    volumes:
+      - $HOME/docker/${TF_VAR_RUSTDESK_NAME}/relay:/root
+    command: hbbr
+    networks:
+      - ${TF_VAR_RUSTDESK_NAME}
+
+  rustdesk-signal: # ${TF_VAR_RUSTDESK_NAME}-signal
+    depends_on:
+      - ${TF_VAR_RUSTDESK_NAME}-relay
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_RUSTDESK_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_RUSTDESK}
+    container_name: ${TF_VAR_RUSTDESK_NAME}-signal
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_RUSTDESK_SIGNAL_PORT_EXT_21115}:${TF_VAR_RUSTDESK_SIGNAL_PORT_INT_21115}/tcp
+      - ${TF_VAR_RUSTDESK_SIGNAL_PORT_EXT_21116}:${TF_VAR_RUSTDESK_SIGNAL_PORT_INT_21116}/tcp
+      - ${TF_VAR_RUSTDESK_SIGNAL_PORT_EXT_21116}:${TF_VAR_RUSTDESK_SIGNAL_PORT_INT_21116}/udp
+      - ${TF_VAR_RUSTDESK_SIGNAL_PORT_EXT_21118}:${TF_VAR_RUSTDESK_SIGNAL_PORT_INT_21118}/tcp
+    volumes:
+      - $HOME/docker/${TF_VAR_RUSTDESK_NAME}/signal:/root
+    command: hbbs -r ${TF_VAR_RUSTDESK_NAME}.${TF_VAR_DOMAIN}:${TF_VAR_RUSTDESK_RELAY_PORT_EXT_21117}
+    networks:
+      - ${TF_VAR_RUSTDESK_NAME}
+
+networks:
+  rustdesk: # ${TF_VAR_RUSTDESK_NAME}
+    name: ${TF_VAR_RUSTDESK_NAME}
+    driver: bridge
+    

@@ -26,6 +26,7 @@ export TF_VAR_VERSION_DOCKER_DASHY="2.1.1"                               # https
 export TF_VAR_VERSION_DOCKER_UPTIMEKUMA="1.23.2"                         # https://hub.docker.com/r/louislam/uptime-kuma/tags
 export TF_VAR_VERSION_DOCKER_LISTMONK="2.5.1"                            # https://hub.docker.com/r/listmonk/listmonk/tags
 export TF_VAR_VERSION_DOCKER_FREESCOUT="8.2-1.17.37"                     # https://hub.docker.com/r/tiredofit/freescout/tags
+export TF_VAR_VERSION_DOCKER_RUSTDESK="1.1.8-2"                          # https://hub.docker.com/r/rustdesk/rustdesk-server/tags
 
 export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6-management"                # https://hub.docker.com/_/rabbitmq/tags
 export TF_VAR_VERSION_DOCKER_HARBOR="2.9.0"                              # https://hub.docker.com/r/bitnami/harbor-registry/tags 
