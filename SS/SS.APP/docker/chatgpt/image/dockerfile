@@ -1,0 +1,15 @@
+ARG VERSION
+FROM ollama/ollama:${VERSION}
+
+RUN apt-get update -y
+RUN apt-get install curl make git python3.11 -y
+
+RUN curl -sSL https://install.python-poetry.org | python3.11 -
+ENV PATH="/root/.local/bin:$PATH"
+
+RUN git clone https://github.com/imartinez/privateGPT
+WORKDIR /privateGPT
+
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

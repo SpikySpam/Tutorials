@@ -1,2 +1,6 @@
 ARG VERSION
 FROM rustdesk/rustdesk-server:${VERSION}
+
+#PRO
+# ARG VERSION
+# FROM rustdesk/rustdesk-server-pro:${VERSION}

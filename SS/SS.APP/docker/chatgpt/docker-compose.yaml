@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  chatgpt: # TF_VAR_CHATGPT_NAME
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_CHATGPT_NAME}:${TF_VAR_VERSION_DOCKER_OLLAMA}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CHATGPT_NAME}/dockerfile
+      args:
+        DOMAIN: ${TF_VAR_DOMAIN}
+        NAME: ${TF_VAR_CHATGPT_NAME}
+        VERSION: ${TF_VAR_VERSION_DOCKER_OLLAMA}
+    container_name: ${TF_VAR_CHATGPT_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_CHATGPT_PORT_EXT}:${TF_VAR_CHATGPT_PORT_INT}

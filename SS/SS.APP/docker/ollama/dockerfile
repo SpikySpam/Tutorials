@@ -1,0 +1,4 @@
+ARG VERSION
+FROM ollama/ollama:${VERSION}
+
+# RUN ollama pull llama2-uncensored

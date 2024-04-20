@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   gitlab-postgres: # ${TF_VAR_GITLAB_NAME}-${TF_VAR_POSTGRES_NAME}

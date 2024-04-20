@@ -1,4 +1,4 @@
-﻿version: '3.8'
+﻿version: '3.9'
 
 services:
   beef: # ${TF_VAR_BEEF_NAME}

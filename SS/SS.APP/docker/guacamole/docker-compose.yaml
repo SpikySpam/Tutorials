@@ -1,6 +1,6 @@
 # user/password: guacadmin/guacadmin
 
-version: "3.8"
+version: '3.9'
 
 services:
   guacamole-mysql: # ${TF_VAR_GUACAMOLE_NAME}-${TF_VAR_MYSQL_NAME}

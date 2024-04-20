@@ -1,4 +1,4 @@
-﻿version: '3.8'
+﻿version: '3.9'
 
 services:
   filebrowser: # ${TF_VAR_FILEBROWSER_NAME}

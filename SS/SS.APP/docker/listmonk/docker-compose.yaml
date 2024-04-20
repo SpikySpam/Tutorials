@@ -1,4 +1,4 @@
-﻿version: '3.8'
+﻿version: '3.9'
 
 services:
   listmonk-postgres: # ${TF_VAR_LISTMONK_NAME}-${TF_VAR_POSTGRES_NAME}

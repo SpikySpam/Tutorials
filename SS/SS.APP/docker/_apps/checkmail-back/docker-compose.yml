@@ -1,0 +1,64 @@
+version: '3.9'
+
+services:
+  checkmail-back: # TF_VAR_CHECKMAIL_BACK_NAME
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_CHECKMAIL_BACK_NAME}:${TF_VAR_VERSION_APP_CHECKMAIL_BACK}
+    build:
+      context: ${TF_VAR_PATH_SERVICES}
+      dockerfile: ${TF_VAR_PATH_SERVICES}/dockerfile-checkmail-back
+      args:
+        VERSION: ${TF_VAR_VERSION_APP_CHECKMAIL_BACK}
+        PORT_80: ${TF_VAR_CHECKMAIL_BACK_PORT_80_INT}
+        PORT_443: ${TF_VAR_CHECKMAIL_BACK_PORT_443_INT}
+    container_name: ${TF_VAR_CHECKMAIL_BACK_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_CHECKMAIL_BACK_PORT_80_EXT}:${TF_VAR_CHECKMAIL_BACK_PORT_80_INT}
+      - ${TF_VAR_CHECKMAIL_BACK_PORT_443_EXT}:${TF_VAR_CHECKMAIL_BACK_PORT_443_INT}
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=${TF_VAR_CHECKMAIL_BACK_PORT_80_INT}
+      - ASPNETCORE_HTTPS_PORTS=${TF_VAR_CHECKMAIL_BACK_PORT_443_INT}
+    networks:
+      - ${TF_VAR_CHECKMAIL_BACK_NAME}
+
+  checkmail-back-postgres: # ${TF_VAR_CHECKMAIL_BACK_NAME}-${TF_VAR_POSTGRES_NAME}
+    extends:
+      service: ${TF_VAR_POSTGRES_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_CHECKMAIL_BACK_NAME}-${TF_VAR_POSTGRES_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_CHECKMAIL_BACK_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${TF_VAR_CHECKMAIL_BACK_NAME}
+    networks:
+      - ${TF_VAR_CHECKMAIL_BACK_NAME}
+
+  checkmail-back-redis: # ${TF_VAR_CHECKMAIL_BACK_NAME}-${TF_VAR_REDIS_NAME}
+    extends:
+      service: ${TF_VAR_REDIS_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_REDIS_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_CHECKMAIL_BACK_NAME}-${TF_VAR_REDIS_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_CHECKMAIL_BACK_NAME}/${TF_VAR_REDIS_NAME}:/data
+    networks:
+      - ${TF_VAR_CHECKMAIL_BACK_NAME}
+
+  checkmail-back-rabbitmq: # ${TF_VAR_CHECKMAIL_BACK_NAME}-${TF_VAR_RABBITMQ_NAME}
+    extends:
+      service: ${TF_VAR_RABBITMQ_NAME}
+      file: ${TF_VAR_PATH_APP}/docker/${TF_VAR_RABBITMQ_NAME}/docker-compose.yaml
+    container_name: ${TF_VAR_CHECKMAIL_BACK_NAME}-${TF_VAR_RABBITMQ_NAME}
+    volumes:
+      - $HOME/docker/${TF_VAR_CHECKMAIL_BACK_NAME}/${TF_VAR_RABBITMQ_NAME}/data:/var/lib/rabbitmq
+      - $HOME/docker/${TF_VAR_CHECKMAIL_BACK_NAME}/${TF_VAR_RABBITMQ_NAME}/log:/var/log/rabbitmq
+    networks:
+      - ${TF_VAR_CHECKMAIL_BACK_NAME}
+
+networks:
+  checkmail-back: # ${TF_VAR_CHECKMAIL_BACK_NAME}
+    name: ${TF_VAR_CHECKMAIL_BACK_NAME}
+    driver: bridge

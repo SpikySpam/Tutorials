@@ -13,10 +13,12 @@ export TF_VAR_VERSION_DOCKER_GRAFANA="10.1.2"                            # https
 export TF_VAR_VERSION_DOCKER_PGADMIN="7.7"                               # https://hub.docker.com/r/dpage/pgadmin4/tags
 export TF_VAR_VERSION_DOCKER_PHPMYADMIN="5.2.1"                          # https://hub.docker.com/_/phpmyadmin/tags
 
+export TF_VAR_VERSION_DOCKER_VAULT="1.13.3"                              # https://hub.docker.com/_/vault/tags
 export TF_VAR_VERSION_DOCKER_VAULTWARDEN="1.29.2"                        # https://hub.docker.com/r/vaultwarden/server/tags
 export TF_VAR_VERSION_DOCKER_KEYCLOAK="22.0.3"                           # https://hub.docker.com/r/keycloak/keycloak/tags
 export TF_VAR_VERSION_DOCKER_TWINGATE="1.59.0"                           # https://hub.docker.com/r/twingate/connector/tags
 
+export TF_VAR_VERSION_DOCKER_OLLAMA="0.1.31"                             # https://hub.docker.com/r/ollama/ollama/tags
 export TF_VAR_VERSION_DOCKER_GUACD="1.5.3"                               # https://hub.docker.com/r/guacamole/guacd/tags
 export TF_VAR_VERSION_DOCKER_GUACAMOLE=$TF_VAR_VERSION_DOCKER_GUACD      # https://hub.docker.com/r/guacamole/guacamole/tags
 export TF_VAR_VERSION_DOCKER_FILEBROWSER="2.25.0"                        # https://hub.docker.com/r/filebrowser/filebrowser/tags
@@ -25,7 +27,7 @@ export TF_VAR_VERSION_DOCKER_SEARXNG="2023.9.24-19383921d"               # https
 export TF_VAR_VERSION_DOCKER_DASHY="2.1.1"                               # https://hub.docker.com/r/lissy93/dashy/tags
 export TF_VAR_VERSION_DOCKER_UPTIMEKUMA="1.23.2"                         # https://hub.docker.com/r/louislam/uptime-kuma/tags
 export TF_VAR_VERSION_DOCKER_LISTMONK="2.5.1"                            # https://hub.docker.com/r/listmonk/listmonk/tags
-export TF_VAR_VERSION_DOCKER_FREESCOUT="8.2-1.17.37"                     # https://hub.docker.com/r/tiredofit/freescout/tags
+export TF_VAR_VERSION_DOCKER_FREESCOUT="8.2-1.17.42"                     # https://hub.docker.com/r/tiredofit/freescout/tags
 export TF_VAR_VERSION_DOCKER_RUSTDESK="1.1.8-2"                          # https://hub.docker.com/r/rustdesk/rustdesk-server/tags
 
 export TF_VAR_VERSION_DOCKER_RABBITMQ="3.12.6-management"                # https://hub.docker.com/_/rabbitmq/tags

@@ -3,6 +3,12 @@
 # 🌍 DOMAIN
 export TF_VAR_DOMAIN="example.com"
 
+# 🔏 JWT
+export TF_VAR_JWT_ISSUER="https://id."$TF_VAR_DOMAIN
+export TF_VAR_JWT_AUDIENCE="https://"$TF_VAR_DOMAIN
+export TF_VAR_JWT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+export TF_VAR_JWT_TIME="10:00:00"
+
 # 🧑‍💻 GITHUB
 export TF_VAR_GITHUB_NAME="github"
 export TF_VAR_GITHUB_USER="SomeUsername"
@@ -19,6 +25,10 @@ export TF_VAR_NPM_PASSWORD="changeme"
 export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
+# -- ollama
+export TF_VAR_OLLAMA_NAME="ollama"
+# -- chatgpt
+export TF_VAR_CHATGPT_NAME="chatgpt"
 # -- postgres
 export TF_VAR_POSTGRES_NAME="postgres"
 export TF_VAR_POSTGRES_USER="SomeUsername"
@@ -55,6 +65,10 @@ export TF_VAR_PGADMIN_USER=$TF_VAR_MAILINABOX_USER
 export TF_VAR_PGADMIN_PASSWORD="UltraSecretPassword123!"
 # -- phpmyadmin
 export TF_VAR_PHPMYADMIN_NAME="phpmyadmin"
+# -- vault
+export TF_VAR_VAULT_NAME="vault"
+export TF_VAR_VAULT_TOKEN_ROOT="77777777-7777-7777-7777-777777777777"
+export TF_VAR_VAULT_TOKEN_USER="00000000-0000-0000-0000-000000000000"
 # -- vaultwarden
 export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
 export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
@@ -101,6 +115,8 @@ export TF_VAR_FREESCOUT_PASSWORD="UltraSecretPassword123"
 export TF_VAR_FREESCOUT_TZ="Etc/UTC"
 # -- rustdesk
 export TF_VAR_RUSTDESK_NAME="rustdesk"
+export TF_VAR_RUSTDESK_USER="admin"
+export TF_VAR_RUSTDESK_PASSWORD="test1234"
 # -- rabbitmq
 export TF_VAR_RABBITMQ_NAME="rabbitmq"
 export TF_VAR_RABBITMQ_USER="SomeUsername"
@@ -153,6 +169,10 @@ export TF_VAR_UBUNTU_NAME="ubuntu"
 export TF_VAR_KALI_NAME="kali"
 # -- hack
 export TF_VAR_HACK_NAME="hack"
+
+# 🚀 SMTPAPPS
+# -- checkmail
+export TF_VAR_CHECKMAIL_BACK="checkmail-back"
 
 # ✉️ SMTP
 # -- box

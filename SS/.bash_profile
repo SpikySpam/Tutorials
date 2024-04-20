@@ -13,6 +13,7 @@ export TF_VAR_PATH_MAIN=$TF_VAR_PATH/SS
 export TF_VAR_PATH_APP=$TF_VAR_PATH/SS.APP
 export TF_VAR_PATH_CLI=$TF_VAR_PATH/SS/CLI
 export TF_VAR_PATH_HELP=$TF_VAR_PATH/SS.HELPERS
+export TF_VAR_PATH_SERVICES=$TF_VAR_PATH/SS.SERVICES
 export PATH="$TF_VAR_PATH_CLI:$PATH"
 
 # 🌐 CURRENT ENVIRONMENT
@@ -28,8 +29,8 @@ export TF_VAR_COT=$TF_VAR_COT_DOCKER # ⬅️ Choose your Container Orchestratio
 # 1️⃣ ----------------------------------
 #              SECRETZ
 # 1️⃣ ----------------------------------
-source $TF_VAR_PATH/no-regrets.sh
-# source $TF_VAR_PATH/no-secrets.sh
+# source $TF_VAR_PATH/no-regrets.sh
+source $TF_VAR_PATH/no-secrets.sh
 
 # 2️⃣ ----------------------------------
 #              SET ALIASSES
