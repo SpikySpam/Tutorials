@@ -197,8 +197,6 @@ export TF_VAR_HACK_NAME="hack"
 export TF_VAR_UBUNTU_NAME="ubuntu"
 # -- kali
 export TF_VAR_KALI_NAME="kali"
-# -- node
-export TF_VAR_NODE_NAME="node"
 # -- puter
 export TF_VAR_PUTER_NAME="puter"
 

@@ -60,7 +60,6 @@ export TF_VAR_VERSION_DOCKER_UBUNTU="23.04"                              # https
 export TF_VAR_VERSION_DOCKER_KALI="latest"                               # https://hub.docker.com/r/kalilinux/kali-rolling/tags
 export TF_VAR_VERSION_DOCKER_RUBY="3.2.2"                                # https://hub.docker.com/_/ruby/tags
 export TF_VAR_VERSION_DOCKER_PYTHON="3.9.18"                             # https://hub.docker.com/_/python/tags
-export TF_VAR_VERSION_DOCKER_NODE="alpine3.19"                           # https://hub.docker.com/_/node/tags
 export TF_VAR_VERSION_DOCKER_PUTER="2.1.0"                               # https://github.com/HeyPuter/puter/tags
 
 export TF_VAR_VERSION_DOCKER_OLLAMA="0.1.31"                             # https://hub.docker.com/r/ollama/ollama/tags

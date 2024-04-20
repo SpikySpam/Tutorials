@@ -1,4 +1,4 @@
-﻿version: '3.9'
+version: '3.9'
 
 services:
   puter: # TF_VAR_PUTER_NAME
@@ -7,10 +7,10 @@ services:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PUTER_NAME}/dockerfile
       args:
-        DOMAIN: ${TF_VAR_DOMAIN}
-        NAME: ${TF_VAR_PUTER_NAME}
-        VERSION: ${TF_VAR_VERSION_DOCKER_PUTER}
+        VERSION: ${TF_VAR_VERSION_DOCKER_UBUNTU}
     container_name: ${TF_VAR_PUTER_NAME}
     restart: unless-stopped
+    # volumes:
+    #   - $HOME/docker/${TF_VAR_PUTER_NAME}/config.json:config/config.json
     ports:
       - ${TF_VAR_PUTER_PORT_EXT}:${TF_VAR_PUTER_PORT_INT}
