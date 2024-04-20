@@ -1,0 +1,2 @@
+ARG VERSION
+FROM ipushc/cassandra-web:v${VERSION}

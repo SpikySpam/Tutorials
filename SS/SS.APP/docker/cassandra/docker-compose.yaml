@@ -1,0 +1,50 @@
+
+services:
+  cassandra: # ${TF_VAR_CASSANDRA_NAME}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_CASSANDRA_NAME}:${TF_VAR_VERSION_DOCKER_CASSANDRA}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CASSANDRA_NAME}/dockerfile-db
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_CASSANDRA}
+    container_name: ${TF_VAR_CASSANDRA_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_CASSANDRA_NAME}:/var/lib/cassandra
+    ports:
+      - ${TF_VAR_CASSANDRA_PORT_EXT}:${TF_VAR_CASSANDRA_PORT_INT}
+    environment:
+      CASSANDRA_USER: ${TF_VAR_CASSANDRA_USER}
+      CASSANDRA_PASSWORD: ${TF_VAR_CASSANDRA_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "[ $$(nodetool statusgossip) = running ]"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  cassandra-web: # ${TF_VAR_CASSANDRA_NAME}-web
+    depends_on:
+      cassandra: # ${TF_VAR_CASSANDRA_NAME}
+        condition: service_healthy
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_CASSANDRA_NAME}-web:${TF_VAR_VERSION_DOCKER_CASSANDRA}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CASSANDRA_NAME}/dockerfile-web
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_CASSANDRA_WEB}
+    container_name: ${TF_VAR_CASSANDRA_NAME}-web
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_CASSANDRA_WEB_PORT_EXT}:${TF_VAR_CASSANDRA_WEB_PORT_INT}
+    environment:
+      HOST_PORT: ":${TF_VAR_CASSANDRA_WEB_PORT_INT}"
+      READ_ONLY: false
+      CASSANDRA_HOST: ${TF_VAR_CASSANDRA_NAME}
+      CASSANDRA_PORT: ${TF_VAR_CASSANDRA_PORT_INT}
+      CASSANDRA_USERNAME: ${TF_VAR_CASSANDRA_USER}
+      CASSANDRA_PASSWORD: ${TF_VAR_CASSANDRA_PASSWORD}
+
+networks:
+  cassandra: # ${TF_VAR_CASSANDRA_NAME}
+    name: ${TF_VAR_CASSANDRA_NAME}
+    driver: bridge

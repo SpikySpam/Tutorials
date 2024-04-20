@@ -29,6 +29,10 @@ export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 export TF_VAR_NPM_NAME="npm"
 export TF_VAR_NPM_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_NPM_PASSWORD="changeme"
+# -- traefik
+export TF_VAR_TRAEFIK_NAME="traefik"
+export TF_VAR_TRAEFIK_USER="SomeUsername"
+export TF_VAR_TRAEFIK_PASSWORD="UltraSecretPassword123!"
 # -- mail-in-a-box
 export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
@@ -37,6 +41,10 @@ export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
 # --------------------------------------------------
 # 💾 DATABASES
 # --------------------------------------------------
+# -- cassandra
+export TF_VAR_CASSANDRA_NAME="cassandra"
+export TF_VAR_CASSANDRA_USER="SomeUsername"
+export TF_VAR_CASSANDRA_PASSWORD="UltraSecretPassword123!"
 # -- postgres
 export TF_VAR_POSTGRES_NAME="postgres"
 export TF_VAR_POSTGRES_USER="SomeUsername"
@@ -49,6 +57,10 @@ export TF_VAR_MYSQL_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_MARIADB_NAME="mariadb"
 export TF_VAR_MARIADB_USER="SomeUsername"
 export TF_VAR_MARIADB_PASSWORD="UltraSecretPassword123!"
+# -- mongodb
+export TF_VAR_MONGODB_NAME="mongodb"
+export TF_VAR_MONGODB_USER="SomeUsername"
+export TF_VAR_MONGODB_PASSWORD="UltraSecretPassword123!" # URL
 # -- redis
 export TF_VAR_REDIS_NAME="redis"
 export TF_VAR_REDIS_USER="SomeUsername"
@@ -102,6 +114,10 @@ export TF_VAR_GUACD_NAME="guacd"
 export TF_VAR_GUACAMOLE_NAME="guacamole"
 export TF_VAR_GUACAMOLE_USER="guacadmin"
 export TF_VAR_GUACAMOLE_PASSWORD="guacadmin"
+# -- pihole
+export TF_VAR_PIHOLE_NAME="pihole"
+export TF_VAR_PIHOLE_PASSWORD="UltraSecretPassword123!%"
+export TF_VAR_PIHOLE_TZ="Europe/Brussel"
 
 # --------------------------------------------------
 # 🛠️ TOOLS

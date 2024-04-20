@@ -1,0 +1,41 @@
+
+services:
+  mongodb: # ${TF_VAR_MONGODB_NAME}
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_MONGODB_NAME}:${TF_VAR_VERSION_DOCKER_MONGODB}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_MONGODB_NAME}/dockerfile-${TF_VAR_MONGODB_NAME}
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_MONGODB}
+    container_name: ${TF_VAR_MONGODB_NAME}
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${TF_VAR_MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${TF_VAR_MONGODB_PASSWORD}
+    networks:
+      - ${TF_VAR_MONGODB_NAME}
+
+  mongodb-express: # ${TF_VAR_MONGODB_NAME}-express
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_MONGODB_NAME}-express:${TF_VAR_VERSION_DOCKER_MONGODB}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_MONGODB_NAME}/dockerfile-${TF_VAR_MONGODB_NAME}-express
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_MONGODB_EXPRESS}
+    container_name: ${TF_VAR_MONGODB_NAME}-express
+    ports:
+      - ${TF_VAR_MONGODB_PORT_EXT}:${TF_VAR_MONGODB_PORT_INT}
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${TF_VAR_MONGODB_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${TF_VAR_MONGODB_PASSWORD}
+      ME_CONFIG_MONGODB_URL: ${TF_VAR_MONGODB_NAME}://${TF_VAR_MONGODB_USER}:${TF_VAR_MONGODB_PASSWORD}@${TF_VAR_MONGODB_NAME}:27017/
+      ME_CONFIG_BASICAUTH: true
+      ME_CONFIG_BASICAUTH_USERNAME: ${TF_VAR_MONGODB_USER}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${TF_VAR_MONGODB_PASSWORD}
+    networks:
+      - ${TF_VAR_MONGODB_NAME}
+
+networks:
+  mongodb: # ${TF_VAR_MONGODB_NAME}
+    name: ${TF_VAR_MONGODB_NAME}
+    driver: bridge

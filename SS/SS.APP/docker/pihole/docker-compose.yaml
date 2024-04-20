@@ -1,0 +1,28 @@
+﻿# http://localhost:${TF_VAR_PIHOLE_NAME}/admin
+
+services:
+  pihole: # TF_VAR_PIHOLE_NAME
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_PIHOLE_NAME}:${TF_VAR_VERSION_DOCKER_PIHOLE}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PIHOLE_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_PIHOLE}
+    container_name: ${TF_VAR_PIHOLE_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_PIHOLE_NAME}/data:/etc/pihole
+      - $HOME/docker/${TF_VAR_PIHOLE_NAME}/dnsmasq:/etc/dnsmasq.d
+    ports:
+      - ${TF_VAR_PIHOLE_PORT_EXT_53}:${TF_VAR_PIHOLE_PORT_INT_53}/tcp
+      - ${TF_VAR_PIHOLE_PORT_EXT_53}:${TF_VAR_PIHOLE_PORT_INT_53}/udp
+      - ${TF_VAR_PIHOLE_PORT_EXT_67}:${TF_VAR_PIHOLE_PORT_INT_67}/udp
+      - ${TF_VAR_PIHOLE_PORT_EXT_80}:${TF_VAR_PIHOLE_PORT_INT_80}/tcp
+    environment:
+      - TZ=${TF_VAR_PIHOLE_TZ}
+      - WEBPASSWORD=${TF_VAR_PIHOLE_PASSWORD}
+    cap_add:
+      - NET_ADMIN
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1

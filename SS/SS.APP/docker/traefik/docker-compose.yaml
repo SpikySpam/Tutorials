@@ -1,0 +1,22 @@
+﻿
+services:
+  traefik: # TF_VAR_TRAEFIK_NAME
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_TRAEFIK_NAME}:${TF_VAR_VERSION_DOCKER_TRAEFIK}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_TRAEFIK_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_TRAEFIK}
+    container_name: ${TF_VAR_TRAEFIK_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_TRAEFIK_NAME}/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - ${TF_VAR_TRAEFIK_PORT_EXT_80}:${TF_VAR_TRAEFIK_PORT_INT_80}
+      - ${TF_VAR_TRAEFIK_PORT_EXT_443}:${TF_VAR_TRAEFIK_PORT_INT_443}
+      - ${TF_VAR_TRAEFIK_PORT_EXT_8080}:${TF_VAR_TRAEFIK_PORT_INT_8080}
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:${TF_VAR_TRAEFIK_PORT_INT_80}

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_BEEF_NAME}/recreate.sh
+${TF_VAR_PATH_APP}/docker/${TF_VAR_CASSANDRA_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_CHATGPT_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_CODESERVER_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_DASHY_NAME}/recreate.sh
@@ -19,12 +20,14 @@ ${TF_VAR_PATH_APP}/docker/${TF_VAR_KIBANA_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_KUTT_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_LISTMONK_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_MARIADB_NAME}/recreate.sh
+${TF_VAR_PATH_APP}/docker/${TF_VAR_MONGODB_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_MYSQL_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_NPM_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_OLLAMA_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_PGADMIN_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_PHONEINFOGA_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_PHPMYADMIN_NAME}/recreate.sh
+${TF_VAR_PATH_APP}/docker/${TF_VAR_PIHOLE_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_POSTGRES_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_PROMETHEUS_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_PUTER_NAME}/recreate.sh
@@ -35,6 +38,7 @@ ${TF_VAR_PATH_APP}/docker/${TF_VAR_SEARXNG_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_SHERLOCK_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_SOFTETHER_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_STORMBREAKER_NAME}/recreate.sh
+${TF_VAR_PATH_APP}/docker/${TF_VAR_TRAEFIK_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_TWINGATE_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_UBUNTU_NAME}/recreate.sh
 ${TF_VAR_PATH_APP}/docker/${TF_VAR_UPTIMEKUMA_NAME}/recreate.sh
