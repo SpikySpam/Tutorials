@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # --------------------------------------------------
-# 🌍 DOMAIN
+# 🌍 WORKSPACE
 # --------------------------------------------------
-export TF_VAR_DOMAIN="example.com"
+source $TF_VAR_PATH/constants.sh
+export TF_VAR_HOST=$TF_VAR_HOST_EXAMPLE
+source $TF_VAR_PATH/workspace.sh
 
 # --------------------------------------------------
 # 🔏 JWT
