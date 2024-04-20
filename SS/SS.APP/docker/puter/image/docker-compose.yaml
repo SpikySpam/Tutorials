@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  puter: # TF_VAR_PUTER_NAME
+    image: ${TF_VAR_DOMAIN}/${TF_VAR_PUTER_NAME}:${TF_VAR_VERSION_DOCKER_PUTER}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PUTER_NAME}/image/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_UBUNTU}
+    container_name: ${TF_VAR_PUTER_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_PUTER_PORT_EXT}:${TF_VAR_PUTER_PORT_INT}

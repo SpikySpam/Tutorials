@@ -1,0 +1,17 @@
+ARG VERSION
+FROM ubuntu:${VERSION} AS NODE
+
+RUN apt-get update -y
+RUN apt-get install git-core curl build-essential openssl libssl-dev npm -y
+
+RUN git clone https://github.com/nodejs/node.git
+WORKDIR /node
+CMD ["./configure", "make", "make install"]
+WORKDIR /
+
+FROM NODE AS BUILD
+RUN git clone https://github.com/HeyPuter/puter
+WORKDIR /puter
+CMD ["npm install"]
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]

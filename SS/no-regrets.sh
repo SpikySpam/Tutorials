@@ -1,20 +1,28 @@
 #!/bin/bash
 
+# --------------------------------------------------
 # 🌍 DOMAIN
+# --------------------------------------------------
 export TF_VAR_DOMAIN="example.com"
 
+# --------------------------------------------------
 # 🔏 JWT
+# --------------------------------------------------
 export TF_VAR_JWT_ISSUER="https://id."$TF_VAR_DOMAIN
 export TF_VAR_JWT_AUDIENCE="https://"$TF_VAR_DOMAIN
 export TF_VAR_JWT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export TF_VAR_JWT_TIME="10:00:00"
 
+# --------------------------------------------------
 # 🧑‍💻 GITHUB
+# --------------------------------------------------
 export TF_VAR_GITHUB_NAME="github"
 export TF_VAR_GITHUB_USER="SomeUsername"
 export TF_VAR_GITHUB_EMAIL=$TF_VAR_GITHUB_USER"@example.com"
 
+# --------------------------------------------------
 # 🔑 SET SECRETS
+# --------------------------------------------------
 # -- google
 export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 # -- npm
@@ -25,10 +33,10 @@ export TF_VAR_NPM_PASSWORD="changeme"
 export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
 export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
-# -- ollama
-export TF_VAR_OLLAMA_NAME="ollama"
-# -- chatgpt
-export TF_VAR_CHATGPT_NAME="chatgpt"
+
+# --------------------------------------------------
+# 💾 DATABASES
+# --------------------------------------------------
 # -- postgres
 export TF_VAR_POSTGRES_NAME="postgres"
 export TF_VAR_POSTGRES_USER="SomeUsername"
@@ -65,6 +73,10 @@ export TF_VAR_PGADMIN_USER=$TF_VAR_MAILINABOX_USER
 export TF_VAR_PGADMIN_PASSWORD="UltraSecretPassword123!"
 # -- phpmyadmin
 export TF_VAR_PHPMYADMIN_NAME="phpmyadmin"
+
+# --------------------------------------------------
+# 🔐 SECURITY
+# --------------------------------------------------
 # -- vault
 export TF_VAR_VAULT_NAME="vault"
 export TF_VAR_VAULT_TOKEN_ROOT="77777777-7777-7777-7777-777777777777"
@@ -90,6 +102,10 @@ export TF_VAR_GUACD_NAME="guacd"
 export TF_VAR_GUACAMOLE_NAME="guacamole"
 export TF_VAR_GUACAMOLE_USER="guacadmin"
 export TF_VAR_GUACAMOLE_PASSWORD="guacadmin"
+
+# --------------------------------------------------
+# 🛠️ TOOLS
+# --------------------------------------------------
 # -- filebrowser
 export TF_VAR_FILEBROWSER_NAME="filebrowser"
 export TF_VAR_FILEBROWSER_USER="admin"
@@ -117,6 +133,10 @@ export TF_VAR_FREESCOUT_TZ="Etc/UTC"
 export TF_VAR_RUSTDESK_NAME="rustdesk"
 export TF_VAR_RUSTDESK_USER="admin"
 export TF_VAR_RUSTDESK_PASSWORD="test1234"
+
+# --------------------------------------------------
+# 💻 DEVELOPMENT
+# --------------------------------------------------
 # -- rabbitmq
 export TF_VAR_RABBITMQ_NAME="rabbitmq"
 export TF_VAR_RABBITMQ_USER="SomeUsername"
@@ -145,6 +165,10 @@ export TF_VAR_CODESERVER_TZ="Etc/UTC"
 export TF_VAR_JENKINS_NAME="jenkins"
 export TF_VAR_JENKINS_USER="admin"
 export TF_VAR_JENKINS_PASSWORD="UltraSecretPassword123!"
+
+# --------------------------------------------------
+# 🥷 HACK
+# --------------------------------------------------
 # -- phoneinfoga
 export TF_VAR_PHONEINFOGA_NAME="phoneinfoga"
 export TF_VAR_PHONEINFOGA_NUMVERIFY_API_KEY="UltraSecretPassword123!"
@@ -163,18 +187,32 @@ export TF_VAR_SOFTETHER_NAME="softether"
 export TF_VAR_BEEF_NAME="beef"
 export TF_VAR_BEEF_USER="SomeUsername"
 export TF_VAR_BEEF_PASSWORD="UltraSecretPassword123!"
+# -- hack
+export TF_VAR_HACK_NAME="hack"
+
+# --------------------------------------------------
+# 📀 OPERATING SYSTEM
+# --------------------------------------------------
 # -- ubuntu
 export TF_VAR_UBUNTU_NAME="ubuntu"
 # -- kali
 export TF_VAR_KALI_NAME="kali"
-# -- hack
-export TF_VAR_HACK_NAME="hack"
+# -- node
+export TF_VAR_NODE_NAME="node"
+# -- puter
+export TF_VAR_PUTER_NAME="puter"
 
-# 🚀 SMTPAPPS
-# -- checkmail
-export TF_VAR_CHECKMAIL_BACK="checkmail-back"
+# --------------------------------------------------
+# 🤖 AI
+# --------------------------------------------------
+# -- ollama
+export TF_VAR_OLLAMA_NAME="ollama"
+# -- chatgpt
+export TF_VAR_CHATGPT_NAME="chatgpt"
 
+# --------------------------------------------------
 # ✉️ SMTP
+# --------------------------------------------------
 # -- box
 export TF_VAR_SMTP_HOST=$TF_VAR_MAILINABOX_DOMAIN
 export TF_VAR_SMTP_SECURITY="starttls"
@@ -201,3 +239,9 @@ export TF_VAR_IMAP_SSL=true
 export TF_VAR_IMAP_STARTTLS=false
 export TF_VAR_IMAP_USERNAME="example@gmail.com"
 export TF_VAR_IMAP_PASSWORD="UltraSecretPassword123!"
+
+# --------------------------------------------------
+# 🚀 OWN APPS
+# --------------------------------------------------
+# -- checkmail
+export TF_VAR_CHECKMAIL_BACK="checkmail-back"

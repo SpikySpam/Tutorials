@@ -1,4 +1,6 @@
-# DATABASES
+# --------------------------------------------------
+# 💾 DATABASES
+# --------------------------------------------------
 export TF_VAR_POSTGRES_PORT_INT=5432
 export TF_VAR_POSTGRES_PORT_EXT=5432
 export TF_VAR_MYSQL_PORT_INT=3306
@@ -11,7 +13,6 @@ export TF_VAR_PROMETHEUS_PORT_INT=9090
 export TF_VAR_PROMETHEUS_PORT_EXT=9090
 export TF_VAR_ELASTICSEARCH_PORT_INT=9200
 export TF_VAR_ELASTICSEARCH_PORT_EXT=9200
-
 export TF_VAR_KIBANA_PORT_INT=5601
 export TF_VAR_KIBANA_PORT_EXT=5601
 export TF_VAR_GRAFANA_PORT_INT=3000
@@ -21,7 +22,9 @@ export TF_VAR_PGADMIN_PORT_EXT=5433
 export TF_VAR_PHPMYADMIN_PORT_INT=80
 export TF_VAR_PHPMYADMIN_PORT_EXT=3307
 
-# SECURITY
+# --------------------------------------------------
+# 🔐 SECURITY
+# --------------------------------------------------
 export TF_VAR_VAULT_PORT_INT=8201
 export TF_VAR_VAULT_PORT_EXT=8201
 export TF_VAR_VAULTWARDEN_PORT_INT=80
@@ -33,7 +36,9 @@ export TF_VAR_GUACD_PORT_EXT=4822
 export TF_VAR_GUACAMOLE_PORT_INT=8080
 export TF_VAR_GUACAMOLE_PORT_EXT=8080
 
-# TOOLS
+# --------------------------------------------------
+# 🛠️ TOOLS
+# --------------------------------------------------
 export TF_VAR_FILEBROWSER_PORT_INT=80
 export TF_VAR_FILEBROWSER_PORT_EXT=8083
 export TF_VAR_KUTT_PORT_INT=3000
@@ -61,7 +66,9 @@ export TF_VAR_RUSTDESK_RELAY_PORT_EXT_21117=21117
 export TF_VAR_RUSTDESK_RELAY_PORT_INT_21119=21119
 export TF_VAR_RUSTDESK_RELAY_PORT_EXT_21119=21119
 
-# DEVELOPMENT
+# --------------------------------------------------
+# 💻 DEVELOPMENT
+# --------------------------------------------------
 export TF_VAR_RABBITMQ_PORT_INT_NODE=5672
 export TF_VAR_RABBITMQ_PORT_EXT_NODE=5672
 export TF_VAR_RABBITMQ_PORT_INT_DIST=15672
@@ -83,7 +90,15 @@ export TF_VAR_JENKINS_PORT_EXT=8180
 export TF_VAR_JENKINS_PORT_INT_50000=50000
 export TF_VAR_JENKINS_PORT_EXT_50000=50000
 
-# HACK
+# --------------------------------------------------
+# 📀 OPERATING SYSTEM
+# --------------------------------------------------
+export TF_VAR_PUTER_PORT_INT=4100
+export TF_VAR_PUTER_PORT_EXT=4100
+
+# --------------------------------------------------
+# 🥷 HACK
+# --------------------------------------------------
 export TF_VAR_PHONEINFOGA_PORT_INT=5000
 export TF_VAR_PHONEINFOGA_PORT_EXT=5001
 export TF_VAR_STORMBREAKER_PORT_INT=80
@@ -110,10 +125,16 @@ export TF_VAR_BEEF_PORT_INT_61985=61985
 export TF_VAR_BEEF_PORT_EXT_61985=61985
 export TF_VAR_BEEF_PORT_INT_61986=61986
 export TF_VAR_BEEF_PORT_EXT_61986=61986
+
+# --------------------------------------------------
+# 🤖 AI
+# --------------------------------------------------
 export TF_VAR_CHATGPT_PORT_INT=8001
 export TF_VAR_CHATGPT_PORT_EXT=8001
 
-# APPS
+# --------------------------------------------------
+# 🚀 OWN APPS
+# --------------------------------------------------
 export TF_VAR_CHECKMAIL_BACK_PORT_80_INT=45801
 export TF_VAR_CHECKMAIL_BACK_PORT_80_EXT=45801
 export TF_VAR_CHECKMAIL_BACK_PORT_443_INT=45431
