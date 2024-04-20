@@ -1,5 +1,5 @@
 ARG VERSION
-FROM python:${VERSION}
+FROM python:3.9.18
 
 RUN apt-get update && apt-get install git curl -y && \
     git clone https://github.com/ultrasecurity/Storm-Breaker.git
@@ -12,6 +12,10 @@ ENV NGROK_API_KEY=$TF_VAR_STORMBREAKER_NGROK_API_KEY
 
 RUN python3 -m pip install -r requirements.txt && \
     yes | bash install.sh
+
+RUN curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && \
+    echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | tee /etc/apt/sources.list.d/ngrok.list && \
+    apt update && apt install ngrok
 
 EXPOSE 80
 

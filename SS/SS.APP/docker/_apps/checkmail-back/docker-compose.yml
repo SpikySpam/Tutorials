@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   checkmail-back: # TF_VAR_CHECKMAIL_BACK_NAME

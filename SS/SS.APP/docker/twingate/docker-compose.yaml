@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   twingate: # ${TF_VAR_TWINGATE_NAME}

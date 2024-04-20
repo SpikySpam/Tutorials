@@ -1,5 +1,4 @@
-﻿version: '3.9'
-
+﻿
 services:
   sherlock: # ${TF_VAR_SHERLOCK_NAME}
     image: ${TF_VAR_DOMAIN}/${TF_VAR_SHERLOCK_NAME}:${TF_VAR_VERSION_DOCKER_PYTHON}

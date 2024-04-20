@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   harbor-postgres: # ${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}

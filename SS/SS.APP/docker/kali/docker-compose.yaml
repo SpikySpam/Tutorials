@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   kali: # TF_VAR_KALI_NAME

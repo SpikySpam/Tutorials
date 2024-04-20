@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   prometheus: # TF_VAR_PROMETHEUS_NAME

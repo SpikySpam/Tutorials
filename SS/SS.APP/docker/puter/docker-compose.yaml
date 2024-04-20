@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   puter: # TF_VAR_PUTER_NAME

@@ -171,12 +171,12 @@ cli_install_popeye() {
 
   if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_POPEYE*" > /dev/null; then
     if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz https://github.com/derailed/$CLI_NAME_POPEYE/releases/download/v$TF_VAR_VERSION_CLI_POPEYE/${CLI_NAME_POPEYE}_Linux_x86_64.tar.gz
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz https://github.com/derailed/$CLI_NAME_POPEYE/releases/download/v$TF_VAR_VERSION_CLI_POPEYE/${CLI_NAME_POPEYE}_linux_amd64.tar.gz
       tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz -C $TF_VAR_PATH_CLI $CLI_NAME_POPEYE
       rm -f $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz
       chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE
     elif [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_WINDOWS ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz https://github.com/derailed/$CLI_NAME_POPEYE/releases/download/v$TF_VAR_VERSION_CLI_POPEYE/${CLI_NAME_POPEYE}_Windows_x86_64.tar.gz
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz https://github.com/derailed/$CLI_NAME_POPEYE/releases/download/v$TF_VAR_VERSION_CLI_POPEYE/${CLI_NAME_POPEYE}_windows_amd64.tar.gz
       tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz -C $TF_VAR_PATH_CLI $CLI_NAME_POPEYE.exe
       rm -f $TF_VAR_PATH_CLI/$CLI_NAME_POPEYE.tar.gz
     fi
@@ -214,12 +214,12 @@ cli_install_step() {
 
   if ! compgen -G "$TF_VAR_PATH_CLI/$CLI_NAME_STEP*" > /dev/null; then
     if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_STEP.tar.gz https://dl.smallstep.com/gh-release/cli/gh-release-header/v0.24.4/${CLI_NAME_STEP}_linux_${TF_VAR_VERSION_CLI_STEP}_amd64.tar.gz
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_STEP.tar.gz https://dl.smallstep.com/gh-release/cli/gh-release-header/v${TF_VAR_VERSION_CLI_STEP}/${CLI_NAME_STEP}_linux_${TF_VAR_VERSION_CLI_STEP}_amd64.tar.gz
       tar -zxf $TF_VAR_PATH_CLI/$CLI_NAME_STEP.tar.gz -C $TF_VAR_PATH_CLI ${CLI_NAME_STEP}_$TF_VAR_VERSION_CLI_STEP/bin/$CLI_NAME_STEP --strip-components 2
       rm -f $TF_VAR_PATH_CLI/$CLI_NAME_STEP.tar.gz
       chmod +x $TF_VAR_PATH_CLI/$CLI_NAME_STEP
     elif [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_WINDOWS ]; then
-      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_STEP.zip https://dl.smallstep.com/gh-release/cli/gh-release-header/v0.24.4/${CLI_NAME_STEP}_windows_${TF_VAR_VERSION_CLI_STEP}_amd64.zip
+      curl -sSLo $TF_VAR_PATH_CLI/$CLI_NAME_STEP.zip https://dl.smallstep.com/gh-release/cli/gh-release-header/v${TF_VAR_VERSION_CLI_STEP}/${CLI_NAME_STEP}_windows_${TF_VAR_VERSION_CLI_STEP}_amd64.zip
       unzip -oqj $TF_VAR_PATH_CLI/$CLI_NAME_STEP.zip ${CLI_NAME_STEP}_$TF_VAR_VERSION_CLI_STEP/bin/$CLI_NAME_STEP.exe -d $TF_VAR_PATH_CLI
       rm -f $TF_VAR_PATH_CLI/$CLI_NAME_STEP.zip
     fi

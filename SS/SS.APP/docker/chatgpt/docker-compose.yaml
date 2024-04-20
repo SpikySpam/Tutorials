@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   chatgpt: # TF_VAR_CHATGPT_NAME

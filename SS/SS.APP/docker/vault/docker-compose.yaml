@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   vault: # ${TF_VAR_VAULT_NAME}-relay

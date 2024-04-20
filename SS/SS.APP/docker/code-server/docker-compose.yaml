@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   code-server: # ${TF_VAR_CODESERVER_NAME}

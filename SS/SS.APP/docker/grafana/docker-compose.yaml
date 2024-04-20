@@ -1,6 +1,5 @@
 # default user/pass: admin/admin
 
-version: '3.9'
 
 services:
   grafana: # ${TF_VAR_GRAFANA_NAME}

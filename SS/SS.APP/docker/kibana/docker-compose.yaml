@@ -1,5 +1,4 @@
-﻿version: '3.9'
-
+﻿
 services:
   kibana: # TF_VAR_KIBANA_NAME
     image: ${TF_VAR_DOMAIN}/${TF_VAR_KIBANA_NAME}:${TF_VAR_VERSION_DOCKER_KIBANA}

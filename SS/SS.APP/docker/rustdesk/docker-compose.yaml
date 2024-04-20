@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   rustdesk-relay: # ${TF_VAR_RUSTDESK_NAME}-relay

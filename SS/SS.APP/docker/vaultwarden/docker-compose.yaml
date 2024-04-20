@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   vaultwarden-postgres: # ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}

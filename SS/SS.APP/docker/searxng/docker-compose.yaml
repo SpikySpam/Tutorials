@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   searxng: # ${TF_VAR_SEARXNG_NAME}

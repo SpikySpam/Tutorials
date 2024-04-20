@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   softether: # ${TF_VAR_SOFTETHER_NAME}

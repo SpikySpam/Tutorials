@@ -1,5 +1,4 @@
-﻿version: '3.9'
-
+﻿
 services:
   beef: # ${TF_VAR_BEEF_NAME}
     image: ${TF_VAR_DOMAIN}/${TF_VAR_BEEF_NAME}:${TF_VAR_VERSION_DOCKER_BEEF}

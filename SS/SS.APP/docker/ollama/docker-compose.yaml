@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   ollama: # ${TF_VAR_OLLAMA_NAME}

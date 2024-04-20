@@ -1,4 +1,4 @@
-﻿version: '3.9'
+﻿# http://localhost:${TF_VAR_STORMBREAKER_PORT_EXT}/index.php
 
 services:
   storm-breaker: # ${TF_VAR_STORMBREAKER_NAME}
