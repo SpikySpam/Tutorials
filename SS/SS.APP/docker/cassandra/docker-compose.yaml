@@ -1,7 +1,7 @@
 
 services:
   cassandra: # ${TF_VAR_CASSANDRA_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_CASSANDRA_NAME}:${TF_VAR_VERSION_DOCKER_CASSANDRA}
+    image: ${TF_DOMAIN}/${TF_VAR_CASSANDRA_NAME}:${TF_VAR_VERSION_DOCKER_CASSANDRA}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CASSANDRA_NAME}/dockerfile-db
@@ -26,7 +26,7 @@ services:
     depends_on:
       cassandra: # ${TF_VAR_CASSANDRA_NAME}
         condition: service_healthy
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_CASSANDRA_NAME}-web:${TF_VAR_VERSION_DOCKER_CASSANDRA}
+    image: ${TF_DOMAIN}/${TF_VAR_CASSANDRA_NAME}-web:${TF_VAR_VERSION_DOCKER_CASSANDRA}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CASSANDRA_NAME}/dockerfile-web

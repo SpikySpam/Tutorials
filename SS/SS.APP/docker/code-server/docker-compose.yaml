@@ -1,7 +1,7 @@
 
 services:
   code-server: # ${TF_VAR_CODESERVER_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_CODESERVER_NAME}:${TF_VAR_VERSION_DOCKER_CODESERVER}
+    image: ${TF_DOMAIN}/${TF_VAR_CODESERVER_NAME}:${TF_VAR_VERSION_DOCKER_CODESERVER}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CODESERVER_NAME}/dockerfile
@@ -21,7 +21,7 @@ services:
       - TZ=${TF_VAR_CODESERVER_TZ}
       - PASSWORD=${TF_VAR_CODESERVER_PASSWORD}
       - SUDO_PASSWORD=${TF_VAR_CODESERVER_PASSWORD}
-      - PROXY_DOMAIN=${TF_VAR_CODESERVER_NAME}.${TF_VAR_DOMAIN}
+      - PROXY_DOMAIN=${TF_VAR_CODESERVER_NAME}.${TF_DOMAIN}
       - DEFAULT_WORKSPACE=/config/workspace
     user: root
     privileged: true

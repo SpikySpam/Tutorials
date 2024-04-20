@@ -28,7 +28,7 @@ services:
         condition: service_healthy
       kutt-redis: # ${TF_VAR_KUTT_NAME}-${TF_VAR_REDIS_NAME}
         condition: service_healthy
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_KUTT_NAME}:${TF_VAR_VERSION_DOCKER_KUTT}
+    image: ${TF_DOMAIN}/${TF_VAR_KUTT_NAME}:${TF_VAR_VERSION_DOCKER_KUTT}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_KUTT_NAME}/dockerfile
@@ -41,7 +41,7 @@ services:
       - ${TF_VAR_KUTT_PORT_EXT}:${TF_VAR_KUTT_PORT_INT}
     environment:
       SITE_NAME: ${TF_VAR_KUTT_NAME}
-      DEFAULT_DOMAIN: ${TF_VAR_KUTT_NAME}.${TF_VAR_DOMAIN}
+      DEFAULT_DOMAIN: ${TF_VAR_KUTT_NAME}.${TF_DOMAIN}
       # POSTGRES
       DB_HOST: ${TF_VAR_KUTT_NAME}-${TF_VAR_POSTGRES_NAME}
       DB_PORT: ${TF_VAR_POSTGRES_PORT_INT}
@@ -60,7 +60,7 @@ services:
       MAIL_SECURE: false
       MAIL_USER: ${TF_VAR_SMTP_USERNAME}
       MAIL_PASSWORD: ${TF_VAR_SMTP_PASSWORD}
-      MAIL_FROM: ${TF_VAR_KUTT_NAME}@${TF_VAR_DOMAIN}
+      MAIL_FROM: ${TF_VAR_KUTT_NAME}@${TF_DOMAIN}
       REPORT_EMAIL: ${TF_VAR_SMTP_USERNAME}
       CONTACT_EMAIL: ${TF_VAR_SMTP_USERNAME}
       # SETTINGS

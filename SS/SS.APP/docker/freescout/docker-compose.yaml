@@ -16,7 +16,7 @@ services:
     depends_on:
       freescout-postgres: # ${TF_VAR_FREESCOUT_NAME}-${TF_VAR_POSTGRES_NAME}
         condition: service_healthy
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_FREESCOUT_NAME}:${TF_VAR_VERSION_DOCKER_FREESCOUT}
+    image: ${TF_DOMAIN}/${TF_VAR_FREESCOUT_NAME}:${TF_VAR_VERSION_DOCKER_FREESCOUT}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_FREESCOUT_NAME}/dockerfile
@@ -35,7 +35,7 @@ services:
       - ${TF_VAR_FREESCOUT_PORT_EXT}:${TF_VAR_FREESCOUT_PORT_INT}
     environment:
       APPLICATION_NAME: ${TF_VAR_FREESCOUT_NAME}
-      SITE_URL: https://${TF_VAR_FREESCOUT_NAME}.${TF_VAR_DOMAIN}
+      SITE_URL: https://${TF_VAR_FREESCOUT_NAME}.${TF_DOMAIN}
       SETUP_TYPE: AUTO
       ENABLE_SSL_PROXY: TRUE
       ENABLE_AUTO_UPDATE: TRUE

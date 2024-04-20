@@ -16,7 +16,7 @@ services:
     depends_on:
       vaultwarden-postgres: # ${TF_VAR_VAULTWARDEN_NAME}-${TF_VAR_POSTGRES_NAME}
         condition: service_healthy
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_VAULTWARDEN_NAME}:${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
+    image: ${TF_DOMAIN}/${TF_VAR_VAULTWARDEN_NAME}:${TF_VAR_VERSION_DOCKER_VAULTWARDEN}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_VAULTWARDEN_NAME}/dockerfile
@@ -33,7 +33,7 @@ services:
       - ADMIN_TOKEN=${TF_VAR_VAULTWARDEN_ADMIN_TOKEN}
       - DOMAIN=https://${TF_VAR_VAULTWARDEN_DOMAIN}
       - SMTP_HOST=${TF_VAR_SMTP_HOST}
-      - SMTP_FROM=${TF_VAR_VAULTWARDEN_NAME}@${TF_VAR_DOMAIN}
+      - SMTP_FROM=${TF_VAR_VAULTWARDEN_NAME}@${TF_DOMAIN}
       - SMTP_FROM_NAME=${TF_VAR_VAULTWARDEN_NAME}
       - SMTP_SECURITY=${TF_VAR_SMTP_SECURITY}
       - SMTP_PORT=${TF_VAR_SMTP_PORT}

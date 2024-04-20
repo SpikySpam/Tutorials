@@ -1,7 +1,7 @@
 
 services:
   kali: # TF_VAR_KALI_NAME
-    image: ${TF_VAR_DOMAIN}/kali:${TF_VAR_VERSION_DOCKER_KALI}
+    image: ${TF_DOMAIN}/kali:${TF_VAR_VERSION_DOCKER_KALI}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_KALI_NAME}/dockerfile

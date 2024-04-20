@@ -1,7 +1,7 @@
 
 services:
   mongodb: # ${TF_VAR_MONGODB_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_MONGODB_NAME}:${TF_VAR_VERSION_DOCKER_MONGODB}
+    image: ${TF_DOMAIN}/${TF_VAR_MONGODB_NAME}:${TF_VAR_VERSION_DOCKER_MONGODB}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_MONGODB_NAME}/dockerfile-${TF_VAR_MONGODB_NAME}
@@ -16,7 +16,7 @@ services:
       - ${TF_VAR_MONGODB_NAME}
 
   mongodb-express: # ${TF_VAR_MONGODB_NAME}-express
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_MONGODB_NAME}-express:${TF_VAR_VERSION_DOCKER_MONGODB}
+    image: ${TF_DOMAIN}/${TF_VAR_MONGODB_NAME}-express:${TF_VAR_VERSION_DOCKER_MONGODB}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_MONGODB_NAME}/dockerfile-${TF_VAR_MONGODB_NAME}-express

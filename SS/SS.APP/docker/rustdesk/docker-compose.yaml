@@ -1,7 +1,7 @@
 
 services:
   rustdesk-relay: # ${TF_VAR_RUSTDESK_NAME}-relay
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
+    image: ${TF_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_RUSTDESK_NAME}/dockerfile
@@ -21,7 +21,7 @@ services:
   rustdesk-signal: # ${TF_VAR_RUSTDESK_NAME}-signal
     depends_on:
       - ${TF_VAR_RUSTDESK_NAME}-relay
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
+    image: ${TF_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_RUSTDESK_NAME}/dockerfile
@@ -36,7 +36,7 @@ services:
       - ${TF_VAR_RUSTDESK_SIGNAL_PORT_EXT_21118}:${TF_VAR_RUSTDESK_SIGNAL_PORT_INT_21118}/tcp
     volumes:
       - $HOME/docker/${TF_VAR_RUSTDESK_NAME}/signal:/root
-    command: hbbs -r ${TF_VAR_RUSTDESK_NAME}.${TF_VAR_DOMAIN}:${TF_VAR_RUSTDESK_RELAY_PORT_EXT_21117}
+    command: hbbs -r ${TF_VAR_RUSTDESK_NAME}.${TF_DOMAIN}:${TF_VAR_RUSTDESK_RELAY_PORT_EXT_21117}
     networks:
       - ${TF_VAR_RUSTDESK_NAME}
 
@@ -47,7 +47,7 @@ networks:
 
 # PRO
   # rustdesk-relay: # ${TF_VAR_RUSTDESK_NAME}-relay
-  #   image: ${TF_VAR_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
+  #   image: ${TF_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
   #   build:
   #     context: .
   #     dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_RUSTDESK_NAME}/dockerfile
@@ -67,7 +67,7 @@ networks:
   # rustdesk-signal: # ${TF_VAR_RUSTDESK_NAME}-signal
   #   depends_on:
   #     - ${TF_VAR_RUSTDESK_NAME}-relay
-  #   image: ${TF_VAR_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
+  #   image: ${TF_DOMAIN}/${TF_VAR_RUSTDESK_NAME}:${TF_VAR_VERSION_DOCKER_RUSTDESK}
   #   build:
   #     context: .
   #     dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_RUSTDESK_NAME}/dockerfile
@@ -84,6 +84,6 @@ networks:
   #   volumes:
   #     - $HOME/docker/${TF_VAR_RUSTDESK_NAME}/signal:/root
   #   command: hbbs -k _
-  #   hostname: ${TF_VAR_RUSTDESK_NAME}.${TF_VAR_DOMAIN}
+  #   hostname: ${TF_VAR_RUSTDESK_NAME}.${TF_DOMAIN}
   #   networks:
   #     - ${TF_VAR_RUSTDESK_NAME}

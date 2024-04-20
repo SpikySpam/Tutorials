@@ -1,7 +1,7 @@
 
 services:
   redis: # TF_VAR_REDIS_NAME
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_REDIS_NAME}:${TF_VAR_VERSION_DOCKER_REDIS}
+    image: ${TF_DOMAIN}/${TF_VAR_REDIS_NAME}:${TF_VAR_VERSION_DOCKER_REDIS}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_REDIS_NAME}/dockerfile

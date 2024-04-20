@@ -2,7 +2,7 @@
 
 services:
   storm-breaker: # ${TF_VAR_STORMBREAKER_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_STORMBREAKER_NAME}:${TF_VAR_VERSION_DOCKER_PYTHON}
+    image: ${TF_DOMAIN}/${TF_VAR_STORMBREAKER_NAME}:${TF_VAR_VERSION_DOCKER_PYTHON}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_STORMBREAKER_NAME}/dockerfile

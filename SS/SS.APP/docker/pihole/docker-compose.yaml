@@ -2,7 +2,7 @@
 
 services:
   pihole: # TF_VAR_PIHOLE_NAME
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_PIHOLE_NAME}:${TF_VAR_VERSION_DOCKER_PIHOLE}
+    image: ${TF_DOMAIN}/${TF_VAR_PIHOLE_NAME}:${TF_VAR_VERSION_DOCKER_PIHOLE}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PIHOLE_NAME}/dockerfile

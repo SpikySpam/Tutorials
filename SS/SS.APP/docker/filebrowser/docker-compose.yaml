@@ -1,7 +1,7 @@
 ﻿
 services:
   filebrowser: # ${TF_VAR_FILEBROWSER_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_FILEBROWSER_NAME}:${TF_VAR_VERSION_DOCKER_FILEBROWSER}
+    image: ${TF_DOMAIN}/${TF_VAR_FILEBROWSER_NAME}:${TF_VAR_VERSION_DOCKER_FILEBROWSER}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_FILEBROWSER_NAME}/dockerfile

@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   dashy: # ${TF_VAR_DASHY_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_DASHY_NAME}:${TF_VAR_VERSION_DOCKER_DASHY}
+    image: ${TF_DOMAIN}/${TF_VAR_DASHY_NAME}:${TF_VAR_VERSION_DOCKER_DASHY}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_DASHY_NAME}/dockerfile

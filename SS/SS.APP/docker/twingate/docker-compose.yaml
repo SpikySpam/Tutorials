@@ -1,7 +1,7 @@
 
 services:
   twingate: # ${TF_VAR_TWINGATE_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_TWINGATE_NAME}:${TF_VAR_VERSION_DOCKER_TWINGATE}
+    image: ${TF_DOMAIN}/${TF_VAR_TWINGATE_NAME}:${TF_VAR_VERSION_DOCKER_TWINGATE}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_TWINGATE_NAME}/dockerfile

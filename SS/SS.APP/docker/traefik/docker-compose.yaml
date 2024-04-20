@@ -1,7 +1,7 @@
 ﻿
 services:
   traefik: # TF_VAR_TRAEFIK_NAME
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_TRAEFIK_NAME}:${TF_VAR_VERSION_DOCKER_TRAEFIK}
+    image: ${TF_DOMAIN}/${TF_VAR_TRAEFIK_NAME}:${TF_VAR_VERSION_DOCKER_TRAEFIK}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_TRAEFIK_NAME}/dockerfile

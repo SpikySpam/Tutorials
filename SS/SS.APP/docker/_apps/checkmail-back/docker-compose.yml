@@ -1,7 +1,7 @@
 
 services:
   checkmail-back: # TF_VAR_CHECKMAIL_BACK_NAME
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_CHECKMAIL_BACK_NAME}:${TF_VAR_VERSION_APP_CHECKMAIL_BACK}
+    image: ${TF_DOMAIN}/${TF_VAR_CHECKMAIL_BACK_NAME}:${TF_VAR_VERSION_APP_CHECKMAIL_BACK}
     build:
       context: ${TF_VAR_PATH_SERVICES}
       dockerfile: ${TF_VAR_PATH_SERVICES}/dockerfile-checkmail-back

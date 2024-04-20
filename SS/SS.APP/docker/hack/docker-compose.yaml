@@ -1,12 +1,12 @@
 
 services:
   hack: # ${TF_VAR_HACK_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_HACK_NAME}:${TF_VAR_VERSION_DOCKER_UBUNTU}
+    image: ${TF_DOMAIN}/${TF_VAR_HACK_NAME}:${TF_VAR_VERSION_DOCKER_UBUNTU}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HACK_NAME}/dockerfile
       args:
-        DOMAIN: ${TF_VAR_DOMAIN}
+        DOMAIN: ${TF_DOMAIN}
         VERSION: ${TF_VAR_VERSION_DOCKER_UBUNTU}
     container_name: ${TF_VAR_HACK_NAME}
     restart: unless-stopped

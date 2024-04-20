@@ -1,5 +1,6 @@
 locals {
-    
+  DOMAIN      = "${var.PREFIX != var.PREFIX_NONE ? "${var.PREFIX}." : var.PREFIX}${var.ENVIRONMENT != var.ENVIRONMENT_PRD ? "${var.ENVIRONMENT}." : ""}${var.HOST}"
+  CLUSTERNAME = "${var.PREFIX != var.PREFIX_NONE ? "${var.PREFIX}-" : var.PREFIX}${var.REGION != var.REGION_NONE ? "${var.REGION}-" : ""}${var.ENVIRONMENT}"
 }
 
 # 🌐 Workspace
@@ -19,14 +20,7 @@ variable "REGION" {
   type = string
   description = "Define your region. This option is provider specific"
 }
-
-
-
-
-export TF_VAR_PREFIX=$PARAM_PREFIX
-export TF_VAR_PROVIDER=$PARAM_PROVIDER
-export TF_VAR_ENVIRONMENT=$PARAM_ENVIRONMENT
-export TF_VAR_REGION=$PARAM_REGION
-export TF_VAR_DOMAIN=$POINT_PREFIX$POINT_ENVIRONMENT$TF_VAR_HOST
-export TF_VAR_CLUSTERNAME=$STRIP_PREFIX$STRIP_REGION$PARAM_ENVIRONMENT
-export TF_WORKSPACE=$TF_VAR_PROVIDER-$TF_VAR_CLUSTERNAME
+variable "HOST" {
+  type = string
+  description = "Define your hostname"
+}

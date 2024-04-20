@@ -19,7 +19,7 @@ services:
       - $HOME/docker/${TF_VAR_HARBOR_NAME}/${TF_VAR_REDIS_NAME}:/data
 
   harbor-registry: # ${TF_VAR_HARBOR_NAME}-registry
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-registry:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_DOMAIN}/${TF_VAR_HARBOR_NAME}-registry:${TF_VAR_VERSION_DOCKER_HARBOR}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_registry
@@ -34,7 +34,7 @@ services:
       - REGISTRY_HTTP_SECRET=${TF_VAR_HARBOR_HTTP_SECRET}
 
   harbor-registryctl: # ${TF_VAR_HARBOR_NAME}-registryctl
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_DOMAIN}/${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_VERSION_DOCKER_HARBOR}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_registryctl
@@ -54,7 +54,7 @@ services:
   harbor-core: # ${TF_VAR_HARBOR_NAME}-core
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-registry
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-core:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_DOMAIN}/${TF_VAR_HARBOR_NAME}-core:${TF_VAR_VERSION_DOCKER_HARBOR}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_core
@@ -74,7 +74,7 @@ services:
       - _REDIS_URL_REG=redis://${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}:6379/1
       - PORT=${TF_VAR_HARBOR_PORT_INT}
       - LOG_LEVEL=info
-      - EXT_ENDPOINT=http://${TF_VAR_HARBOR_NAME}.${TF_VAR_DOMAIN}
+      - EXT_ENDPOINT=http://${TF_VAR_HARBOR_NAME}.${TF_DOMAIN}
       - DATABASE_TYPE=postgresql
       - REGISTRY_CONTROLLER_URL=http://${TF_VAR_HARBOR_NAME}-registryctl:${TF_VAR_HARBOR_PORT_INT}
       - POSTGRESQL_HOST=${TF_VAR_HARBOR_NAME}-${TF_VAR_POSTGRES_NAME}
@@ -100,7 +100,7 @@ services:
   harbor-portal: # ${TF_VAR_HARBOR_NAME}-portal
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-core
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-portal:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_DOMAIN}/${TF_VAR_HARBOR_NAME}-portal:${TF_VAR_VERSION_DOCKER_HARBOR}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_portal
@@ -113,7 +113,7 @@ services:
     depends_on:
       - ${TF_VAR_HARBOR_NAME}-${TF_VAR_REDIS_NAME}
       - ${TF_VAR_HARBOR_NAME}-core
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-jobservice:${TF_VAR_VERSION_DOCKER_HARBOR}
+    image: ${TF_DOMAIN}/${TF_VAR_HARBOR_NAME}-jobservice:${TF_VAR_VERSION_DOCKER_HARBOR}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_jobservice
@@ -138,7 +138,7 @@ services:
       - ${TF_VAR_HARBOR_NAME}-registry
       - ${TF_VAR_HARBOR_NAME}-core
       - ${TF_VAR_HARBOR_NAME}-portal
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_HARBOR_NAME}-nginx:${TF_VAR_VERSION_DOCKER_NGINX}
+    image: ${TF_DOMAIN}/${TF_VAR_HARBOR_NAME}-nginx:${TF_VAR_VERSION_DOCKER_NGINX}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_HARBOR_NAME}/dockerfile_nginx

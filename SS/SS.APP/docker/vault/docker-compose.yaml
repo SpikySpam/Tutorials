@@ -1,7 +1,7 @@
 
 services:
   vault: # ${TF_VAR_VAULT_NAME}-relay
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_VAULT_NAME}:${TF_VAR_VERSION_DOCKER_VAULT}
+    image: ${TF_DOMAIN}/${TF_VAR_VAULT_NAME}:${TF_VAR_VERSION_DOCKER_VAULT}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_VAULT_NAME}/dockerfile

@@ -1,7 +1,7 @@
 
 services:
   puter: # TF_VAR_PUTER_NAME
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_PUTER_NAME}:${TF_VAR_VERSION_DOCKER_PUTER}
+    image: ${TF_DOMAIN}/${TF_VAR_PUTER_NAME}:${TF_VAR_VERSION_DOCKER_PUTER}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_PUTER_NAME}/dockerfile

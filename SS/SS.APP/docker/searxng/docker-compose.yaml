@@ -1,7 +1,7 @@
 
 services:
   searxng: # ${TF_VAR_SEARXNG_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_SEARXNG_NAME}:${TF_VAR_VERSION_DOCKER_SEARXNG}
+    image: ${TF_DOMAIN}/${TF_VAR_SEARXNG_NAME}:${TF_VAR_VERSION_DOCKER_SEARXNG}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_SEARXNG_NAME}/dockerfile

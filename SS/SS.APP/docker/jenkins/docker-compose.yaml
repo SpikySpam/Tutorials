@@ -1,7 +1,7 @@
 ﻿
 services:
   jenkins: # ${TF_VAR_JENKINS_NAME}
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_JENKINS_NAME}:${TF_VAR_VERSION_DOCKER_JENKINS}
+    image: ${TF_DOMAIN}/${TF_VAR_JENKINS_NAME}:${TF_VAR_VERSION_DOCKER_JENKINS}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_JENKINS_NAME}/dockerfile

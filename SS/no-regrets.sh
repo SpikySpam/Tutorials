@@ -10,8 +10,8 @@ source $TF_VAR_PATH/workspace.sh
 # --------------------------------------------------
 # 🔏 JWT
 # --------------------------------------------------
-export TF_VAR_JWT_ISSUER="https://id."$TF_VAR_DOMAIN
-export TF_VAR_JWT_AUDIENCE="https://"$TF_VAR_DOMAIN
+export TF_VAR_JWT_ISSUER="https://id."$TF_DOMAIN
+export TF_VAR_JWT_AUDIENCE="https://"$TF_DOMAIN
 export TF_VAR_JWT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export TF_VAR_JWT_TIME="10:00:00"
 
@@ -29,15 +29,15 @@ export TF_VAR_GITHUB_EMAIL=$TF_VAR_GITHUB_USER"@example.com"
 export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 # -- npm
 export TF_VAR_NPM_NAME="npm"
-export TF_VAR_NPM_USER="admin@"$TF_VAR_DOMAIN
+export TF_VAR_NPM_USER="admin@"$TF_DOMAIN
 export TF_VAR_NPM_PASSWORD="changeme"
 # -- traefik
 export TF_VAR_TRAEFIK_NAME="traefik"
 export TF_VAR_TRAEFIK_USER="SomeUsername"
 export TF_VAR_TRAEFIK_PASSWORD="UltraSecretPassword123!"
 # -- mail-in-a-box
-export TF_VAR_MAILINABOX_DOMAIN="box."$TF_VAR_DOMAIN
-export TF_VAR_MAILINABOX_USER="admin@"$TF_VAR_DOMAIN
+export TF_VAR_MAILINABOX_DOMAIN="box."$TF_DOMAIN
+export TF_VAR_MAILINABOX_USER="admin@"$TF_DOMAIN
 export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
 
 # --------------------------------------------------
@@ -97,7 +97,7 @@ export TF_VAR_VAULT_TOKEN_ROOT="77777777-7777-7777-7777-777777777777"
 export TF_VAR_VAULT_TOKEN_USER="00000000-0000-0000-0000-000000000000"
 # -- vaultwarden
 export TF_VAR_VAULTWARDEN_NAME="vaultwarden"
-export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_VAR_DOMAIN
+export TF_VAR_VAULTWARDEN_DOMAIN=$TF_VAR_VAULTWARDEN_NAME"."$TF_DOMAIN
 export TF_VAR_VAULTWARDEN_ADMIN_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_VAULTWARDEN_ADMIN_TOKEN='$argon2id$v=19$m=65540,t=3,p=4$gxCIeCjT3gHdbVwWKd86lHjq1wWp6a9+NlScRmaeBOw$XKlvjpjCIjy6kfVPjSpOHe2mjA5TOeoxPwLnb9uzYRY'
 # -- keycloak

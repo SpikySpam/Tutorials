@@ -1,7 +1,7 @@
 
 services:
   chatgpt: # TF_VAR_CHATGPT_NAME
-    image: ${TF_VAR_DOMAIN}/${TF_VAR_CHATGPT_NAME}:${TF_VAR_VERSION_DOCKER_OLLAMA}
+    image: ${TF_DOMAIN}/${TF_VAR_CHATGPT_NAME}:${TF_VAR_VERSION_DOCKER_OLLAMA}
     build:
       context: .
       dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_CHATGPT_NAME}/image/dockerfile
