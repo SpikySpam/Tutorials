@@ -7,5 +7,12 @@ terraform {
       version = "0.4.0" # TF_VAR_VERSION_TF_KIND
       configuration_aliases = [kind.main]
     }
+
+    # ➡️ https://registry.terraform.io/providers/kreuzwerker/docker/latest
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "3.0.2" # TF_VAR_VERSION_TF_DOCKER
+      configuration_aliases = [docker.main]
+    }
   }
 }

@@ -138,6 +138,7 @@ locals {
       }
       TERRAFORM = {
         VERSION_TF_KIND                = var.VERSION_TF_KIND
+        VERSION_TF_DOCKER                = var.VERSION_TF_DOCKER
       }
     }
 
@@ -615,6 +616,7 @@ variable "VERSION_DOCKER_OLLAMA"          { type = string }
 # HELM
 # TERRAFORM
 variable "VERSION_TF_KIND"                { type = string }
+variable "VERSION_TF_DOCKER"              { type = string }
 
 # 🛟 PORTS
 # NETWORK

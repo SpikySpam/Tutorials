@@ -1,3 +1,0 @@
-provider "kind" {
-  alias = "main"
-}
