@@ -13,8 +13,8 @@ services:
       - ${TF_VAR_JENKINS_PORT_EXT}:${TF_VAR_JENKINS_PORT_INT}
       - ${TF_VAR_JENKINS_PORT_EXT_50000}:${TF_VAR_JENKINS_PORT_INT_50000}
     volumes:
-      - $HOME/docker/jenkins:/var/jenkins_home
-      - $HOME/docker/jenkins/docker.sock:/var/run/docker.sock
+      - $HOME/docker/${TF_VAR_JENKINS_NAME}:/var/jenkins_home
+      - $HOME/docker/${TF_VAR_JENKINS_NAME}/docker.sock:/var/run/docker.sock
     environment:
       JAVA_OPTS: -Djenkins.install.runSetupWizard=false
       JENKINS_OPTS: --argumentsRealm.roles.user=${TF_VAR_JENKINS_USER} --argumentsRealm.passwd.admin=${TF_VAR_JENKINS_PASSWORD} --argumentsRealm.roles.admin=admin

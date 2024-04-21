@@ -1,11 +1,11 @@
 # module "kind_cluster" {
 #   providers = {kind.main = kind.main}
-#   source    = "./KIND"
+#   source    = "./kind"
 #   VARS      = local.VARS
 # }
 
 module "app-docker" {
   providers = {docker.main = docker.main}
-  source    = "./APP/DOCKER"
+  source    = "./app/docker"
   VARS      = local.VARS
 }
