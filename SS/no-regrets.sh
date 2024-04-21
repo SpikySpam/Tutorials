@@ -16,17 +16,20 @@ export TF_VAR_JWT_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export TF_VAR_JWT_TIME="10:00:00"
 
 # --------------------------------------------------
-# 🧑‍💻 GITHUB
+# 🧑‍💻 PROVIDERS
 # --------------------------------------------------
+# -- github
 export TF_VAR_GITHUB_NAME="github"
 export TF_VAR_GITHUB_USER="SomeUsername"
 export TF_VAR_GITHUB_EMAIL=$TF_VAR_GITHUB_USER"@example.com"
-
-# --------------------------------------------------
-# 🔑 SET SECRETS
-# --------------------------------------------------
 # -- google
 export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
+
+# --------------------------------------------------
+# 🔑 NETWORK
+# --------------------------------------------------
+# -- nginx
+export TF_VAR_NGINX_NAME="nginx"
 # -- npm
 export TF_VAR_NPM_NAME="npm"
 export TF_VAR_NPM_USER="admin@"$TF_DOMAIN
@@ -247,13 +250,13 @@ export TF_VAR_SMTP_HOST="smtp.gmail.com"
 export TF_VAR_SMTP_SECURITY="starttls"
 export TF_VAR_SMTP_STARTTLS=true
 export TF_VAR_SMTP_PORT=587
-export TF_VAR_SMTP_USERNAME="example@gmail.com"
+export TF_VAR_SMTP_USERNAME=$TF_VAR_GITHUB_EMAIL
 export TF_VAR_SMTP_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_IMAP_HOST="imap.gmail.com"
 export TF_VAR_IMAP_PORT=993
 export TF_VAR_IMAP_SSL=true
 export TF_VAR_IMAP_STARTTLS=false
-export TF_VAR_IMAP_USERNAME="example@gmail.com"
+export TF_VAR_IMAP_USERNAME=$TF_VAR_GITHUB_EMAIL
 export TF_VAR_IMAP_PASSWORD="UltraSecretPassword123!"
 
 # --------------------------------------------------
