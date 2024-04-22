@@ -8,6 +8,7 @@ initialize
 $TF_VAR_COT rm -f $($TF_VAR_COT ps -a -q)
 $TF_VAR_COT system prune -a -f
 $TF_VAR_COT volume prune -a -f
+$TF_VAR_COT network prune -f
 
 # Remove Persistence
 if [ $TF_VAR_OSTYPE == $TF_VAR_OSTYPE_LINUX ]; then  

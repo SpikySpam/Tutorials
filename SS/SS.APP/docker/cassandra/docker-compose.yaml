@@ -17,7 +17,7 @@ services:
       CASSANDRA_USER: ${TF_VAR_CASSANDRA_USER}
       CASSANDRA_PASSWORD: ${TF_VAR_CASSANDRA_PASSWORD}
     healthcheck:
-      test: ["CMD-SHELL", "[ $$(nodetool statusgossip) = running ]"]
+      test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
       interval: 30s
       timeout: 10s
       retries: 5

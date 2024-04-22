@@ -25,6 +25,8 @@ resource "docker_container" "vaultwarden-postgres" {
     timeout  = "5s"
     retries  = 5
   }
+  wait = true
+  wait_timeout = 60
   networks_advanced {
     name = "${var.VARS.SECRETS.SECURITY.VAULTWARDEN_NAME}"
   }
@@ -33,6 +35,7 @@ resource "docker_container" "vaultwarden-postgres" {
 # VAULTWARDEN
 resource "docker_image" "vaultwarden" {
   count = 0
+  depends_on = [ docker_container.vaultwarden-postgres ]
   name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.SECURITY.VAULTWARDEN_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_VAULTWARDEN}"
   build {
     context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.SECURITY.VAULTWARDEN_NAME}"

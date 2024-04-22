@@ -1,5 +1,5 @@
 resource "docker_image" "kibana" {
-  count = 1
+  count = 0
   name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.DATABASES.KIBANA_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_KIBANA}"
   build {
     context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.DATABASES.KIBANA_NAME}"
@@ -11,7 +11,7 @@ resource "docker_image" "kibana" {
 }
 
 resource "docker_container" "kibana" {
-  count   = 1
+  count   = 0
   image   = docker_image.kibana[0].image_id
   name    = "${var.VARS.SECRETS.DATABASES.KIBANA_NAME}"
   restart = "unless-stopped"
