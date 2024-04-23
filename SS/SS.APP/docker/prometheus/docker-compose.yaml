@@ -15,4 +15,4 @@ services:
     # ports:
     #   - ${TF_VAR_PROMETHEUS_PORT_EXT}:${TF_VAR_PROMETHEUS_PORT_INT}
     user: root
-    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
+    command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml

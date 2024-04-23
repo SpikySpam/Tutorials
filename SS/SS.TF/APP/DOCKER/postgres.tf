@@ -1,5 +1,5 @@
 resource "docker_image" "postgres" {
-  count = 0
+  count = 1
   name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.DATABASES.POSTGRES_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_POSTGRES}"
   build {
     context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.DATABASES.POSTGRES_NAME}"

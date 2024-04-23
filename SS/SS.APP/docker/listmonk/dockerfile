@@ -1,2 +1,8 @@
 ARG VERSION
 FROM listmonk/listmonk:v${VERSION}
+
+COPY ./entrypoint.sh .
+RUN chmod +x ./entrypoint.sh
+
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
+ENTRYPOINT ["sh", "./entrypoint.sh"]

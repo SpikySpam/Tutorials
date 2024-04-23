@@ -8,8 +8,8 @@ services:
     volumes:
       - $HOME/docker/${TF_VAR_LISTMONK_NAME}/${TF_VAR_POSTGRES_NAME}:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: ${TF_VAR_LISTMONK_NAME}
-      POSTGRES_PASSWORD: ${TF_VAR_LISTMONK_NAME}
+      POSTGRES_USER: ${TF_VAR_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${TF_VAR_POSTGRES_PASSWORD}
       POSTGRES_DB: ${TF_VAR_LISTMONK_NAME}
     networks:
       - ${TF_VAR_LISTMONK_NAME}
@@ -26,13 +26,18 @@ services:
         VERSION: ${TF_VAR_VERSION_DOCKER_LISTMONK}
     container_name: ${TF_VAR_LISTMONK_NAME}
     restart: unless-stopped
-    volumes:
-      - ${TF_VAR_PATH_APP}/docker/${TF_VAR_LISTMONK_NAME}/config/config.toml:/listmonk/config.toml
-    command: [ sh, -c, "yes | ./listmonk --install --config config.toml && ./listmonk --config config.toml" ]
     ports:
-      - ${TF_VAR_LISTMONK_PORT_EXT}:${TF_VAR_LISTMONK_PORT_EXT}
+      - ${TF_VAR_LISTMONK_PORT_EXT}:${TF_VAR_LISTMONK_PORT_INT}
     environment:
       - TZ=Etc/UTC
+      - LISTMONK_NAME=${TF_VAR_LISTMONK_NAME}
+      - LISTMONK_USER=${TF_VAR_LISTMONK_USER}
+      - LISTMONK_PASSWORD=${TF_VAR_LISTMONK_PASSWORD}
+      - LISTMONK_PORT_INT=${TF_VAR_LISTMONK_PORT_INT}
+      - POSTGRES_NAME=${TF_VAR_POSTGRES_NAME}
+      - POSTGRES_USER=${TF_VAR_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${TF_VAR_POSTGRES_PASSWORD}
+      - POSTGRES_PORT_INT=${TF_VAR_POSTGRES_PORT_INT}
     networks:
       - ${TF_VAR_LISTMONK_NAME}
 
