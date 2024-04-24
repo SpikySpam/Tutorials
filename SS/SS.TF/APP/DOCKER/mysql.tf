@@ -15,10 +15,10 @@ resource "docker_container" "mysql" {
   image   = docker_image.mysql[0].image_id
   name    = "${var.VARS.SECRETS.DATABASES.MYSQL_NAME}"
   restart = "unless-stopped"
-  ports {
-    internal = var.VARS.PORTS.DATABASES.MYSQL_PORT_INT
-    external = var.VARS.PORTS.DATABASES.MYSQL_PORT_EXT
-  }
+  # ports {
+  #   internal = var.VARS.PORTS.DATABASES.MYSQL_PORT_INT
+  #   external = var.VARS.PORTS.DATABASES.MYSQL_PORT_EXT
+  # }
   volumes {
     host_path = "${var.VARS.PATHS.PATH_HOME}/docker/${var.VARS.SECRETS.DATABASES.MYSQL_NAME}"
     container_path = "/var/lib/mysql"

@@ -72,3 +72,6 @@
 - **Chrome**
   - **Clear Browser** Data for next video 🤣
 
+# Code
+- Terraform Docker: harbor, gitlab, chatgpt
+- Docker Entrypoint for Config-files: prometheus, grafana, beef (same like listmonk)

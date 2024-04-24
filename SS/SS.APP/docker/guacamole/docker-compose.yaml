@@ -9,7 +9,7 @@ services:
     container_name: ${TF_VAR_GUACAMOLE_NAME}-${TF_VAR_MYSQL_NAME}
     volumes:
       - ${TF_VAR_PATH_APP}/docker/${TF_VAR_GUACAMOLE_NAME}/config/${TF_VAR_MYSQL_NAME}/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - $HOME/docker/${TF_VAR_GUACAMOLE_NAME}/${TF_VAR_MYSQL_NAME}/mysql:/var/lib/mysql
+      - $HOME/docker/${TF_VAR_GUACAMOLE_NAME}/${TF_VAR_MYSQL_NAME}:/var/lib/mysql
     environment:
       MYSQL_DATABASE: ${TF_VAR_GUACAMOLE_NAME}
     networks:

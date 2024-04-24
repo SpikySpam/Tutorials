@@ -253,6 +253,6 @@ ENV DEBIAN_FRONTEND="noninteractive"
 # RUN echo "alias autopsy='/root/autopsy/autopsy-4.21.0/bin/autopsy'" >> /root/.bash_aliases
 
 # 💥
-EXPOSE 1-65535
+# EXPOSE 1-65535
 
 CMD ["/bin/bash"]
