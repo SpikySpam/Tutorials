@@ -1,0 +1,20 @@
+﻿
+services:
+  stirling-pdf: # TF_VAR_STIRLINGPDF_NAME
+    image: ${TF_DOMAIN}/${TF_VAR_STIRLINGPDF_NAME}:${TF_VAR_VERSION_DOCKER_STIRLINGPDF}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_STIRLINGPDF_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_STIRLINGPDF}
+    container_name: ${TF_VAR_STIRLINGPDF_NAME}
+    restart: unless-stopped
+    volumes:
+      - $HOME/docker/${TF_VAR_STIRLINGPDF_NAME}/data:/usr/share/tessdata
+      - $HOME/docker/${TF_VAR_STIRLINGPDF_NAME}/configs:/configs
+    ports:
+      - ${TF_VAR_STIRLINGPDF_PORT_EXT}:${TF_VAR_STIRLINGPDF_PORT_INT}
+    environment:
+      DOCKER_ENABLE_SECURITY: false
+      INSTALL_BOOK_AND_ADVANCED_HTML_OPS: false
+      LANGS: ${TF_VAR_STIRLINGPDF_LANG}

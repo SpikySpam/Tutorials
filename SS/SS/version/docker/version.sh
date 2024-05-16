@@ -13,6 +13,7 @@ export TF_VAR_VERSION_DOCKER_MARIADB="11.3.2"                            # https
 export TF_VAR_VERSION_DOCKER_MONGODB="7.0.8"                             # https://hub.docker.com/_/mongo/tags
 export TF_VAR_VERSION_DOCKER_MONGODB_EXPRESS="1.0.2-20"                  # https://hub.docker.com/_/mongo-express/tags
 export TF_VAR_VERSION_DOCKER_REDIS="7.2.4"                               # https://hub.docker.com/_/redis/tags
+export TF_VAR_VERSION_DOCKER_REDISCOMMANDER="0.8.1"                      # https://github.com/joeferner/redis-commander/tags
 export TF_VAR_VERSION_DOCKER_PROMETHEUS="2.51.2"                         # https://hub.docker.com/r/prom/prometheus/tags
 export TF_VAR_VERSION_DOCKER_ELASTICSEARCH="8.13.0"                      # https://hub.docker.com/_/elasticsearch/tags
 export TF_VAR_VERSION_DOCKER_KIBANA=$TF_VAR_VERSION_DOCKER_ELASTICSEARCH # https://hub.docker.com/_/kibana/tags
@@ -42,6 +43,7 @@ export TF_VAR_VERSION_DOCKER_UPTIMEKUMA="1.23.12"                        # https
 export TF_VAR_VERSION_DOCKER_LISTMONK="3.0.0"                            # https://hub.docker.com/r/listmonk/listmonk/tags
 export TF_VAR_VERSION_DOCKER_FREESCOUT="8.3-1.17.67"                     # https://hub.docker.com/r/tiredofit/freescout/tags
 export TF_VAR_VERSION_DOCKER_RUSTDESK="1.1.10-3"                         # https://hub.docker.com/r/rustdesk/rustdesk-server/tags
+export TF_VAR_VERSION_DOCKER_STIRLINGPDF="0.23.1"                        # https://hub.docker.com/r/frooodle/s-pdf/tags
 
 # --------------------------------------------------
 # 💻 DEVELOPMENT

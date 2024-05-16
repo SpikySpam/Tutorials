@@ -1,0 +1,22 @@
+
+services:
+  redis-commander: # TF_VAR_REDISCOMMANDER_NAME
+    image: ${TF_DOMAIN}/${TF_VAR_REDISCOMMANDER_NAME}:${TF_VAR_VERSION_DOCKER_REDISCOMMANDER}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_REDISCOMMANDER_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_REDISCOMMANDER}
+    container_name: ${TF_VAR_REDISCOMMANDER_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_REDISCOMMANDER_PORT_EXT}:${TF_VAR_REDISCOMMANDER_PORT_INT}
+    environment:
+      REDIS_HOSTS: local:${TF_VAR_REDIS_NAME}:${TF_VAR_REDIS_PORT_INT}
+    networks:
+      - ${TF_VAR_REDISCOMMANDER_NAME}
+
+networks:
+  redis-commander: # ${TF_VAR_REDISCOMMANDER_NAME}
+    name: ${TF_VAR_REDIS_NAME}
+    external: true

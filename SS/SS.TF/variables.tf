@@ -119,6 +119,7 @@ locals {
         VERSION_DOCKER_LISTMONK        = var.VERSION_DOCKER_LISTMONK
         VERSION_DOCKER_FREESCOUT       = var.VERSION_DOCKER_FREESCOUT
         VERSION_DOCKER_RUSTDESK        = var.VERSION_DOCKER_RUSTDESK
+        VERSION_DOCKER_STIRLINGPDF     = var.VERSION_DOCKER_STIRLINGPDF
         VERSION_DOCKER_RABBITMQ        = var.VERSION_DOCKER_RABBITMQ
         VERSION_DOCKER_HARBOR          = var.VERSION_DOCKER_HARBOR
         VERSION_DOCKER_GITLAB          = var.VERSION_DOCKER_GITLAB
@@ -226,6 +227,8 @@ locals {
         RUSTDESK_RELAY_PORT_EXT_21117  = var.RUSTDESK_RELAY_PORT_EXT_21117
         RUSTDESK_RELAY_PORT_INT_21119  = var.RUSTDESK_RELAY_PORT_INT_21119
         RUSTDESK_RELAY_PORT_EXT_21119  = var.RUSTDESK_RELAY_PORT_EXT_21119
+        STIRLINGPDF_PORT_INT           = var.STIRLINGPDF_PORT_INT
+        STIRLINGPDF_PORT_EXT           = var.STIRLINGPDF_PORT_EXT
       }
       DEVELOPMENT = {
         RABBITMQ_PORT_INT_NODE         = var.RABBITMQ_PORT_INT_NODE
@@ -397,6 +400,8 @@ locals {
         RUSTDESK_NAME                  = var.RUSTDESK_NAME
         RUSTDESK_USER                  = var.RUSTDESK_USER
         RUSTDESK_PASSWORD              = var.RUSTDESK_PASSWORD
+        STIRLINGPDF_NAME               = var.STIRLINGPDF_NAME
+        STIRLINGPDF_LANG               = var.STIRLINGPDF_LANG
       }
       DEVELOPMENT = {
         RABBITMQ_NAME                  = var.RABBITMQ_NAME
@@ -599,6 +604,7 @@ variable "VERSION_DOCKER_UPTIMEKUMA"      { type = string }
 variable "VERSION_DOCKER_LISTMONK"        { type = string }
 variable "VERSION_DOCKER_FREESCOUT"       { type = string }
 variable "VERSION_DOCKER_RUSTDESK"        { type = string }
+variable "VERSION_DOCKER_STIRLINGPDF"     { type = string }
 variable "VERSION_DOCKER_RABBITMQ"        { type = string }
 variable "VERSION_DOCKER_HARBOR"          { type = string }
 variable "VERSION_DOCKER_GITLAB"          { type = string }
@@ -699,6 +705,8 @@ variable "RUSTDESK_RELAY_PORT_INT_21117"  { type = number }
 variable "RUSTDESK_RELAY_PORT_EXT_21117"  { type = number }
 variable "RUSTDESK_RELAY_PORT_INT_21119"  { type = number }
 variable "RUSTDESK_RELAY_PORT_EXT_21119"  { type = number }
+variable "STIRLINGPDF_PORT_INT"           { type = number }
+variable "STIRLINGPDF_PORT_EXT"           { type = number }
 # DEVELOPMENT
 variable "RABBITMQ_PORT_INT_NODE"         { type = number }
 variable "RABBITMQ_PORT_EXT_NODE"         { type = number }
@@ -858,6 +866,8 @@ variable "FREESCOUT_TZ"                   { type = string }
 variable "RUSTDESK_NAME"                  { type = string }
 variable "RUSTDESK_USER"                  { type = string }
 variable "RUSTDESK_PASSWORD"              { type = string }
+variable "STIRLINGPDF_NAME"               { type = string }
+variable "STIRLINGPDF_LANG"               { type = string }
 # DEVELOPMENT
 variable "RABBITMQ_NAME"                  { type = string }
 variable "RABBITMQ_USER"                  { type = string }

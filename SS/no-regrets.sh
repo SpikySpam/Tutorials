@@ -70,6 +70,8 @@ export TF_VAR_MONGODB_PASSWORD="UltraSecretPassword123!" # URL
 export TF_VAR_REDIS_NAME="redis"
 export TF_VAR_REDIS_USER="SomeUsername"
 export TF_VAR_REDIS_PASSWORD="UltraSecretPassword123!"
+# -- redis-commander
+export TF_VAR_REDISCOMMANDER_NAME="redis-commander"
 # -- prometheus
 export TF_VAR_PROMETHEUS_NAME="prometheus"
 export TF_VAR_PROMETHEUS_USER="SomeUsername"
@@ -154,6 +156,9 @@ export TF_VAR_FREESCOUT_TZ="Etc/UTC"
 export TF_VAR_RUSTDESK_NAME="rustdesk"
 export TF_VAR_RUSTDESK_USER="admin"
 export TF_VAR_RUSTDESK_PASSWORD="test1234"
+# -- stirling-pdf
+export TF_VAR_STIRLINGPDF_NAME="stirling-pdf"
+export TF_VAR_STIRLINGPDF_LANG="en_GB"
 
 # --------------------------------------------------
 # 💻 DEVELOPMENT

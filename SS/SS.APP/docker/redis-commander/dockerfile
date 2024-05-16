@@ -1,0 +1,2 @@
+ARG VERSION
+FROM ghcr.io/joeferner/redis-commander:${VERSION}
