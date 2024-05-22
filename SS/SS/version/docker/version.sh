@@ -1,6 +1,7 @@
 export TF_VAR_VERSION_DOCKER_NGINX="1.25.5"                              # https://hub.docker.com/_/nginx/tags
 export TF_VAR_VERSION_DOCKER_NPM="github-pr-3569"                        # https://hub.docker.com/r/jc21/nginx-proxy-manager/tags
 export TF_VAR_VERSION_DOCKER_TRAEFIK="2.9.10"                            # https://hub.docker.com/_/traefik/tags
+export TF_VAR_VERSION_DOCKER_PAPERCUT="20180425042132"                   # https://hub.docker.com/r/jijiechen/papercut/tags
 
 # --------------------------------------------------
 # 💾 DATABASES
@@ -14,6 +15,7 @@ export TF_VAR_VERSION_DOCKER_MONGODB="7.0.8"                             # https
 export TF_VAR_VERSION_DOCKER_MONGODB_EXPRESS="1.0.2-20"                  # https://hub.docker.com/_/mongo-express/tags
 export TF_VAR_VERSION_DOCKER_REDIS="7.2.4"                               # https://hub.docker.com/_/redis/tags
 export TF_VAR_VERSION_DOCKER_REDISCOMMANDER="0.8.1"                      # https://github.com/joeferner/redis-commander/tags
+export TF_VAR_VERSION_DOCKER_MEMCACHED="1.6.27"                          # https://hub.docker.com/_/memcached/tags
 export TF_VAR_VERSION_DOCKER_PROMETHEUS="2.51.2"                         # https://hub.docker.com/r/prom/prometheus/tags
 export TF_VAR_VERSION_DOCKER_ELASTICSEARCH="8.13.0"                      # https://hub.docker.com/_/elasticsearch/tags
 export TF_VAR_VERSION_DOCKER_KIBANA=$TF_VAR_VERSION_DOCKER_ELASTICSEARCH # https://hub.docker.com/_/kibana/tags
@@ -42,7 +44,8 @@ export TF_VAR_VERSION_DOCKER_DASHY="2.1.2"                               # https
 export TF_VAR_VERSION_DOCKER_UPTIMEKUMA="1.23.12"                        # https://hub.docker.com/r/louislam/uptime-kuma/tags
 export TF_VAR_VERSION_DOCKER_LISTMONK="3.0.0"                            # https://hub.docker.com/r/listmonk/listmonk/tags
 export TF_VAR_VERSION_DOCKER_FREESCOUT="8.3-1.17.67"                     # https://hub.docker.com/r/tiredofit/freescout/tags
-export TF_VAR_VERSION_DOCKER_RUSTDESK="1.1.10-3"                         # https://hub.docker.com/r/rustdesk/rustdesk-server/tags
+export TF_VAR_VERSION_DOCKER_FREESCOUT="8.3-1.17.67"                     # https://hub.docker.com/r/tiredofit/freescout/tags
+export TF_VAR_VERSION_DOCKER_ZAMMAD="sha-d8d655a"                        # https://hub.docker.com/r/zammad/zammad/tags
 export TF_VAR_VERSION_DOCKER_STIRLINGPDF="0.23.1"                        # https://hub.docker.com/r/frooodle/s-pdf/tags
 
 # --------------------------------------------------

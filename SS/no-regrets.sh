@@ -42,6 +42,8 @@ export TF_VAR_TRAEFIK_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_MAILINABOX_DOMAIN="box."$TF_DOMAIN
 export TF_VAR_MAILINABOX_USER="admin@"$TF_DOMAIN
 export TF_VAR_MAILINABOX_PASSWORD="UltraSecretPassword123!"
+# -- papercut
+export TF_VAR_PAPERCUT_NAME="papercut"
 
 # --------------------------------------------------
 # 💾 DATABASES
@@ -72,6 +74,8 @@ export TF_VAR_REDIS_USER="SomeUsername"
 export TF_VAR_REDIS_PASSWORD="UltraSecretPassword123!"
 # -- redis-commander
 export TF_VAR_REDISCOMMANDER_NAME="redis-commander"
+# -- memcached
+export TF_VAR_MEMCACHED_NAME="memcached"
 # -- prometheus
 export TF_VAR_PROMETHEUS_NAME="prometheus"
 export TF_VAR_PROMETHEUS_USER="SomeUsername"
@@ -150,8 +154,12 @@ export TF_VAR_LISTMONK_USER="listmonk"
 export TF_VAR_LISTMONK_PASSWORD="listmonk"
 # -- freescout 
 export TF_VAR_FREESCOUT_NAME="freescout"
-export TF_VAR_FREESCOUT_PASSWORD="UltraSecretPassword123"
+export TF_VAR_FREESCOUT_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_FREESCOUT_TZ="Etc/UTC"
+# -- zammad
+export TF_VAR_ZAMMAD_NAME="zammad"
+export TF_VAR_ZAMMAD_PASSWORD="Xb4SRzUgDKabY6VLnZtvednX"
+export TF_VAR_ZAMMAD_TZ="Europe/Brussels"
 # -- rustdesk
 export TF_VAR_RUSTDESK_NAME="rustdesk"
 export TF_VAR_RUSTDESK_USER="admin"

@@ -20,10 +20,3 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - ${TF_VAR_REDIS_NAME}
-
-networks:
-  redis: # ${TF_VAR_REDIS_NAME}
-    name: ${TF_VAR_REDIS_NAME}
-    driver: bridge
