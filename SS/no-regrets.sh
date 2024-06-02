@@ -167,6 +167,8 @@ export TF_VAR_RUSTDESK_PASSWORD="test1234"
 # -- stirling-pdf
 export TF_VAR_STIRLINGPDF_NAME="stirling-pdf"
 export TF_VAR_STIRLINGPDF_LANG="en_GB"
+# -- stirling-pdf
+export TF_VAR_JELLYFIN_NAME="jellyfin"
 
 # --------------------------------------------------
 # 💻 DEVELOPMENT

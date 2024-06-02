@@ -1,0 +1,21 @@
+
+services:
+  jellyfin: # TF_VAR_JELLYFIN_NAME
+    image: ${TF_DOMAIN}/${TF_VAR_JELLYFIN_NAME}:${TF_VAR_VERSION_DOCKER_PUTER}
+    build:
+      context: .
+      dockerfile: ${TF_VAR_PATH_APP}/docker/${TF_VAR_JELLYFIN_NAME}/dockerfile
+      args:
+        VERSION: ${TF_VAR_VERSION_DOCKER_JELLYFIN}
+    container_name: ${TF_VAR_JELLYFIN_NAME}
+    restart: unless-stopped
+    ports:
+      - ${TF_VAR_JELLYFIN_PORT_EXT}:${TF_VAR_JELLYFIN_PORT_INT}
+    volumes:
+      - $HOME/docker/${TF_VAR_JELLYFIN_NAME}/config:/config
+      - $HOME/docker/${TF_VAR_JELLYFIN_NAME}/cache:/cache
+      - $HOME/docker/${TF_VAR_JELLYFIN_NAME}/media:/media
+      - $HOME/docker/${TF_VAR_JELLYFIN_NAME}/media2:/media2
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://${TF_VAR_JELLYFIN_NAME}.${TF_VAR_HOST}
+    # user: uid:gid

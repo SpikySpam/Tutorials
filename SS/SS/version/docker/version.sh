@@ -47,6 +47,7 @@ export TF_VAR_VERSION_DOCKER_FREESCOUT="8.3-1.17.67"                     # https
 export TF_VAR_VERSION_DOCKER_FREESCOUT="8.3-1.17.67"                     # https://hub.docker.com/r/tiredofit/freescout/tags
 export TF_VAR_VERSION_DOCKER_ZAMMAD="sha-d8d655a"                        # https://hub.docker.com/r/zammad/zammad/tags
 export TF_VAR_VERSION_DOCKER_STIRLINGPDF="0.23.1"                        # https://hub.docker.com/r/frooodle/s-pdf/tags
+export TF_VAR_VERSION_DOCKER_JELLYFIN="10.9.4"                           # https://hub.docker.com/r/jellyfin/jellyfin/tags
 
 # --------------------------------------------------
 # 💻 DEVELOPMENT
