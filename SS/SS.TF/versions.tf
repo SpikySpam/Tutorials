@@ -4,7 +4,7 @@ terraform {
     # ➡️ https://registry.terraform.io/providers/tehcyx/kind/latest
     kind = {
       source  = "tehcyx/kind"
-      version = "0.4.0" # TF_VAR_VERSION_TF_KIND
+      version = "0.5.1" # TF_VAR_VERSION_TF_KIND
       configuration_aliases = [kind.main]
     }
 

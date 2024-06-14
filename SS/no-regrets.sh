@@ -156,10 +156,6 @@ export TF_VAR_LISTMONK_PASSWORD="listmonk"
 export TF_VAR_FREESCOUT_NAME="freescout"
 export TF_VAR_FREESCOUT_PASSWORD="UltraSecretPassword123!"
 export TF_VAR_FREESCOUT_TZ="Etc/UTC"
-# -- zammad
-export TF_VAR_ZAMMAD_NAME="zammad"
-export TF_VAR_ZAMMAD_PASSWORD="Xb4SRzUgDKabY6VLnZtvednX"
-export TF_VAR_ZAMMAD_TZ="Europe/Brussels"
 # -- rustdesk
 export TF_VAR_RUSTDESK_NAME="rustdesk"
 export TF_VAR_RUSTDESK_USER="admin"

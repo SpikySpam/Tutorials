@@ -39,7 +39,7 @@ services:
       - $HOME/docker/${TF_VAR_GITLAB_NAME}/data:/home/git/data:Z
     environment:
     - DEBUG=false
-    - SIGNUP_ENABLED=False
+    - SIGNUP_ENABLED=false
     - SSL_SELF_SIGNED=false
     - DB_ADAPTER=postgresql
     - DB_HOST=${TF_VAR_GITLAB_NAME}-${TF_VAR_POSTGRES_NAME}

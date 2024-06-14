@@ -90,6 +90,7 @@ locals {
         VERSION_DOCKER_NGINX           = var.VERSION_DOCKER_NGINX
         VERSION_DOCKER_NPM             = var.VERSION_DOCKER_NPM
         VERSION_DOCKER_TRAEFIK         = var.VERSION_DOCKER_TRAEFIK
+        VERSION_DOCKER_PAPERCUT        = var.VERSION_DOCKER_PAPERCUT
         VERSION_DOCKER_CASSANDRA       = var.VERSION_DOCKER_CASSANDRA
         VERSION_DOCKER_CASSANDRA_WEB   = var.VERSION_DOCKER_CASSANDRA_WEB
         VERSION_DOCKER_POSTGRES        = var.VERSION_DOCKER_POSTGRES
@@ -98,6 +99,7 @@ locals {
         VERSION_DOCKER_MONGODB         = var.VERSION_DOCKER_MONGODB
         VERSION_DOCKER_MONGODB_EXPRESS = var.VERSION_DOCKER_MONGODB_EXPRESS
         VERSION_DOCKER_REDIS           = var.VERSION_DOCKER_REDIS
+        VERSION_DOCKER_REDISCOMMANDER  = var.VERSION_DOCKER_REDISCOMMANDER
         VERSION_DOCKER_PROMETHEUS      = var.VERSION_DOCKER_PROMETHEUS
         VERSION_DOCKER_ELASTICSEARCH   = var.VERSION_DOCKER_ELASTICSEARCH
         VERSION_DOCKER_KIBANA          = var.VERSION_DOCKER_KIBANA
@@ -120,6 +122,7 @@ locals {
         VERSION_DOCKER_FREESCOUT       = var.VERSION_DOCKER_FREESCOUT
         VERSION_DOCKER_RUSTDESK        = var.VERSION_DOCKER_RUSTDESK
         VERSION_DOCKER_STIRLINGPDF     = var.VERSION_DOCKER_STIRLINGPDF
+        VERSION_DOCKER_JELLYFIN        = var.VERSION_DOCKER_JELLYFIN
         VERSION_DOCKER_RABBITMQ        = var.VERSION_DOCKER_RABBITMQ
         VERSION_DOCKER_HARBOR          = var.VERSION_DOCKER_HARBOR
         VERSION_DOCKER_GITLAB          = var.VERSION_DOCKER_GITLAB
@@ -147,6 +150,10 @@ locals {
       NETWORK = {
         NGINX_PORT_INT                 = var.NGINX_PORT_INT
         NGINX_PORT_EXT                 = var.NGINX_PORT_EXT
+        PAPERCUT_PORT_INT_GUI          = var.PAPERCUT_PORT_INT_GUI
+        PAPERCUT_PORT_EXT_GUI          = var.PAPERCUT_PORT_EXT_GUI
+        PAPERCUT_PORT_INT_SMTP         = var.PAPERCUT_PORT_INT_SMTP
+        PAPERCUT_PORT_EXT_SMTP         = var.PAPERCUT_PORT_EXT_SMTP
       }
       DATABASES = {
         CASSANDRA_PORT_INT             = var.CASSANDRA_PORT_INT
@@ -163,6 +170,8 @@ locals {
         MONGODB_PORT_EXT               = var.MONGODB_PORT_EXT
         REDIS_PORT_INT                 = var.REDIS_PORT_INT
         REDIS_PORT_EXT                 = var.REDIS_PORT_EXT
+        REDISCOMMANDER_PORT_INT        = var.REDISCOMMANDER_PORT_INT
+        REDISCOMMANDER_PORT_EXT        = var.REDISCOMMANDER_PORT_EXT
         PROMETHEUS_PORT_INT            = var.PROMETHEUS_PORT_INT
         PROMETHEUS_PORT_EXT            = var.PROMETHEUS_PORT_EXT
         ELASTICSEARCH_PORT_INT         = var.ELASTICSEARCH_PORT_INT
@@ -229,6 +238,8 @@ locals {
         RUSTDESK_RELAY_PORT_EXT_21119  = var.RUSTDESK_RELAY_PORT_EXT_21119
         STIRLINGPDF_PORT_INT           = var.STIRLINGPDF_PORT_INT
         STIRLINGPDF_PORT_EXT           = var.STIRLINGPDF_PORT_EXT
+        JELLYFIN_PORT_INT              = var.JELLYFIN_PORT_INT
+        JELLYFIN_PORT_EXT              = var.JELLYFIN_PORT_EXT
       }
       DEVELOPMENT = {
         RABBITMQ_PORT_INT_NODE         = var.RABBITMQ_PORT_INT_NODE
@@ -320,6 +331,7 @@ locals {
         MAILINABOX_DOMAIN              = var.MAILINABOX_DOMAIN
         MAILINABOX_USER                = var.MAILINABOX_USER
         MAILINABOX_PASSWORD            = var.MAILINABOX_PASSWORD
+        PAPERCUT_NAME                  = var.PAPERCUT_NAME
       }
       DATABASES = {
         CASSANDRA_NAME                 = var.CASSANDRA_NAME
@@ -340,6 +352,7 @@ locals {
         REDIS_NAME                     = var.REDIS_NAME
         REDIS_USER                     = var.REDIS_USER
         REDIS_PASSWORD                 = var.REDIS_PASSWORD
+        REDISCOMMANDER_NAME            = var.REDISCOMMANDER_NAME
         PROMETHEUS_NAME                = var.PROMETHEUS_NAME
         PROMETHEUS_USER                = var.PROMETHEUS_USER
         PROMETHEUS_PASSWORD            = var.PROMETHEUS_PASSWORD
@@ -402,6 +415,7 @@ locals {
         RUSTDESK_PASSWORD              = var.RUSTDESK_PASSWORD
         STIRLINGPDF_NAME               = var.STIRLINGPDF_NAME
         STIRLINGPDF_LANG               = var.STIRLINGPDF_LANG
+        JELLYFIN_NAME                  = var.JELLYFIN_NAME
       }
       DEVELOPMENT = {
         RABBITMQ_NAME                  = var.RABBITMQ_NAME
@@ -575,6 +589,7 @@ variable "VERSION_CLUSTER_AWS"            { type = string }
 variable "VERSION_DOCKER_NGINX"           { type = string }
 variable "VERSION_DOCKER_NPM"             { type = string }
 variable "VERSION_DOCKER_TRAEFIK"         { type = string }
+variable "VERSION_DOCKER_PAPERCUT"         { type = string }
 variable "VERSION_DOCKER_CASSANDRA"       { type = string }
 variable "VERSION_DOCKER_CASSANDRA_WEB"   { type = string }
 variable "VERSION_DOCKER_POSTGRES"        { type = string }
@@ -583,6 +598,7 @@ variable "VERSION_DOCKER_MARIADB"         { type = string }
 variable "VERSION_DOCKER_MONGODB"         { type = string }
 variable "VERSION_DOCKER_MONGODB_EXPRESS" { type = string }
 variable "VERSION_DOCKER_REDIS"           { type = string }
+variable "VERSION_DOCKER_REDISCOMMANDER"  { type = string }
 variable "VERSION_DOCKER_PROMETHEUS"      { type = string }
 variable "VERSION_DOCKER_ELASTICSEARCH"   { type = string }
 variable "VERSION_DOCKER_KIBANA"          { type = string }
@@ -605,6 +621,7 @@ variable "VERSION_DOCKER_LISTMONK"        { type = string }
 variable "VERSION_DOCKER_FREESCOUT"       { type = string }
 variable "VERSION_DOCKER_RUSTDESK"        { type = string }
 variable "VERSION_DOCKER_STIRLINGPDF"     { type = string }
+variable "VERSION_DOCKER_JELLYFIN"        { type = string }
 variable "VERSION_DOCKER_RABBITMQ"        { type = string }
 variable "VERSION_DOCKER_HARBOR"          { type = string }
 variable "VERSION_DOCKER_GITLAB"          { type = string }
@@ -628,6 +645,10 @@ variable "VERSION_TF_DOCKER"              { type = string }
 # NETWORK
 variable "NGINX_PORT_INT"                 { type = number }
 variable "NGINX_PORT_EXT"                 { type = number }
+variable "PAPERCUT_PORT_INT_GUI"          { type = number }
+variable "PAPERCUT_PORT_EXT_GUI"          { type = number }
+variable "PAPERCUT_PORT_INT_SMTP"         { type = number }
+variable "PAPERCUT_PORT_EXT_SMTP"         { type = number }
 # DATABASES
 variable "CASSANDRA_PORT_INT"             { type = number }
 variable "CASSANDRA_PORT_EXT"             { type = number }
@@ -643,6 +664,8 @@ variable "MONGODB_PORT_INT"               { type = number }
 variable "MONGODB_PORT_EXT"               { type = number }
 variable "REDIS_PORT_INT"                 { type = number }
 variable "REDIS_PORT_EXT"                 { type = number }
+variable "REDISCOMMANDER_PORT_INT"        { type = number }
+variable "REDISCOMMANDER_PORT_EXT"        { type = number }
 variable "PROMETHEUS_PORT_INT"            { type = number }
 variable "PROMETHEUS_PORT_EXT"            { type = number }
 variable "ELASTICSEARCH_PORT_INT"         { type = number }
@@ -707,6 +730,8 @@ variable "RUSTDESK_RELAY_PORT_INT_21119"  { type = number }
 variable "RUSTDESK_RELAY_PORT_EXT_21119"  { type = number }
 variable "STIRLINGPDF_PORT_INT"           { type = number }
 variable "STIRLINGPDF_PORT_EXT"           { type = number }
+variable "JELLYFIN_PORT_INT"              { type = number }
+variable "JELLYFIN_PORT_EXT"              { type = number }
 # DEVELOPMENT
 variable "RABBITMQ_PORT_INT_NODE"         { type = number }
 variable "RABBITMQ_PORT_EXT_NODE"         { type = number }
@@ -789,6 +814,7 @@ variable "TRAEFIK_PASSWORD"               { type = string }
 variable "MAILINABOX_DOMAIN"              { type = string }
 variable "MAILINABOX_USER"                { type = string }
 variable "MAILINABOX_PASSWORD"            { type = string }
+variable "PAPERCUT_NAME"                  { type = string }
 # DATABASES
 variable "CASSANDRA_NAME"                 { type = string }
 variable "CASSANDRA_USER"                 { type = string }
@@ -808,6 +834,7 @@ variable "MONGODB_PASSWORD"               { type = string }
 variable "REDIS_NAME"                     { type = string }
 variable "REDIS_USER"                     { type = string }
 variable "REDIS_PASSWORD"                 { type = string }
+variable "REDISCOMMANDER_NAME"            { type = string }
 variable "PROMETHEUS_NAME"                { type = string }
 variable "PROMETHEUS_USER"                { type = string }
 variable "PROMETHEUS_PASSWORD"            { type = string }
@@ -868,6 +895,7 @@ variable "RUSTDESK_USER"                  { type = string }
 variable "RUSTDESK_PASSWORD"              { type = string }
 variable "STIRLINGPDF_NAME"               { type = string }
 variable "STIRLINGPDF_LANG"               { type = string }
+variable "JELLYFIN_NAME"                  { type = string }
 # DEVELOPMENT
 variable "RABBITMQ_NAME"                  { type = string }
 variable "RABBITMQ_USER"                  { type = string }

@@ -1,5 +1,5 @@
 resource "docker_image" "redis" {
-  count = 0
+  count = 1
   name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.DATABASES.REDIS_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_REDIS}"
   build {
     context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.DATABASES.REDIS_NAME}"
