@@ -1,11 +1,11 @@
 resource "docker_image" "vault" {
   count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.SECURITY.VAULT_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_VAULT}"
+  name  = "${var.vars.DOMAIN}/${var.current.vault.name}:${var.current.vault.docker.version}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.SECURITY.VAULT_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.current.vault.name}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_VAULT}"
+      VERSION = "${var.current.vault.docker.version}"
     }
   }
 }
@@ -13,28 +13,28 @@ resource "docker_image" "vault" {
 resource "docker_container" "vault" {
   count   = 0
   image   = docker_image.vault[0].image_id
-  name    = "${var.VARS.SECRETS.SECURITY.VAULT_NAME}"
+  name    = "${var.current.vault.name}"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.SECURITY.VAULT_PORT_INT
-    external = var.VARS.PORTS.SECURITY.VAULT_PORT_EXT
+    internal = var.current.vault.ports.internal
+    external = var.current.vault.ports.external
   }
   volumes {
-    host_path = "${var.VARS.PATHS.PATH_HOME}/docker/${var.VARS.SECRETS.SECURITY.VAULT_NAME}"
+    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.current.vault.name}"
     container_path = "/data"
   }
   capabilities {
     add = ["IPC_LOCK"]
   }
   env = [
-    "VAULT_ADDR='https://0.0.0.0:${var.VARS.PORTS.SECURITY.VAULT_PORT_INT}'",
-    "VAULT_LOCAL_CONFIG={\"listener\": [{\"tcp\":{\"address\": \"0.0.0.0:${var.VARS.PORTS.SECURITY.VAULT_PORT_INT}\",\"tls_disable\":\"1\"}}], \"default_lease_ttl\": \"168h\", \"max_lease_ttl\": \"720h\"}, \"ui\": true}",
-    "VAULT_DEV_ROOT_TOKEN_ID=${var.VARS.SECRETS.SECURITY.VAULT_TOKEN_ROOT}",
-    "VAULT_TOKEN=${var.VARS.SECRETS.SECURITY.VAULT_TOKEN_USER}",
+    "VAULT_ADDR='https://0.0.0.0:${var.current.vault.ports.internal}'",
+    "VAULT_LOCAL_CONFIG={\"listener\": [{\"tcp\":{\"address\": \"0.0.0.0:${var.current.vault.ports.internal}\",\"tls_disable\":\"1\"}}], \"default_lease_ttl\": \"168h\", \"max_lease_ttl\": \"720h\"}, \"ui\": true}",
+    "VAULT_DEV_ROOT_TOKEN_ID=${var.current.vault.env.token_root}",
+    "VAULT_TOKEN=${var.current.vault.env.token_user}",
   ]
   command = [
     "server",
     "-dev",
-    "-dev-root-token-id=${var.VARS.SECRETS.SECURITY.VAULT_TOKEN_ROOT}",
+    "-dev-root-token-id=${var.current.vault.env.token_root}",
   ]  
 }

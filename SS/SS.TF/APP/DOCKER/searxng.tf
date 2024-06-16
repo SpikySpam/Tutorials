@@ -1,11 +1,11 @@
 resource "docker_image" "searxng" {
   count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.TOOLS.SEARXNG_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_SEARXNG}"
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.TOOLS.SEARXNG_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_SEARXNG}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.TOOLS.SEARXNG_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.TOOLS.SEARXNG_NAME}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_SEARXNG}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_SEARXNG}"
     }
   }
 }
@@ -13,14 +13,14 @@ resource "docker_image" "searxng" {
 resource "docker_container" "searxng" {
   count   = 0
   image   = docker_image.searxng[0].image_id
-  name    = "${var.VARS.SECRETS.TOOLS.SEARXNG_NAME}"
+  name    = "${var.vars.SECRETS.TOOLS.SEARXNG_NAME}"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.TOOLS.SEARXNG_PORT_INT
-    external = var.VARS.PORTS.TOOLS.SEARXNG_PORT_EXT
+    internal = var.vars.PORTS.TOOLS.SEARXNG_PORT_INT
+    external = var.vars.PORTS.TOOLS.SEARXNG_PORT_EXT
   }
   volumes {
-    host_path = "${var.VARS.PATHS.PATH_HOME}/docker/${var.VARS.SECRETS.TOOLS.SEARXNG_NAME}"
+    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.vars.SECRETS.TOOLS.SEARXNG_NAME}"
     container_path = "/etc/searxng"
   }
   capabilities {

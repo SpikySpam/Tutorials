@@ -1,12 +1,12 @@
 resource "docker_image" "hack" {
   count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.HACK.HACK_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_UBUNTU}"
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.HACK.HACK_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_UBUNTU}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.HACK.HACK_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.HACK.HACK_NAME}"
     dockerfile = "dockerfile"
     build_args = {
-      DOMAIN = "${var.VARS.DOMAIN}"
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_UBUNTU}"
+      DOMAIN = "${var.vars.DOMAIN}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_UBUNTU}"
     }
   }
 }
@@ -14,7 +14,7 @@ resource "docker_image" "hack" {
 resource "docker_container" "hack" {
   count   = 0
   image   = docker_image.hack[0].image_id
-  name    = "${var.VARS.SECRETS.HACK.HACK_NAME}"
+  name    = "${var.vars.SECRETS.HACK.HACK_NAME}"
   restart = "unless-stopped"
   ports {
     internal = 80

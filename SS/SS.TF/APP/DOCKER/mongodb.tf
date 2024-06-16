@@ -1,18 +1,18 @@
 resource "docker_network" "mongodb" {
   count  = 0
-  name   = "${var.VARS.SECRETS.DATABASES.MONGODB_NAME}"
+  name   = "${var.vars.SECRETS.DATABASES.MONGODB_NAME}"
   driver = "bridge"
 }
 
 # MONGODB
 resource "docker_image" "mongodb" {
   count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.DATABASES.MONGODB_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB}"
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.DATABASES.MONGODB_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.DATABASES.MONGODB_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.DATABASES.MONGODB_NAME}"
     dockerfile = "dockerfile-mongodb"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB}"
     }
   }
 }
@@ -20,11 +20,11 @@ resource "docker_image" "mongodb" {
 resource "docker_container" "mongodb" {
   count   = 0
   image   = docker_image.mongodb[0].image_id
-  name    = "${var.VARS.SECRETS.DATABASES.MONGODB_NAME}"
+  name    = "${var.vars.SECRETS.DATABASES.MONGODB_NAME}"
   restart = "unless-stopped"
   env = [
-    "MONGO_INITDB_ROOT_USERNAME=${var.VARS.SECRETS.DATABASES.MONGODB_USER}",
-    "MONGO_INITDB_ROOT_PASSWORD=${var.VARS.SECRETS.DATABASES.MONGODB_PASSWORD}",
+    "MONGO_INITDB_ROOT_USERNAME=${var.vars.SECRETS.DATABASES.MONGODB_USER}",
+    "MONGO_INITDB_ROOT_PASSWORD=${var.vars.SECRETS.DATABASES.MONGODB_PASSWORD}",
   ]
   healthcheck {
     test     = ["CMD","mongosh", "--eval", "db.adminCommand('ping')"]
@@ -35,7 +35,7 @@ resource "docker_container" "mongodb" {
   wait = true
   wait_timeout = 60
   networks_advanced {
-    name = "${var.VARS.SECRETS.DATABASES.MONGODB_NAME}"
+    name = "${var.vars.SECRETS.DATABASES.MONGODB_NAME}"
   }
 }
 
@@ -43,12 +43,12 @@ resource "docker_container" "mongodb" {
 resource "docker_image" "mongodb-express" {
   count = 0
   depends_on = [ docker_container.mongodb ]
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.DATABASES.MONGODB_NAME}-express:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB_EXPRESS}"
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.DATABASES.MONGODB_NAME}-express:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB_EXPRESS}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.DATABASES.MONGODB_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.DATABASES.MONGODB_NAME}"
     dockerfile = "dockerfile-mongodb-express"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB_EXPRESS}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_MONGODB_EXPRESS}"
     }
   }
 }
@@ -56,21 +56,21 @@ resource "docker_image" "mongodb-express" {
 resource "docker_container" "mongodb-express" {
   count   = 0
   image   = docker_image.mongodb-express[0].image_id
-  name    = "${var.VARS.SECRETS.DATABASES.MONGODB_NAME}-express"
+  name    = "${var.vars.SECRETS.DATABASES.MONGODB_NAME}-express"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.DATABASES.MONGODB_PORT_INT
-    external = var.VARS.PORTS.DATABASES.MONGODB_PORT_EXT
+    internal = var.vars.PORTS.DATABASES.MONGODB_PORT_INT
+    external = var.vars.PORTS.DATABASES.MONGODB_PORT_EXT
   }
   env = [
-    "ME_CONFIG_MONGODB_ADMINUSERNAME=${var.VARS.SECRETS.DATABASES.MONGODB_USER}",
-    "ME_CONFIG_MONGODB_ADMINPASSWORD=${var.VARS.SECRETS.DATABASES.MONGODB_PASSWORD}",
-    "ME_CONFIG_MONGODB_URL=${var.VARS.SECRETS.DATABASES.MONGODB_NAME}://${var.VARS.SECRETS.DATABASES.MONGODB_USER}:${var.VARS.SECRETS.DATABASES.MONGODB_PASSWORD}@${var.VARS.SECRETS.DATABASES.MONGODB_NAME}:27017/",
+    "ME_CONFIG_MONGODB_ADMINUSERNAME=${var.vars.SECRETS.DATABASES.MONGODB_USER}",
+    "ME_CONFIG_MONGODB_ADMINPASSWORD=${var.vars.SECRETS.DATABASES.MONGODB_PASSWORD}",
+    "ME_CONFIG_MONGODB_URL=${var.vars.SECRETS.DATABASES.MONGODB_NAME}://${var.vars.SECRETS.DATABASES.MONGODB_USER}:${var.vars.SECRETS.DATABASES.MONGODB_PASSWORD}@${var.vars.SECRETS.DATABASES.MONGODB_NAME}:27017/",
     "ME_CONFIG_BASICAUTH=true",
-    "ME_CONFIG_BASICAUTH_USERNAME=${var.VARS.SECRETS.DATABASES.MONGODB_USER}",
-    "ME_CONFIG_BASICAUTH_PASSWORD=${var.VARS.SECRETS.DATABASES.MONGODB_PASSWORD}",
+    "ME_CONFIG_BASICAUTH_USERNAME=${var.vars.SECRETS.DATABASES.MONGODB_USER}",
+    "ME_CONFIG_BASICAUTH_PASSWORD=${var.vars.SECRETS.DATABASES.MONGODB_PASSWORD}",
   ]
   networks_advanced {
-    name = "${var.VARS.SECRETS.DATABASES.MONGODB_NAME}"
+    name = "${var.vars.SECRETS.DATABASES.MONGODB_NAME}"
   }
 }

@@ -1,11 +1,11 @@
 resource "docker_image" "kibana" {
   count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.DATABASES.KIBANA_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_KIBANA}"
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.DATABASES.KIBANA_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_KIBANA}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.DATABASES.KIBANA_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.DATABASES.KIBANA_NAME}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_KIBANA}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_KIBANA}"
     }
   }
 }
@@ -13,14 +13,14 @@ resource "docker_image" "kibana" {
 resource "docker_container" "kibana" {
   count   = 0
   image   = docker_image.kibana[0].image_id
-  name    = "${var.VARS.SECRETS.DATABASES.KIBANA_NAME}"
+  name    = "${var.vars.SECRETS.DATABASES.KIBANA_NAME}"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.DATABASES.KIBANA_PORT_INT
-    external = var.VARS.PORTS.DATABASES.KIBANA_PORT_EXT
+    internal = var.vars.PORTS.DATABASES.KIBANA_PORT_INT
+    external = var.vars.PORTS.DATABASES.KIBANA_PORT_EXT
   }
   env = [
-    "ELASTICSEARCH_URL=http://${var.VARS.SECRETS.DATABASES.ELASTICSEARCH_NAME}:${var.VARS.PORTS.DATABASES.ELASTICSEARCH_PORT_INT}'",
-    "ELASTICSEARCH_HOSTS=http://${var.VARS.SECRETS.DATABASES.ELASTICSEARCH_NAME}:${var.VARS.PORTS.DATABASES.ELASTICSEARCH_PORT_INT}'",
+    "ELASTICSEARCH_URL=http://${var.vars.SECRETS.DATABASES.ELASTICSEARCH_NAME}:${var.vars.PORTS.DATABASES.ELASTICSEARCH_PORT_INT}'",
+    "ELASTICSEARCH_HOSTS=http://${var.vars.SECRETS.DATABASES.ELASTICSEARCH_NAME}:${var.vars.PORTS.DATABASES.ELASTICSEARCH_PORT_INT}'",
   ]
 }

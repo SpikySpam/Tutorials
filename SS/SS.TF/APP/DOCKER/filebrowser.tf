@@ -1,11 +1,11 @@
 resource "docker_image" "filebrowser" {
   count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.TOOLS.FILEBROWSER_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_FILEBROWSER}"
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.TOOLS.FILEBROWSER_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_FILEBROWSER}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.TOOLS.FILEBROWSER_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.TOOLS.FILEBROWSER_NAME}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_FILEBROWSER}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_FILEBROWSER}"
     }
   }
 }
@@ -13,14 +13,14 @@ resource "docker_image" "filebrowser" {
 resource "docker_container" "filebrowser" {
   count   = 0
   image   = docker_image.filebrowser[0].image_id
-  name    = "${var.VARS.SECRETS.TOOLS.FILEBROWSER_NAME}"
+  name    = "${var.vars.SECRETS.TOOLS.FILEBROWSER_NAME}"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.TOOLS.FILEBROWSER_PORT_INT
-    external = var.VARS.PORTS.TOOLS.FILEBROWSER_PORT_EXT
+    internal = var.vars.PORTS.TOOLS.FILEBROWSER_PORT_INT
+    external = var.vars.PORTS.TOOLS.FILEBROWSER_PORT_EXT
   }
   volumes {
-    host_path = "${var.VARS.PATHS.PATH_HOME}/docker/${var.VARS.SECRETS.TOOLS.FILEBROWSER_NAME}/files"
+    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.vars.SECRETS.TOOLS.FILEBROWSER_NAME}/files"
     container_path = "/srv"
   }
   env = [

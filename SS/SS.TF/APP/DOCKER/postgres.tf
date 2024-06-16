@@ -1,11 +1,11 @@
 resource "docker_image" "postgres" {
-  count = 1
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.DATABASES.POSTGRES_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_POSTGRES}"
+  count = 0
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.DATABASES.POSTGRES_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_POSTGRES}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.DATABASES.POSTGRES_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.DATABASES.POSTGRES_NAME}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_POSTGRES}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_POSTGRES}"
     }
   }
 }
@@ -13,19 +13,19 @@ resource "docker_image" "postgres" {
 resource "docker_container" "postgres" {
   count   = 0
   image   = docker_image.postgres[0].image_id
-  name    = "${var.VARS.SECRETS.DATABASES.POSTGRES_NAME}"
+  name    = "${var.vars.SECRETS.DATABASES.POSTGRES_NAME}"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.DATABASES.POSTGRES_PORT_INT
-    external = var.VARS.PORTS.DATABASES.POSTGRES_PORT_EXT
+    internal = var.vars.PORTS.DATABASES.POSTGRES_PORT_INT
+    external = var.vars.PORTS.DATABASES.POSTGRES_PORT_EXT
   }
   volumes {
-    host_path = "${var.VARS.PATHS.PATH_HOME}/docker/${var.VARS.SECRETS.DATABASES.POSTGRES_NAME}"
+    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.vars.SECRETS.DATABASES.POSTGRES_NAME}"
     container_path = "/var/lib/postgresql/data"
   }
   env = [
-    "POSTGRES_USER=${var.VARS.SECRETS.DATABASES.POSTGRES_USER}",
-    "POSTGRES_PASSWORD=${var.VARS.SECRETS.DATABASES.POSTGRES_PASSWORD}",
+    "POSTGRES_USER=${var.vars.SECRETS.DATABASES.POSTGRES_USER}",
+    "POSTGRES_PASSWORD=${var.vars.SECRETS.DATABASES.POSTGRES_PASSWORD}",
   ]
   healthcheck {
     test     = ["CMD-SHELL", "pg_isready"]

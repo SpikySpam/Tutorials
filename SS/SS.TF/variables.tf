@@ -1,5 +1,5 @@
 locals {
-  VARS = {
+  vars = {
     PREFIX      = var.PREFIX
     PROVIDER    = var.PROVIDER
     ENVIRONMENT = var.ENVIRONMENT
@@ -47,7 +47,7 @@ locals {
       }
       ENVIRONMENT = {
         ENVIRONMENT_DEV = var.ENVIRONMENT_DEV
-        HOST_SPIKYSPAM  = var.HOST_SPIKYSPAM
+        ENVIRONMENT_PRD = var.ENVIRONMENT_PRD
       }
       REGION = {
         REGION_NONE     = var.REGION_NONE
@@ -55,6 +55,20 @@ locals {
       HOST = {
         HOST_EXAMPLE    = var.HOST_EXAMPLE
         HOST_SPIKYSPAM  = var.HOST_SPIKYSPAM
+      }
+      HELM = {
+        REPOSITORY = {
+          BITNAMI = "https://charts.bitnami.com/bitnami"
+        }
+      }
+      KUBERNETES = {
+        SERVICE = {
+          TYPE = {
+            LOADBALANCER = "LoadBalancer"
+            CLUSTERIP = "ClusterIP"
+            NODEPORT = "NodePort"
+          }
+        }
       }
     }
 
@@ -87,7 +101,7 @@ locals {
         VERSION_CLUSTER_AWS            = var.VERSION_CLUSTER_AWS
       }
       DOCKER = {
-        VERSION_DOCKER_NGINX           = var.VERSION_DOCKER_NGINX
+        # VERSION_DOCKER_NGINX           = var.VERSION_DOCKER_NGINX
         VERSION_DOCKER_NPM             = var.VERSION_DOCKER_NPM
         VERSION_DOCKER_TRAEFIK         = var.VERSION_DOCKER_TRAEFIK
         VERSION_DOCKER_PAPERCUT        = var.VERSION_DOCKER_PAPERCUT
@@ -123,7 +137,7 @@ locals {
         VERSION_DOCKER_RUSTDESK        = var.VERSION_DOCKER_RUSTDESK
         VERSION_DOCKER_STIRLINGPDF     = var.VERSION_DOCKER_STIRLINGPDF
         VERSION_DOCKER_JELLYFIN        = var.VERSION_DOCKER_JELLYFIN
-        VERSION_DOCKER_RABBITMQ        = var.VERSION_DOCKER_RABBITMQ
+        # VERSION_DOCKER_RABBITMQ        = var.VERSION_DOCKER_RABBITMQ
         VERSION_DOCKER_HARBOR          = var.VERSION_DOCKER_HARBOR
         VERSION_DOCKER_GITLAB          = var.VERSION_DOCKER_GITLAB
         VERSION_DOCKER_CODESERVER      = var.VERSION_DOCKER_CODESERVER
@@ -139,17 +153,71 @@ locals {
         VERSION_DOCKER_OLLAMA          = var.VERSION_DOCKER_OLLAMA
       }
       HELM = {
+        # VERSION_HELM_NGINX           = var.VERSION_HELM_NGINX
+        VERSION_HELM_NPM             = var.VERSION_HELM_NPM
+        VERSION_HELM_TRAEFIK         = var.VERSION_HELM_TRAEFIK
+        VERSION_HELM_PAPERCUT        = var.VERSION_HELM_PAPERCUT
+        VERSION_HELM_CASSANDRA       = var.VERSION_HELM_CASSANDRA
+        VERSION_HELM_CASSANDRA_WEB   = var.VERSION_HELM_CASSANDRA_WEB
+        VERSION_HELM_POSTGRES        = var.VERSION_HELM_POSTGRES
+        VERSION_HELM_MYSQL           = var.VERSION_HELM_MYSQL
+        VERSION_HELM_MARIADB         = var.VERSION_HELM_MARIADB
+        VERSION_HELM_MONGODB         = var.VERSION_HELM_MONGODB
+        VERSION_HELM_MONGODB_EXPRESS = var.VERSION_HELM_MONGODB_EXPRESS
+        VERSION_HELM_REDIS           = var.VERSION_HELM_REDIS
+        VERSION_HELM_REDISCOMMANDER  = var.VERSION_HELM_REDISCOMMANDER
+        VERSION_HELM_PROMETHEUS      = var.VERSION_HELM_PROMETHEUS
+        VERSION_HELM_ELASTICSEARCH   = var.VERSION_HELM_ELASTICSEARCH
+        VERSION_HELM_KIBANA          = var.VERSION_HELM_KIBANA
+        VERSION_HELM_GRAFANA         = var.VERSION_HELM_GRAFANA
+        VERSION_HELM_PGADMIN         = var.VERSION_HELM_PGADMIN
+        VERSION_HELM_PHPMYADMIN      = var.VERSION_HELM_PHPMYADMIN
+        VERSION_HELM_VAULT           = var.VERSION_HELM_VAULT
+        VERSION_HELM_VAULTWARDEN     = var.VERSION_HELM_VAULTWARDEN
+        VERSION_HELM_KEYCLOAK        = var.VERSION_HELM_KEYCLOAK
+        VERSION_HELM_TWINGATE        = var.VERSION_HELM_TWINGATE
+        VERSION_HELM_GUACD           = var.VERSION_HELM_GUACD
+        VERSION_HELM_GUACAMOLE       = var.VERSION_HELM_GUACAMOLE
+        VERSION_HELM_PIHOLE          = var.VERSION_HELM_PIHOLE
+        VERSION_HELM_FILEBROWSER     = var.VERSION_HELM_FILEBROWSER
+        VERSION_HELM_KUTT            = var.VERSION_HELM_KUTT
+        VERSION_HELM_SEARXNG         = var.VERSION_HELM_SEARXNG
+        VERSION_HELM_DASHY           = var.VERSION_HELM_DASHY
+        VERSION_HELM_UPTIMEKUMA      = var.VERSION_HELM_UPTIMEKUMA
+        VERSION_HELM_LISTMONK        = var.VERSION_HELM_LISTMONK
+        VERSION_HELM_FREESCOUT       = var.VERSION_HELM_FREESCOUT
+        VERSION_HELM_RUSTDESK        = var.VERSION_HELM_RUSTDESK
+        VERSION_HELM_STIRLINGPDF     = var.VERSION_HELM_STIRLINGPDF
+        VERSION_HELM_JELLYFIN        = var.VERSION_HELM_JELLYFIN
+        # VERSION_HELM_RABBITMQ        = var.VERSION_HELM_RABBITMQ
+        VERSION_HELM_HARBOR          = var.VERSION_HELM_HARBOR
+        VERSION_HELM_GITLAB          = var.VERSION_HELM_GITLAB
+        VERSION_HELM_CODESERVER      = var.VERSION_HELM_CODESERVER
+        VERSION_HELM_JENKINS         = var.VERSION_HELM_JENKINS
+        VERSION_HELM_PHONEINFOGA     = var.VERSION_HELM_PHONEINFOGA
+        VERSION_HELM_SOFTETHER       = var.VERSION_HELM_SOFTETHER
+        VERSION_HELM_BEEF            = var.VERSION_HELM_BEEF
+        VERSION_HELM_UBUNTU          = var.VERSION_HELM_UBUNTU
+        VERSION_HELM_KALI            = var.VERSION_HELM_KALI
+        VERSION_HELM_RUBY            = var.VERSION_HELM_RUBY
+        VERSION_HELM_PYTHON          = var.VERSION_HELM_PYTHON
+        VERSION_HELM_PUTER           = var.VERSION_HELM_PUTER
+        VERSION_HELM_OLLAMA          = var.VERSION_HELM_OLLAMA
       }
       TERRAFORM = {
-        VERSION_TF_KIND                = var.VERSION_TF_KIND
-        VERSION_TF_DOCKER                = var.VERSION_TF_DOCKER
+        VERSION_TF_KIND              = var.VERSION_TF_KIND
+        VERSION_TF_DO                = var.VERSION_TF_DO
+        VERSION_TF_DOCKER            = var.VERSION_TF_DOCKER
+        VERSION_TF_HELM              = var.VERSION_TF_HELM
+        VERSION_TF_KUBERNETES        = var.VERSION_TF_KUBERNETES
+        VERSION_TF_EXTERNAL          = var.VERSION_TF_EXTERNAL
       }
     }
 
     PORTS = {
       NETWORK = {
-        NGINX_PORT_INT                 = var.NGINX_PORT_INT
-        NGINX_PORT_EXT                 = var.NGINX_PORT_EXT
+        # NGINX_PORT_INT                 = var.NGINX_PORT_INT
+        # NGINX_PORT_EXT                 = var.NGINX_PORT_EXT
         PAPERCUT_PORT_INT_GUI          = var.PAPERCUT_PORT_INT_GUI
         PAPERCUT_PORT_EXT_GUI          = var.PAPERCUT_PORT_EXT_GUI
         PAPERCUT_PORT_INT_SMTP         = var.PAPERCUT_PORT_INT_SMTP
@@ -242,10 +310,10 @@ locals {
         JELLYFIN_PORT_EXT              = var.JELLYFIN_PORT_EXT
       }
       DEVELOPMENT = {
-        RABBITMQ_PORT_INT_NODE         = var.RABBITMQ_PORT_INT_NODE
-        RABBITMQ_PORT_EXT_NODE         = var.RABBITMQ_PORT_EXT_NODE
-        RABBITMQ_PORT_INT_DIST         = var.RABBITMQ_PORT_INT_DIST
-        RABBITMQ_PORT_EXT_DIST         = var.RABBITMQ_PORT_EXT_DIST
+        # RABBITMQ_PORT_INT_NODE         = var.RABBITMQ_PORT_INT_NODE
+        # RABBITMQ_PORT_EXT_NODE         = var.RABBITMQ_PORT_EXT_NODE
+        # RABBITMQ_PORT_INT_DIST         = var.RABBITMQ_PORT_INT_DIST
+        # RABBITMQ_PORT_EXT_DIST         = var.RABBITMQ_PORT_EXT_DIST
         HARBOR_PORT_INT                = var.HARBOR_PORT_INT
         HARBOR_PORT_EXT                = var.HARBOR_PORT_EXT
         HARBOR_PORT_INT_REGISTRY       = var.HARBOR_PORT_INT_REGISTRY
@@ -321,7 +389,7 @@ locals {
         GOOGLE_TEXTTOSPEECH_API_KEY    = var.GOOGLE_TEXTTOSPEECH_API_KEY
       }
       NETWORK = {
-        NGINX_NAME                     = var.NGINX_NAME
+        # NGINX_NAME                     = var.NGINX_NAME
         NPM_NAME                       = var.NPM_NAME
         NPM_USER                       = var.NPM_USER
         NPM_PASSWORD                   = var.NPM_PASSWORD
@@ -418,9 +486,9 @@ locals {
         JELLYFIN_NAME                  = var.JELLYFIN_NAME
       }
       DEVELOPMENT = {
-        RABBITMQ_NAME                  = var.RABBITMQ_NAME
-        RABBITMQ_USER                  = var.RABBITMQ_USER
-        RABBITMQ_PASSWORD              = var.RABBITMQ_PASSWORD
+        # RABBITMQ_NAME                  = var.RABBITMQ_NAME
+        # RABBITMQ_USER                  = var.RABBITMQ_USER
+        # RABBITMQ_PASSWORD              = var.RABBITMQ_PASSWORD
         HARBOR_NAME                    = var.HARBOR_NAME
         HARBOR_USER                    = var.HARBOR_USER
         HARBOR_PASSWORD                = var.HARBOR_PASSWORD
@@ -589,7 +657,7 @@ variable "VERSION_CLUSTER_AWS"            { type = string }
 variable "VERSION_DOCKER_NGINX"           { type = string }
 variable "VERSION_DOCKER_NPM"             { type = string }
 variable "VERSION_DOCKER_TRAEFIK"         { type = string }
-variable "VERSION_DOCKER_PAPERCUT"         { type = string }
+variable "VERSION_DOCKER_PAPERCUT"        { type = string }
 variable "VERSION_DOCKER_CASSANDRA"       { type = string }
 variable "VERSION_DOCKER_CASSANDRA_WEB"   { type = string }
 variable "VERSION_DOCKER_POSTGRES"        { type = string }
@@ -637,9 +705,63 @@ variable "VERSION_DOCKER_PYTHON"          { type = string }
 variable "VERSION_DOCKER_PUTER"           { type = string }
 variable "VERSION_DOCKER_OLLAMA"          { type = string }
 # HELM
+variable "VERSION_HELM_NGINX"             { type = string }
+variable "VERSION_HELM_NPM"               { type = string }
+variable "VERSION_HELM_TRAEFIK"           { type = string }
+variable "VERSION_HELM_PAPERCUT"          { type = string }
+variable "VERSION_HELM_CASSANDRA"         { type = string }
+variable "VERSION_HELM_CASSANDRA_WEB"     { type = string }
+variable "VERSION_HELM_POSTGRES"          { type = string }
+variable "VERSION_HELM_MYSQL"             { type = string }
+variable "VERSION_HELM_MARIADB"           { type = string }
+variable "VERSION_HELM_MONGODB"           { type = string }
+variable "VERSION_HELM_MONGODB_EXPRESS"   { type = string }
+variable "VERSION_HELM_REDIS"             { type = string }
+variable "VERSION_HELM_REDISCOMMANDER"    { type = string }
+variable "VERSION_HELM_PROMETHEUS"        { type = string }
+variable "VERSION_HELM_ELASTICSEARCH"     { type = string }
+variable "VERSION_HELM_KIBANA"            { type = string }
+variable "VERSION_HELM_GRAFANA"           { type = string }
+variable "VERSION_HELM_PGADMIN"           { type = string }
+variable "VERSION_HELM_PHPMYADMIN"        { type = string }
+variable "VERSION_HELM_VAULT"             { type = string }
+variable "VERSION_HELM_VAULTWARDEN"       { type = string }
+variable "VERSION_HELM_KEYCLOAK"          { type = string }
+variable "VERSION_HELM_TWINGATE"          { type = string }
+variable "VERSION_HELM_GUACD"             { type = string }
+variable "VERSION_HELM_GUACAMOLE"         { type = string }
+variable "VERSION_HELM_PIHOLE"            { type = string }
+variable "VERSION_HELM_FILEBROWSER"       { type = string }
+variable "VERSION_HELM_KUTT"              { type = string }
+variable "VERSION_HELM_SEARXNG"           { type = string }
+variable "VERSION_HELM_DASHY"             { type = string }
+variable "VERSION_HELM_UPTIMEKUMA"        { type = string }
+variable "VERSION_HELM_LISTMONK"          { type = string }
+variable "VERSION_HELM_FREESCOUT"         { type = string }
+variable "VERSION_HELM_RUSTDESK"          { type = string }
+variable "VERSION_HELM_STIRLINGPDF"       { type = string }
+variable "VERSION_HELM_JELLYFIN"          { type = string }
+variable "VERSION_HELM_RABBITMQ"          { type = string }
+variable "VERSION_HELM_HARBOR"            { type = string }
+variable "VERSION_HELM_GITLAB"            { type = string }
+variable "VERSION_HELM_CODESERVER"        { type = string }
+variable "VERSION_HELM_JENKINS"           { type = string }
+variable "VERSION_HELM_PHONEINFOGA"       { type = string }
+variable "VERSION_HELM_SOFTETHER"         { type = string }
+variable "VERSION_HELM_BEEF"              { type = string }
+variable "VERSION_HELM_UBUNTU"            { type = string }
+variable "VERSION_HELM_KALI"              { type = string }
+variable "VERSION_HELM_RUBY"              { type = string }
+variable "VERSION_HELM_PYTHON"            { type = string }
+variable "VERSION_HELM_PUTER"             { type = string }
+variable "VERSION_HELM_OLLAMA"            { type = string }
 # TERRAFORM
 variable "VERSION_TF_KIND"                { type = string }
+variable "VERSION_TF_DO"                  { type = string }
 variable "VERSION_TF_DOCKER"              { type = string }
+variable "VERSION_TF_HELM"                { type = string }
+variable "VERSION_TF_KUBERNETES"          { type = string }
+variable "VERSION_TF_EXTERNAL"            { type = string }
 
 # 🛟 PORTS
 # NETWORK

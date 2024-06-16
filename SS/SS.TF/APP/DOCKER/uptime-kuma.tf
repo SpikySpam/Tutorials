@@ -1,11 +1,11 @@
 resource "docker_image" "uptime-kuma" {
   count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.TOOLS.UPTIMEKUMA_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_UPTIMEKUMA}"
+  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.TOOLS.UPTIMEKUMA_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_UPTIMEKUMA}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.TOOLS.UPTIMEKUMA_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.TOOLS.UPTIMEKUMA_NAME}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_UPTIMEKUMA}"
+      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_UPTIMEKUMA}"
     }
   }
 }
@@ -13,14 +13,14 @@ resource "docker_image" "uptime-kuma" {
 resource "docker_container" "uptime-kuma" {
   count   = 0
   image   = docker_image.uptime-kuma[0].image_id
-  name    = "${var.VARS.SECRETS.TOOLS.UPTIMEKUMA_NAME}"
+  name    = "${var.vars.SECRETS.TOOLS.UPTIMEKUMA_NAME}"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.TOOLS.UPTIMEKUMA_PORT_INT
-    external = var.VARS.PORTS.TOOLS.UPTIMEKUMA_PORT_EXT
+    internal = var.vars.PORTS.TOOLS.UPTIMEKUMA_PORT_INT
+    external = var.vars.PORTS.TOOLS.UPTIMEKUMA_PORT_EXT
   }
   volumes {
-    host_path = "${var.VARS.PATHS.PATH_HOME}/docker/${var.VARS.SECRETS.TOOLS.UPTIMEKUMA_NAME}"
+    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.vars.SECRETS.TOOLS.UPTIMEKUMA_NAME}"
     container_path = "/app/data"
   }
 }

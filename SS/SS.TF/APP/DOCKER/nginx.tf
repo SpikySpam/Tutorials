@@ -1,26 +1,26 @@
 resource "docker_image" "nginx" {
-  count = 0
-  name  = "${var.VARS.DOMAIN}/${var.VARS.SECRETS.NETWORK.NGINX_NAME}:${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_NGINX}"
+  count = var.current.nginx.docker.enabled ? 1 : 0
+  name  = "${var.vars.DOMAIN}/${var.current.nginx.name}:${var.current.nginx.docker.version}"
   build {
-    context    = "${var.VARS.PATHS.PATH_APP}/docker/${var.VARS.SECRETS.NETWORK.NGINX_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.current.nginx.name}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.VARS.VERSIONS.DOCKER.VERSION_DOCKER_NGINX}"
+      VERSION = "${var.current.nginx.docker.version}"
     }
   }
 }
 
 resource "docker_container" "nginx" {
-  count   = 0
+  count   = var.current.nginx.docker.enabled ? 1 : 0
   image   = docker_image.nginx[0].image_id
-  name    = "${var.VARS.SECRETS.NETWORK.NGINX_NAME}"
+  name    = "${var.current.nginx.name}"
   restart = "unless-stopped"
   ports {
-    internal = var.VARS.PORTS.NETWORK.NGINX_PORT_INT
-    external = var.VARS.PORTS.NETWORK.NGINX_PORT_EXT
+    internal = var.current.nginx.ports.internal
+    external = var.current.nginx.ports.external
   }
   env = [
-    "NGINX_HOST=${var.VARS.DOMAIN}",
-    "NGINX_PORT=${var.VARS.PORTS.NETWORK.NGINX_PORT_INT}",
+    "NGINX_HOST=${var.vars.DOMAIN}",
+    "NGINX_PORT=${var.current.nginx.ports.internal}",
   ]
 }
