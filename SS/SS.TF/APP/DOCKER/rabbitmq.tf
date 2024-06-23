@@ -1,42 +1,42 @@
 resource "docker_image" "rabbitmq" {
-  count = 0
-  name  = "${var.vars.DOMAIN}/${var.vars.SECRETS.DEVELOPMENT.RABBITMQ_NAME}:${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_RABBITMQ}"
+  count = var.current.rabbitmq.docker.enabled ? 1 : 0
+  name  = "${var.vars.DOMAIN}/${var.current.rabbitmq.name}:${var.current.rabbitmq.docker.version}"
   build {
-    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.vars.SECRETS.DEVELOPMENT.RABBITMQ_NAME}"
+    context    = "${var.vars.PATHS.PATH_APP}/docker/${var.current.rabbitmq.name}"
     dockerfile = "dockerfile"
     build_args = {
-      VERSION = "${var.vars.VERSIONS.DOCKER.VERSION_DOCKER_RABBITMQ}"
+      VERSION = "${var.current.rabbitmq.docker.version}"
     }
   }
 }
 
 resource "docker_container" "rabbitmq" {
-  count   = 0
+  count   = var.current.rabbitmq.docker.enabled ? 1 : 0
   image   = docker_image.rabbitmq[0].image_id
-  name    = "${var.vars.SECRETS.DEVELOPMENT.RABBITMQ_NAME}"
+  name    = "${var.current.rabbitmq.name}"
   restart = "unless-stopped"
   ports {
-    internal = var.vars.PORTS.DEVELOPMENT.RABBITMQ_PORT_INT_NODE
-    external = var.vars.PORTS.DEVELOPMENT.RABBITMQ_PORT_EXT_NODE
+    internal = var.current.rabbitmq.ports.node.internal
+    external = var.current.rabbitmq.ports.node.external
   }
   ports {
-    internal = var.vars.PORTS.DEVELOPMENT.RABBITMQ_PORT_INT_DIST
-    external = var.vars.PORTS.DEVELOPMENT.RABBITMQ_PORT_EXT_DIST
-  }
+    internal = var.current.rabbitmq.ports.dist.internal
+    external = var.current.rabbitmq.ports.dist.external
+  }  
   volumes {
-    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.vars.SECRETS.DEVELOPMENT.RABBITMQ_NAME}/data"
+    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.current.rabbitmq.name}/data"
     container_path = "/var/lib/rabbitmq"
   }
   volumes {
-    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.vars.SECRETS.DEVELOPMENT.RABBITMQ_NAME}/log"
+    host_path = "${var.vars.PATHS.PATH_HOME}/docker/${var.current.rabbitmq.name}/log"
     container_path = "/var/log/rabbitmq"
   }
   capabilities {
     add = ["IPC_LOCK"]
   }
   env = [
-    "RABBITMQ_DEFAULT_USER=${var.vars.SECRETS.DEVELOPMENT.RABBITMQ_USER}",
-    "RABBITMQ_DEFAULT_PASS=${var.vars.SECRETS.DEVELOPMENT.RABBITMQ_PASSWORD}",
+    "RABBITMQ_DEFAULT_USER=${var.current.rabbitmq.helm.values.auth.username}",
+    "RABBITMQ_DEFAULT_PASS=${var.current.rabbitmq.helm.values.auth.password}",
   ]
   user = "root"
 }

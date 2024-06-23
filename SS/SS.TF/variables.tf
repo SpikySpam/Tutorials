@@ -62,6 +62,13 @@ locals {
         }
       }
       KUBERNETES = {
+        RESOURCE = {
+          TYPE = {
+            NAMESPACE = "namespace"
+            DEPLOYMENT = "deployment"
+            SERVICE = "service"
+          }
+        }
         SERVICE = {
           TYPE = {
             LOADBALANCER = "LoadBalancer"
@@ -102,6 +109,7 @@ locals {
       }
       DOCKER = {
         # VERSION_DOCKER_NGINX           = var.VERSION_DOCKER_NGINX
+        VERSION_DOCKER_METALLB         = var.VERSION_DOCKER_METALLB
         VERSION_DOCKER_NPM             = var.VERSION_DOCKER_NPM
         VERSION_DOCKER_TRAEFIK         = var.VERSION_DOCKER_TRAEFIK
         VERSION_DOCKER_PAPERCUT        = var.VERSION_DOCKER_PAPERCUT
@@ -154,6 +162,7 @@ locals {
       }
       HELM = {
         # VERSION_HELM_NGINX           = var.VERSION_HELM_NGINX
+        VERSION_HELM_METALLB         = var.VERSION_HELM_METALLB
         VERSION_HELM_NPM             = var.VERSION_HELM_NPM
         VERSION_HELM_TRAEFIK         = var.VERSION_HELM_TRAEFIK
         VERSION_HELM_PAPERCUT        = var.VERSION_HELM_PAPERCUT
@@ -390,6 +399,7 @@ locals {
       }
       NETWORK = {
         # NGINX_NAME                     = var.NGINX_NAME
+        METALLB_NAME                   = var.METALLB_NAME
         NPM_NAME                       = var.NPM_NAME
         NPM_USER                       = var.NPM_USER
         NPM_PASSWORD                   = var.NPM_PASSWORD
@@ -655,6 +665,7 @@ variable "VERSION_CLUSTER_AZURE"          { type = string }
 variable "VERSION_CLUSTER_AWS"            { type = string }
 # DOCKER
 variable "VERSION_DOCKER_NGINX"           { type = string }
+variable "VERSION_DOCKER_METALLB"         { type = string }
 variable "VERSION_DOCKER_NPM"             { type = string }
 variable "VERSION_DOCKER_TRAEFIK"         { type = string }
 variable "VERSION_DOCKER_PAPERCUT"        { type = string }
@@ -706,6 +717,7 @@ variable "VERSION_DOCKER_PUTER"           { type = string }
 variable "VERSION_DOCKER_OLLAMA"          { type = string }
 # HELM
 variable "VERSION_HELM_NGINX"             { type = string }
+variable "VERSION_HELM_METALLB"           { type = string }
 variable "VERSION_HELM_NPM"               { type = string }
 variable "VERSION_HELM_TRAEFIK"           { type = string }
 variable "VERSION_HELM_PAPERCUT"          { type = string }
@@ -927,6 +939,7 @@ variable "GITHUB_EMAIL"                   { type = string }
 variable "GOOGLE_TEXTTOSPEECH_API_KEY"    { type = string }
 # NETWORK
 variable "NGINX_NAME"                     { type = string }
+variable "METALLB_NAME"                   { type = string }
 variable "NPM_NAME"                       { type = string }
 variable "NPM_USER"                       { type = string }
 variable "NPM_PASSWORD"                   { type = string }

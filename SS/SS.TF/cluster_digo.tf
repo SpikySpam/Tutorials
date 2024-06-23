@@ -9,6 +9,11 @@ provider "helm" {
   }
 }
 
+provider "kubernetes" {
+  alias = "digitalocean"
+  config_path = "~/.kube/config"
+}
+
 module "digitalocean_cluster" {
   count     = local.vars.PROVIDER == local.vars.CONSTANTS.PROVIDER.PROVIDER_DIGO ? 1 : 0
   providers = {digitalocean = digitalocean.main}
@@ -16,9 +21,12 @@ module "digitalocean_cluster" {
   vars      = local.vars
 }
 
-data "external" "digitalocean_cluster" { program = ["bash", "${path.module}/scripts/depends_on.sh", "deployment", "kube-system", "coredns"] }
+data "external" "digitalocean_cluster" { 
+  program = ["bash", "${path.module}/scripts/depends_on.sh", local.vars.CONSTANTS.KUBERNETES.RESOURCE.TYPE.DEPLOYMENT, "kube-system", "coredns"]
+}
+
 module "digitalocean_helm" {
-  providers = {helm = helm.digitalocean}
+  providers = {helm = helm.digitalocean, kubernetes = kubernetes.digitalocean}
   count     = local.vars.PROVIDER == local.vars.CONSTANTS.PROVIDER.PROVIDER_DIGO && data.external.current_context.result.R == local.vars.WORKSPACE ? 1 : 0
   source    = "./app/helm"
   vars      = local.vars

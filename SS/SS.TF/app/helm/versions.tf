@@ -5,6 +5,10 @@ terraform {
     helm = {
       source = "hashicorp/helm"
     }
+    # ➡️ https://registry.terraform.io/providers/hashicorp/kubernetes/latest
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+    }
   }
 }
 

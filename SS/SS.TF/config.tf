@@ -11,28 +11,28 @@ locals {
     } : local.vars.ENVIRONMENT == local.vars.CONSTANTS.ENVIRONMENT.ENVIRONMENT_PRD ? {
       prefix = local.vars.PREFIX == local.vars.CONSTANTS.PREFIX.PREFIX_NONE ? { 
         # kind.prd.
-        nginx = {
-          helm = {
-            enabled = true
-            values = {
-              controller = {
-                service = {
-                  type = local.vars.CONSTANTS.KUBERNETES.SERVICE.TYPE.NODEPORT
-                }
-              }
+        config = {
+          metallb = {
+            helm = {
+              enabled = true
+            }
+          }
+
+          nginx = {
+            helm = {
+              enabled = true
+            }
+          }
+
+          rabbitmq = {
+            helm = {
+              enabled = true
             }
           }
         }
-
-        # rabbitmq = {
-        #   helm = {
-        #     enabled = true
-        #   }
-        # }
-
       } : local.vars.PREFIX == local.vars.CONSTANTS.PREFIX.PREFIX_CTRL ? { 
         # kind.prd.ctrl
-      } : {
+      } : { 
 
       }
     } : { 

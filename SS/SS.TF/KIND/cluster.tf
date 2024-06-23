@@ -38,26 +38,26 @@ locals {
   extra_mounts_control = toset([
     {
       container_path = "/kind/manifests/default-storage.yaml"
-      host_path      = "${path.module}/hostpath.yaml"
+      host_path      = "${path.module}/yaml/hostpath.yaml"
     },
   ])  
 
   extra_port_mappings = toset([
     {
       container_port = 80
-      host_port      = 8080
+      host_port      = 80
       listen_address = "127.0.0.1"
       protocol       = "TCP"
     },
     {
       container_port = 443
-      host_port      = 4430
+      host_port      = 443
       listen_address = "127.0.0.1"
       protocol       = "TCP"
     },
   ])
 
-  nodes = split(",", "control-plane,worker,worker,worker")
+  nodes = split(",", "worker,worker")
 }
 
 resource "kind_cluster" "current" {

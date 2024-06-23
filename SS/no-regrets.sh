@@ -30,6 +30,8 @@ export TF_VAR_GOOGLE_TEXTTOSPEECH_API_KEY="YourGoogleTextToSpeechApiKey"
 # --------------------------------------------------
 # -- nginx
 export TF_VAR_NGINX_NAME="nginx"
+# -- metallb
+export TF_VAR_METALLB_NAME="metallb"
 # -- npm
 export TF_VAR_NPM_NAME="npm"
 export TF_VAR_NPM_USER="admin@"$TF_DOMAIN

@@ -2,6 +2,7 @@
 # 🔗 NETWORK
 # --------------------------------------------------
 export TF_VAR_VERSION_HELM_NGINX="4.10.1"                              # https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx
+export TF_VAR_VERSION_HELM_METALLB="0.14.5"                            # https://artifacthub.io/packages/helm/metallb/metallb
 export TF_VAR_VERSION_HELM_NPM=""                                      # 
 export TF_VAR_VERSION_HELM_TRAEFIK=""                                  # 
 export TF_VAR_VERSION_HELM_PAPERCUT=""                                 # 
@@ -54,7 +55,7 @@ export TF_VAR_VERSION_HELM_JELLYFIN=""                                 #
 # --------------------------------------------------
 # 💻 DEVELOPMENT
 # --------------------------------------------------
-export TF_VAR_VERSION_HELM_RABBITMQ="14.4.2"                           # https://artifacthub.io/packages/helm/bitnami/rabbitmq
+export TF_VAR_VERSION_HELM_RABBITMQ="14.4.2"                           # https://artifacthub.io/packages/helm/bitnami/rabbitmq ➡️ https://www.rabbitmq.com/kubernetes/operator/install-operator
 export TF_VAR_VERSION_HELM_HARBOR=""                                   # 
 export TF_VAR_VERSION_HELM_GITLAB=""                                   # 
 export TF_VAR_VERSION_HELM_CODESERVER=""                               # 

@@ -2,7 +2,7 @@ resource "helm_release" "nginx" {
   count = var.current.nginx.helm.enabled ? 1 : 0
 
   name       = var.current.nginx.name
-  namespace  = var.current.nginx.name
+  namespace  = var.current.nginx.namespace
   repository = var.current.nginx.helm.repository
   chart      = var.current.nginx.helm.chart
   version    = var.current.nginx.helm.version

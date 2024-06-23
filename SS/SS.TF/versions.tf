@@ -26,6 +26,12 @@ terraform {
       version = "2.13.2" # TF_VAR_VERSION_TF_HELM
       configuration_aliases = [helm.kind, helm.digitalocean]
     }
+    # ➡️ https://registry.terraform.io/providers/hashicorp/kubernetes/latest
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "2.30.0" # TF_VAR_VERSION_TF_KUBERNETES
+      configuration_aliases = [kubernetes.kind, kubernetes.digitalocean]
+    }
 
     # ➡️ https://registry.terraform.io/providers/hashicorp/external/latest
     external = {

@@ -3,6 +3,7 @@
 # --------------------------------------------------
 export TF_VAR_VERSION_DOCKER_NGINX="1.27.0"                              # https://hub.docker.com/_/nginx/tags
 export TF_VAR_VERSION_DOCKER_NPM="github-pr-3792"                        # https://hub.docker.com/r/jc21/nginx-proxy-manager/tags
+export TF_VAR_VERSION_DOCKER_METALLB="0.14.5"                            # https://artifacthub.io/packages/helm/metallb/metallb
 export TF_VAR_VERSION_DOCKER_TRAEFIK="3.0.2"                             # https://hub.docker.com/_/traefik/tags
 export TF_VAR_VERSION_DOCKER_PAPERCUT="20180425042132"                   # https://hub.docker.com/r/jijiechen/papercut/tags
 

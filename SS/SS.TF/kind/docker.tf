@@ -3,6 +3,7 @@ resource "docker_image" "proxy_docker_hub" {
 }
 
 resource "docker_container" "proxy_docker_hub" {
+  depends_on = [ kind_cluster.current ]
   image   = docker_image.proxy_docker_hub.image_id
   name    = "proxy-docker-hub"
   restart = "unless-stopped"
